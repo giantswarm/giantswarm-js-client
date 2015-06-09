@@ -1,10 +1,31 @@
 {
-	"name": "giantswarm",
-	"version": "0.0.1",
-	"description": "Client for the Giant Swarm API",
-	"homepage": "https://github.com/giantswarm/giantswarm-js-client",
-	"bugs": {
-		"url": "https://github.com/giantswarm/giantswarm-js-client/issues"
-	},
-	"license": "Apache-2.0"
+  "name": "giantswarm",
+  "version": "0.0.1",
+  "description": "Client for the Giant Swarm API",
+  "homepage": "https://github.com/giantswarm/giantswarm-js-client",
+  "bugs": {
+    "url": "https://github.com/giantswarm/giantswarm-js-client/issues"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "giantswarm/giantswarm-js-client"
+  },
+  "dependencies": {
+    "superagent": ">=1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "browserify": ">=10.2.4",
+    "vinyl-source-stream": ">=1.1.0",
+    "vinyl-buffer": ">=1.0.0",
+    "gulp-uglify": ">=1.2.0",
+    "gulp-sourcemaps": ">=1.5.2",
+    "gulp-util": ">=3.0.5"
+  },
+  "component": {
+    "scripts": {
+      "giantswarm": "lib/client.js"
+    }
+  }
 }
