@@ -15,8 +15,8 @@ GiantSwarm.ping(function(){
 
 GiantSwarm.authenticate("my-username", "my-password", function(){
     console.log("Login successful");
-}, function(){
-    console.log("Login error.");
+}, function(err){
+    console.log("Login error.", err);
 });
 
 GiantSwarm.applicationStatus("my-org", "my-env", "my-app", function(d){
