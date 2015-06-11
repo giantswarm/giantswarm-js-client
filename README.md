@@ -1,5 +1,7 @@
 # JavaScript Client for the Giant Swarm API
 
+__Note:__ The code is in a very early stage. Expect many errors and future changes. Feel free to contribute by opening issues or pull requests.
+
 ## Usage
 
 ```javascript
