@@ -2,6 +2,8 @@
 
 __Note:__ The code is in a very early stage. Expect many errors and future changes. Feel free to contribute by opening issues or pull requests.
 
+For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/reference/api/).
+
 ## Usage
 
 ```javascript
