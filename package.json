@@ -2,6 +2,7 @@
   "name": "giantswarm",
   "version": "0.0.1",
   "description": "Client for the Giant Swarm API",
+  "main": "lib/client.js",
   "homepage": "https://github.com/giantswarm/giantswarm-js-client",
   "bugs": {
     "url": "https://github.com/giantswarm/giantswarm-js-client/issues"
