@@ -1,4 +1,4 @@
- # API Proxy
+# API Proxy
 
 When using the Giant Swarm API from JavaScript via XmlHTTPRequests inside a web browser, browsers will prevent access to hosts other than the one serving the current page.
 
