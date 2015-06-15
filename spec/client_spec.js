@@ -54,4 +54,14 @@ describe("Client", function() {
       });
   });
 
+  it("should be able to authenticate with a valid token", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.user(function(data){
+      expect(data.username).toEqual(configuration.existingUser.username);
+      done();
+    }, function(err){
+      throw err;
+    });
+  });
+
 });
