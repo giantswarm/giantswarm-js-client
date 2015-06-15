@@ -22,7 +22,8 @@
     "vinyl-buffer": ">=1.0.0",
     "gulp-uglify": ">=1.2.0",
     "gulp-sourcemaps": ">=1.5.2",
-    "gulp-util": ">=3.0.5"
+    "gulp-util": ">=3.0.5",
+    "jasmine": "^2.3.1"
   },
   "component": {
     "scripts": {
