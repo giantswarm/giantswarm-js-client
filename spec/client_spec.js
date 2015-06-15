@@ -3,6 +3,8 @@ describe("Client", function() {
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
 
+  var authToken;
+
   beforeEach(function() {
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
     GiantSwarm.setAuthToken(null);
@@ -33,6 +35,7 @@ describe("Client", function() {
     GiantSwarm.authenticate(configuration.existingUser.username,
       configuration.existingUser.password,
       function(){
+        authToken = GiantSwarm.getAuthToken();
         done();
       }, function(err){
         throw err;
