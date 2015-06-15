@@ -1,0 +1,1 @@
+Copy `configuration.dist.js` to `configuration.js` and fill in missing values.
