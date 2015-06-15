@@ -7,10 +7,6 @@ For details about the Giant Swarm API, please check out the [API documentation](
 ## Usage
 
 ```javascript
-
-// override API endpoint for development
-GiantSwarm.setApiEndpoint('http://192.168.59.103:8008');
-
 GiantSwarm.ping(function(){
     console.log("All right.");
 }, function(err) {
@@ -28,6 +24,33 @@ GiantSwarm.applicationStatus("my-org", "my-env", "my-app", function(d){
 }, function(err){
     console.log(err);
 });
+
+// stream log messages
+
+var messageCount = 0;
+var socket = null;
+
+function socketCreateCallback(mySocket) {
+  socket = mySocket;
+}
+
+function messageCallback(msg) {
+  console.log(msg);
+  messageCount++;
+  if (messageCount >= 3) {
+    console.log("Closing after 3 messages...");
+    socket.close();
+  }
+}
+
+function errorCallback(err) {
+  console.log("Error:", err);
+}
+
+var organizationName = 'my-org';
+var instanceIds = ['4lyqvwvqhg0m'];
+
+GiantSwarm.streamLogs(organizationName, instanceIds, messageCallback, socketCreateCallback, errorCallback);
 ```
 
 See `lib/client.js` for more methods.
