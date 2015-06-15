@@ -8,19 +8,20 @@ describe("Client", function() {
     });
 
     it("should allow me to ping the server", function(done){
-        GiantSwarm.ping(function(){
-          var value = 1;
-          expect(value).toEqual(1);
-          done();
-        });
+      GiantSwarm.ping(function(){
+        var value = 1;
+        expect(value).toEqual(1);
+        done();
+      });
     });
 
     it("should not allow me to ping the server", function(done){
-        GiantSwarm.setApiEndpoint('https://www.google.com');
-        GiantSwarm.ping(function(){}, function(err){
-          var value = 1;
-          expect(value).toEqual(1);
-          done();
-        });
+      GiantSwarm.setApiEndpoint('https://www.google.com');
+      GiantSwarm.ping(function(){}, function(err){
+        var value = 1;
+        expect(value).toEqual(1);
+        done();
+      });
     });
+
 });
