@@ -13,7 +13,8 @@
     "url": "giantswarm/giantswarm-js-client"
   },
   "dependencies": {
-    "superagent": ">=1.0.0"
+    "superagent": ">=1.0.0",
+    "js-base64": "^2.1.8"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
