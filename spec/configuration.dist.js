@@ -3,7 +3,8 @@ var configuration = {
   existingUser: {
     username: '',
     password: ''
-  }
+  },
+  validToken: ''
 }
 
 module.exports = configuration;
