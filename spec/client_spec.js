@@ -99,6 +99,7 @@ describe("Client", function() {
     GiantSwarm.memberships(function(data){
       expect(typeof(data)).toEqual('object');
       expect(data.length).toBeGreaterThan(0);
+      expect(typeof(data[0])).toEqual('string');
       done();
     }, function(err){
       throw err;
@@ -112,6 +113,8 @@ describe("Client", function() {
     GiantSwarm.organization(configuration.organizationName,
       function(data){
         expect(typeof(data)).toEqual('object');
+        expect(typeof(data.id)).toEqual('string');
+        expect(typeof(data.members)).not.toEqual('undefined');
         done();
       }, function(err){
         throw err;
@@ -154,6 +157,11 @@ describe("Client", function() {
       configuration.applicationName,
       function(data){
         expect(typeof(data)).toEqual('object');
+        expect(typeof(data.name)).not.toEqual('undefined');
+        expect(typeof(data.services)).not.toEqual('undefined');
+        expect(typeof(data.services[0].components[0].instances[0].id)).not.toEqual('undefined');
+        expect(typeof(data.services[0].components[0].instances[0].status)).not.toEqual('undefined');
+        expect(typeof(data.status)).not.toEqual('undefined');
         done();
       }, function(err){
         throw err;
@@ -168,6 +176,11 @@ describe("Client", function() {
       configuration.instanceId,
       function(data){
         expect(typeof(data)).toEqual('object');
+        expect(typeof(data.ComponentName)).not.toEqual('undefined');
+        expect(typeof(data.MemoryUsageMb)).not.toEqual('undefined');
+        expect(typeof(data.MemoryCapacityMb)).not.toEqual('undefined');
+        expect(typeof(data.MemoryUsagePercent)).not.toEqual('undefined');
+        expect(typeof(data.CpuUsagePercent)).not.toEqual('undefined');
         done();
       }, function(err){
         throw err;
