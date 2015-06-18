@@ -1,5 +1,7 @@
 describe("Client", function() {
 
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
 
@@ -149,6 +151,7 @@ describe("Client", function() {
   });
 
   // application configuration
+
   it("should fetch the config of an application", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.applicationConfig(configuration.organizationName,
@@ -176,6 +179,34 @@ describe("Client", function() {
         expect(typeof(data.services[0].components[0].instances[0].id)).not.toEqual('undefined');
         expect(typeof(data.services[0].components[0].instances[0].status)).not.toEqual('undefined');
         expect(typeof(data.status)).not.toEqual('undefined');
+        done();
+      }, function(err){
+        throw err;
+      });
+  });
+
+  // application stop
+
+  //it("should stop an application", function(done){
+  //  GiantSwarm.setAuthToken(authToken);
+  //  GiantSwarm.stopApplication(configuration.organizationName,
+  //    configuration.environmentName,
+  //    configuration.applicationName,
+  //    function(){
+  //      done();
+  //    }, function(err){
+  //      throw err;
+  //    });
+  //});
+
+  // application start
+
+  it("should start an application", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.startApplication(configuration.organizationName,
+      configuration.environmentName,
+      configuration.applicationName,
+      function(){
         done();
       }, function(err){
         throw err;
