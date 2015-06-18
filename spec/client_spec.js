@@ -148,6 +148,20 @@ describe("Client", function() {
       });
   });
 
+  // application configuration
+  it("should fetch the config of an application", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.applicationConfig(configuration.organizationName,
+      configuration.environmentName,
+      configuration.applicationName,
+      function(data){
+        expect(typeof(data)).toEqual('object');
+        done();
+      }, function(err){
+        throw err;
+      });
+  });
+
   // applicationStatus
 
   it("should fetch the status of an application", function(done){
