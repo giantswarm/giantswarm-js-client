@@ -136,9 +136,9 @@ describe("Client", function() {
       });
   });
 
-  // applications
+  // services
 
-  it("should fetch applications within an environment", function(done){
+  it("should fetch services within an environment", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.applications(configuration.organizationName,
       configuration.environmentName,
@@ -150,13 +150,13 @@ describe("Client", function() {
       });
   });
 
-  // application configuration
+  // service definition
 
-  it("should fetch the config of an application", function(done){
+  it("should fetch the definition of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.applicationConfig(configuration.organizationName,
       configuration.environmentName,
-      configuration.applicationName,
+      configuration.serviceName,
       function(data){
         expect(typeof(data)).toEqual('object');
         done();
@@ -165,19 +165,19 @@ describe("Client", function() {
       });
   });
 
-  // applicationStatus
+  // serviceStatus
 
-  it("should fetch the status of an application", function(done){
+  it("should fetch the status of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.applicationStatus(configuration.organizationName,
       configuration.environmentName,
-      configuration.applicationName,
+      configuration.serviceName,
       function(data){
         expect(typeof(data)).toEqual('object');
         expect(typeof(data.name)).not.toEqual('undefined');
-        expect(typeof(data.services)).not.toEqual('undefined');
-        expect(typeof(data.services[0].components[0].instances[0].id)).not.toEqual('undefined');
-        expect(typeof(data.services[0].components[0].instances[0].status)).not.toEqual('undefined');
+        expect(typeof(data.components)).not.toEqual('undefined');
+        expect(typeof(data.components[0].instances[0].id)).not.toEqual('undefined');
+        expect(typeof(data.components[0].instances[0].status)).not.toEqual('undefined');
         expect(typeof(data.status)).not.toEqual('undefined');
         done();
       }, function(err){
@@ -185,27 +185,27 @@ describe("Client", function() {
       });
   });
 
-  // application stop
+  // service stop
 
-  //it("should stop an application", function(done){
-  //  GiantSwarm.setAuthToken(authToken);
-  //  GiantSwarm.stopApplication(configuration.organizationName,
-  //    configuration.environmentName,
-  //    configuration.applicationName,
-  //    function(){
-  //      done();
-  //    }, function(err){
-  //      throw err;
-  //    });
-  //});
+  it("should stop a service", function(done){
+   GiantSwarm.setAuthToken(authToken);
+   GiantSwarm.stopApplication(configuration.organizationName,
+     configuration.environmentName,
+     configuration.serviceName,
+     function(){
+       done();
+     }, function(err){
+       throw err;
+     });
+  });
 
-  // application start
+  // service start
 
-  it("should start an application", function(done){
+  it("should start a service", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.startApplication(configuration.organizationName,
       configuration.environmentName,
-      configuration.applicationName,
+      configuration.serviceName,
       function(){
         done();
       }, function(err){
