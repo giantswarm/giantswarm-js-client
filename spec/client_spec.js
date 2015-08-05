@@ -202,7 +202,7 @@ describe("Client", function() {
 
   it("should fetch the status of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applicationStatus(configuration.organizationName,
+    GiantSwarm.serviceStatus(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(data){
