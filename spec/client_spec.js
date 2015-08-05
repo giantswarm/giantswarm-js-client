@@ -136,6 +136,12 @@ describe("Client", function() {
     done();
   });
 
+  // setUnauthorizedCallback
+
+  it("should set the callback and call it when a unauthorized call is made", function(done){
+    pending('Test still needs to be written')
+  });
+
   // memberships
 
   it("should fetch organizations which the current user is a member of", function(done){
