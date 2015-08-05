@@ -222,7 +222,7 @@ describe("Client", function() {
 
   it("should fetch the definition of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applicationConfig(configuration.organizationName,
+    GiantSwarm.serviceDefinition(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(data){
@@ -233,7 +233,19 @@ describe("Client", function() {
       });
   });
 
+  // service start
 
+  it("should start a service", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.startApplication(configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      function(){
+        done();
+      }, function(err){
+        throw err;
+      });
+  });
 
   // service stop
 
@@ -249,19 +261,6 @@ describe("Client", function() {
   //    });
   // });
 
-  // service start
-
-  it("should start a service", function(done){
-    GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.startApplication(configuration.organizationName,
-      configuration.environmentName,
-      configuration.serviceName,
-      function(){
-        done();
-      }, function(err){
-        throw err;
-      });
-  });
 
   // instanceStats
 
