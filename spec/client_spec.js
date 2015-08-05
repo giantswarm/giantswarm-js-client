@@ -233,11 +233,25 @@ describe("Client", function() {
       });
   });
 
+  // service stop
+
+  it("should stop a service", function(done){
+   GiantSwarm.setAuthToken(authToken);
+   GiantSwarm.stopService(configuration.organizationName,
+     configuration.environmentName,
+     configuration.serviceName,
+     function(){
+       done();
+     }, function(err){
+       throw err;
+     });
+  });
+
   // service start
 
   it("should start a service", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.startApplication(configuration.organizationName,
+    GiantSwarm.startService(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(){
@@ -247,20 +261,11 @@ describe("Client", function() {
       });
   });
 
-  // service stop
+  // componentStatus
 
-  // it("should stop a service", function(done){
-  //  GiantSwarm.setAuthToken(authToken);
-  //  GiantSwarm.stopApplication(configuration.organizationName,
-  //    configuration.environmentName,
-  //    configuration.serviceName,
-  //    function(){
-  //      done();
-  //    }, function(err){
-  //      throw err;
-  //    });
-  // });
-
+  it("componentStatus", function(done){
+    pending('Test still needs to be written')
+  });
 
   // instanceStats
 
@@ -279,6 +284,38 @@ describe("Client", function() {
       }, function(err){
         throw err;
       });
+  });
+
+  // instanceLogs
+
+  it("instanceLogs", function(done){
+    pending('Test still needs to be written')
+  });
+
+  // streamLogs
+
+  it("streamLogs", function(done){
+    pending('Test still needs to be written')
+  });
+
+
+  // streamStats
+
+  it("streamStats", function(done){
+    pending('Test still needs to be written')
+  });
+
+
+  // logout
+
+  it("logout", function(done){
+    pending('Test still needs to be written')
+  });
+
+  // isAuthenticated
+
+  it("isAuthenticated", function(done){
+    pending('Test still needs to be written')
   });
 
 
