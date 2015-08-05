@@ -10,6 +10,7 @@ describe("Client", function() {
   beforeEach(function() {
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
     GiantSwarm.setAuthToken(null);
+    GiantSwarm.setClusterId(null);
   });
 
   // setApiEndpoint
@@ -121,6 +122,20 @@ describe("Client", function() {
     });
   });
 
+  // setClusterId
+
+  it("should set the clusterId", function(done){
+    GiantSwarm.setClusterId('fakecluster.example.com');
+    expect(GiantSwarm._getClusterId()).toEqual("fakecluster.example.com");
+    done();
+  });
+
+  it("should throw an error on non string clusterIds", function(done){
+    expect(function(){GiantSwarm.setClusterId(3)}).toThrow();
+    expect(function(){GiantSwarm.setClusterId()}).toThrow();
+    done();
+  });
+
   // memberships
 
   it("should fetch organizations which the current user is a member of", function(done){
@@ -214,17 +229,17 @@ describe("Client", function() {
 
   // service stop
 
-  it("should stop a service", function(done){
-   GiantSwarm.setAuthToken(authToken);
-   GiantSwarm.stopApplication(configuration.organizationName,
-     configuration.environmentName,
-     configuration.serviceName,
-     function(){
-       done();
-     }, function(err){
-       throw err;
-     });
-  });
+  // it("should stop a service", function(done){
+  //  GiantSwarm.setAuthToken(authToken);
+  //  GiantSwarm.stopApplication(configuration.organizationName,
+  //    configuration.environmentName,
+  //    configuration.serviceName,
+  //    function(){
+  //      done();
+  //    }, function(err){
+  //      throw err;
+  //    });
+  // });
 
   // service start
 
