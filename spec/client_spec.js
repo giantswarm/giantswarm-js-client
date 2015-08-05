@@ -12,6 +12,33 @@ describe("Client", function() {
     GiantSwarm.setAuthToken(null);
   });
 
+  // setApiEndpoint
+  it("should throw an exception when given a non string url", function(done){
+    expect(
+      function(){ GiantSwarm.setApiEndpoint(3) }
+    ).toThrow()
+    done();
+  });
+
+  it("should throw an exception when given no url", function(done){
+    expect(
+      function(){ GiantSwarm.setApiEndpoint() }
+    ).toThrow()
+    done();
+  });
+
+  it("should set the websocketEndpoint correctly for http", function(done){
+    GiantSwarm.setApiEndpoint("http://api.example.com");
+    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('ws://api.example.com');
+    done();
+  });
+
+  it("should set the websocketEndpoint correctly for https", function(done){
+    GiantSwarm.setApiEndpoint("https://api.example.com");
+    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('wss://api.example.com');
+    done();
+  });
+
   // ping
 
   it("should allow me to ping the right server", function(done){
