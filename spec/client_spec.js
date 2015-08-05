@@ -198,21 +198,6 @@ describe("Client", function() {
       });
   });
 
-  // service definition
-
-  it("should fetch the definition of a service", function(done){
-    GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applicationConfig(configuration.organizationName,
-      configuration.environmentName,
-      configuration.serviceName,
-      function(data){
-        expect(typeof(data)).toEqual('object');
-        done();
-      }, function(err){
-        throw err;
-      });
-  });
-
   // serviceStatus
 
   it("should fetch the status of a service", function(done){
@@ -232,6 +217,23 @@ describe("Client", function() {
         throw err;
       });
   });
+
+  // service definition
+
+  it("should fetch the definition of a service", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.applicationConfig(configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      function(data){
+        expect(typeof(data)).toEqual('object');
+        done();
+      }, function(err){
+        throw err;
+      });
+  });
+
+
 
   // service stop
 
