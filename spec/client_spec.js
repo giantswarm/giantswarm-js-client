@@ -188,7 +188,7 @@ describe("Client", function() {
 
   it("should fetch services within an environment", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applications(configuration.organizationName,
+    GiantSwarm.services(configuration.organizationName,
       configuration.environmentName,
       function(data){
         expect(typeof(data)).toEqual('object');
