@@ -10,6 +10,34 @@ describe("Client", function() {
   beforeEach(function() {
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
     GiantSwarm.setAuthToken(null);
+    GiantSwarm.setClusterId(null);
+  });
+
+  // setApiEndpoint
+  it("should throw an exception when given a non string url", function(done){
+    expect(
+      function(){ GiantSwarm.setApiEndpoint(3) }
+    ).toThrow()
+    done();
+  });
+
+  it("should throw an exception when given no url", function(done){
+    expect(
+      function(){ GiantSwarm.setApiEndpoint() }
+    ).toThrow()
+    done();
+  });
+
+  it("should set the websocketEndpoint correctly for http", function(done){
+    GiantSwarm.setApiEndpoint("http://api.example.com");
+    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('ws://api.example.com');
+    done();
+  });
+
+  it("should set the websocketEndpoint correctly for https", function(done){
+    GiantSwarm.setApiEndpoint("https://api.example.com");
+    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('wss://api.example.com');
+    done();
   });
 
   // ping
@@ -94,6 +122,26 @@ describe("Client", function() {
     });
   });
 
+  // setClusterId
+
+  it("should set the clusterId", function(done){
+    GiantSwarm.setClusterId('fakecluster.example.com');
+    expect(GiantSwarm._getClusterId()).toEqual("fakecluster.example.com");
+    done();
+  });
+
+  it("should throw an error on non string clusterIds", function(done){
+    expect(function(){GiantSwarm.setClusterId(3)}).toThrow();
+    expect(function(){GiantSwarm.setClusterId()}).toThrow();
+    done();
+  });
+
+  // setUnauthorizedCallback
+
+  it("should set the callback and call it when a unauthorized call is made", function(done){
+    pending('Test still needs to be written')
+  });
+
   // memberships
 
   it("should fetch organizations which the current user is a member of", function(done){
@@ -136,11 +184,11 @@ describe("Client", function() {
       });
   });
 
-  // applications
+  // services
 
-  it("should fetch applications within an environment", function(done){
+  it("should fetch services within an environment", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applications(configuration.organizationName,
+    GiantSwarm.services(configuration.organizationName,
       configuration.environmentName,
       function(data){
         expect(typeof(data)).toEqual('object');
@@ -150,34 +198,19 @@ describe("Client", function() {
       });
   });
 
-  // application configuration
+  // serviceStatus
 
-  it("should fetch the config of an application", function(done){
+  it("should fetch the status of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applicationConfig(configuration.organizationName,
+    GiantSwarm.serviceStatus(configuration.organizationName,
       configuration.environmentName,
-      configuration.applicationName,
-      function(data){
-        expect(typeof(data)).toEqual('object');
-        done();
-      }, function(err){
-        throw err;
-      });
-  });
-
-  // applicationStatus
-
-  it("should fetch the status of an application", function(done){
-    GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.applicationStatus(configuration.organizationName,
-      configuration.environmentName,
-      configuration.applicationName,
+      configuration.serviceName,
       function(data){
         expect(typeof(data)).toEqual('object');
         expect(typeof(data.name)).not.toEqual('undefined');
-        expect(typeof(data.services)).not.toEqual('undefined');
-        expect(typeof(data.services[0].components[0].instances[0].id)).not.toEqual('undefined');
-        expect(typeof(data.services[0].components[0].instances[0].status)).not.toEqual('undefined');
+        expect(typeof(data.components)).not.toEqual('undefined');
+        expect(typeof(data.components[0].instances[0].id)).not.toEqual('undefined');
+        expect(typeof(data.components[0].instances[0].status)).not.toEqual('undefined');
         expect(typeof(data.status)).not.toEqual('undefined');
         done();
       }, function(err){
@@ -185,32 +218,53 @@ describe("Client", function() {
       });
   });
 
-  // application stop
+  // service definition
 
-  //it("should stop an application", function(done){
-  //  GiantSwarm.setAuthToken(authToken);
-  //  GiantSwarm.stopApplication(configuration.organizationName,
-  //    configuration.environmentName,
-  //    configuration.applicationName,
-  //    function(){
-  //      done();
-  //    }, function(err){
-  //      throw err;
-  //    });
-  //});
-
-  // application start
-
-  it("should start an application", function(done){
+  it("should fetch the definition of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
-    GiantSwarm.startApplication(configuration.organizationName,
+    GiantSwarm.serviceDefinition(configuration.organizationName,
       configuration.environmentName,
-      configuration.applicationName,
+      configuration.serviceName,
+      function(data){
+        expect(typeof(data)).toEqual('object');
+        done();
+      }, function(err){
+        throw err;
+      });
+  });
+
+  // service stop
+
+  it("should stop a service", function(done){
+   GiantSwarm.setAuthToken(authToken);
+   GiantSwarm.stopService(configuration.organizationName,
+     configuration.environmentName,
+     configuration.serviceName,
+     function(){
+       done();
+     }, function(err){
+       throw err;
+     });
+  });
+
+  // service start
+
+  it("should start a service", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.startService(configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
       function(){
         done();
       }, function(err){
         throw err;
       });
+  });
+
+  // componentStatus
+
+  it("componentStatus", function(done){
+    pending('Test still needs to be written')
   });
 
   // instanceStats
@@ -230,6 +284,38 @@ describe("Client", function() {
       }, function(err){
         throw err;
       });
+  });
+
+  // instanceLogs
+
+  it("instanceLogs", function(done){
+    pending('Test still needs to be written')
+  });
+
+  // streamLogs
+
+  it("streamLogs", function(done){
+    pending('Test still needs to be written')
+  });
+
+
+  // streamStats
+
+  it("streamStats", function(done){
+    pending('Test still needs to be written')
+  });
+
+
+  // logout
+
+  it("logout", function(done){
+    pending('Test still needs to be written')
+  });
+
+  // isAuthenticated
+
+  it("isAuthenticated", function(done){
+    pending('Test still needs to be written')
   });
 
 
