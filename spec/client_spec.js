@@ -48,14 +48,16 @@ describe("Client", function() {
       expect(value).toEqual(1);
       done();
     }, function(){
-      throw new Error('ping() error callback called. This shouldn\'t have happened.');
+      fail('ping() error callback called. This shouldn\'t have happened.');
+      done();
     });
   });
 
   it("should not allow me to ping google.com", function(done){
     GiantSwarm.setApiEndpoint('https://www.google.com');
     GiantSwarm.ping(function(){
-      throw new Error('ping() success callback called. This shouldn\'t have happened.');
+      fail('ping() success callback called. This shouldn\'t have happened.');
+      done();
     }, function(err){
       var value = 1;
       expect(value).toEqual(1);
@@ -86,7 +88,8 @@ describe("Client", function() {
         authToken = GiantSwarm.getAuthToken();
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -94,7 +97,8 @@ describe("Client", function() {
     GiantSwarm.authenticate(configuration.existingUser.username,
       'fooBarBlahFakePassword',
       function(){
-        throw err;
+        fail(err);
+        done();
       }, function(err){
         var value = 1;
         expect(value).toEqual(1);
@@ -108,14 +112,16 @@ describe("Client", function() {
       expect(data.username).toEqual(configuration.existingUser.username);
       done();
     }, function(err){
-      throw err;
+      fail(err);
+      done();
     });
   });
 
   it("should not be able to authenticate with an invalid token", function(done){
     GiantSwarm.setAuthToken('akdskuf9sdf23-3409u42-23140285');
     GiantSwarm.user(function(data){
-      throw new Error('user() function called successCallback')
+      fail('user() function called successCallback');
+      done();
     }, function(err){
       expect(typeof(err)).toEqual('object');
       done();
@@ -152,7 +158,8 @@ describe("Client", function() {
       expect(typeof(data[0])).toEqual('string');
       done();
     }, function(err){
-      throw err;
+      fail(err);
+      done();
     });
   });
 
@@ -167,7 +174,8 @@ describe("Client", function() {
         expect(typeof(data.members)).not.toEqual('undefined');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -180,7 +188,8 @@ describe("Client", function() {
         expect(typeof(data)).toEqual('object');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -194,7 +203,8 @@ describe("Client", function() {
         expect(typeof(data)).toEqual('object');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -214,7 +224,8 @@ describe("Client", function() {
         expect(typeof(data.status)).not.toEqual('undefined');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -229,7 +240,8 @@ describe("Client", function() {
         expect(typeof(data)).toEqual('object');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -243,7 +255,8 @@ describe("Client", function() {
      function(){
        done();
      }, function(err){
-       throw err;
+       fail(err);
+       done();
      });
   });
 
@@ -257,7 +270,8 @@ describe("Client", function() {
       function(){
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
@@ -282,7 +296,8 @@ describe("Client", function() {
         expect(typeof(data.CpuUsagePercent)).not.toEqual('undefined');
         done();
       }, function(err){
-        throw err;
+        fail(err);
+        done();
       });
   });
 
