@@ -516,7 +516,7 @@ describe("GiantSwarm", function() {
 
   // isAuthenticated
 
-  it("isAuthenticated", function(done){
+  it("returns true when user is logged in", function(done){
     GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.isAuthenticated(
       function(response){
@@ -525,7 +525,7 @@ describe("GiantSwarm", function() {
       });
   });
 
-  it("isAuthenticated", function(done){
+  it("returns false when user is logged out", function(done){
     GiantSwarm.setAuthToken("not_logged_in_user");
     GiantSwarm.isAuthenticated(
       function(response){
