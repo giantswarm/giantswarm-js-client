@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "js-data": "2.3.0",
-    "superagent": ">=1.0.0",
+    "superagent": "1.3.0",
+    "superagent-mock": "../../github/superagent-mock",
     "js-base64": "^2.1.8"
   },
   "devDependencies": {

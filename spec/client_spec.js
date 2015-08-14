@@ -1,16 +1,21 @@
-describe("Client", function() {
+describe("GiantSwarm", function() {
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
 
-  var authToken;
+  var mocked_request = require('superagent');
+  var config = require('./superagent-mock-config');
+
+  require('superagent-mock')(mocked_request, config);
 
   beforeEach(function() {
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
     GiantSwarm.setAuthToken(null);
+    GiantSwarm.setRequestAgent(mocked_request)
     GiantSwarm.setClusterId(null);
+    GiantSwarm.setUnauthorizedCallback(function() { null });
   });
 
   // setApiEndpoint
@@ -107,7 +112,7 @@ describe("Client", function() {
   });
 
   it("should be able to authenticate with a valid token", function(done){
-    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.user(function(data){
       expect(data.username).toEqual(configuration.existingUser.username);
       done();
@@ -118,7 +123,7 @@ describe("Client", function() {
   });
 
   it("should not be able to authenticate with an invalid token", function(done){
-    GiantSwarm.setAuthToken('akdskuf9sdf23-3409u42-23140285');
+    GiantSwarm.setAuthToken('invalid_token');
     GiantSwarm.user(function(data){
       fail('user() function called successCallback');
       done();
@@ -128,7 +133,7 @@ describe("Client", function() {
     });
   });
 
-  // setClusterId
+  // // setClusterId
 
   it("should set the clusterId", function(done){
     GiantSwarm.setClusterId('fakecluster.example.com');
@@ -142,16 +147,23 @@ describe("Client", function() {
     done();
   });
 
-  // setUnauthorizedCallback
+  // // setUnauthorizedCallback
 
   it("should set the callback and call it when a unauthorized call is made", function(done){
-    pending('Test still needs to be written')
+    GiantSwarm.setAuthToken('invalid_token');
+    GiantSwarm.setUnauthorizedCallback(function() { done(); });
+    GiantSwarm.user(function() {
+      fail("Success callback called.")
+      done();
+    }, function() {
+
+    });
   });
 
-  // memberships
+  // // memberships
 
   it("should fetch organizations which the current user is a member of", function(done){
-    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.memberships(function(data){
       expect(typeof(data)).toEqual('object');
       expect(data.length).toBeGreaterThan(0);
@@ -163,10 +175,10 @@ describe("Client", function() {
     });
   });
 
-  // organization
+  // // organization
 
   it("should fetch organization details", function(done){
-    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.organization(configuration.organizationName,
       function(data){
         expect(typeof(data)).toEqual('object');
@@ -179,10 +191,10 @@ describe("Client", function() {
       });
   });
 
-  // environments
+  // // environments
 
   it("should fetch environments within an organization", function(done){
-    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.environments(configuration.organizationName,
       function(data){
         expect(typeof(data)).toEqual('object');
@@ -193,10 +205,10 @@ describe("Client", function() {
       });
   });
 
-  // services
+  // // services
 
   it("should fetch services within an environment", function(done){
-    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.services(configuration.organizationName,
       configuration.environmentName,
       function(data){
@@ -208,7 +220,7 @@ describe("Client", function() {
       });
   });
 
-  // serviceStatus
+  // // serviceStatus
 
   it("should fetch the status of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
@@ -229,7 +241,7 @@ describe("Client", function() {
       });
   });
 
-  // service definition
+  // // service definition
 
   it("should fetch the definition of a service", function(done){
     GiantSwarm.setAuthToken(authToken);
@@ -245,14 +257,15 @@ describe("Client", function() {
       });
   });
 
-  // service stop
+  // // service stop
 
   it("should stop a service", function(done){
    GiantSwarm.setAuthToken(authToken);
    GiantSwarm.stopService(configuration.organizationName,
      configuration.environmentName,
      configuration.serviceName,
-     function(){
+     function(data){
+       // expect(typeof(data)).toEqual('object');
        done();
      }, function(err){
        fail(err);
@@ -260,14 +273,15 @@ describe("Client", function() {
      });
   });
 
-  // service start
+  // // service start
 
   it("should start a service", function(done){
     GiantSwarm.setAuthToken(authToken);
     GiantSwarm.startService(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
-      function(){
+      function(data){
+        // expect(typeof(data)).toEqual('object');
         done();
       }, function(err){
         fail(err);
@@ -275,11 +289,105 @@ describe("Client", function() {
       });
   });
 
-  // componentStatus
+  // // componentStatus
 
-  it("componentStatus", function(done){
-    pending('Test still needs to be written')
+  it("should fetch the status of a known component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.componentStatus(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      configuration.componentName,
+      function(data){
+        expect(typeof(data)).toEqual('object');
+        expect(typeof(data.components)).toEqual('object');
+        expect(data.components[0].name).toEqual('webserver');
+        done();
+      }, function(err){
+        fail(err);
+        done();
+      });
   });
+
+  it("calls the error callback on unknown component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.componentStatus(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      "unknown_component",
+      function(data){
+        fail("success callback was called for an unkown component");
+        done();
+      }, function(err){
+        done();
+      });
+  });
+
+  // startComponent
+
+  it("starts a known component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.startComponent(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      "known_component",
+      function(data){
+        done();
+      }, function(err){
+        fail("error callback was called for a known component");
+        done();
+      });
+  });
+
+  it("calls the error callback for an unknown component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.startComponent(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      "unknown_component",
+      function(data){
+        fail("success callback was called for an unknown component");
+        done();
+      }, function(err){
+        done();
+      });
+  });
+
+  // stopComponent
+
+  it("stops a known component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.stopComponent(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      "known_component",
+      function(data){
+        done();
+      }, function(err){
+        fail("error callback was called for a known component");
+        done();
+      });
+  });
+
+  it("calls error callback for unknown component", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.stopComponent(
+      configuration.organizationName,
+      configuration.environmentName,
+      configuration.serviceName,
+      "unknown_component",
+      function(data){
+        fail("success callback was called for an unknown component");
+        done();
+      }, function(err){
+        done();
+      });
+  });
+
 
   // instanceStats
 
@@ -303,34 +411,127 @@ describe("Client", function() {
 
   // instanceLogs
 
-  it("instanceLogs", function(done){
-    pending('Test still needs to be written')
+  it("responds with 10 lines by default", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.instanceLogs(configuration.organizationName,
+      configuration.instanceId,
+      null,
+      function(data){
+        expect(data.indexOf("Line 10")).toBeGreaterThan(-1);
+        done();
+      }, function(err){
+        fail(err);
+        done();
+      });
+  });
+
+  it("responds with 2 lines when asked", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.instanceLogs(configuration.organizationName,
+      configuration.instanceId,
+      1,
+      function(data){
+        expect(data.indexOf("Line 1")).toBeGreaterThan(-1);
+        expect(data.indexOf("Line 2")).toBeGreaterThan(-1);
+        done();
+      }, function(err){
+        fail(err);
+        done();
+      });
+  });
+
+  it("calls error callback for unknown instance", function(done){
+    GiantSwarm.setAuthToken(authToken);
+    GiantSwarm.instanceLogs(configuration.organizationName,
+      "invalid_instance",
+      1,
+      function(data){
+        fail("success callback was called for unknown instance")
+        done();
+      }, function(err){
+        done();
+      });
   });
 
   // streamLogs
 
-  it("streamLogs", function(done){
-    pending('Test still needs to be written')
-  });
+  // it("returns a websocket with a sensible url to stream logs", function(done){
+  //   GiantSwarm.setAuthToken(authToken);
+  //   GiantSwarm.streamLogs(configuration.organizationName,
+  //     [configuration.instanceId],
+  //     function(message){},
+  //     function(socket){
+  //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
+  //       done();
+  //     }, function(err){
+  //       fail("error callback was called for known instance")
+  //       done();
+  //     });
+  // });
 
 
-  // streamStats
+  // // streamStats
 
-  it("streamStats", function(done){
-    pending('Test still needs to be written')
-  });
+  // it("returns a websocket with a sensible url to stream stats", function(done){
+  //   GiantSwarm.setAuthToken(authToken);
+  //   GiantSwarm.streamStats(configuration.organizationName,
+  //     [configuration.instanceId],
+  //     2,
+  //     function(message){},
+  //     function(socket){
+  //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
+  //       done();
+  //     }, function(err){
+  //       fail("error callback was called for known instance")
+  //       done();
+  //     });
+  // });
 
 
   // logout
 
-  it("logout", function(done){
-    pending('Test still needs to be written')
+  it("logs out a logged in user", function(done){
+    GiantSwarm.setAuthToken("logged_in_user");
+    GiantSwarm.logout(
+      function(data){
+        done()
+      },
+      function(err){
+        fail("error callback was called for logged in user")
+        done();
+      });
+  });
+
+  it("calls error callback for non logged in user", function(done){
+    GiantSwarm.setAuthToken("invalid_token");
+    GiantSwarm.logout(
+      function(data){
+        fail("success callback was called for invalid token")
+        done()
+      },
+      function(err){
+        done();
+      });
   });
 
   // isAuthenticated
 
   it("isAuthenticated", function(done){
-    pending('Test still needs to be written')
+    GiantSwarm.setAuthToken("valid_token");
+    GiantSwarm.isAuthenticated(
+      function(response){
+        expect(response).toEqual(true);
+        done();
+      });
+  });
+
+  it("isAuthenticated", function(done){
+    GiantSwarm.setAuthToken("not_logged_in_user");
+    GiantSwarm.isAuthenticated(
+      function(response){
+        expect(response).toEqual(false);
+        done();
+      });
   });
 
 
