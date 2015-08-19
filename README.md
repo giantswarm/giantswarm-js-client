@@ -66,5 +66,5 @@ gulp
 ## Running tests
 
 ```
-jasmine
+npm test
 ```

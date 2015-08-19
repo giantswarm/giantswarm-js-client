@@ -8,6 +8,9 @@
     "url": "https://github.com/giantswarm/giantswarm-js-client/issues"
   },
   "license": "Apache-2.0",
+  "scripts": {
+    "test": "./node_modules/jasmine/bin/jasmine.js"
+  },
   "repository": {
     "type": "git",
     "url": "giantswarm/giantswarm-js-client"
