@@ -34,6 +34,13 @@ module.exports = [
       // console.log("params:", params)
       // console.log("headers:", headers)
 
+      if ((headers && headers.Authorization != "giantswarm valid_token") && (match[1] != '/v1/ping')) {
+        throw new Error(401);
+        return {
+          "unauthorized": true
+        }
+      }
+
       for(apiCall in apiCalls) {
         response = apiCalls[apiCall](match, params, headers)
 

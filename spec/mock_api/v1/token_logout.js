@@ -1,6 +1,6 @@
 var match = function match(match, params, headers) {
   if (match[1] === '/v1/token/logout') {
-    if (headers.Authorization === "giantswarm logged_in_user") {
+    if (headers.Authorization === "giantswarm valid_token") {
       return {
         body: {
           "status_code": 10007,

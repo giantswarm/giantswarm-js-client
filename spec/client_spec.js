@@ -12,7 +12,7 @@ describe("GiantSwarm", function() {
 
   beforeEach(function() {
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
-    GiantSwarm.setAuthToken(null);
+    GiantSwarm.setAuthToken('valid_token');
     GiantSwarm.setRequestAgent(mocked_request)
     GiantSwarm.setClusterId(null);
     GiantSwarm.setUnauthorizedCallback(function() { null });
@@ -49,10 +49,8 @@ describe("GiantSwarm", function() {
 
   it("should allow me to ping the right server", function(done){
     GiantSwarm.ping(function(){
-      var value = 1;
-      expect(value).toEqual(1);
       done();
-    }, function(){
+    }, function(err){
       fail('ping() error callback called. This shouldn\'t have happened.');
       done();
     });
@@ -223,7 +221,6 @@ describe("GiantSwarm", function() {
   // // serviceStatus
 
   it("should fetch the status of a service", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.serviceStatus(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -244,7 +241,6 @@ describe("GiantSwarm", function() {
   // // service definition
 
   it("should fetch the definition of a service", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.serviceDefinition(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -260,7 +256,6 @@ describe("GiantSwarm", function() {
   // // service stop
 
   it("should stop a service", function(done){
-   GiantSwarm.setAuthToken(authToken);
    GiantSwarm.stopService(configuration.organizationName,
      configuration.environmentName,
      configuration.serviceName,
@@ -276,7 +271,6 @@ describe("GiantSwarm", function() {
   // // service start
 
   it("should start a service", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.startService(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -292,7 +286,6 @@ describe("GiantSwarm", function() {
   // // componentStatus
 
   it("should fetch the status of a known component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.componentStatus(
       configuration.organizationName,
       configuration.environmentName,
@@ -310,7 +303,6 @@ describe("GiantSwarm", function() {
   });
 
   it("calls the error callback on unknown component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.componentStatus(
       configuration.organizationName,
       configuration.environmentName,
@@ -327,7 +319,6 @@ describe("GiantSwarm", function() {
   // startComponent
 
   it("starts a known component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.startComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -342,7 +333,6 @@ describe("GiantSwarm", function() {
   });
 
   it("calls the error callback for an unknown component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.startComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -359,7 +349,6 @@ describe("GiantSwarm", function() {
   // stopComponent
 
   it("stops a known component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.stopComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -374,7 +363,6 @@ describe("GiantSwarm", function() {
   });
 
   it("calls error callback for unknown component", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.stopComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -392,7 +380,6 @@ describe("GiantSwarm", function() {
   // instanceStats
 
   it("should fetch the stats of an instance", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.instanceStats(configuration.organizationName,
       configuration.instanceId,
       function(data){
@@ -412,7 +399,6 @@ describe("GiantSwarm", function() {
   // instanceLogs
 
   it("responds with 10 lines by default", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.instanceLogs(configuration.organizationName,
       configuration.instanceId,
       null,
@@ -426,7 +412,6 @@ describe("GiantSwarm", function() {
   });
 
   it("responds with 2 lines when asked", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.instanceLogs(configuration.organizationName,
       configuration.instanceId,
       1,
@@ -441,7 +426,6 @@ describe("GiantSwarm", function() {
   });
 
   it("calls error callback for unknown instance", function(done){
-    GiantSwarm.setAuthToken(authToken);
     GiantSwarm.instanceLogs(configuration.organizationName,
       "invalid_instance",
       1,
@@ -455,43 +439,41 @@ describe("GiantSwarm", function() {
 
   // streamLogs
 
-  // it("returns a websocket with a sensible url to stream logs", function(done){
-  //   GiantSwarm.setAuthToken(authToken);
-  //   GiantSwarm.streamLogs(configuration.organizationName,
-  //     [configuration.instanceId],
-  //     function(message){},
-  //     function(socket){
-  //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
-  //       done();
-  //     }, function(err){
-  //       fail("error callback was called for known instance")
-  //       done();
-  //     });
-  // });
+  it("returns a websocket with a sensible url to stream logs", function(done){
+    GiantSwarm.streamLogs(configuration.organizationName,
+      [configuration.instanceId],
+      function(message){},
+      function(socket){
+        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
+        done();
+      }, function(err){
+        fail("error callback was called for known instance")
+        done();
+      });
+  });
 
 
   // // streamStats
 
-  // it("returns a websocket with a sensible url to stream stats", function(done){
-  //   GiantSwarm.setAuthToken(authToken);
-  //   GiantSwarm.streamStats(configuration.organizationName,
-  //     [configuration.instanceId],
-  //     2,
-  //     function(message){},
-  //     function(socket){
-  //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
-  //       done();
-  //     }, function(err){
-  //       fail("error callback was called for known instance")
-  //       done();
-  //     });
-  // });
+  it("returns a websocket with a sensible url to stream stats", function(done){
+    GiantSwarm.streamStats(configuration.organizationName,
+      [configuration.instanceId],
+      2,
+      function(message){},
+      function(socket){
+        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
+        done();
+      }, function(err){
+        fail("error callback was called for known instance")
+        done();
+      });
+  });
 
 
   // logout
 
   it("logs out a logged in user", function(done){
-    GiantSwarm.setAuthToken("logged_in_user");
+    GiantSwarm.setAuthToken("valid_token");
     GiantSwarm.logout(
       function(data){
         done()
