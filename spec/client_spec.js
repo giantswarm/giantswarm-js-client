@@ -432,37 +432,37 @@ describe("GiantSwarm", function() {
       });
   });
 
-  // // streamLogs
+  // streamLogs
 
-  // // it("returns a websocket with a sensible url to stream logs", function(done){
-  // //   GiantSwarm.streamLogs(configuration.organizationName,
-  // //     [configuration.instanceId],
-  // //     function(message){},
-  // //     function(socket){
-  // //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
-  // //       done();
-  // //     }, function(err){
-  // //       fail("error callback was called for known instance")
-  // //       done();
-  // //     });
-  // // });
+  it("returns a websocket with a sensible url to stream logs", function(done){
+    GiantSwarm.streamLogs(configuration.organizationName,
+      [configuration.instanceId],
+      function(message){},
+      function(socket){
+        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
+        done();
+      }, function(err){
+        fail("error callback was called for known instance " + err)
+        done();
+      });
+  });
 
 
-  // // // // streamStats
+  // streamStats
 
-  // // it("returns a websocket with a sensible url to stream stats", function(done){
-  // //   GiantSwarm.streamStats(configuration.organizationName,
-  // //     [configuration.instanceId],
-  // //     2,
-  // //     function(message){},
-  // //     function(socket){
-  // //       expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
-  // //       done();
-  // //     }, function(err){
-  // //       fail("error callback was called for known instance")
-  // //       done();
-  // //     });
-  // // });
+  it("returns a websocket with a sensible url to stream stats", function(done){
+    GiantSwarm.streamStats(configuration.organizationName,
+      [configuration.instanceId],
+      2,
+      function(message){},
+      function(socket){
+        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
+        done();
+      }, function(err){
+        fail("error callback was called for known instance")
+        done();
+      });
+  });
 
 
   // // logout
