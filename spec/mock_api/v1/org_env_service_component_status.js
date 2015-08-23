@@ -28,9 +28,7 @@ var match = function match(match, params, headers) {
         }
       }
     } else {
-      return {
-        "badRequest": false
-      }
+      throw new Error(400);
     }
   }
 }

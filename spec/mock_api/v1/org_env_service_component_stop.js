@@ -9,9 +9,7 @@ var match = function match(match, params, headers) {
         }
       }
     } else {
-      return {
-        "badRequest": true
-      }
+      throw new Error(400);
     }
   }
 }
