@@ -60,6 +60,7 @@ module.exports = [
      * @param data  mixed Data returns by `fixtures` attribute
      */
     callback: function (match, data) {
+      data.ok = true;
       return data;
     }
   }

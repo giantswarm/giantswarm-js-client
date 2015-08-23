@@ -11,12 +11,13 @@ var match = function match(match, params, headers) {
         }
       };
     } else {
-      return {
-        body: {
-          "status_code": 10010,
-          "status_text": "resource invalid credentials"
-        }
-      }
+      throw new Error(400);
+      // return {
+      //   body: {
+      //     "status_code": 10010,
+      //     "status_text": "resource invalid credentials"
+      //   }
+      // }
     }
   }
 }
