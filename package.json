@@ -18,7 +18,7 @@
   "dependencies": {
     "js-data": "2.3.0",
     "superagent": "1.3.0",
-    "superagent-mock": "../../github/superagent-mock",
+    "superagent-mock": "git@github.com:oponder/superagent-mock.git",
     "js-base64": "^2.1.8",
     "ws": "0.7.2"
   },
