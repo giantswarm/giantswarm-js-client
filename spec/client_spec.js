@@ -434,13 +434,13 @@ describe("GiantSwarm", function() {
 
   // streamLogs
 
-  it("returns a websocket with a sensible url to stream logs", function(done){
+  it("returns a websocket with a sensible url to stream logs, calls the message callback onmessage", function(done){
     GiantSwarm.streamLogs(configuration.organizationName,
       [configuration.instanceId],
-      function(message){},
+      function(message){done();},
       function(socket){
         expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
-        done();
+        socket.onmessage('test');
       }, function(err){
         fail("error callback was called for known instance " + err)
         done();
@@ -450,14 +450,14 @@ describe("GiantSwarm", function() {
 
   // streamStats
 
-  it("returns a websocket with a sensible url to stream stats", function(done){
+  it("returns a websocket with a sensible url to stream stats, calls the message callback onmessage", function(done){
     GiantSwarm.streamStats(configuration.organizationName,
       [configuration.instanceId],
       2,
-      function(message){},
+      function(message){done();},
       function(socket){
         expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
-        done();
+        socket.onmessage('test');
       }, function(err){
         fail("error callback was called for known instance")
         done();
