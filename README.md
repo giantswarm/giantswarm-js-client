@@ -62,3 +62,9 @@ npm install gulp
 npm install
 gulp
 ```
+
+## Running tests
+
+```
+npm test
+```
