@@ -20,7 +20,7 @@ module.exports = [
     /**
      * regular expression of URL
      */
-    pattern: 'https://api.giantswarm.io(.*)',
+    pattern: 'https://api.*?io(.*)',
 
     /**
      * returns the data

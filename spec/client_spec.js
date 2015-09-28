@@ -44,6 +44,20 @@ describe("GiantSwarm", function() {
     done();
   });
 
+  it("should fetch organizations which the current user is a member of", function(done){
+    GiantSwarm.setApiEndpoint("https://api.example.io");
+    GiantSwarm.setAuthToken("valid_token");
+    GiantSwarm.memberships(function(data){
+      expect(typeof(data)).toEqual('object');
+      expect(data.length).toBeGreaterThan(0);
+      expect(typeof(data[0])).toEqual('string');
+      done();
+    }, function(err){
+      fail(err);
+      done();
+    });
+  });
+
   // ping
 
   it("should allow me to ping the right server", function(done){
