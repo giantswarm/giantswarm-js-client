@@ -239,6 +239,7 @@ describe("GiantSwarm", function() {
         expect(typeof(data.components)).not.toEqual('undefined');
         expect(typeof(data.components[0].instances[0].id)).not.toEqual('undefined');
         expect(typeof(data.components[0].instances[0].status)).not.toEqual('undefined');
+        expect(data.components[0].instances[0].create_date).toEqual('2015-08-13T08:46:46.827236888Z');
         expect(typeof(data.status)).not.toEqual('undefined');
         done();
       }, function(err){
@@ -525,4 +526,20 @@ describe("GiantSwarm", function() {
         done();
       });
   });
+
+  // Null Dates
+
+  it("converts 0001-01-01T00:00:00Z to null for dates", function(done) {
+    GiantSwarm.setAuthToken("valid_token");
+    GiantSwarm.serviceStatus(configuration.organizationName,
+      configuration.environmentName,
+      "deleting_service",
+      function(data){
+        expect(data.components[0].instances[0].create_date).toEqual(null);
+        done();
+      }, function(err){
+        fail(err);
+        done();
+      });
+  })
 });
