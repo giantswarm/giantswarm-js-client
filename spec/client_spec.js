@@ -421,6 +421,18 @@ describe("GiantSwarm", function() {
       });
   });
 
+  it("works when there are no log lines returned", function(done) {
+    GiantSwarm.instanceLogs(configuration.organizationName,
+      "instanceWithNoLogs",
+      null,
+      function(data){
+        done();
+      }, function(err){
+        fail(err);
+        done();
+      });
+  })
+
   it("responds with 2 lines when asked", function(done){
     GiantSwarm.instanceLogs(configuration.organizationName,
       configuration.instanceId,
