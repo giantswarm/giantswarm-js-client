@@ -10,5 +10,11 @@ var match = function match(match, params, headers) {
       text: "Line 1\nLine 2"
     }
   }
+
+  if (match[1] === '/v1/org/oponder/instance/instanceWithNoLogs/logs?t=10') {
+    return {
+      text: ""
+    }
+  }
 }
 module.exports = match;
