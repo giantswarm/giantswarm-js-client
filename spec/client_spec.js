@@ -591,4 +591,35 @@ describe("giantSwarm", function() {
   });
 
 
+  // Request ID
+  //
+
+  it('sets a random request ID for each instantiation of the client', function() {
+    giantSwarm.setAuthToken("valid_token");
+    var request = giantSwarm.memberships(function(data){}, function(){});
+    firstRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+
+    giantSwarm2 = new GiantSwarm();
+    giantSwarm2.setAuthToken("valid_token");
+    var request = giantSwarm2.memberships(function(data){}, function(){});
+    secondRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+
+    expect(firstRequestID).not.toEqual(secondRequestID);
+  });
+
+  // Request ID
+  //
+
+  it('uses the same request ID for each request made with the same client', function() {
+    giantSwarm.setAuthToken("valid_token");
+    var request = giantSwarm.memberships(function(data){}, function(){});
+    firstRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+
+    var response = giantSwarm.memberships(function(data){}, function(){});
+    secondRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+
+    expect(firstRequestID).toEqual(secondRequestID);
+  });
+
+
 });
