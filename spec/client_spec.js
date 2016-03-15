@@ -2,7 +2,7 @@ describe("GiantSwarm", function() {
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
-  var GiantSwarm = require('../lib/client');
+  var Client = require('../lib/client');
   var configuration = require('./configuration');
 
   var mocked_request = require('superagent');
@@ -11,6 +11,7 @@ describe("GiantSwarm", function() {
   require('superagent-mock')(mocked_request, config);
 
   beforeEach(function() {
+    GiantSwarm = new Client();
     GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
     GiantSwarm.setAuthToken('valid_token');
     GiantSwarm.setClusterId(null);
@@ -553,5 +554,41 @@ describe("GiantSwarm", function() {
         fail(err);
         done();
       });
-  })
+  }),
+
+  // Activity Tracking
+
+  // // setActivity
+
+  it('sets the X-Giant-Swarm-Activity header', function() {
+    GiantSwarm.setAuthToken("valid_token");
+    GiantSwarm.setActivity("doing-a-cool-activity")
+
+    var response = GiantSwarm.memberships(function(data){}, function(){});
+
+    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-a-cool-activity")
+  });
+
+  it('keeps the X-Giant-Swarm-Activity header for all subsequent requests', function() {
+    GiantSwarm.setAuthToken("valid_token");
+    GiantSwarm.setActivity("doing-something-that-takes-multiple-api-calls")
+
+    var response = GiantSwarm.memberships(function(data){}, function(){});
+
+    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
+
+    var response_2 = GiantSwarm.memberships(function(data){}, function(){});
+
+    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
+  });
+
+  it('does not set the X-Giant-Swarm-Activity header when not called', function() {
+    GiantSwarm.setAuthToken("valid_token");
+
+    var response = GiantSwarm.memberships(function(data){}, function(){});
+
+    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual(undefined)
+  });
+
+
 });
