@@ -1,8 +1,8 @@
-describe("GiantSwarm", function() {
+describe("giantSwarm", function() {
 
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
-  var Client = require('../lib/client');
+  var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
 
   var mocked_request = require('superagent');
@@ -11,44 +11,44 @@ describe("GiantSwarm", function() {
   require('superagent-mock')(mocked_request, config);
 
   beforeEach(function() {
-    GiantSwarm = new Client();
-    GiantSwarm.setApiEndpoint('https://api.giantswarm.io');
-    GiantSwarm.setAuthToken('valid_token');
-    GiantSwarm.setClusterId(null);
-    GiantSwarm.setUnauthorizedCallback(function() { null });
+    giantSwarm = new GiantSwarm();
+    giantSwarm.setApiEndpoint('https://api.giantswarm.io');
+    giantSwarm.setAuthToken('valid_token');
+    giantSwarm.setClusterId(null);
+    giantSwarm.setUnauthorizedCallback(function() { null });
   });
 
   // setApiEndpoint
   it("should throw an exception when given a non string url", function(done){
     expect(
-      function(){ GiantSwarm.setApiEndpoint(3) }
+      function(){ giantSwarm.setApiEndpoint(3) }
     ).toThrow()
     done();
   });
 
   it("should throw an exception when given no url", function(done){
     expect(
-      function(){ GiantSwarm.setApiEndpoint() }
+      function(){ giantSwarm.setApiEndpoint() }
     ).toThrow()
     done();
   });
 
   it("should set the websocketEndpoint correctly for http", function(done){
-    GiantSwarm.setApiEndpoint("http://api.example.com");
-    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('ws://api.example.com');
+    giantSwarm.setApiEndpoint("http://api.example.com");
+    expect(giantSwarm._getWebsocketEndpoint()).toEqual('ws://api.example.com');
     done();
   });
 
   it("should set the websocketEndpoint correctly for https", function(done){
-    GiantSwarm.setApiEndpoint("https://api.example.com");
-    expect(GiantSwarm._getWebsocketEndpoint()).toEqual('wss://api.example.com');
+    giantSwarm.setApiEndpoint("https://api.example.com");
+    expect(giantSwarm._getWebsocketEndpoint()).toEqual('wss://api.example.com');
     done();
   });
 
   it("should fetch organizations which the current user is a member of", function(done){
-    GiantSwarm.setApiEndpoint("https://api.example.io");
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.memberships(function(data){
+    giantSwarm.setApiEndpoint("https://api.example.io");
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.memberships(function(data){
       expect(typeof(data)).toEqual('object');
       expect(data.length).toBeGreaterThan(0);
       expect(typeof(data[0])).toEqual('string');
@@ -62,7 +62,7 @@ describe("GiantSwarm", function() {
   // ping
 
   it("should allow me to ping the right server", function(done){
-    GiantSwarm.ping(function(){
+    giantSwarm.ping(function(){
       done();
     }, function(err){
       fail('ping() error callback called. This shouldn\'t have happened.' + err);
@@ -71,8 +71,8 @@ describe("GiantSwarm", function() {
   });
 
   it("should not allow me to ping google.com", function(done){
-    GiantSwarm.setApiEndpoint('https://www.google.com');
-    GiantSwarm.ping(function(){
+    giantSwarm.setApiEndpoint('https://www.google.com');
+    giantSwarm.ping(function(){
       fail('ping() success callback called. This shouldn\'t have happened.');
       done();
     }, function(err){
@@ -82,14 +82,14 @@ describe("GiantSwarm", function() {
 
   it("should forbid to call ping without callback", function(){
     var func = function() {
-      GiantSwarm.ping();
+      giantSwarm.ping();
     };
     expect(func).toThrow();
   });
 
   it("should forbid to call ping with non-function parameter", function(){
     var func = function() {
-      GiantSwarm.ping("foo");
+      giantSwarm.ping("foo");
     };
     expect(func).toThrow();
   });
@@ -97,10 +97,10 @@ describe("GiantSwarm", function() {
   // // authenticate, user
 
   it("should be able to authenticate a valid user", function(done){
-    GiantSwarm.authenticate(configuration.existingUser.username,
+    giantSwarm.authenticate(configuration.existingUser.username,
       configuration.existingUser.password,
       function(){
-        authToken = GiantSwarm.getAuthToken();
+        authToken = giantSwarm.getAuthToken();
         done();
       }, function(err){
         fail(err);
@@ -109,7 +109,7 @@ describe("GiantSwarm", function() {
   });
 
   it("should not be able to authenticate an invalid user", function(done){
-    GiantSwarm.authenticate(configuration.existingUser.username,
+    giantSwarm.authenticate(configuration.existingUser.username,
       'fooBarBlahFakePassword',
       function(){
         fail('an invalid user was able to authenticate');
@@ -120,8 +120,8 @@ describe("GiantSwarm", function() {
   });
 
   it("should be able to authenticate with a valid token", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.user(function(data){
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.user(function(data){
       expect(data.username).toEqual(configuration.existingUser.username);
       done();
     }, function(err){
@@ -131,8 +131,8 @@ describe("GiantSwarm", function() {
   });
 
   it("should not be able to authenticate with an invalid token", function(done){
-    GiantSwarm.setAuthToken('invalid_token');
-    GiantSwarm.user(function(data){
+    giantSwarm.setAuthToken('invalid_token');
+    giantSwarm.user(function(data){
       fail('user() function called successCallback');
       done();
     }, function(err){
@@ -144,23 +144,23 @@ describe("GiantSwarm", function() {
   // // setClusterId
 
   it("should set the clusterId", function(done){
-    GiantSwarm.setClusterId('fakecluster.example.com');
-    expect(GiantSwarm._getClusterId()).toEqual("fakecluster.example.com");
+    giantSwarm.setClusterId('fakecluster.example.com');
+    expect(giantSwarm._getClusterId()).toEqual("fakecluster.example.com");
     done();
   });
 
   it("should throw an error on non string clusterIds", function(done){
-    expect(function(){GiantSwarm.setClusterId(3)}).toThrow();
-    expect(function(){GiantSwarm.setClusterId()}).toThrow();
+    expect(function(){giantSwarm.setClusterId(3)}).toThrow();
+    expect(function(){giantSwarm.setClusterId()}).toThrow();
     done();
   });
 
   // // setUnauthorizedCallback
 
   it("should set the callback and call it when a unauthorized call is made", function(done){
-    GiantSwarm.setAuthToken('invalid_token');
-    GiantSwarm.setUnauthorizedCallback(function() { done(); });
-    GiantSwarm.user(function() {
+    giantSwarm.setAuthToken('invalid_token');
+    giantSwarm.setUnauthorizedCallback(function() { done(); });
+    giantSwarm.user(function() {
       fail("Success callback called.")
       done();
     }, function() {
@@ -171,8 +171,8 @@ describe("GiantSwarm", function() {
   // // // memberships
 
   it("should fetch organizations which the current user is a member of", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.memberships(function(data){
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.memberships(function(data){
       expect(typeof(data)).toEqual('object');
       expect(data.length).toBeGreaterThan(0);
       expect(typeof(data[0])).toEqual('string');
@@ -186,8 +186,8 @@ describe("GiantSwarm", function() {
   // // // organization
 
   it("should fetch organization details", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.organization(configuration.organizationName,
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.organization(configuration.organizationName,
       function(data){
         expect(typeof(data)).toEqual('object');
         expect(typeof(data.id)).toEqual('string');
@@ -202,8 +202,8 @@ describe("GiantSwarm", function() {
   // // // environments
 
   it("should fetch environments within an organization", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.environments(configuration.organizationName,
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.environments(configuration.organizationName,
       function(data){
         expect(typeof(data)).toEqual('object');
         done();
@@ -216,8 +216,8 @@ describe("GiantSwarm", function() {
   // // // services
 
   it("should fetch services within an environment", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.services(configuration.organizationName,
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.services(configuration.organizationName,
       configuration.environmentName,
       function(data){
         expect(typeof(data)).toEqual('object');
@@ -231,7 +231,7 @@ describe("GiantSwarm", function() {
   // // // serviceStatus
 
   it("should fetch the status of a service", function(done){
-    GiantSwarm.serviceStatus(configuration.organizationName,
+    giantSwarm.serviceStatus(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(data){
@@ -252,7 +252,7 @@ describe("GiantSwarm", function() {
   // // // service definition
 
   it("should fetch the definition of a service", function(done){
-    GiantSwarm.serviceDefinition(configuration.organizationName,
+    giantSwarm.serviceDefinition(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(data){
@@ -267,7 +267,7 @@ describe("GiantSwarm", function() {
   // // // service stop
 
   it("should stop a service", function(done){
-   GiantSwarm.stopService(configuration.organizationName,
+   giantSwarm.stopService(configuration.organizationName,
      configuration.environmentName,
      configuration.serviceName,
      function(data){
@@ -282,7 +282,7 @@ describe("GiantSwarm", function() {
   // // // service start
 
   it("should start a service", function(done){
-    GiantSwarm.startService(configuration.organizationName,
+    giantSwarm.startService(configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
       function(data){
@@ -297,7 +297,7 @@ describe("GiantSwarm", function() {
   // // // componentStatus
 
   it("should fetch the status of a known component", function(done){
-    GiantSwarm.componentStatus(
+    giantSwarm.componentStatus(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -314,7 +314,7 @@ describe("GiantSwarm", function() {
   });
 
   it("calls the error callback on unknown component", function(done){
-    GiantSwarm.componentStatus(
+    giantSwarm.componentStatus(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -330,7 +330,7 @@ describe("GiantSwarm", function() {
   // // startComponent
 
   it("starts a known component", function(done){
-    GiantSwarm.startComponent(
+    giantSwarm.startComponent(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -344,7 +344,7 @@ describe("GiantSwarm", function() {
   });
 
   it("calls the error callback for an unknown component", function(done){
-    GiantSwarm.startComponent(
+    giantSwarm.startComponent(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -360,7 +360,7 @@ describe("GiantSwarm", function() {
   // // stopComponent
 
   it("stops a known component", function(done){
-    GiantSwarm.stopComponent(
+    giantSwarm.stopComponent(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -374,7 +374,7 @@ describe("GiantSwarm", function() {
   });
 
   it("calls error callback for unknown component", function(done){
-    GiantSwarm.stopComponent(
+    giantSwarm.stopComponent(
       configuration.organizationName,
       configuration.environmentName,
       configuration.serviceName,
@@ -391,7 +391,7 @@ describe("GiantSwarm", function() {
   // // instanceStats
 
   it("should fetch the stats of an instance", function(done){
-    GiantSwarm.instanceStats(configuration.organizationName,
+    giantSwarm.instanceStats(configuration.organizationName,
       configuration.instanceId,
       function(data){
         expect(typeof(data)).toEqual('object');
@@ -410,7 +410,7 @@ describe("GiantSwarm", function() {
   // // instanceLogs
 
   it("responds with 10 lines by default", function(done){
-    GiantSwarm.instanceLogs(configuration.organizationName,
+    giantSwarm.instanceLogs(configuration.organizationName,
       configuration.instanceId,
       null,
       function(data){
@@ -423,7 +423,7 @@ describe("GiantSwarm", function() {
   });
 
   it("works when there are no log lines returned", function(done) {
-    GiantSwarm.instanceLogs(configuration.organizationName,
+    giantSwarm.instanceLogs(configuration.organizationName,
       "instanceWithNoLogs",
       null,
       function(data){
@@ -435,7 +435,7 @@ describe("GiantSwarm", function() {
   })
 
   it("responds with 2 lines when asked", function(done){
-    GiantSwarm.instanceLogs(configuration.organizationName,
+    giantSwarm.instanceLogs(configuration.organizationName,
       configuration.instanceId,
       1,
       function(data){
@@ -449,7 +449,7 @@ describe("GiantSwarm", function() {
   });
 
   it("calls error callback for unknown instance", function(done){
-    GiantSwarm.instanceLogs(configuration.organizationName,
+    giantSwarm.instanceLogs(configuration.organizationName,
       "invalid_instance",
       1,
       function(data){
@@ -463,7 +463,7 @@ describe("GiantSwarm", function() {
   // streamLogs
 
   it("returns a websocket with a sensible url to stream logs, calls the message callback onmessage", function(done){
-    GiantSwarm.streamLogs(configuration.organizationName,
+    giantSwarm.streamLogs(configuration.organizationName,
       [configuration.instanceId],
       function(message){done();},
       function(socket){
@@ -479,7 +479,7 @@ describe("GiantSwarm", function() {
   // streamStats
 
   it("returns a websocket with a sensible url to stream stats, calls the message callback onmessage", function(done){
-    GiantSwarm.streamStats(configuration.organizationName,
+    giantSwarm.streamStats(configuration.organizationName,
       [configuration.instanceId],
       2,
       function(message){done();},
@@ -496,8 +496,8 @@ describe("GiantSwarm", function() {
   // // logout
 
   it("logs out a logged in user", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.logout(
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.logout(
       function(data){
         done()
       },
@@ -508,9 +508,9 @@ describe("GiantSwarm", function() {
   });
 
   it("calls error callback for non logged in user", function(done){
-    GiantSwarm.setAuthToken("invalid_token");
+    giantSwarm.setAuthToken("invalid_token");
 
-    GiantSwarm.logout(
+    giantSwarm.logout(
       function(data){
         fail("success callback was called for invalid token ")
         done()
@@ -523,8 +523,8 @@ describe("GiantSwarm", function() {
   // // isAuthenticated
 
   it("returns true when user is logged in", function(done){
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.isAuthenticated(
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.isAuthenticated(
       function(response){
         expect(response).toEqual(true);
         done();
@@ -532,8 +532,8 @@ describe("GiantSwarm", function() {
   });
 
   it("returns false when user is logged out", function(done){
-    GiantSwarm.setAuthToken("not_logged_in_user");
-    GiantSwarm.isAuthenticated(
+    giantSwarm.setAuthToken("not_logged_in_user");
+    giantSwarm.isAuthenticated(
       function(response){
         expect(response).toEqual(false);
         done();
@@ -543,8 +543,8 @@ describe("GiantSwarm", function() {
   // Null Dates
 
   it("converts 0001-01-01T00:00:00Z to null for dates", function(done) {
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.serviceStatus(configuration.organizationName,
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.serviceStatus(configuration.organizationName,
       configuration.environmentName,
       "deleting_service",
       function(data){
@@ -561,31 +561,31 @@ describe("GiantSwarm", function() {
   // // setActivity
 
   it('sets the X-Giant-Swarm-Activity header', function() {
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.setActivity("doing-a-cool-activity")
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.setActivity("doing-a-cool-activity")
 
-    var response = GiantSwarm.memberships(function(data){}, function(){});
+    var response = giantSwarm.memberships(function(data){}, function(){});
 
     expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-a-cool-activity")
   });
 
   it('keeps the X-Giant-Swarm-Activity header for all subsequent requests', function() {
-    GiantSwarm.setAuthToken("valid_token");
-    GiantSwarm.setActivity("doing-something-that-takes-multiple-api-calls")
+    giantSwarm.setAuthToken("valid_token");
+    giantSwarm.setActivity("doing-something-that-takes-multiple-api-calls")
 
-    var response = GiantSwarm.memberships(function(data){}, function(){});
+    var response = giantSwarm.memberships(function(data){}, function(){});
 
     expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
 
-    var response_2 = GiantSwarm.memberships(function(data){}, function(){});
+    var response_2 = giantSwarm.memberships(function(data){}, function(){});
 
     expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
   });
 
   it('does not set the X-Giant-Swarm-Activity header when not called', function() {
-    GiantSwarm.setAuthToken("valid_token");
+    giantSwarm.setAuthToken("valid_token");
 
-    var response = GiantSwarm.memberships(function(data){}, function(){});
+    var response = giantSwarm.memberships(function(data){}, function(){});
 
     expect(response.headers["X-Giant-Swarm-Activity"]).toEqual(undefined)
   });
