@@ -22,14 +22,14 @@ describe("giantSwarm", function() {
   it("should throw an exception when given a non string url", function(done){
     expect(
       function(){ giantSwarm.setApiEndpoint(3) }
-    ).toThrow()
+    ).toThrowError("Parameter 'url' must be of type string")
     done();
   });
 
   it("should throw an exception when given no url", function(done){
     expect(
       function(){ giantSwarm.setApiEndpoint() }
-    ).toThrow()
+    ).toThrowError("Parameter 'url' must be given")
     done();
   });
 
@@ -84,14 +84,14 @@ describe("giantSwarm", function() {
     var func = function() {
       giantSwarm.ping();
     };
-    expect(func).toThrow();
+    expect(func).toThrowError('an onSuccess callback must be given and it must be a function');
   });
 
   it("should forbid to call ping with non-function parameter", function(){
     var func = function() {
       giantSwarm.ping("foo");
     };
-    expect(func).toThrow();
+    expect(func).toThrowError('an onSuccess callback must be given and it must be a function');
   });
 
   // // authenticate, user
@@ -597,12 +597,12 @@ describe("giantSwarm", function() {
   it('sets a random request ID for each instantiation of the client', function() {
     giantSwarm.setAuthToken("valid_token");
     var request = giantSwarm.memberships(function(data){}, function(){});
-    firstRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+    firstRequestID = request.headers["X-Request-ID"]
 
     giantSwarm2 = new GiantSwarm();
     giantSwarm2.setAuthToken("valid_token");
     var request = giantSwarm2.memberships(function(data){}, function(){});
-    secondRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+    secondRequestID = request.headers["X-Request-ID"]
 
     expect(firstRequestID).not.toEqual(secondRequestID);
   });
@@ -613,13 +613,11 @@ describe("giantSwarm", function() {
   it('uses the same request ID for each request made with the same client', function() {
     giantSwarm.setAuthToken("valid_token");
     var request = giantSwarm.memberships(function(data){}, function(){});
-    firstRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+    firstRequestID = request.headers["X-Request-ID"]
 
     var response = giantSwarm.memberships(function(data){}, function(){});
-    secondRequestID = request.headers["X-Giant-Swarm-Request-ID"]
+    secondRequestID = request.headers["X-Request-ID"]
 
     expect(firstRequestID).toEqual(secondRequestID);
   });
-
-
 });
