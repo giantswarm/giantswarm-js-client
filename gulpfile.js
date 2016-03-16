@@ -10,7 +10,7 @@ var gutil = require('gulp-util');
 var eslint = require('gulp-eslint');
 
 gulp.task('eslint', function() {
-  return gulp.src('./lib/client.js')
+  return gulp.src(['./lib/client.js', './lib/request_helper.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());

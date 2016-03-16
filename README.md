@@ -7,19 +7,20 @@ For details about the Giant Swarm API, please check out the [API documentation](
 ## Usage
 
 ```javascript
-GiantSwarm.ping(function(){
+giantSwarm = new GiantSwarm();
+giantSwarm.ping(function(){
     console.log("All right.");
 }, function(err) {
     console.log("Something isn't right", err);
 });
 
-GiantSwarm.authenticate("my-username", "my-password", function(){
+giantSwarm.authenticate("my-username", "my-password", function(){
     console.log("Login successful");
 }, function(err){
     console.log("Login error.", err);
 });
 
-GiantSwarm.applicationStatus("my-org", "my-env", "my-app", function(d){
+giantSwarm.applicationStatus("my-org", "my-env", "my-app", function(d){
     console.log(d);
 }, function(err){
     console.log(err);
@@ -50,7 +51,7 @@ function errorCallback(err) {
 var organizationName = 'my-org';
 var instanceIds = ['4lyqvwvqhg0m'];
 
-GiantSwarm.streamLogs(organizationName, instanceIds, messageCallback, socketCreateCallback, errorCallback);
+giantSwarm.streamLogs(organizationName, instanceIds, messageCallback, socketCreateCallback, errorCallback);
 ```
 
 See `lib/client.js` for more methods.
@@ -67,4 +68,10 @@ gulp
 
 ```
 npm test
+```
+
+## Running lint
+
+```
+gulp eslint
 ```
