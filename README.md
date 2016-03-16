@@ -69,3 +69,9 @@ gulp
 ```
 npm test
 ```
+
+## Running lint
+
+```
+gulp eslint
+```

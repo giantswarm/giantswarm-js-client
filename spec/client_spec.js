@@ -22,14 +22,14 @@ describe("giantSwarm", function() {
   it("should throw an exception when given a non string url", function(done){
     expect(
       function(){ giantSwarm.setApiEndpoint(3) }
-    ).toThrowError("Parameter 'url' must be of type string")
+    ).toThrowError('Parameter "url" must be of type string')
     done();
   });
 
   it("should throw an exception when given no url", function(done){
     expect(
       function(){ giantSwarm.setApiEndpoint() }
-    ).toThrowError("Parameter 'url' must be given")
+    ).toThrowError('Parameter "url" must be given')
     done();
   });
 
