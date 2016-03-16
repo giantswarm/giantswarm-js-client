@@ -7,7 +7,7 @@ For details about the Giant Swarm API, please check out the [API documentation](
 ## Usage
 
 ```javascript
-giantSwarm = new giantSwarm();
+giantSwarm = new GiantSwarm();
 giantSwarm.ping(function(){
     console.log("All right.");
 }, function(err) {
