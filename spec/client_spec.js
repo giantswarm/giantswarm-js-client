@@ -46,8 +46,6 @@ describe("giantSwarm", function() {
   });
 
   it("should fetch organizations which the current user is a member of", function(done){
-    giantSwarm.setApiEndpoint("https://api.example.io");
-    giantSwarm.setAuthToken("valid_token");
     giantSwarm.memberships(function(data){
       expect(typeof(data)).toEqual('object');
       expect(data.length).toBeGreaterThan(0);
@@ -271,7 +269,8 @@ describe("giantSwarm", function() {
      configuration.environmentName,
      configuration.serviceName,
      function(data){
-       // expect(typeof(data)).toEqual('object');
+       expect(typeof(data)).toEqual('object');
+       expect(data.action).toEqual('stop');
        done();
      }, function(err){
        fail(err);
@@ -286,7 +285,7 @@ describe("giantSwarm", function() {
       configuration.environmentName,
       configuration.serviceName,
       function(data){
-        // expect(typeof(data)).toEqual('object');
+        expect(data.action).toEqual('start');
         done();
       }, function(err){
         fail(err);
@@ -387,6 +386,23 @@ describe("giantSwarm", function() {
       });
   });
 
+  // Tasks
+  //
+  // // wait for
+
+  it ("should wait for a task to finish", function(done) {
+    giantSwarm.waitFor(
+      configuration.organizationName,
+      configuration.environmentName,
+      "a-valid-task-id",
+      function(data) {
+        expect(data.status).toEqual('finished');
+        done();
+      }, function(err) {
+        fail("error callback was called");
+        done();
+      });
+  });
 
   // // instanceStats
 

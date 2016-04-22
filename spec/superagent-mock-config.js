@@ -8,11 +8,16 @@
 getAllFilesFromFolder = require("./support/utilities");
 
 v1ApiCalls = getAllFilesFromFolder(__dirname + "/mock_api/v1")
+v2ApiCalls = getAllFilesFromFolder(__dirname + "/mock_api/v2")
 
 var apiCalls = []
 
 for(call in v1ApiCalls) {
   apiCalls.push(require(v1ApiCalls[call]));
+}
+
+for(call in v2ApiCalls) {
+  apiCalls.push(require(v2ApiCalls[call]));
 }
 
 module.exports = [
