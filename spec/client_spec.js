@@ -400,7 +400,6 @@ describe("giantSwarm", function() {
         done();
       }, function(err) {
         fail("error callback was called");
-        done();
       });
   });
 

@@ -5,7 +5,7 @@ var match = function match(match, params, headers) {
       while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
     }
 
-    sleepFor(2000);
+    // sleepFor(2000);
 
     return {
       body: {
