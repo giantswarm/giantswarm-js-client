@@ -5,14 +5,9 @@ describe("giantSwarm", function() {
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
 
-  var mocked_request = require('superagent');
-  var config = require('./superagent-mock-config');
-
-  require('superagent-mock')(mocked_request, config);
-
   beforeEach(function() {
     giantSwarm = new GiantSwarm();
-    giantSwarm.setApiEndpoint('https://api.giantswarm.io');
+    giantSwarm.setApiEndpoint('http://localhost:3000');
     giantSwarm.setAuthToken('valid_token');
     giantSwarm.setClusterId(null);
     giantSwarm.setUnauthorizedCallback(function() { null });
@@ -162,7 +157,7 @@ describe("giantSwarm", function() {
       fail("Success callback called.")
       done();
     }, function() {
-
+      done();
     });
   });
 
@@ -312,7 +307,7 @@ describe("giantSwarm", function() {
       });
   });
 
-  it("calls the error callback on unknown component", function(done){
+  it("calls the error callback when trying to get status of unknown component", function(done){
     giantSwarm.componentStatus(
       configuration.organizationName,
       configuration.environmentName,
@@ -342,7 +337,7 @@ describe("giantSwarm", function() {
       });
   });
 
-  it("calls the error callback for an unknown component", function(done){
+  it("calls the error callback when starting an unknown component", function(done){
     giantSwarm.startComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -367,12 +362,12 @@ describe("giantSwarm", function() {
       function(data){
         done();
       }, function(err){
-        fail("error callback was called for a known component");
+        fail("error callback was called for a known component. " + err);
         done();
       });
   });
 
-  it("calls error callback for unknown component", function(done){
+  it("calls error callback when stopping an unknown component", function(done){
     giantSwarm.stopComponent(
       configuration.organizationName,
       configuration.environmentName,
@@ -391,6 +386,9 @@ describe("giantSwarm", function() {
   // // wait for
 
   it ("should wait for a task to finish", function(done) {
+    giantSwarm.setWaitForTimeout(10); // Reduce the timeout before giving up on a waitfor and
+                                      // making a new request, so the test goes faster
+
     giantSwarm.waitFor(
       configuration.organizationName,
       configuration.environmentName,
@@ -399,9 +397,44 @@ describe("giantSwarm", function() {
         expect(data.status).toEqual('finished');
         done();
       }, function(err) {
-        fail("error callback was called");
+        fail("error callback was called: " + err);
+        done();
       });
   });
+
+  it ("should fail when maxretries is hit", function(done) {
+    giantSwarm.setWaitForTimeout(10);
+    giantSwarm.setWaitForMaxRetries(5);
+
+    giantSwarm.waitFor(
+      configuration.organizationName,
+      configuration.environmentName,
+      "a-task-that-never-finishes",
+      function(data) {
+        fail("success callback was called. This task should never finish.")
+        done();
+      }, function(err) {
+        expect(err).toEqual("Maximum number of 5 retries reached");
+        done();
+      });
+
+    // Make sure retries are reset when doing a new waitfor request
+
+    giantSwarm.waitFor(
+      configuration.organizationName,
+      configuration.environmentName,
+      "a-task-that-never-finishes",
+      function(data) {
+        fail("success callback was called. This task should never finish.")
+        done();
+      }, function(err) {
+        expect(err).toEqual("Maximum number of 5 retries reached");
+        done();
+      });
+
+  });
+
+
 
   // // instanceStats
 
@@ -482,7 +515,7 @@ describe("giantSwarm", function() {
       [configuration.instanceId],
       function(message){done();},
       function(socket){
-        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/logs?p=websocket_token");
+        expect(socket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/logs?p=websocket_token");
         socket.onmessage('test');
       }, function(err){
         fail("error callback was called for known instance " + err)
@@ -499,10 +532,10 @@ describe("giantSwarm", function() {
       2,
       function(message){done();},
       function(socket){
-        expect(socket.url).toEqual("wss://api.giantswarm.io/v1/org/oponder/stream/stats?p=websocket_token");
+        expect(socket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/stats?p=websocket_token");
         socket.onmessage('test');
       }, function(err){
-        fail("error callback was called for known instance")
+        fail("error callback was called for known instance: " +  err)
         done();
       });
   });
@@ -512,7 +545,7 @@ describe("giantSwarm", function() {
 
   it("logs out a logged in user", function(done){
     giantSwarm.setAuthToken("valid_token");
-    giantSwarm.logout(
+    var logout = giantSwarm.logout(
       function(data){
         done()
       },
@@ -581,7 +614,7 @@ describe("giantSwarm", function() {
 
     var response = giantSwarm.memberships(function(data){}, function(){});
 
-    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-a-cool-activity")
+    expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-a-cool-activity")
   });
 
   it('keeps the X-Giant-Swarm-Activity header for all subsequent requests', function() {
@@ -590,11 +623,11 @@ describe("giantSwarm", function() {
 
     var response = giantSwarm.memberships(function(data){}, function(){});
 
-    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
+    expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
 
     var response_2 = giantSwarm.memberships(function(data){}, function(){});
 
-    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
+    expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
   });
 
   it('does not set the X-Giant-Swarm-Activity header when not called', function() {
@@ -602,7 +635,7 @@ describe("giantSwarm", function() {
 
     var response = giantSwarm.memberships(function(data){}, function(){});
 
-    expect(response.headers["X-Giant-Swarm-Activity"]).toEqual(undefined)
+    expect(response.req._headers["x-giant-swarm-activity"]).toEqual(undefined)
   });
 
 
@@ -612,12 +645,12 @@ describe("giantSwarm", function() {
   it('sets a random request ID for each instantiation of the client', function() {
     giantSwarm.setAuthToken("valid_token");
     var request = giantSwarm.memberships(function(data){}, function(){});
-    firstRequestID = request.headers["X-Request-ID"]
+    firstRequestID = request.req._headers["x-request-id"]
 
     giantSwarm2 = new GiantSwarm();
     giantSwarm2.setAuthToken("valid_token");
     var request = giantSwarm2.memberships(function(data){}, function(){});
-    secondRequestID = request.headers["X-Request-ID"]
+    secondRequestID = request.req._headers["x-request-id"]
 
     expect(firstRequestID).not.toEqual(secondRequestID);
   });
@@ -628,10 +661,10 @@ describe("giantSwarm", function() {
   it('uses the same request ID for each request made with the same client', function() {
     giantSwarm.setAuthToken("valid_token");
     var request = giantSwarm.memberships(function(data){}, function(){});
-    firstRequestID = request.headers["X-Request-ID"]
+    firstRequestID = request.req._headers["x-request-id"]
 
     var response = giantSwarm.memberships(function(data){}, function(){});
-    secondRequestID = request.headers["X-Request-ID"]
+    secondRequestID = request.req._headers["x-request-id"]
 
     expect(firstRequestID).toEqual(secondRequestID);
   });
