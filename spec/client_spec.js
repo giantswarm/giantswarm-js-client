@@ -64,7 +64,7 @@ describe("giantSwarm", function() {
 
   describe("requests in general", function() {
     it("should be cancellable", function(done) {
-      request = giantSwarm.memberships();
+      var request = giantSwarm.memberships();
 
       // Cancel the request immediately
       request.cancel();
@@ -87,7 +87,7 @@ describe("giantSwarm", function() {
 
   describe("#memberships", function() {
     it("should fetch organizations which the current user is a member of", function(done){
-      request = giantSwarm.memberships();
+      var request = giantSwarm.memberships();
 
       request.then(function(response) {
         expect(response).toEqual(['oponder', 'appmonitor', 'giantswarm']);
@@ -96,19 +96,59 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // authenticate, user
 
-  // it("should be able to authenticate a valid user", function(done){
-  //   giantSwarm.authenticate(configuration.existingUser.username,
-  //     configuration.existingUser.password,
-  //     function(){
-  //       authToken = giantSwarm.getAuthToken();
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+  describe("#authenticate for valid credentials", function() {
+    beforeEach(function() {
+      // Unset the authToken so we can check that it gets set
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://localhost:3000'});
+
+      this.request = giantSwarm.authenticate({
+        username: configuration.existingUser.password,
+        password: configuration.existingUser.password
+      });
+    });
+
+    it("should set the authtoken", function(done){
+      this.request.then(function(response) {
+        expect(this.giantSwarm.authToken).toEqual("valid_token");
+        done();
+      });
+    });
+
+    it("should return true", function(done){
+      this.request.then(function(response) {
+        expect(response).toEqual(true);
+        done();
+      });
+    });
+  });
+
+  describe("#authenticate for invalid credentials", function() {
+    beforeEach(function() {
+      // Unset the authToken so we can check it remains unset
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://localhost:3000'});
+
+      this.request = giantSwarm.authenticate({
+        username: configuration.existingUser.password,
+        password: 'wrong_password'
+      });
+    });
+
+    it("should not set the authtoken", function(done){
+      this.request.then(function(response) {
+        expect(this.giantSwarm.authToken).toEqual(undefined);
+        done();
+      });
+    });
+
+    it("should return false", function(done){
+      this.request.then(function(response) {
+        expect(response).toEqual(false);
+        done();
+      });
+    });
+  });
+
 
   // it("should not be able to authenticate an invalid user", function(done){
   //   giantSwarm.authenticate(configuration.existingUser.username,
