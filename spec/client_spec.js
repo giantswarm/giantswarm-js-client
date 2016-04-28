@@ -48,7 +48,7 @@ describe("giantSwarm", function() {
   describe("#ping", function() {
     it('should return true when "OK"', function(done) {
       giantSwarm.ping().then(function(response) {
-        expect(response).toEqual(true);
+        expect(response.result).toEqual(true);
         done();
       });
     });
@@ -56,7 +56,7 @@ describe("giantSwarm", function() {
     it('should return false otherwise', function(done) {
       giantSwarm = GiantSwarm({apiEndpoint: "https://google.com"});
       giantSwarm.ping().then(function(response) {
-        expect(response).toEqual(false);
+        expect(response.result).toEqual(false);
         done();
       });
     });
@@ -80,9 +80,12 @@ describe("giantSwarm", function() {
       // returned something already.
       request.finally(function() {
         setTimeout(done, 60);
+      });
+    });
 
-      })
-    })
+    it("should send clusterId as X-Giant-Swarm-ClusterID", function(done) {
+      done();
+    });
   });
 
   describe("#memberships", function() {
@@ -90,7 +93,7 @@ describe("giantSwarm", function() {
       var request = giantSwarm.memberships();
 
       request.then(function(response) {
-        expect(response).toEqual(['oponder', 'appmonitor', 'giantswarm']);
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm']);
         done();
       });
     });
@@ -117,7 +120,7 @@ describe("giantSwarm", function() {
 
     it("should return true", function(done){
       this.request.then(function(response) {
-        expect(response).toEqual(true);
+        expect(response.result).toEqual(true);
         done();
       });
     });
@@ -143,23 +146,11 @@ describe("giantSwarm", function() {
 
     it("should return false", function(done){
       this.request.then(function(response) {
-        expect(response).toEqual(false);
+        expect(response.result).toEqual(false);
         done();
       });
     });
   });
-
-
-  // it("should not be able to authenticate an invalid user", function(done){
-  //   giantSwarm.authenticate(configuration.existingUser.username,
-  //     'fooBarBlahFakePassword',
-  //     function(){
-  //       fail('an invalid user was able to authenticate');
-  //       done();
-  //     }, function(err){
-  //       done();
-  //     });
-  // });
 
   // it("should be able to authenticate with a valid token", function(done){
   //   giantSwarm.setAuthToken("valid_token");
