@@ -196,19 +196,18 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // environments
+  describe("#environments", function() {
+    it("should return an array of environments within an organization", function(done)  {
+      var request = giantSwarm.environments({
+        organizationName: configuration.organizationName
+      });
 
-  // it("should fetch environments within an organization", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.environments(configuration.organizationName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      request.then(function(response) {
+        expect(response.result).toEqual(["dev"]);
+        done();
+      });
+    });
+  });
 
   // // // // services
 
