@@ -238,20 +238,57 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // service definition
+  describe("#serviceDefinition", function() {
+    it("should fetch the definition of a service", function(done) {
+      var request = giantSwarm.serviceDefinition({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName
+      });
 
-  // it("should fetch the definition of a service", function(done){
-  //   giantSwarm.serviceDefinition(configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      request.then(function(response) {
+        expect(response.result.components.webserver.image).toEqual("nginx");
+        done();
+      });
+    });
+  });
+
+  describe("#stopService without wait", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = giantSwarm.stopService({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName
+      });
+    });
+
+    it("should return a pending task", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.status).toEqual("pending");
+        done();
+      });
+    });
+
+    it("should return an array of child tasks", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.child_task_ids).toEqual([
+          "79m3ombhd9ehuuf9",
+          "nl40qpatrxk0ofy4"
+        ]);
+        done();
+      });
+    });
+
+    it("should be possible to waitfor the task to complete", function(done) {
+      this.request.then(function(response) {
+        return response.waitForTaskCompletion();
+      }).then(function(response){
+        expect(response).toEqual("task done");
+        done();
+      })
+    });
+  });
 
   // // // // service stop
 
