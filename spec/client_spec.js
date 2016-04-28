@@ -9,8 +9,7 @@ describe("giantSwarm", function() {
 
   testConfiguration = {
     apiEndpoint: 'http://localhost:3000',
-    authToken: 'valid_token',
-    clusterId: null,
+    authToken: 'valid_token'
   };
 
   beforeEach(function() {
