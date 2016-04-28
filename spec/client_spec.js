@@ -83,7 +83,14 @@ describe("giantSwarm", function() {
       });
     });
 
-    it("should send clusterId as X-Giant-Swarm-ClusterID", function(done) {
+    it("should use clusterId as X-Giant-Swarm-ClusterID", function(done) {
+      giantSwarm.clusterId = "bob";
+      var request = giantSwarm.memberships();
+
+      request.then(function(response) {
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
+        expect(headerValue).toEqual('bob');
+      })
       done();
     });
   });
