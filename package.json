@@ -18,13 +18,13 @@
     "url": "giantswarm/giantswarm-js-client"
   },
   "dependencies": {
+    "bluebird": "^3.3.5",
     "js-base64": "^2.1.8",
     "js-data": "2.3.0",
     "lodash": "^4.11.1",
     "node-uuid": "^1.4.7",
+    "request-promise": "^3.0.0",
     "stampit": "^2.1.1",
-    "superagent": "1.3.0",
-    "superagent-mock": "git://github.com/oponder/superagent-mock#return-request",
     "underscore": "^1.8.3",
     "validate.js": "^0.9.0",
     "ws": "0.7.2"

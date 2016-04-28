@@ -43,8 +43,16 @@ describe("giantSwarm", function() {
         done();
       });
     });
-  })
+  });
 
+  describe("#memberships", function() {
+    it("should fetch organizations which the current user is a member of", function(done){
+      giantSwarm.memberships().then(function(response) {
+        expect(response).toEqual(['oponder', 'appmonitor', 'giantswarm']);
+        done();
+      });
+    });
+  });
 
   // it("should fetch organizations which the current user is a member of", function(done){
   //   giantSwarm.memberships(function(data){
