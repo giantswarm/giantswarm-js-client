@@ -209,20 +209,19 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // services
+  describe("#services", function() {
+    it("should return an array of services within an environment", function(done)  {
+      var request = giantSwarm.services({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName
+      });
 
-  // it("should fetch services within an environment", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.services(configuration.organizationName,
-  //     configuration.environmentName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      request.then(function(response) {
+        expect(response.result[0].service).toEqual("known_service");
+        done();
+      });
+    });
+  });
 
   // // // // serviceStatus
 
