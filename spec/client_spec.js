@@ -2,7 +2,7 @@ var stampit = require('stampit');
 
 describe("giantSwarm", function() {
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
@@ -60,6 +60,29 @@ describe("giantSwarm", function() {
         done();
       });
     });
+  });
+
+  describe("requests in general", function() {
+    it("should be cancellable", function(done) {
+      request = giantSwarm.memberships();
+
+      // Cancel the request immediately
+      request.cancel();
+
+      // Since the request is cancelled this callback should never be called
+      // and the test should fail if it does get called.
+      request.then(function(response) {
+        fail("this callback should never be called!")
+      });
+
+      // Attach a 'finally' that passes the test after 60 miliseconds
+      // Because after 60 miliseconds, giantSwarm.memberships() would have
+      // returned something already.
+      request.finally(function() {
+        setTimeout(done, 60);
+
+      })
+    })
   });
 
   describe("#memberships", function() {
