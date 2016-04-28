@@ -19,19 +19,19 @@ describe("giantSwarm", function() {
 
   describe("instantiation", function() {
     it("should set a random request id", function(done) {
-      giantSwarm2 = GiantSwarm(testConfiguration);
+      var giantSwarm2 = GiantSwarm(testConfiguration);
       expect(giantSwarm.requestId).not.toEqual(giantSwarm2.requestId);
       done();
     });
 
     it("should set the websocketEndpoint correctly for http", function(done){
-      giantSwarm = GiantSwarm({apiEndpoint: "http://example.com"});
+      var giantSwarm = GiantSwarm({apiEndpoint: "http://example.com"});
       expect(giantSwarm.websocketEndpoint()).toEqual("ws://example.com");
       done();
     });
 
     it("should set the websocketEndpoint correctly for https", function(done){
-      giantSwarm = GiantSwarm({apiEndpoint: "https://example.com"});
+      var giantSwarm = GiantSwarm({apiEndpoint: "https://example.com"});
       expect(giantSwarm.websocketEndpoint()).toEqual("wss://example.com");
       done();
     });
@@ -54,7 +54,7 @@ describe("giantSwarm", function() {
     });
 
     it('should return false otherwise', function(done) {
-      giantSwarm = GiantSwarm({apiEndpoint: "https://google.com"});
+      var giantSwarm = GiantSwarm({apiEndpoint: "https://google.com"});
       giantSwarm.ping().then(function(response) {
         expect(response.result).toEqual(false);
         done();
@@ -90,8 +90,19 @@ describe("giantSwarm", function() {
       request.then(function(response) {
         var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
         expect(headerValue).toEqual('bob');
+        done();
       })
-      done();
+    });
+
+    it("should use clusterId as X-Giant-Swarm-ClusterID on every call", function(done) {
+      giantSwarm.clusterId = "bob";
+      var request = giantSwarm.ping();
+
+      request.then(function(response) {
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
+        expect(headerValue).toEqual('bob');
+        done();
+      })
     });
   });
 
