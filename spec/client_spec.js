@@ -183,42 +183,6 @@ describe("giantSwarm", function() {
     });
   });
 
-  // it("should be able to authenticate with a valid token", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.user(function(data){
-  //     expect(data.username).toEqual(configuration.existingUser.username);
-  //     done();
-  //   }, function(err){
-  //     fail(err);
-  //     done();
-  //   });
-  // });
-
-  // it("should not be able to authenticate with an invalid token", function(done){
-  //   giantSwarm.setAuthToken('invalid_token');
-  //   giantSwarm.user(function(data){
-  //     fail('user() function called successCallback');
-  //     done();
-  //   }, function(err){
-  //     expect(typeof(err)).toEqual('object');
-  //     done();
-  //   });
-  // });
-
-  // // // setClusterId
-
-  // it("should set the clusterId", function(done){
-  //   giantSwarm.setClusterId('fakecluster.example.com');
-  //   expect(giantSwarm._getClusterId()).toEqual("fakecluster.example.com");
-  //   done();
-  // });
-
-  // it("should throw an error on non string clusterIds", function(done){
-  //   expect(function(){giantSwarm.setClusterId(3)}).toThrow();
-  //   expect(function(){giantSwarm.setClusterId()}).toThrow();
-  //   done();
-  // });
-
   // // // setUnauthorizedCallback
 
   // it("should set the callback and call it when a unauthorized call is made", function(done){
@@ -228,21 +192,6 @@ describe("giantSwarm", function() {
   //     fail("Success callback called.")
   //     done();
   //   }, function() {
-  //     done();
-  //   });
-  // });
-
-  // // // // memberships
-
-  // it("should fetch organizations which the current user is a member of", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.memberships(function(data){
-  //     expect(typeof(data)).toEqual('object');
-  //     expect(data.length).toBeGreaterThan(0);
-  //     expect(typeof(data[0])).toEqual('string');
-  //     done();
-  //   }, function(err){
-  //     fail(err);
   //     done();
   //   });
   // });
