@@ -2,7 +2,7 @@ var stampit = require('stampit');
 
 describe("giantSwarm", function() {
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 500;
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
@@ -64,7 +64,9 @@ describe("giantSwarm", function() {
 
   describe("#memberships", function() {
     it("should fetch organizations which the current user is a member of", function(done){
-      giantSwarm.memberships().then(function(response) {
+      request = giantSwarm.memberships();
+
+      request.then(function(response) {
         expect(response).toEqual(['oponder', 'appmonitor', 'giantswarm']);
         done();
       });
