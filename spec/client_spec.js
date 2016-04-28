@@ -137,7 +137,7 @@ describe("giantSwarm", function() {
       this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://localhost:3000'});
 
       this.request = giantSwarm.authenticate({
-        username: configuration.existingUser.password,
+        username: configuration.existingUser.username,
         password: configuration.existingUser.password
       });
     });
@@ -163,7 +163,7 @@ describe("giantSwarm", function() {
       this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://localhost:3000'});
 
       this.request = giantSwarm.authenticate({
-        username: configuration.existingUser.password,
+        username: 'wrong_user',
         password: 'wrong_password'
       });
     });
