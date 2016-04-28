@@ -2,7 +2,7 @@ var stampit = require('stampit');
 
 describe("giantSwarm", function() {
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 500;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
@@ -32,7 +32,7 @@ describe("giantSwarm", function() {
 
     it("should set the websocketEndpoint correctly for https", function(done){
       giantSwarm = GiantSwarm({apiEndpoint: "https://example.com"});
-      expect(giantSwarm.websocketEndpoint()).toEqual("wss://example.com")
+      expect(giantSwarm.websocketEndpoint()).toEqual("wss://example.com");
       done();
     });
 
@@ -40,6 +40,23 @@ describe("giantSwarm", function() {
       it("should validate that apiEndpoint is a valid URL", function(done){
         expect(function() {GiantSwarm({apiEndpoint: 3})}).
         toThrowError("Api endpoint is not a valid url");
+        done();
+      });
+    });
+  });
+
+  describe("#ping", function() {
+    it('should return true when "OK"', function(done) {
+      giantSwarm.ping().then(function(response) {
+        expect(response).toEqual(true);
+        done();
+      });
+    });
+
+    it('should return false otherwise', function(done) {
+      giantSwarm = GiantSwarm({apiEndpoint: "https://google.com"});
+      giantSwarm.ping().then(function(response) {
+        expect(response).toEqual(false);
         done();
       });
     });
@@ -53,53 +70,6 @@ describe("giantSwarm", function() {
       });
     });
   });
-
-  // it("should fetch organizations which the current user is a member of", function(done){
-  //   giantSwarm.memberships(function(data){
-  //     expect(typeof(data)).toEqual('object');
-  //     expect(data.length).toBeGreaterThan(0);
-  //     expect(typeof(data[0])).toEqual('string');
-  //     done();
-  //   }, function(err){
-  //     fail(err);
-  //     done();
-  //   });
-  // });
-
-  // // ping
-
-  // it("should allow me to ping the right server", function(done){
-  //   giantSwarm.ping(function(){
-  //     done();
-  //   }, function(err){
-  //     fail('ping() error callback called. This shouldn\'t have happened.' + err);
-  //     done();
-  //   });
-  // });
-
-  // it("should not allow me to ping google.com", function(done){
-  //   giantSwarm.setApiEndpoint('https://www.google.com');
-  //   giantSwarm.ping(function(){
-  //     fail('ping() success callback called. This shouldn\'t have happened.');
-  //     done();
-  //   }, function(err){
-  //     done();
-  //   });
-  // });
-
-  // it("should forbid to call ping without callback", function(){
-  //   var func = function() {
-  //     giantSwarm.ping();
-  //   };
-  //   expect(func).toThrowError('an onSuccess callback must be given and it must be a function');
-  // });
-
-  // it("should forbid to call ping with non-function parameter", function(){
-  //   var func = function() {
-  //     giantSwarm.ping("foo");
-  //   };
-  //   expect(func).toThrowError('an onSuccess callback must be given and it must be a function');
-  // });
 
   // // // authenticate, user
 
