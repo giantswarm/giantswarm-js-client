@@ -183,34 +183,18 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // setUnauthorizedCallback
+  describe("#organization", function() {
+    it("should fetch organization details", function(done)  {
+      var request = giantSwarm.organization({
+        organizationName: configuration.organizationName
+      });
 
-  // it("should set the callback and call it when a unauthorized call is made", function(done){
-  //   giantSwarm.setAuthToken('invalid_token');
-  //   giantSwarm.setUnauthorizedCallback(function() { done(); });
-  //   giantSwarm.user(function() {
-  //     fail("Success callback called.")
-  //     done();
-  //   }, function() {
-  //     done();
-  //   });
-  // });
-
-  // // // // organization
-
-  // it("should fetch organization details", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.organization(configuration.organizationName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       expect(typeof(data.id)).toEqual('string');
-  //       expect(typeof(data.members)).not.toEqual('undefined');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      request.then(function(response) {
+        expect(response.result.members).toEqual(["oponder"]);
+        done();
+      });
+    });
+  });
 
   // // // // environments
 
@@ -687,5 +671,18 @@ describe("giantSwarm", function() {
   //   secondRequestID = request.req._headers["x-request-id"]
 
   //   expect(firstRequestID).toEqual(secondRequestID);
+  // });
+
+   // // // setUnauthorizedCallback
+
+  // it("should set the callback and call it when a unauthorized call is made", function(done){
+  //   giantSwarm.setAuthToken('invalid_token');
+  //   giantSwarm.setUnauthorizedCallback(function() { done(); });
+  //   giantSwarm.user(function() {
+  //     fail("Success callback called.")
+  //     done();
+  //   }, function() {
+  //     done();
+  //   });
   // });
 });
