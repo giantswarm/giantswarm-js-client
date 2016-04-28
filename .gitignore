@@ -1,3 +1,4 @@
 dist/
 node_modules/
 spec/configuration.js
+npm-debug.log
