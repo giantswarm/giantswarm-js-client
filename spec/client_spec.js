@@ -223,26 +223,20 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // serviceStatus
+  describe("#serviceStatus", function() {
+    it("should fetch the status of a service", function(done) {
+      var request = giantSwarm.serviceStatus({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName
+      });
 
-  // it("should fetch the status of a service", function(done){
-  //   giantSwarm.serviceStatus(configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       expect(typeof(data.name)).not.toEqual('undefined');
-  //       expect(typeof(data.components)).not.toEqual('undefined');
-  //       expect(typeof(data.components[0].instances[0].id)).not.toEqual('undefined');
-  //       expect(typeof(data.components[0].instances[0].status)).not.toEqual('undefined');
-  //       expect(data.components[0].instances[0].create_date).toEqual('2015-08-13T08:46:46.827236888Z');
-  //       expect(typeof(data.status)).not.toEqual('undefined');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      request.then(function(response) {
+        expect(response.result.name).toEqual("known_service");
+        done();
+      });
+    });
+  });
 
   // // // // service definition
 
