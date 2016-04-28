@@ -104,6 +104,20 @@ describe("giantSwarm", function() {
         done();
       })
     });
+
+    it("should use clusterId as X-Giant-Swarm-ClusterID on post calls", function(done) {
+      giantSwarm.clusterId = "bob";
+      var request = giantSwarm.authenticate({
+        username: 'irrelevant',
+        password: 'irrelevant'
+      });
+
+      request.then(function(response) {
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
+        expect(headerValue).toEqual('bob');
+        done();
+      })
+    });
   });
 
   describe("#memberships", function() {
