@@ -31,6 +31,8 @@ describe("giantSwarm", function() {
     });
 
     it("should set the websocketEndpoint correctly for https", function(done){
+      giantSwarm = GiantSwarm({apiEndpoint: "https://example.com"});
+      expect(giantSwarm.websocketEndpoint()).toEqual("wss://example.com")
       done();
     });
 
@@ -38,24 +40,11 @@ describe("giantSwarm", function() {
       it("should validate that apiEndpoint is a valid URL", function(done){
         expect(function() {GiantSwarm({apiEndpoint: 3})}).
         toThrowError("Api endpoint is not a valid url");
-
         done();
       });
     });
   })
 
-
-  // it("should set the websocketEndpoint correctly for http", function(done){
-  //   giantSwarm.setApiEndpoint("http://api.example.com");
-  //   expect(giantSwarm._getWebsocketEndpoint()).toEqual('ws://api.example.com');
-  //   done();
-  // });
-
-  // it("should set the websocketEndpoint correctly for https", function(done){
-  //   giantSwarm.setApiEndpoint("https://api.example.com");
-  //   expect(giantSwarm._getWebsocketEndpoint()).toEqual('wss://api.example.com');
-  //   done();
-  // });
 
   // it("should fetch organizations which the current user is a member of", function(done){
   //   giantSwarm.memberships(function(data){
