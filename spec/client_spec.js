@@ -253,7 +253,7 @@ describe("giantSwarm", function() {
     });
   });
 
-  describe("#stopService without wait", function() {
+  describe("#stopService", function() {
     beforeEach(function() {
       this.giantSwarm = GiantSwarm(testConfiguration);
       this.request = giantSwarm.stopService({
@@ -284,9 +284,65 @@ describe("giantSwarm", function() {
       this.request.then(function(response) {
         return response.waitForTaskCompletion();
       }).then(function(response){
-        expect(response).toEqual("task done");
+        expect(response.result.status).toEqual("finished");
         done();
       })
+    });
+  });
+
+  describe("#waitFor", function() {
+    it("should wait for a task to be 'finished', repeating the query until that is the case", function(done){
+      var request = giantSwarm.waitFor({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        taskId: 'a-valid-task-id'
+      });
+
+      request.then(function(response) {
+        expect(response.result.status).toEqual("finished");
+        done();
+      });
+    });
+
+    it("should give up eventually and throw an error", function(done){
+      var request = giantSwarm.waitFor({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        taskId: 'a-task-that-never-finishes'
+      });
+
+      request.then(function(response) {
+        fail("this task shouldn't complete");
+        done();
+      }).catch(function(error) {
+        expect(error).toEqual("Maximum number of retries reached while waiting for task: `a-task-that-never-finishes`");
+        done();
+      });
+    });
+
+    it("should be possible to cancel a waitfor", function(done){
+      var request = giantSwarm.waitFor({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        taskId: 'a-task-that-never-finishes'
+      });
+
+      request.cancel();
+
+      request.then(function(response) {
+        fail("this task shouldn't complete");
+        done();
+      }).catch(function(error) {
+        fail("this task shouldn't trigger a failure either because it's been cancelled");
+        done();
+      });
+
+      // Attach a 'finally' that passes the test after 60 miliseconds
+      // Because after 60 miliseconds, giantSwarm.waitFor() would have
+      // reached its max retries and thrown an error already.
+      request.finally(function() {
+        setTimeout(done, 60);
+      });
     });
   });
 
