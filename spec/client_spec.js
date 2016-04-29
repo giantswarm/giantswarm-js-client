@@ -346,22 +346,6 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // service stop
-
-  // it("should stop a service", function(done){
-  //  giantSwarm.stopService(configuration.organizationName,
-  //    configuration.environmentName,
-  //    configuration.serviceName,
-  //    function(data){
-  //      expect(typeof(data)).toEqual('object');
-  //      expect(data.action).toEqual('stop');
-  //      done();
-  //    }, function(err){
-  //      fail(err);
-  //      done();
-  //    });
-  // });
-
   // // // // service start
 
   // it("should start a service", function(done){
