@@ -118,18 +118,32 @@ describe("giantSwarm", function() {
       })
     });
 
-    // it("should convert 0001-01-01T00:00:00Z to null for dates", function(done) {
-    //   var request = giantSwarm.serviceStatus({
-    //     organizationName: configuration.organizationName,
-    //     environmentName: configuration.environmentName,
-    //     serviceName: "deleting_service"
-    //   })
+    it("should convert 0001-01-01T00:00:00Z to null for dates in GET", function(done) {
+      var request = giantSwarm.serviceStatus({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: "deleting_service"
+      })
 
-    //   request.then(function(response) {
-    //     expect(response.result.components[0].instances[0].create_date).toEqual(null);
-    //     done();
-    //   })
-    // });
+      request.then(function(response) {
+        expect(response.result.components[0].instances[0].create_date).toEqual(null);
+        done();
+      })
+    });
+
+    it("should convert 0001-01-01T00:00:00Z to null for dates in POST", function(done) {
+      var request = giantSwarm.startComponent({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: "known_service",
+        componentName: "known_component"
+      })
+
+      request.then(function(response) {
+        expect(response.result.finished_at).toEqual(null);
+        done();
+      })
+    });
   });
 
   describe("#memberships", function() {
