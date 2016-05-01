@@ -679,72 +679,18 @@ describe("giantSwarm", function() {
         done();
       });
     });
+
+    it('does not set the X-Giant-Swarm-Activity header when activity isnt defined', function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+
+      var request = this.giantSwarm.memberships();
+      request.then(function(response){
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-activity'];
+        expect(headerValue).toEqual(undefined);
+        done();
+      });
+    });
   });
-
-  // // Activity Tracking
-
-  // // // setActivity
-
-  // it('sets the X-Giant-Swarm-Activity header', function() {
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.setActivity("doing-a-cool-activity")
-
-  //   var response = giantSwarm.memberships(function(data){}, function(){});
-
-  //   expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-a-cool-activity")
-  // });
-
-  // it('keeps the X-Giant-Swarm-Activity header for all subsequent requests', function() {
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.setActivity("doing-something-that-takes-multiple-api-calls")
-
-  //   var response = giantSwarm.memberships(function(data){}, function(){});
-
-  //   expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
-
-  //   var response_2 = giantSwarm.memberships(function(data){}, function(){});
-
-  //   expect(response.req._headers["x-giant-swarm-activity"]).toEqual("doing-something-that-takes-multiple-api-calls")
-  // });
-
-  // it('does not set the X-Giant-Swarm-Activity header when not called', function() {
-  //   giantSwarm.setAuthToken("valid_token");
-
-  //   var response = giantSwarm.memberships(function(data){}, function(){});
-
-  //   expect(response.req._headers["x-giant-swarm-activity"]).toEqual(undefined)
-  // });
-
-
-  // // Request ID
-  // //
-
-  // it('sets a random request ID for each instantiation of the client', function() {
-  //   giantSwarm.setAuthToken("valid_token");
-  //   var request = giantSwarm.memberships(function(data){}, function(){});
-  //   firstRequestID = request.req._headers["x-request-id"]
-
-  //   giantSwarm2 = new GiantSwarm();
-  //   giantSwarm2.setAuthToken("valid_token");
-  //   var request = giantSwarm2.memberships(function(data){}, function(){});
-  //   secondRequestID = request.req._headers["x-request-id"]
-
-  //   expect(firstRequestID).not.toEqual(secondRequestID);
-  // });
-
-  // // Request ID
-  // //
-
-  // it('uses the same request ID for each request made with the same client', function() {
-  //   giantSwarm.setAuthToken("valid_token");
-  //   var request = giantSwarm.memberships(function(data){}, function(){});
-  //   firstRequestID = request.req._headers["x-request-id"]
-
-  //   var response = giantSwarm.memberships(function(data){}, function(){});
-  //   secondRequestID = request.req._headers["x-request-id"]
-
-  //   expect(firstRequestID).toEqual(secondRequestID);
-  // });
 
    // // // setUnauthorizedCallback
 
