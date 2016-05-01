@@ -660,21 +660,26 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // Null Dates
+  describe("Activity Tracking", function() {
+    it("should use activity as X-Giant-Swarm-Activity", function(done) {
+      giantSwarm.activity = "doing-something-cool";
+      var request = giantSwarm.memberships();
 
-  // it("converts 0001-01-01T00:00:00Z to null for dates", function(done) {
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.serviceStatus(configuration.organizationName,
-  //     configuration.environmentName,
-  //     "deleting_service",
-  //     function(data){
-  //       expect(data.components[0].instances[0].create_date).toEqual(null);
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // }),
+      request.then(function(response) {
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-activity'];
+        expect(headerValue).toEqual('doing-something-cool');
+        done();
+      });
+
+      var request2 = giantSwarm.memberships();
+
+      request.then(function(response) {
+        var headerValue = response.rawResponse.req._headers['x-giant-swarm-activity'];
+        expect(headerValue).toEqual('doing-something-cool');
+        done();
+      });
+    });
+  });
 
   // // Activity Tracking
 
