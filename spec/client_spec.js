@@ -2,7 +2,7 @@ var stampit = require('stampit');
 
 describe("giantSwarm", function() {
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
@@ -117,6 +117,19 @@ describe("giantSwarm", function() {
         done();
       })
     });
+
+    // it("should convert 0001-01-01T00:00:00Z to null for dates", function(done) {
+    //   var request = giantSwarm.serviceStatus({
+    //     organizationName: configuration.organizationName,
+    //     environmentName: configuration.environmentName,
+    //     serviceName: "deleting_service"
+    //   })
+
+    //   request.then(function(response) {
+    //     expect(response.result.components[0].instances[0].create_date).toEqual(null);
+    //     done();
+    //   })
+    // });
   });
 
   describe("#memberships", function() {
@@ -346,320 +359,292 @@ describe("giantSwarm", function() {
     });
   });
 
-  // // // // service start
+  describe("#startService", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.startService({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName
+      });
+    });
 
-  // it("should start a service", function(done){
-  //   giantSwarm.startService(configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     function(data){
-  //       expect(data.action).toEqual('start');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+    it("should return a pending task", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.status).toEqual("pending");
+        done();
+      });
+    });
 
-  // // // // componentStatus
+    it("should return an array of child tasks", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.child_task_ids).toEqual([
+          "abx3glgursu2qh2r"
+        ]);
+        done();
+      });
+    });
 
-  // it("should fetch the status of a known component", function(done){
-  //   giantSwarm.componentStatus(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     configuration.componentName,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       expect(typeof(data.components)).toEqual('object');
-  //       expect(data.components[0].name).toEqual('webserver');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+    it("should be possible to waitfor the task to complete", function(done) {
+      this.request.then(function(response) {
+        return response.waitForTaskCompletion();
+      }).then(function(response){
+        expect(response.result.status).toEqual("finished");
+        done();
+      })
+    });
+  });
 
-  // it("calls the error callback when trying to get status of unknown component", function(done){
-  //   giantSwarm.componentStatus(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     "unknown_component",
-  //     function(data){
-  //       fail("success callback was called for an unkown component");
-  //       done();
-  //     }, function(err){
-  //       done();
-  //     });
-  // });
+  describe("#componentStatus", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.componentStatus({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName,
+        componentName: configuration.componentName
+      });
+    });
 
-  // // // startComponent
+    it("should return the status of a component", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.components[0].name).toEqual("webserver");
+        done();
+      });
+    });
+  });
 
-  // it("starts a known component", function(done){
-  //   giantSwarm.startComponent(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     "known_component",
-  //     function(data){
-  //       done();
-  //     }, function(err){
-  //       fail("error callback was called for a known component " + err);
-  //       done();
-  //     });
-  // });
+  describe("#startComponent", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.startComponent({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName,
+        componentName: configuration.componentName
+      });
+    });
 
-  // it("calls the error callback when starting an unknown component", function(done){
-  //   giantSwarm.startComponent(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     "unknown_component",
-  //     function(data){
-  //       fail("success callback was called for an unknown component");
-  //       done();
-  //     }, function(err){
-  //       done();
-  //     });
-  // });
+    it("should return a pending task", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.status).toEqual("pending");
+        done();
+      });
+    });
 
-  // // // stopComponent
+    it("should return an array of child tasks", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.child_task_ids).toEqual([
+          "1owcueok4z0th1xu"
+        ]);
+        done();
+      });
+    });
 
-  // it("stops a known component", function(done){
-  //   giantSwarm.stopComponent(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     "known_component",
-  //     function(data){
-  //       done();
-  //     }, function(err){
-  //       fail("error callback was called for a known component. " + err);
-  //       done();
-  //     });
-  // });
+    it("should be possible to waitfor the task to complete", function(done) {
+      this.request.then(function(response) {
+        return response.waitForTaskCompletion();
+      }).then(function(response){
+        expect(response.result.status).toEqual("finished");
+        done();
+      })
+    });
+  });
 
-  // it("calls error callback when stopping an unknown component", function(done){
-  //   giantSwarm.stopComponent(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     configuration.serviceName,
-  //     "unknown_component",
-  //     function(data){
-  //       fail("success callback was called for an unknown component");
-  //       done();
-  //     }, function(err){
-  //       done();
-  //     });
-  // });
+  describe("#stopComponent", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.stopComponent({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName,
+        componentName: configuration.componentName
+      });
+    });
 
-  // // Tasks
-  // //
-  // // // wait for
+    it("should return a pending task", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.status).toEqual("pending");
+        done();
+      });
+    });
 
-  // it ("should wait for a task to finish", function(done) {
-  //   giantSwarm.setWaitForTimeout(10); // Reduce the timeout before giving up on a waitfor and
-  //                                     // making a new request, so the test goes faster
+    it("should return an array of child tasks", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.child_task_ids).toEqual([
+          "1owcueok4z0th1xu"
+        ]);
+        done();
+      });
+    });
 
-  //   giantSwarm.waitFor(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     "a-valid-task-id",
-  //     function(data) {
-  //       expect(data.status).toEqual('finished');
-  //       done();
-  //     }, function(err) {
-  //       fail("error callback was called: " + err);
-  //       done();
-  //     });
-  // });
+    it("should be possible to waitfor the task to complete", function(done) {
+      this.request.then(function(response) {
+        return response.waitForTaskCompletion();
+      }).then(function(response){
+        expect(response.result.status).toEqual("finished");
+        done();
+      })
+    });
+  });
 
-  // it ("should fail when maxretries is hit", function(done) {
-  //   giantSwarm.setWaitForTimeout(10);
-  //   giantSwarm.setWaitForMaxRetries(5);
+  describe("#instanceStats", function() {
+    beforeEach(function() {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.instanceStats({
+        organizationName: configuration.organizationName,
+        instanceId: configuration.instanceId
+      });
+    });
 
-  //   giantSwarm.waitFor(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     "a-task-that-never-finishes",
-  //     function(data) {
-  //       fail("success callback was called. This task should never finish.")
-  //       done();
-  //     }, function(err) {
-  //       expect(err).toEqual("Maximum number of 5 retries reached");
-  //       done();
-  //     });
+    it("should fetch the stats of an instance", function(done) {
+      this.request.then(function(response) {
+        expect(response.result.Component).toEqual("webserver");
+        expect(response.result.MemoryCapacityMb).toEqual(512);
+        done();
+      });
+    });
+  });
 
-  //   // Make sure retries are reset when doing a new waitfor request
-  //   giantSwarm.setWaitForMaxRetries(8);
+  describe("#instanceLogs", function() {
+    it("responds with 10 lines by default", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.instanceLogs({
+        organizationName: configuration.organizationName,
+        instanceId: configuration.instanceId
+      });
 
-  //   giantSwarm.waitFor(
-  //     configuration.organizationName,
-  //     configuration.environmentName,
-  //     "a-task-that-never-finishes",
-  //     function(data) {
-  //       fail("success callback was called. This task should never finish.")
-  //       done();
-  //     }, function(err) {
-  //       expect(err).toEqual("Maximum number of 8 retries reached");
-  //       done();
-  //     });
-  // });
+      this.request.then(function(response) {
+        expect(response.result.indexOf("Line 10")).toBeGreaterThan(-1);
+        done();
+      });
+    });
 
+    it("works when there are no log lines returned", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.instanceLogs({
+        organizationName: configuration.organizationName,
+        instanceId: "instanceWithNoLogs",
+      });
 
+      this.request.then(function(response) {
+        expect(response.result).toEqual("");
+        done();
+      });
+    });
 
-  // // // instanceStats
+    it("responds with 2 lines when asked", function(done){
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.instanceLogs({
+        organizationName: configuration.organizationName,
+        instanceId: configuration.instanceId,
+        numLines: 2
+      });
 
-  // it("should fetch the stats of an instance", function(done){
-  //   giantSwarm.instanceStats(configuration.organizationName,
-  //     configuration.instanceId,
-  //     function(data){
-  //       expect(typeof(data)).toEqual('object');
-  //       expect(typeof(data.ComponentName)).not.toEqual('undefined');
-  //       expect(typeof(data.MemoryUsageMb)).not.toEqual('undefined');
-  //       expect(typeof(data.MemoryCapacityMb)).not.toEqual('undefined');
-  //       expect(typeof(data.MemoryUsagePercent)).not.toEqual('undefined');
-  //       expect(typeof(data.CpuUsagePercent)).not.toEqual('undefined');
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      this.request.then(function(response) {
+        expect(response.result).toEqual("Line 1\nLine 2");
+        done();
+      });
+    });
+  });
 
-  // // // instanceLogs
+  describe("#streamLogs", function() {
+    it("returns a websocket with a sensible url to stream logs, calls the message callback onmessage", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.streamLogs({
+        organizationName: configuration.organizationName,
+        instanceIds: [configuration.instanceId],
+      });
 
-  // it("responds with 10 lines by default", function(done){
-  //   giantSwarm.instanceLogs(configuration.organizationName,
-  //     configuration.instanceId,
-  //     null,
-  //     function(data){
-  //       expect(data.indexOf("Line 10")).toBeGreaterThan(-1);
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      this.request.then(function(response) {
+        expect(response.result).toEqual("websocket_token");
+        expect(response.websocket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/logs?p=websocket_token");
+        response.websocket.onmessage = function(message) {
+          expect(message.data).toEqual("Hello");
+          done();
+        }
+      });
+    });
+  });
 
-  // it("works when there are no log lines returned", function(done) {
-  //   giantSwarm.instanceLogs(configuration.organizationName,
-  //     "instanceWithNoLogs",
-  //     null,
-  //     function(data){
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // })
+  describe("#streamStats", function() {
+    it("returns a websocket with a sensible url to stream stats, calls the message callback onmessage", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.streamStats({
+        organizationName: configuration.organizationName,
+        instanceIds: [configuration.instanceId],
+      });
 
-  // it("responds with 2 lines when asked", function(done){
-  //   giantSwarm.instanceLogs(configuration.organizationName,
-  //     configuration.instanceId,
-  //     1,
-  //     function(data){
-  //       expect(data.indexOf("Line 1")).toBeGreaterThan(-1);
-  //       expect(data.indexOf("Line 2")).toBeGreaterThan(-1);
-  //       done();
-  //     }, function(err){
-  //       fail(err);
-  //       done();
-  //     });
-  // });
+      this.request.then(function(response) {
+        expect(response.result).toEqual("websocket_token");
+        expect(response.websocket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/stats?p=websocket_token");
+        response.websocket.onmessage = function(message) {
+          expect(message.data).toEqual("Hello");
+          done();
+        }
+      });
+    });
+  });
 
-  // it("calls error callback for unknown instance", function(done){
-  //   giantSwarm.instanceLogs(configuration.organizationName,
-  //     "invalid_instance",
-  //     1,
-  //     function(data){
-  //       fail("success callback was called for unknown instance")
-  //       done();
-  //     }, function(err){
-  //       done();
-  //     });
-  // });
+  describe("#logout", function() {
+    it("returns true for a logged in user, and unsets the authToken", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.logout();
+      this.request.then(function(response) {
+        expect(response.result).toEqual(true);
+        expect(this.giantSwarm.authToken).toEqual(undefined);
+        done();
+      }.bind(this));
+    });
 
-  // // streamLogs
+    // I don't consider it an exceptional situation if someone tries to log out
+    // with invalid credentials.
+    it("also returns true for a not logged in user, and unsets the authToken", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.giantSwarm.authToken = "invalid_token";
 
-  // it("returns a websocket with a sensible url to stream logs, calls the message callback onmessage", function(done){
-  //   giantSwarm.streamLogs(configuration.organizationName,
-  //     [configuration.instanceId],
-  //     function(message){done();},
-  //     function(socket){
-  //       expect(socket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/logs?p=websocket_token");
-  //       socket.onmessage('test');
-  //     }, function(err){
-  //       fail("error callback was called for known instance " + err)
-  //       done();
-  //     });
-  // });
+      this.request = this.giantSwarm.logout();
+      this.request.then(function(response) {
+        expect(response.result).toEqual(true);
+        expect(this.giantSwarm.authToken).toEqual(undefined);
+        done();
+      }.bind(this));
+    });
+  });
 
+  describe("#isAuthenticated", function() {
+    it("returns true when user is logged in", function(done){
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.isAuthenticated();
+      this.request.then(function(response) {
+        expect(response.result).toEqual(true);
+        done();
+      });
+    });
 
-  // // streamStats
+    it("returns false when user is logged out", function(done){
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.giantSwarm.authToken = "not_logged_in_user";
+      this.request = this.giantSwarm.isAuthenticated();
+      this.request.then(function(response) {
+        expect(response.result).toEqual(false);
+        done();
+      });
+    });
 
-  // it("returns a websocket with a sensible url to stream stats, calls the message callback onmessage", function(done){
-  //   giantSwarm.streamStats(configuration.organizationName,
-  //     [configuration.instanceId],
-  //     2,
-  //     function(message){done();},
-  //     function(socket){
-  //       expect(socket.url).toEqual("ws://localhost:3000/v1/org/oponder/stream/stats?p=websocket_token");
-  //       socket.onmessage('test');
-  //     }, function(err){
-  //       fail("error callback was called for known instance: " +  err)
-  //       done();
-  //     });
-  // });
+    it("throws the exception when response isn't a 401", function(done){
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.giantSwarm.authToken = "token_that_will_500";
 
-
-  // // // logout
-
-  // it("logs out a logged in user", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   var logout = giantSwarm.logout(
-  //     function(data){
-  //       done()
-  //     },
-  //     function(err){
-  //       fail("error callback was called for logged in user " + err)
-  //       done();
-  //     });
-  // });
-
-  // it("calls error callback for non logged in user", function(done){
-  //   giantSwarm.setAuthToken("invalid_token");
-
-  //   giantSwarm.logout(
-  //     function(data){
-  //       fail("success callback was called for invalid token ")
-  //       done()
-  //     },
-  //     function(err){
-  //       done();
-  //     });
-  // });
-
-  // // // isAuthenticated
-
-  // it("returns true when user is logged in", function(done){
-  //   giantSwarm.setAuthToken("valid_token");
-  //   giantSwarm.isAuthenticated(
-  //     function(response){
-  //       expect(response).toEqual(true);
-  //       done();
-  //     });
-  // });
-
-  // it("returns false when user is logged out", function(done){
-  //   giantSwarm.setAuthToken("not_logged_in_user");
-  //   giantSwarm.isAuthenticated(
-  //     function(response){
-  //       expect(response).toEqual(false);
-  //       done();
-  //     });
-  // });
+      this.giantSwarm.isAuthenticated().then(function(response) {
+        fail("Shouldn't have reached this success branch");
+        done();
+      }).catch(function(error) {
+        expect(error.status).toEqual(500);
+        done();
+      });
+    });
+  });
 
   // // Null Dates
 
