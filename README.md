@@ -4,6 +4,22 @@ __Note:__ The code is in a very early stage. Expect many errors and future chang
 
 For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/reference/api/).
 
+All requests are wrapped in a promise. https://www.promisejs.org/
+All promises resolve into an object that looks like this:
+```
+{
+  result: ...,
+  rawResponse: superAgentResponseObject
+}
+```
+
+Requests that return a task also return another promise for waiting on that task
+to complete.
+
+If something goes wrong, then the promise will be rejected with the error, so
+you should always pair your requests with a '.catch()' if you want to properly
+handle errors.
+
 ## Usage
 ```
 // Instantiating
@@ -28,7 +44,7 @@ client.startService({
   serviceName: "a-service-name"
 }).then(function(response){
   console.log("Starting Service...");
-  response.waitForTaskCompletion().then(function(){
+  return response.waitForTaskCompletion().then(function(){
     console.log("Done!");
   })
 }).catch(function(error){
