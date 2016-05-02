@@ -69,22 +69,16 @@ client.stopService({
 
 See `lib/client.js` for more methods.
 
-## Development
+## Building
 
 ```
-npm install gulp
-npm install
-gulp
+make build
 ```
 
-## Running tests
+The result will be in dist/js
+
+## Running lint and tests
 
 ```
 make test
-```
-
-## Running lint
-
-```
-gulp eslint
 ```
