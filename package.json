@@ -21,6 +21,7 @@
     "bluebird": "^3.3.5",
     "js-base64": "^2.1.8",
     "js-data": "2.3.0",
+    "kefir": "^3.2.2",
     "lodash": "^4.11.1",
     "node-uuid": "^1.4.7",
     "stampit": "^2.1.1",

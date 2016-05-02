@@ -1,4 +1,5 @@
 var stampit = require('stampit');
+var Kefir   = require('kefir');
 
 describe("giantSwarm", function() {
 
@@ -692,16 +693,34 @@ describe("giantSwarm", function() {
     });
   });
 
-   // // // setUnauthorizedCallback
+  describe("Request stream", function() {
+    it("should add all requests that are made to the request stream", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
 
-  // it("should set the callback and call it when a unauthorized call is made", function(done){
-  //   giantSwarm.setAuthToken('invalid_token');
-  //   giantSwarm.setUnauthorizedCallback(function() { done(); });
-  //   giantSwarm.user(function() {
-  //     fail("Success callback called.")
-  //     done();
-  //   }, function() {
-  //     done();
-  //   });
-  // });
+      // Pass the test after 4 requests have been made and completed
+      Kefir.stream(function (e) {
+        this.giantSwarm.requestStream.onValue(function(request){
+          request.promise.then(function(response) {
+            e.emit(response);
+          })
+        });
+      }.bind(this)).bufferWithCount(4).onValue(function(responses) {
+        expect(responses.length).toEqual(4);
+        done();
+      });
+
+      this.giantSwarm.ping();
+      this.giantSwarm.memberships();
+      this.giantSwarm.services({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName
+      });
+
+      this.giantSwarm.stopService({
+        organizationName: configuration.organizationName,
+        environmentName: configuration.environmentName,
+        serviceName: configuration.serviceName
+      });
+    });
+  });
 });
