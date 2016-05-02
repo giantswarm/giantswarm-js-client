@@ -21,12 +21,18 @@ you should always pair your requests with a '.catch()' if you want to properly
 handle errors.
 
 ## Usage
+
 ```
-// Instantiating
+// Instantiating with username and password
 
 GiantSwarm = require("./lib/client.js");
 client = GiantSwarm();
 client.authenticate({username: "your-username", password: "your-password"});
+
+// Instantiating with token
+
+GiantSwarm = require("./lib/client.js");
+client = GiantSwarm({authToken: "a-valid-token-here"});
 
 // Getting membership details
 
