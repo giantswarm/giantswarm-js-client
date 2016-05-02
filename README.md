@@ -80,7 +80,7 @@ gulp
 ## Running tests
 
 ```
-npm test
+make test
 ```
 
 ## Running lint

@@ -1,2 +1,5 @@
-watch-tests:
-	fswatch -o lib spec | xargs -n1 -I % sh -c "echo '===== Running Tests =====' && npm test && echo '===== Done =====' && echo ''"
+test: build
+	docker run -ti giantswarm-js-client-tests npm test
+
+build:
+	docker build -t giantswarm-js-client-tests .

@@ -10,8 +10,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "./node_modules/jasmine/bin/jasmine.js",
-    "precommit": "npm test",
-    "prepush": "npm test"
+    "pretest": "./node_modules/gulp/bin/gulp.js eslint"
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,6 @@
     "gulp-sourcemaps": ">=1.5.2",
     "gulp-uglify": ">=1.2.0",
     "gulp-util": ">=3.0.5",
-    "husky": "^0.11.4",
     "jasmine": "^2.3.1",
     "vinyl-buffer": ">=1.0.0",
     "vinyl-source-stream": ">=1.1.0"
