@@ -108,11 +108,11 @@ describe("giantSwarm", function() {
     it("should use clusterId as X-Giant-Swarm-ClusterID on post calls", function(done) {
       giantSwarm.clusterId = "bob";
       var request = giantSwarm.authenticate({
-        username: 'irrelevant',
-        password: 'irrelevant'
+        username: configuration.existingUser.username,
+        password: configuration.existingUser.password
       });
 
-      request.then(function(response) {
+      request.then(response => {
         var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
         expect(headerValue).toEqual('bob');
         done();
@@ -197,15 +197,47 @@ describe("giantSwarm", function() {
     });
 
     it("should not set the authtoken", function(done){
-      this.request.then(function(response) {
+      this.request.catch(function(response) {
         expect(this.giantSwarm.authToken).toEqual(undefined);
         done();
       });
     });
 
-    it("should return false", function(done){
+    it("should reject the promise", function(done){
+      this.request.catch(function(response) {
+        done();
+      });
+    });
+  });
+
+  describe("#authenticate for exceptional situations", function() {
+    beforeEach(function() {
+      // Unset the authToken so we can check it remains unset
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://fake.dev'});
+
+      this.request = giantSwarm.authenticate({
+        username: 'wrong_user',
+        password: 'wrong_password'
+      });
+    });
+
+    it("should not set the authtoken", function(done){
+      this.request.catch(function(response) {
+        expect(this.giantSwarm.authToken).toEqual(undefined);
+        done();
+      });
+    });
+
+    it("shouldn't resolve the promise", function(done){
       this.request.then(function(response) {
-        expect(response.result).toEqual(false);
+        fail("this should not happen");
+      }).catch(error => {
+        done();
+      });
+    });
+
+    it("should reject the promise", function(done){
+      this.request.catch(function(response) {
         done();
       });
     });
