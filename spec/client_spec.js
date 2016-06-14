@@ -9,7 +9,7 @@ describe("giantSwarm", function() {
   var configuration = require('./configuration');
 
   testConfiguration = {
-    apiEndpoint: 'http://docker.dev:8000',
+    apiEndpoint: 'http://docker.dev:9000',
     authToken: 'valid_token'
   };
 
@@ -605,7 +605,7 @@ describe("giantSwarm", function() {
 
       this.request.then(function(response) {
         expect(response.result).toEqual("websocket_token");
-        expect(response.websocket.url).toEqual("ws://docker.dev:8000/v1/org/oponder/stream/logs?p=websocket_token");
+        expect(response.websocket.url).toEqual("ws://docker.dev:9000/v1/org/oponder/stream/logs?p=websocket_token");
         response.websocket.onmessage = function(message) {
           expect(message.data).toEqual("Hello");
           done();
@@ -624,7 +624,7 @@ describe("giantSwarm", function() {
 
       this.request.then(function(response) {
         expect(response.result).toEqual("websocket_token");
-        expect(response.websocket.url).toEqual("ws://docker.dev:8000/v1/org/oponder/stream/stats?p=websocket_token");
+        expect(response.websocket.url).toEqual("ws://docker.dev:9000/v1/org/oponder/stream/stats?p=websocket_token");
         response.websocket.onmessage = function(message) {
           expect(message.data).toEqual("Hello");
           done();
