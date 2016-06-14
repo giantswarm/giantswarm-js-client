@@ -108,7 +108,7 @@ describe("giantSwarm", function() {
     it("should use clusterId as X-Giant-Swarm-ClusterID on post calls", function(done) {
       giantSwarm.clusterId = "bob";
       var request = giantSwarm.authenticate({
-        username: configuration.existingUser.username,
+        usernameOrEmail: configuration.existingUser.username,
         password: configuration.existingUser.password
       });
 
@@ -162,10 +162,10 @@ describe("giantSwarm", function() {
   describe("#authenticate for valid credentials", function() {
     beforeEach(function() {
       // Unset the authToken so we can check that it gets set
-      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:8000'});
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:9000'});
 
       this.request = giantSwarm.authenticate({
-        username: configuration.existingUser.username,
+        usernameOrEmail: configuration.existingUser.username,
         password: configuration.existingUser.password
       });
     });
@@ -188,10 +188,10 @@ describe("giantSwarm", function() {
   describe("#authenticate for invalid credentials", function() {
     beforeEach(function() {
       // Unset the authToken so we can check it remains unset
-      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:8000'});
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:9000'});
 
       this.request = giantSwarm.authenticate({
-        username: 'wrong_user',
+        usernameOrEmail: 'wrong_user',
         password: 'wrong_password'
       });
     });
@@ -216,7 +216,7 @@ describe("giantSwarm", function() {
       this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://fake.dev'});
 
       this.request = giantSwarm.authenticate({
-        username: 'wrong_user',
+        usernameOrEmail: 'wrong_user',
         password: 'wrong_password'
       });
     });
