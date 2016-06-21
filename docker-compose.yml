@@ -1,0 +1,12 @@
+version: "2"
+services:
+  jsclient:
+    build: ./
+    image: giantswarm-js-client-tests
+    command: npm test
+    links:
+      - "mockapi:mockapi"
+  mockapi:
+    image: registry.giantswarm.io/giantswarm/mock-api:latest
+    expose:
+      - 8000

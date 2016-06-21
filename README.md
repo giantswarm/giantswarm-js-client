@@ -1,77 +1,90 @@
-# JavaScript Client for the Giant Swarm API
+# Asynchronous JavaScript Client for the Giant Swarm API
 
 __Note:__ The code is in a very early stage. Expect many errors and future changes. Feel free to contribute by opening issues or pull requests.
 
 For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/reference/api/).
 
+All requests are wrapped in a promise. https://www.promisejs.org/
+All promises resolve into an object that looks like this:
+```
+{
+  result: ...,
+  rawResponse: superAgentResponseObject
+}
+```
+
+Requests that return a task also return another promise for waiting on that task
+to complete.
+
+If something goes wrong, then the promise will be rejected with the error, so
+you should always pair your requests with a '.catch()' if you want to properly
+handle errors.
+
 ## Usage
 
-```javascript
-giantSwarm = new GiantSwarm();
-giantSwarm.ping(function(){
-    console.log("All right.");
-}, function(err) {
-    console.log("Something isn't right", err);
+```
+// Instantiating with username and password
+
+GiantSwarm = require("./lib/client.js");
+client = GiantSwarm();
+client.authenticate({username: "your-username", password: "your-password"});
+
+// Instantiating with token
+
+GiantSwarm = require("./lib/client.js");
+client = GiantSwarm({authToken: "a-valid-token-here"});
+
+// Getting membership details
+
+client.memberships().then(function(response){
+  console.log(response.result); // [organization1, organization2, organization3]
+}).catch(function(error){
+  console.log(error)
 });
 
-giantSwarm.authenticate("my-username", "my-password", function(){
-    console.log("Login successful");
-}, function(err){
-    console.log("Login error.", err);
+// Starting a service
+
+client.startService({
+  organizationName: "an-organization",
+  environmentName: "an-environment",
+  serviceName: "a-service-name"
+}).then(function(response){
+  console.log("Starting Service...");
+  return response.waitForTaskCompletion().then(function(){
+    console.log("Done!");
+  })
+}).catch(function(error){
+  console.log(error)
 });
 
-giantSwarm.applicationStatus("my-org", "my-env", "my-app", function(d){
-    console.log(d);
-}, function(err){
-    console.log(err);
+// Stopping a service
+
+client.stopService({
+  organizationName: "an-organization",
+  environmentName: "an-environment",
+  serviceName: "a-service-name"
+}).then(function(response){
+  console.log("Stopping Service...");
+  response.waitForTaskCompletion().then(function(){
+    console.log("Done!");
+  })
+}).catch(function(error){
+  console.log(error)
 });
-
-// stream log messages
-
-var messageCount = 0;
-var socket = null;
-
-function socketCreateCallback(mySocket) {
-  socket = mySocket;
-}
-
-function messageCallback(msg) {
-  console.log(msg);
-  messageCount++;
-  if (messageCount >= 3) {
-    console.log("Closing after 3 messages...");
-    socket.close();
-  }
-}
-
-function errorCallback(err) {
-  console.log("Error:", err);
-}
-
-var organizationName = 'my-org';
-var instanceIds = ['4lyqvwvqhg0m'];
-
-giantSwarm.streamLogs(organizationName, instanceIds, messageCallback, socketCreateCallback, errorCallback);
 ```
 
 See `lib/client.js` for more methods.
 
-## Development
+## Building
 
 ```
-npm install gulp
-npm install
-gulp
+make build
 ```
 
-## Running tests
+The result will be in dist/js
 
-```
-npm test
-```
+## Running lint and tests
 
-## Running lint
-
-```
-gulp eslint
+```nohighlight
+make test
 ```
