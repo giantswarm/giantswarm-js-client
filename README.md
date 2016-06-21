@@ -85,8 +85,6 @@ The result will be in dist/js
 
 ## Running lint and tests
 
-Make sure the [mock-api](https://github.com/giantswarm/mock-api) is up and running first!
-
-```
+```nohighlight
 make test
 ```

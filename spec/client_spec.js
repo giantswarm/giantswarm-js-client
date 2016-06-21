@@ -9,7 +9,7 @@ describe("giantSwarm", function() {
   var configuration = require('./configuration');
 
   testConfiguration = {
-    apiEndpoint: 'http://docker.dev:9000',
+    apiEndpoint: 'http://mockapi:8000',
     authToken: 'valid_token'
   };
 
@@ -34,14 +34,6 @@ describe("giantSwarm", function() {
       var giantSwarm = GiantSwarm({apiEndpoint: "https://example.com"});
       expect(giantSwarm.websocketEndpoint()).toEqual("wss://example.com");
       done();
-    });
-
-    describe("validation of parameters", function() {
-      it("should validate that apiEndpoint is a valid URL", function(done){
-        expect(function() {GiantSwarm({apiEndpoint: 3})}).
-        toThrowError("Api endpoint is not a valid url");
-        done();
-      });
     });
   });
 
@@ -162,7 +154,7 @@ describe("giantSwarm", function() {
   describe("#authenticate for valid credentials", function() {
     beforeEach(function() {
       // Unset the authToken so we can check that it gets set
-      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:9000'});
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://mockapi:8000'});
 
       this.request = giantSwarm.authenticate({
         usernameOrEmail: configuration.existingUser.username,
@@ -188,7 +180,7 @@ describe("giantSwarm", function() {
   describe("#authenticate for invalid credentials", function() {
     beforeEach(function() {
       // Unset the authToken so we can check it remains unset
-      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://docker.dev:9000'});
+      this.giantSwarm = GiantSwarm({authToken: undefined, apiEndpoint: 'http://mockapi:8000'});
 
       this.request = giantSwarm.authenticate({
         usernameOrEmail: 'wrong_user',
@@ -605,7 +597,7 @@ describe("giantSwarm", function() {
 
       this.request.then(function(response) {
         expect(response.result).toEqual("websocket_token");
-        expect(response.websocket.url).toEqual("ws://docker.dev:9000/v1/org/oponder/stream/logs?p=websocket_token");
+        expect(response.websocket.url).toEqual("ws://mockapi:8000/v1/org/oponder/stream/logs?p=websocket_token");
         response.websocket.onmessage = function(message) {
           expect(message.data).toEqual("Hello");
           done();
@@ -624,7 +616,7 @@ describe("giantSwarm", function() {
 
       this.request.then(function(response) {
         expect(response.result).toEqual("websocket_token");
-        expect(response.websocket.url).toEqual("ws://docker.dev:9000/v1/org/oponder/stream/stats?p=websocket_token");
+        expect(response.websocket.url).toEqual("ws://mockapi:8000/v1/org/oponder/stream/stats?p=websocket_token");
         response.websocket.onmessage = function(message) {
           expect(message.data).toEqual("Hello");
           done();

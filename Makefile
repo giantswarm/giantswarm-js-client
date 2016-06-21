@@ -1,5 +1,6 @@
-test: docker-build
-	docker run -ti giantswarm-js-client-tests npm test
+test:
+	docker-compose build
+	docker-compose up --force-recreate
 
 repl: docker-build
 	docker run -ti giantswarm-js-client-tests node
