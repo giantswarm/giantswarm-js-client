@@ -152,7 +152,7 @@ describe("giantSwarm", function() {
       var request = giantSwarm.memberships();
 
       request.then(function(response) {
-        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm']);
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm', 'validorg']);
         done();
       });
     });
