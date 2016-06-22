@@ -747,4 +747,85 @@ describe("giantSwarm", function() {
       });
     });
   });
+
+  describe("#clusterDetails", function() {
+    describe("for an existing cluster", function() {
+      it("returns details about a valid cluster", function(done){
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterDetails({
+          clusterId: 'valid_cluster_id'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.api_endpoint).toEqual("https://valid_cluster_id.giantswarm-kaas.io");
+          done();
+        });
+      });
+    });
+
+    describe("for a non existing cluster", function() {
+      it("rejects the promise", function(done){
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterDetails({
+          clusterId: 'non_existing_cluster'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(400);
+          expect(error.res.body.status_code).toEqual(10008);
+          done();
+        });
+      });
+    });
+
+    describe("for exceptional situations", function() {
+      it("it rejects the promise", function(done){
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterDetails({
+          clusterId: 'cluster_id_that_will_500'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(500);
+          done();
+        });
+      });
+    });
+  });
+
+  describe("#clusters", function() {
+    describe("for an existing organization with clusters", function() {
+      it("returns a list of clusters", function(done){
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusters({
+          organizationName: 'validorg'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.clusters.length).toEqual(2);
+          done();
+        });
+      });
+    });
+
+    describe("for an existing organization without any clusters", function() {
+      it("returns an empty list of clusters", function(done){
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusters({
+          organizationName: 'some_other_org'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.clusters.length).toEqual(0);
+          done();
+        });
+      });
+    });
+  });
 });
