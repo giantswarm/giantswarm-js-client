@@ -104,7 +104,7 @@ describe("giantSwarm", function() {
         password: configuration.existingUser.password
       });
 
-      request.then(response => {
+      request.then(function(response) {
         var headerValue = response.rawResponse.req._headers['x-giant-swarm-clusterid'];
         expect(headerValue).toEqual('bob');
         done();
@@ -223,7 +223,7 @@ describe("giantSwarm", function() {
     it("shouldn't resolve the promise", function(done){
       this.request.then(function(response) {
         fail("this should not happen");
-      }).catch(error => {
+      }).catch(function(error) {
         done();
       });
     });
