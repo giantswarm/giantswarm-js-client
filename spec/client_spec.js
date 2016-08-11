@@ -248,6 +248,40 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#createOrganization", function() {
+    it("should create an organization", function(done)  {
+      var request = giantSwarm.createOrganization({
+        organizationName: "a-new-org"
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10003);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm', 'validorg', 'a-new-org']);
+        done();
+      });
+    });
+  });
+
+  describe("#deleteOrganization", function() {
+    it("should delete an organization", function(done)  {
+      var request = giantSwarm.deleteOrganization({
+        organizationName: "a-new-org"
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10007);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm', 'validorg']);
+        done();
+      });
+    });
+  });
+
   describe("#environments", function() {
     it("should return an array of environments within an organization", function(done)  {
       var request = giantSwarm.environments({
