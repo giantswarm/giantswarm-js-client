@@ -320,6 +320,42 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#changeEmail", function() {
+    it("should change the logged in user's email address", function(done)  {
+      var request = giantSwarm.changeEmail({
+        old_email: "existing_user@example.com",
+        new_email: "my_new_email@example.com",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.user.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result.email).toEqual("my_new_email@example.com");
+        done();
+      });
+    });
+  });
+
+  describe("#changeEmail", function() {
+    it("should fail to change an email address when the old email is wrong", function(done)  {
+      var request = giantSwarm.changeEmail({
+        old_email: "existing_user@example.com", // Each individual tests does not reset mock-api, so
+                                                // this time around the email is 'my_new_email@example.com'
+                                                // so we can expect this to fail.
+        new_email: "my_new_email@example.com",
+      });
+
+      request.then(function(response) {
+        fail("this shouldn't succeed")
+      })
+      .catch(function(error) {
+        done();
+      });
+    });
+  });
+
   describe("#environments", function() {
     it("should return an array of environments within an organization", function(done)  {
       var request = giantSwarm.environments({
