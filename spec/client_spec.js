@@ -282,6 +282,44 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#addMemberToOrganization", function() {
+    it("should add a member", function(done)  {
+      var request = giantSwarm.addMemberToOrganization({
+        organizationName: "oponder",
+        username: "roberto",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
+      .then(function(response) {
+        expect(response.result.members).toEqual(["oponder", "roberto"]);
+        done();
+      });
+    });
+  });
+
+  describe("#removeMemberFromOrganization", function() {
+    it("should remove a member", function(done)  {
+      var request = giantSwarm.removeMemberFromOrganization({
+        organizationName: "oponder",
+        username: "roberto",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
+      .then(function(response) {
+        expect(response.result.members).toEqual(["oponder"]);
+        done();
+      });
+    });
+  });
+
   describe("#environments", function() {
     it("should return an array of environments within an organization", function(done)  {
       var request = giantSwarm.environments({
