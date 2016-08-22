@@ -10,3 +10,5 @@ services:
     image: registry.giantswarm.io/giantswarm/mock-api:latest
     expose:
       - 8000
+    environment:
+      DELAY_MS: 0
