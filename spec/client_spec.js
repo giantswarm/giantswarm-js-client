@@ -248,6 +248,114 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#createOrganization", function() {
+    it("should create an organization", function(done)  {
+      var request = giantSwarm.createOrganization({
+        organizationName: "a-new-org"
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10003);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm', 'validorg', 'a-new-org']);
+        done();
+      });
+    });
+  });
+
+  describe("#deleteOrganization", function() {
+    it("should delete an organization", function(done)  {
+      var request = giantSwarm.deleteOrganization({
+        organizationName: "a-new-org"
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10007);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result).toEqual(['oponder', 'appmonitor', 'giantswarm', 'validorg']);
+        done();
+      });
+    });
+  });
+
+  describe("#addMemberToOrganization", function() {
+    it("should add a member", function(done)  {
+      var request = giantSwarm.addMemberToOrganization({
+        organizationName: "oponder",
+        username: "roberto",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
+      .then(function(response) {
+        expect(response.result.members).toEqual(["oponder", "roberto"]);
+        done();
+      });
+    });
+  });
+
+  describe("#removeMemberFromOrganization", function() {
+    it("should remove a member", function(done)  {
+      var request = giantSwarm.removeMemberFromOrganization({
+        organizationName: "oponder",
+        username: "roberto",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.memberships.bind(giantSwarm))
+      .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
+      .then(function(response) {
+        expect(response.result.members).toEqual(["oponder"]);
+        done();
+      });
+    });
+  });
+
+  describe("#changeEmail", function() {
+    it("should change the logged in user's email address", function(done)  {
+      var request = giantSwarm.changeEmail({
+        old_email: "existing_user@example.com",
+        new_email: "my_new_email@example.com",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+      })
+      .then(giantSwarm.user.bind(giantSwarm))
+      .then(function(response) {
+        expect(response.result.email).toEqual("my_new_email@example.com");
+        done();
+      });
+    });
+  });
+
+  describe("#changeEmail", function() {
+    it("should fail to change an email address when the old email is wrong", function(done)  {
+      var request = giantSwarm.changeEmail({
+        old_email: "existing_user@example.com", // Each individual tests does not reset mock-api, so
+                                                // this time around the email is 'my_new_email@example.com'
+                                                // so we can expect this to fail.
+        new_email: "my_new_email@example.com",
+      });
+
+      request.then(function(response) {
+        fail("this shouldn't succeed")
+      })
+      .catch(function(error) {
+        done();
+      });
+    });
+  });
+
   describe("#environments", function() {
     it("should return an array of environments within an organization", function(done)  {
       var request = giantSwarm.environments({
