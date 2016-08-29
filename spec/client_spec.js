@@ -910,6 +910,66 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#createClusterKeyPair", function() {
+    describe("for an existing cluster", function() {
+      it("returns details about the created key-pair", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterDetails({
+          clusterId: 'valid_cluster_id',
+          description: 'my personal description for this key-pair'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.description).toEqual("my personal description for this key-pair");
+          done();
+        });
+
+      });
+    });
+
+    describe("for a non existing cluster", function() {
+      it("rejects the promise", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'non_existing_cluster',
+          description: 'some description'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(400);
+          expect(error.res.body.status_code).toEqual(10008);
+          done();
+        });
+
+      });
+    });
+
+    describe("for exceptional situations", function() {
+      it("it rejects the promise", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'cluster_id_that_will_500',
+          description: 'some description'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(500);
+          done();
+        });
+
+      });
+    });
+  });
+
   describe("#clusters", function() {
     describe("for an existing organization with clusters", function() {
       it("returns a list of clusters", function(done){
