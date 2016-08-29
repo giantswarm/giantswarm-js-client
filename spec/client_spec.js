@@ -323,7 +323,7 @@ describe("giantSwarm", function() {
   describe("#changeEmail", function() {
     it("should change the logged in user's email address", function(done)  {
       var request = giantSwarm.changeEmail({
-        old_email: "existing_user@example.com",
+        old_email: "brad@example.com",
         new_email: "my_new_email@example.com",
       });
 
@@ -334,6 +334,9 @@ describe("giantSwarm", function() {
       .then(function(response) {
         expect(response.result.email).toEqual("my_new_email@example.com");
         done();
+      })
+      .catch(function(error) {
+        fail(error);
       });
     });
   });
