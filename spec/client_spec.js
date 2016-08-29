@@ -915,7 +915,7 @@ describe("giantSwarm", function() {
       it("returns details about the created key-pair", function(done){
 
         this.giantSwarm = GiantSwarm(testConfiguration);
-        this.request = this.giantSwarm.clusterDetails({
+        this.request = this.giantSwarm.createClusterKeyPair({
           clusterId: 'valid_cluster_id',
           description: 'my personal description for this key-pair'
         });
@@ -923,6 +923,9 @@ describe("giantSwarm", function() {
         this.request.then(function(response) {
           expect(response.result.description).toEqual("my personal description for this key-pair");
           done();
+        })
+        .catch(function(error) {
+          fail(error);
         });
 
       });
