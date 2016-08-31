@@ -910,6 +910,55 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#clusterKeyPairs", function() {
+    describe("for an existing cluster, with no key-pairs yet", function() {
+      it("returns an empty array", function(done) {
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterKeyPairs({
+          clusterId: 'valid_cluster_id'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.key_pairs).toEqual([]);
+          done();
+        })
+        .catch(function(error) {
+          fail(error);
+        });
+      });
+    });
+
+    describe("for an existing cluster, after creating a key-pair", function() {
+      it("returns that key pair", function(done) {
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'valid_cluster_id',
+          description: 'just testing :D',
+          ttl_hours: 200
+        })
+        .then(function() {
+          return this.giantSwarm.clusterKeyPairs({
+            clusterId: 'valid_cluster_id'
+          });
+        })
+        .then(function(response) {
+          expect(response.result.key_pairs.length).toEqual(1);
+          console.log(response.result.key_pairs);
+          expect(response.result.key_pairs[0].description).toEqual("just testing :D");
+          expect(response.result.key_pairs[0].ttl_hours).toEqual(200);
+          done();
+        })
+        .catch(function(error) {
+          fail(error);
+        });
+
+      });
+    });
+  });
+
   describe("#createClusterKeyPair", function() {
     describe("for an existing cluster", function() {
       it("returns details about the created key-pair", function(done){
