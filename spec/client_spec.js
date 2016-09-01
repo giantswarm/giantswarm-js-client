@@ -910,6 +910,118 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#clusterKeyPairs", function() {
+    describe("for an existing cluster, with no key-pairs yet", function() {
+      it("returns an empty array", function(done) {
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.clusterKeyPairs({
+          clusterId: 'valid_cluster_id'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.key_pairs).toEqual([]);
+          done();
+        })
+        .catch(function(error) {
+          fail(error);
+        });
+      });
+    });
+
+    describe("for an existing cluster, after creating a key-pair", function() {
+      it("returns that key pair", function(done) {
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'valid_cluster_id',
+          description: 'just testing :D',
+          ttl_hours: 200
+        })
+        .then(function() {
+          return this.giantSwarm.clusterKeyPairs({
+            clusterId: 'valid_cluster_id'
+          });
+        })
+        .then(function(response) {
+          expect(response.result.key_pairs.length).toEqual(1);
+          console.log(response.result.key_pairs);
+          expect(response.result.key_pairs[0].description).toEqual("just testing :D");
+          expect(response.result.key_pairs[0].ttl_hours).toEqual(200);
+          done();
+        })
+        .catch(function(error) {
+          fail(error);
+        });
+
+      });
+    });
+  });
+
+  describe("#createClusterKeyPair", function() {
+    describe("for an existing cluster", function() {
+      it("returns details about the created key-pair", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'valid_cluster_id',
+          description: 'my personal description for this key-pair'
+        });
+
+        this.request.then(function(response) {
+          expect(response.result.description).toEqual("my personal description for this key-pair");
+          done();
+        })
+        .catch(function(error) {
+          fail(error);
+        });
+
+      });
+    });
+
+    describe("for a non existing cluster", function() {
+      it("rejects the promise", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'non_existing_cluster',
+          description: 'some description'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(400);
+          expect(error.res.body.status_code).toEqual(10008);
+          done();
+        });
+
+      });
+    });
+
+    describe("for exceptional situations", function() {
+      it("it rejects the promise", function(done){
+
+        this.giantSwarm = GiantSwarm(testConfiguration);
+        this.request = this.giantSwarm.createClusterKeyPair({
+          clusterId: 'cluster_id_that_will_500',
+          description: 'some description'
+        });
+
+        this.request.then(function(response) {
+          fail("Should not have reached this success branch")
+        })
+        .catch(function(error) {
+          expect(error.status).toEqual(500);
+          done();
+        });
+
+      });
+    });
+  });
+
   describe("#clusters", function() {
     describe("for an existing organization with clusters", function() {
       it("returns a list of clusters", function(done){
