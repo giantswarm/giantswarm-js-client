@@ -64,6 +64,9 @@ describe("giantSwarm", function() {
       // and the test should fail if it does get called.
       request.then(function(response) {
         fail("this callback should never be called!")
+      })
+      .catch(function(error) {
+        // Late cancellation error is expected.
       });
 
       // Attach a 'finally' that passes the test after 60 miliseconds
@@ -1015,6 +1018,34 @@ describe("giantSwarm", function() {
           expect(response.result.clusters.length).toEqual(0);
           done();
         });
+      });
+    });
+  });
+
+  describe("unauthorized callback", function() {
+    describe("when the unauthorized callback is set", function() {
+      it("gets called whenever a 401 is returend", function(done) {
+        this.giantSwarm = GiantSwarm({
+          apiEndpoint: 'http://mockapi:8000',
+          authToken: 'wrong_token',
+          onUnauthorized: function() {
+            done("correctly called onUnauthorized callback");
+          }
+        });
+
+        this.request = this.giantSwarm.user();
+
+        this.request.then(function(response) {
+          fail('Should not have reached a succesful response');
+        })
+        .catch(function(error) {
+          // We're not checking that catch gets executed too
+          // other tests do that.
+          //
+          // What's important is the 'onAuthorized' callback up there.
+        });
+
+
       });
     });
   });
