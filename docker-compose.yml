@@ -8,7 +8,7 @@ services:
       - "mockapi:mockapi"
   mockapi:
     image: registry.giantswarm.io/giantswarm/mock-api:latest
-    expose:
-      - 8000
+    ports:
+      - "8000:8000"
     environment:
       DELAY_MS: 0
