@@ -1,7 +1,5 @@
 # Asynchronous JavaScript Client for the Giant Swarm API
 
-__Note:__ The code is in a very early stage. Expect many errors and future changes. Feel free to contribute by opening issues or pull requests.
-
 For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/reference/api/).
 
 All requests are wrapped in a promise. https://www.promisejs.org/
@@ -74,6 +72,27 @@ client.stopService({
 ```
 
 See `lib/client.js` for more methods.
+
+## Initialization parameters
+
+When creating a GiantSwarm client, you can pass in some initialization parameters
+
+|Param name|Default value|Description|
+|-------|------|---------|
+|apiEndpoint|https://api.giantswarm.io|Should point to the GiantSwarm API|
+|authToken|*optional*|You can provide a valid authentication token here to skip authentication|
+|clusterId|*optional*|Select what cluster you want to operate on. For those with multiple clusters on our first-gen platform|
+|onUnauthorized|*optional*|A callback that gets called whenever any request returns 401|
+
+Example:
+
+```
+client = GiantSwarm({
+  onUnauthorized: function() {
+    console.log('You made a unauthorized request!');
+  }
+});
+```
 
 ## Building
 

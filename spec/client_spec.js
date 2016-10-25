@@ -1,5 +1,4 @@
 var stampit = require('stampit');
-var Kefir   = require('kefir');
 
 describe("giantSwarm", function() {
 
@@ -65,6 +64,9 @@ describe("giantSwarm", function() {
       // and the test should fail if it does get called.
       request.then(function(response) {
         fail("this callback should never be called!")
+      })
+      .catch(function(error) {
+        // Late cancellation error is expected.
       });
 
       // Attach a 'finally' that passes the test after 60 miliseconds
@@ -828,37 +830,6 @@ describe("giantSwarm", function() {
     });
   });
 
-  describe("Request stream", function() {
-    it("should add all requests that are made to the request stream", function(done) {
-      this.giantSwarm = GiantSwarm(testConfiguration);
-
-      // Pass the test after 4 requests have been made and completed
-      Kefir.stream(function (e) {
-        this.giantSwarm.requestStream.onValue(function(request){
-          request.promise.then(function(response) {
-            e.emit(response);
-          })
-        });
-      }.bind(this)).bufferWithCount(4).onValue(function(responses) {
-        expect(responses.length).toEqual(4);
-        done();
-      });
-
-      this.giantSwarm.ping();
-      this.giantSwarm.memberships();
-      this.giantSwarm.services({
-        organizationName: configuration.organizationName,
-        environmentName: configuration.environmentName
-      });
-
-      this.giantSwarm.stopService({
-        organizationName: configuration.organizationName,
-        environmentName: configuration.environmentName,
-        serviceName: configuration.serviceName
-      });
-    });
-  });
-
   describe("#clusterDetails", function() {
     describe("for an existing cluster", function() {
       it("returns details about a valid cluster", function(done){
@@ -946,7 +917,6 @@ describe("giantSwarm", function() {
         })
         .then(function(response) {
           expect(response.result.key_pairs.length).toEqual(1);
-          console.log(response.result.key_pairs);
           expect(response.result.key_pairs[0].description).toEqual("just testing :D");
           expect(response.result.key_pairs[0].ttl_hours).toEqual(200);
           done();
@@ -1048,6 +1018,34 @@ describe("giantSwarm", function() {
           expect(response.result.clusters.length).toEqual(0);
           done();
         });
+      });
+    });
+  });
+
+  describe("unauthorized callback", function() {
+    describe("when the unauthorized callback is set", function() {
+      it("gets called whenever a 401 is returend", function(done) {
+        this.giantSwarm = GiantSwarm({
+          apiEndpoint: 'http://mockapi:8000',
+          authToken: 'wrong_token',
+          onUnauthorized: function() {
+            done("correctly called onUnauthorized callback");
+          }
+        });
+
+        this.request = this.giantSwarm.user();
+
+        this.request.then(function(response) {
+          fail('Should not have reached a succesful response');
+        })
+        .catch(function(error) {
+          // We're not checking that catch gets executed too
+          // other tests do that.
+          //
+          // What's important is the 'onAuthorized' callback up there.
+        });
+
+
       });
     });
   });
