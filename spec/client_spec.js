@@ -361,6 +361,55 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("#changePassword", function() {
+    it("should change the logged in user's password", function(done)  {
+      var request = giantSwarm.changePassword({
+        old_password: "somepassword",
+        new_password: "newpassword",
+      });
+
+      request.then(function(response) {
+        expect(response.result.status_code).toEqual(10006);
+        done();
+      })
+      .catch(function(error) {
+        fail(error);
+      });
+    });
+
+    it("should throw an error if something goes wrong on the server", function(done)  {
+      var request = giantSwarm.changePassword({
+        old_password: "simulate_server_error",
+        new_password: "newpassword",
+      });
+
+      request.then(function(response) {
+        console.log(response);
+        fail('we should never have gotten here');
+      })
+      .catch(function(error) {
+        expect(error.status).toEqual(500);
+        done('we throw an error like we expected to');
+      });
+    });
+
+    it("should throw an error if the user gave the wrong old password", function(done)  {
+      var request = giantSwarm.changePassword({
+        old_password: "simulate_user_input_error",
+        new_password: "newpassword",
+      });
+
+      request.then(function(response) {
+        console.log(response);
+        fail('we should never have gotten here');
+      })
+      .catch(function(error) {
+        expect(error.status).toEqual(400);
+        done('we throw an error like we expected to');
+      });
+    });
+  });
+
   describe("#environments", function() {
     it("should return an array of environments within an organization", function(done)  {
       var request = giantSwarm.environments({
