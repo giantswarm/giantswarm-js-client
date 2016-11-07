@@ -1,6 +1,6 @@
 {
   "name": "giantswarm",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Client for the Giant Swarm API",
   "main": "lib/client.js",
   "homepage": "https://github.com/giantswarm/giantswarm-js-client",
