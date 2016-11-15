@@ -940,7 +940,7 @@ describe("giantSwarm", function() {
         });
 
         this.request.then(function(response) {
-          expect(response.result.key_pairs).toEqual([]);
+          expect(response.result).toEqual([]);
           done();
         })
         .catch(function(error) {
@@ -965,9 +965,9 @@ describe("giantSwarm", function() {
           });
         })
         .then(function(response) {
-          expect(response.result.key_pairs.length).toEqual(1);
-          expect(response.result.key_pairs[0].description).toEqual("just testing :D");
-          expect(response.result.key_pairs[0].ttl_hours).toEqual(200);
+          expect(response.result.length).toEqual(1);
+          expect(response.result[0].description).toEqual("just testing :D");
+          expect(response.result[0].ttl_hours).toEqual(200);
           done();
         })
         .catch(function(error) {
