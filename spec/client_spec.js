@@ -244,7 +244,7 @@ describe("giantSwarm", function() {
       });
 
       request.then(function(response) {
-        expect(response.result.members).toEqual(["oponder"]);
+        expect(response.result.members).toEqual([{ username: 'oponder', email: 'oliver.ponder@gmail.com' }]);
         done();
       });
     });
@@ -288,7 +288,7 @@ describe("giantSwarm", function() {
     it("should add a member", function(done)  {
       var request = giantSwarm.addMemberToOrganization({
         organizationName: "oponder",
-        username: "roberto",
+        email: "roberto@test.com",
       });
 
       request.then(function(response) {
@@ -297,7 +297,7 @@ describe("giantSwarm", function() {
       .then(giantSwarm.memberships.bind(giantSwarm))
       .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
       .then(function(response) {
-        expect(response.result.members).toEqual(["oponder", "roberto"]);
+        expect(response.result.members.map((x) => x.email)).toEqual(["oliver.ponder@gmail.com", "roberto@test.com"]);
         done();
       });
     });
@@ -307,7 +307,7 @@ describe("giantSwarm", function() {
     it("should remove a member", function(done)  {
       var request = giantSwarm.removeMemberFromOrganization({
         organizationName: "oponder",
-        username: "roberto",
+        email: "roberto@test.com",
       });
 
       request.then(function(response) {
@@ -316,7 +316,7 @@ describe("giantSwarm", function() {
       .then(giantSwarm.memberships.bind(giantSwarm))
       .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
       .then(function(response) {
-        expect(response.result.members).toEqual(["oponder"]);
+        expect(response.result.members.map((x) => x.email)).toEqual(["oliver.ponder@gmail.com"]);
         done();
       });
     });
@@ -1067,6 +1067,24 @@ describe("giantSwarm", function() {
           expect(response.result.clusters.length).toEqual(0);
           done();
         });
+      });
+    });
+  });
+
+  describe("create cluster", function() {
+    it("returns 201 on success", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.createCluster({
+        clusterName: "A test cluster",
+        kubernetesVersion: "1.4.6",
+        owner: "oponder"
+      });
+
+      this.request.then(function(response) {
+        expect(response.rawResponse.status).toEqual(201);
+        done();
+      }).catch(function(error) {
+        fail(error);
       });
     });
   });
