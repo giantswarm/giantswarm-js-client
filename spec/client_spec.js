@@ -1089,6 +1089,64 @@ describe("giantSwarm", function() {
     });
   });
 
+  describe("delete cluster", function() {
+    it("returns 202 on success", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "valid_cluster_id",
+      });
+
+      this.request.then(function(response) {
+        expect(response.rawResponse.status).toEqual(202);
+        done();
+      }).catch(function(error) {
+        fail(error);
+      });
+    });
+
+    it("fails with 404 on unknown clusterId", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "somerandomclusterid",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(404);
+        done();
+      });
+    });
+
+    it("fails with 403 on forbidden clusterId", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "forbidden_cluster",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(403);
+        done();
+      });
+    });
+
+    it("returns 500 if something failed on the server", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "cluster_id_that_will_500",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(500);
+        done();
+      });
+    });
+  });
+
   describe("unauthorized callback", function() {
     describe("when the unauthorized callback is set", function() {
       it("gets called whenever a 401 is returend", function(done) {
