@@ -888,7 +888,7 @@ describe("giantSwarm", function() {
         });
 
         this.request.then(function(response) {
-          expect(response.result.api_endpoint).toEqual("https://valid_cluster_id.giantswarm-kaas.io");
+          expect(response.result.api_endpoint).toEqual("https://api.valid_cluster_id.k8s.gigantic.io");
           done();
         });
       });
@@ -905,8 +905,7 @@ describe("giantSwarm", function() {
           fail("Should not have reached this success branch")
         })
         .catch(function(error) {
-          expect(error.status).toEqual(400);
-          expect(error.res.body.status_code).toEqual(10008);
+          expect(error.status).toEqual(404);
           done();
         });
       });
