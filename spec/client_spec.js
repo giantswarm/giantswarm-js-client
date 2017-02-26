@@ -244,7 +244,7 @@ describe("giantSwarm", function() {
       });
 
       request.then(function(response) {
-        expect(response.result.members).toEqual(["oponder"]);
+        expect(response.result.members).toEqual([{ username: 'oponder', email: 'oliver.ponder@gmail.com' }]);
         done();
       });
     });
@@ -288,7 +288,7 @@ describe("giantSwarm", function() {
     it("should add a member", function(done)  {
       var request = giantSwarm.addMemberToOrganization({
         organizationName: "oponder",
-        username: "roberto",
+        email: "roberto@test.com",
       });
 
       request.then(function(response) {
@@ -297,7 +297,7 @@ describe("giantSwarm", function() {
       .then(giantSwarm.memberships.bind(giantSwarm))
       .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
       .then(function(response) {
-        expect(response.result.members).toEqual(["oponder", "roberto"]);
+        expect(response.result.members.map((x) => x.email)).toEqual(["oliver.ponder@gmail.com", "roberto@test.com"]);
         done();
       });
     });
@@ -307,7 +307,7 @@ describe("giantSwarm", function() {
     it("should remove a member", function(done)  {
       var request = giantSwarm.removeMemberFromOrganization({
         organizationName: "oponder",
-        username: "roberto",
+        email: "roberto@test.com",
       });
 
       request.then(function(response) {
@@ -316,7 +316,7 @@ describe("giantSwarm", function() {
       .then(giantSwarm.memberships.bind(giantSwarm))
       .then(giantSwarm.organization.bind(giantSwarm, {organizationName: "oponder"}))
       .then(function(response) {
-        expect(response.result.members).toEqual(["oponder"]);
+        expect(response.result.members.map((x) => x.email)).toEqual(["oliver.ponder@gmail.com"]);
         done();
       });
     });
@@ -888,7 +888,7 @@ describe("giantSwarm", function() {
         });
 
         this.request.then(function(response) {
-          expect(response.result.api_endpoint).toEqual("https://valid_cluster_id.giantswarm-kaas.io");
+          expect(response.result.api_endpoint).toEqual("https://api.valid_cluster_id.k8s.gigantic.io");
           done();
         });
       });
@@ -905,8 +905,7 @@ describe("giantSwarm", function() {
           fail("Should not have reached this success branch")
         })
         .catch(function(error) {
-          expect(error.status).toEqual(400);
-          expect(error.res.body.status_code).toEqual(10008);
+          expect(error.status).toEqual(404);
           done();
         });
       });
@@ -1067,6 +1066,82 @@ describe("giantSwarm", function() {
           expect(response.result.clusters.length).toEqual(0);
           done();
         });
+      });
+    });
+  });
+
+  describe("create cluster", function() {
+    it("returns 201 on success", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.createCluster({
+        clusterName: "A test cluster",
+        kubernetesVersion: "1.4.6",
+        owner: "oponder"
+      });
+
+      this.request.then(function(response) {
+        expect(response.rawResponse.status).toEqual(201);
+        done();
+      }).catch(function(error) {
+        fail(error);
+      });
+    });
+  });
+
+  describe("delete cluster", function() {
+    it("returns 202 on success", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "valid_cluster_id",
+      });
+
+      this.request.then(function(response) {
+        expect(response.rawResponse.status).toEqual(202);
+        done();
+      }).catch(function(error) {
+        fail(error);
+      });
+    });
+
+    it("fails with 404 on unknown clusterId", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "somerandomclusterid",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(404);
+        done();
+      });
+    });
+
+    it("fails with 403 on forbidden clusterId", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "forbidden_cluster",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(403);
+        done();
+      });
+    });
+
+    it("returns 500 if something failed on the server", function(done) {
+      this.giantSwarm = GiantSwarm(testConfiguration);
+      this.request = this.giantSwarm.deleteCluster({
+        clusterId: "cluster_id_that_will_500",
+      });
+
+      this.request.then(function(response) {
+        fail("Should not have reached the success branch.")
+      }).catch(function(error) {
+        expect(error.status).toEqual(500);
+        done();
       });
     });
   });
