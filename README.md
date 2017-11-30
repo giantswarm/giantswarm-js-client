@@ -1,6 +1,6 @@
 # Asynchronous JavaScript Client for the Giant Swarm API
 
-For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/reference/api/).
+For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/api).
 
 All requests are wrapped in a promise. https://www.promisejs.org/
 All promises resolve into an object that looks like this:
