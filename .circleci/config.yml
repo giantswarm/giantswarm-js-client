@@ -11,7 +11,7 @@ jobs:
           name: Update npm
           command: |
             npm --version
-            npm set progress=false && sudo npm install -g process-nextick-args util-deprecate && sudo npm install -g npm@latest
+            npm set progress=false && sudo npm install -g process-nextick-args util-deprecate isarray && sudo npm install -g npm@latest
             npm --version
 
       - restore_cache:
