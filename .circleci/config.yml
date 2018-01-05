@@ -11,8 +11,8 @@ jobs:
           name: Update npm
           command: |
             npm --version
-            sudo npm install -g --no-progress process-nextick-args util-deprecate isarray && sudo npm install -g --no-progress npm@latest
-            npm --version
+            #sudo npm install -g --no-progress process-nextick-args util-deprecate isarray core-util-is && sudo npm install -g --no-progress npm@latest
+            #npm --version
 
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
