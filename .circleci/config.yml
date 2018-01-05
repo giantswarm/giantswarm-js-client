@@ -8,14 +8,18 @@ jobs:
       - checkout
 
       - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
+          name: Update npm
+          command: |
+            npm set progress=false
+            npm --version
+            sudo npm install -g npm@latest
+            npm --version
 
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run:
-          name: npm install
+          name: Install dependencies from package.json
           command: npm install
 
       - save_cache:
@@ -30,5 +34,5 @@ jobs:
             ncu
 
       - run:
-          name: test
+          name: Run tests
           command: npm test
