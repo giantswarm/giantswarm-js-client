@@ -31,7 +31,3 @@ jobs:
           command: |
             sudo npm install -g --no-progress npm-check-updates
             ncu
-
-      - run:
-          name: Run tests
-          command: npm test
