@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/giantswarm/giantswarm-js-client.svg?style=svg)](https://circleci.com/gh/giantswarm/giantswarm-js-client)
+
 # Asynchronous JavaScript Client for the Giant Swarm API
 
 For details about the Giant Swarm API, please check out the [API documentation](https://docs.giantswarm.io/api).
