@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/giantswarm-js-client
+    docker:
+      - image: circleci/node:6-stretch
+    steps:
+      - checkout
+
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run:
+          name: npm install
+          command: npm install
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      - run:
+          name: Check for dependency updates
+          command: |
+            npm install -g npm-check-updates
+            ncu
+
+      - run:
+          name: test
+          command: npm test
