@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "browserify": ">=10.2.4",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-eslint": "4.0.1",
     "gulp-sourcemaps": ">=1.5.2",
     "gulp-uglify": ">=1.2.0",
