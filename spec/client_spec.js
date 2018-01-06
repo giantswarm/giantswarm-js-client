@@ -2,7 +2,7 @@ var stampit = require('stampit');
 
 describe("giantSwarm", function() {
 
-  jasmine.DEFAULT_TIMEOUT_INTERVAL = 4000;
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 500;
 
   var GiantSwarm = require('../lib/client');
   var configuration = require('./configuration');
