@@ -1,9 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/giantswarm-js-client
-    docker:
-      - image: circleci/node:6-stretch
+    machine: true
     steps:
       - checkout
 
