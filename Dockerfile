@@ -5,8 +5,6 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends git build-es
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# RUN npm install utf-8-validate@1.1.0
-# RUN npm install bufferutil@1.1.0
 RUN npm install -g node-gyp
 
 # Install app dependencies
