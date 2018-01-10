@@ -1,0 +1,21 @@
+{
+  "name": "GiantSwarmV4",
+  "version": "4.0.0",
+  "description": "This_is_the_documentation_for_the_Giant_Swarm_API_starting_at_version_v4_For_an_introduction_to_Giant_Swarm_refer_to_the__documentation_site_httpsdocs_giantswarm_io_The_Giant_Swarm_API_attempts_to_behave_in_a___restful___way__As_a_developer_you_acess_recources_using_the_GET_method_and_for_example_delete_them_using_the_same_path_and_the_DELETE_method_Accessing_resources_via_GET_usually_returns_all_information_available_about_a_resource_while_collections_like_for_example_the_list_of_all_clusters_you_have_access_to_only_contain_a_selected_few_attributes_of_each_member_item_Some_requests_like_for_example_the_request_to_create_a_new_cluster_dont_return_the_resource_itself__Instead_the_response_delivers_a_standard_message_body_showing_a_code_and_a_message_part__The_message_contains_information_for_you_or_a_clients_end_user__The_code_attribute_contains_some_string__example_RESOURCE_CREATED_that_is_supposed_to_give_you_details_on_the_state_of_the_operation_in_addition_to_standard_HTTP_status_codes__This_message_format_is_also_used_in_the_case_of_errors__We_provide_a__list_of_all_response_codes_httpsgithub_comgiantswarmapi_specblobmasterdetailsRESPONSE_CODES_md_outside_this_documentation_Feedback_on_the_API_as_well_as_this_documentation_is_welcome_via_supportgiantswarm_io_or_on_IRC_channel__giantswarm_ircirc_freenode_org6667giantswarm_on_freenode__SourceThe_source_of_this_documentation_is_available_on__GitHub_httpsgithub_comgiantswarmapi_spec_",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive"
+  },
+  "browser": {
+    "fs": false
+  },
+  "dependencies": {
+    "superagent": "3.5.2"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
+  }
+}
