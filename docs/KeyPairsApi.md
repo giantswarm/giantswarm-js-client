@@ -26,14 +26,12 @@ let clusterId = "clusterId_example"; // String | Cluster ID
 
 let body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
 
-
-apiInstance.addKeyPair(clusterId, body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addKeyPair(clusterId, body).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -72,14 +70,12 @@ let apiInstance = new GiantSwarmV4.KeyPairsApi();
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 
-
-apiInstance.getKeyPairs(clusterId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getKeyPairs(clusterId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

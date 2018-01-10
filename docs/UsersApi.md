@@ -27,14 +27,12 @@ let email = "email_example"; // String | The user's email address
 
 let body = new GiantSwarmV4.V4CreateUserRequest(); // V4CreateUserRequest | User account details
 
-
-apiInstance.createUser(emailbody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createUser(emailbody).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -73,14 +71,12 @@ let apiInstance = new GiantSwarmV4.UsersApi();
 
 let email = "email_example"; // String | The user's email address
 
-
-apiInstance.deleteUser(email, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.deleteUser(email).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -115,14 +111,12 @@ Returns a list of all users in the system. Currently this endpoint is only avail
 import GiantSwarmV4 from 'GiantSwarmV4';
 
 let apiInstance = new GiantSwarmV4.UsersApi();
-
-apiInstance.getUsers((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getUsers().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

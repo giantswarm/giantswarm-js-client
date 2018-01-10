@@ -35,21 +35,13 @@ export default class InfoApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the getInfo operation.
-     * @callback module:api/InfoApi~getInfoCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4InfoResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get information on the installation
      * Returns a set of details on the installation. The output varies based on the provider used in the installation.  This information is useful for example when creating new cluster, to prevent creating clusters with more worker nodes than possible.  ### Example for an AWS-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;shire\&quot;,     \&quot;provider\&quot;: \&quot;aws\&quot;,     \&quot;datacenter\&quot;: \&quot;eu-central-1\&quot;   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: 20,       \&quot;default\&quot;: 3     },     \&quot;instance_type\&quot;: {       \&quot;options\&quot;: [         \&quot;m3.medium\&quot;, \&quot;m3.large\&quot;, \&quot;m3.xlarge\&quot;       ],       \&quot;default\&quot;: \&quot;m3.large\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example for a KVM-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;isengard\&quot;,     \&quot;provider\&quot;: \&quot;kvm\&quot;,     \&quot;datacenter\&quot;: \&quot;string\&quot;   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: 8,       \&quot;default\&quot;: 3     },     \&quot;cpu_cores\&quot;: {       \&quot;min\&quot;: 1,       \&quot;max\&quot;: 4,       \&quot;default\&quot;: 2     },     \&quot;ram_size_gb\&quot;: {       \&quot;min\&quot;: 2,       \&quot;max\&quot;: 16,       \&quot;default\&quot;: 4     },     \&quot;storage_size_gb\&quot;: {       \&quot;max\&quot;: 250,       \&quot;default\&quot;: 40     } } &#x60;&#x60;&#x60; 
-     * @param {module:api/InfoApi~getInfoCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4InfoResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4InfoResponse} and HTTP response
      */
-    getInfo(callback) {
+    getInfoWithHttpInfo() {
       let postBody = null;
 
 
@@ -70,8 +62,20 @@ export default class InfoApi {
       return this.apiClient.callApi(
         '/v4/info/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * Get information on the installation
+     * Returns a set of details on the installation. The output varies based on the provider used in the installation.  This information is useful for example when creating new cluster, to prevent creating clusters with more worker nodes than possible.  ### Example for an AWS-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;shire\&quot;,     \&quot;provider\&quot;: \&quot;aws\&quot;,     \&quot;datacenter\&quot;: \&quot;eu-central-1\&quot;   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: 20,       \&quot;default\&quot;: 3     },     \&quot;instance_type\&quot;: {       \&quot;options\&quot;: [         \&quot;m3.medium\&quot;, \&quot;m3.large\&quot;, \&quot;m3.xlarge\&quot;       ],       \&quot;default\&quot;: \&quot;m3.large\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example for a KVM-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;isengard\&quot;,     \&quot;provider\&quot;: \&quot;kvm\&quot;,     \&quot;datacenter\&quot;: \&quot;string\&quot;   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: 8,       \&quot;default\&quot;: 3     },     \&quot;cpu_cores\&quot;: {       \&quot;min\&quot;: 1,       \&quot;max\&quot;: 4,       \&quot;default\&quot;: 2     },     \&quot;ram_size_gb\&quot;: {       \&quot;min\&quot;: 2,       \&quot;max\&quot;: 16,       \&quot;default\&quot;: 4     },     \&quot;storage_size_gb\&quot;: {       \&quot;max\&quot;: 250,       \&quot;default\&quot;: 40     } } &#x60;&#x60;&#x60; 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4InfoResponse}
+     */
+    getInfo() {
+      return this.getInfoWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

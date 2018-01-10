@@ -38,22 +38,14 @@ export default class ClustersApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addCluster operation.
-     * @callback module:api/ClustersApi~addClusterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4GenericResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create cluster
      * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are ommitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
      * @param {module:model/V4AddClusterRequest} body New cluster definition
-     * @param {module:api/ClustersApi~addClusterCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    addCluster(body, callback) {
+    addClusterWithHttpInfo(body) {
       let postBody = body;
 
       // verify the required parameter 'body' is set
@@ -79,26 +71,31 @@ export default class ClustersApi {
       return this.apiClient.callApi(
         '/v4/clusters/', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteCluster operation.
-     * @callback module:api/ClustersApi~deleteClusterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4GenericResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Create cluster
+     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are ommitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
+     * @param {module:model/V4AddClusterRequest} body New cluster definition
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
+    addCluster(body) {
+      return this.addClusterWithHttpInfo(body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete cluster
      * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
      * @param {String} clusterId Cluster ID
-     * @param {module:api/ClustersApi~deleteClusterCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteCluster(clusterId, callback) {
+    deleteClusterWithHttpInfo(clusterId) {
       let postBody = null;
 
       // verify the required parameter 'clusterId' is set
@@ -125,26 +122,31 @@ export default class ClustersApi {
       return this.apiClient.callApi(
         '/v4/clusters/{cluster_id}/', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getCluster operation.
-     * @callback module:api/ClustersApi~getClusterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4ClusterDetailsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete cluster
+     * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
+     * @param {String} clusterId Cluster ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
+    deleteCluster(clusterId) {
+      return this.deleteClusterWithHttpInfo(clusterId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get cluster details
      * This operation allows to obtain all available details on a particular cluster. 
      * @param {String} clusterId Cluster ID
-     * @param {module:api/ClustersApi~getClusterCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4ClusterDetailsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
      */
-    getCluster(clusterId, callback) {
+    getClusterWithHttpInfo(clusterId) {
       let postBody = null;
 
       // verify the required parameter 'clusterId' is set
@@ -171,25 +173,30 @@ export default class ClustersApi {
       return this.apiClient.callApi(
         '/v4/clusters/{cluster_id}/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getClusters operation.
-     * @callback module:api/ClustersApi~getClustersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/V4ClusterListItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get cluster details
+     * This operation allows to obtain all available details on a particular cluster. 
+     * @param {String} clusterId Cluster ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
      */
+    getCluster(clusterId) {
+      return this.getClusterWithHttpInfo(clusterId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get clusters
      * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster) operation. 
-     * @param {module:api/ClustersApi~getClustersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/V4ClusterListItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ClusterListItem>} and HTTP response
      */
-    getClusters(callback) {
+    getClustersWithHttpInfo() {
       let postBody = null;
 
 
@@ -210,27 +217,31 @@ export default class ClustersApi {
       return this.apiClient.callApi(
         '/v4/clusters/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the modifyCluster operation.
-     * @callback module:api/ClustersApi~modifyClusterCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4ClusterDetailsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get clusters
+     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster) operation. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ClusterListItem>}
      */
+    getClusters() {
+      return this.getClustersWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Modify cluster
      * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;workers&#x60;: By modifying the array of workers, nodes can be added to increase the cluster&#39;s capacity. See details below.  ### Adding and Removing Worker Nodes (Scaling)  Adding worker nodes to a cluster or removing worker nodes from a cluster works by submitting the &#x60;workers&#x60; attribute, which contains a (sparse) array of worker node defintions.  _Sparse_ here means that all configuration details are optional. In the case that worker nodes are added to a cluster, wherever a configuration detail is missing, defaults will be applied. See [Creating a cluster](#operation/addCluster) for details.  When modifying the cluster resource, you describe the desired state. For scaling, this means that the worker node array submitted must contain as many elements as the cluster should have worker nodes. If your cluster currently has five nodes and you submit a workers array with four elements, this means that one worker node will be removed. If your submitted workers array has six elements, this means one will be added.  As an example, this request body could be used to scale a cluster to three worker nodes:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [{}, {}, {}] } &#x60;&#x60;&#x60;  If the scaled cluster had four worker nodes before, one would be removed. If it had two worker nodes before, one with default settings would be added.  ### Limitations  - Adding and removing worker nodes is currently only supported on AWS-based installations, not on KVM-based ones. - As of now, existing worker nodes cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. - On AWS based clusters, all worker nodes must use the same EC2 instance type (&#x60;instance_type&#x60; node attribute). By not setting an &#x60;instance_type&#x60; when submitting a PATCH request, you ensure that the right instance type is used automatically. 
      * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
      * @param {String} clusterId Cluster ID
-     * @param {module:api/ClustersApi~modifyClusterCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4ClusterDetailsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
      */
-    modifyCluster(body, clusterId, callback) {
+    modifyClusterWithHttpInfo(body, clusterId) {
       let postBody = body;
 
       // verify the required parameter 'body' is set
@@ -262,8 +273,22 @@ export default class ClustersApi {
       return this.apiClient.callApi(
         '/v4/clusters/{cluster_id}/', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * Modify cluster
+     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;workers&#x60;: By modifying the array of workers, nodes can be added to increase the cluster&#39;s capacity. See details below.  ### Adding and Removing Worker Nodes (Scaling)  Adding worker nodes to a cluster or removing worker nodes from a cluster works by submitting the &#x60;workers&#x60; attribute, which contains a (sparse) array of worker node defintions.  _Sparse_ here means that all configuration details are optional. In the case that worker nodes are added to a cluster, wherever a configuration detail is missing, defaults will be applied. See [Creating a cluster](#operation/addCluster) for details.  When modifying the cluster resource, you describe the desired state. For scaling, this means that the worker node array submitted must contain as many elements as the cluster should have worker nodes. If your cluster currently has five nodes and you submit a workers array with four elements, this means that one worker node will be removed. If your submitted workers array has six elements, this means one will be added.  As an example, this request body could be used to scale a cluster to three worker nodes:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [{}, {}, {}] } &#x60;&#x60;&#x60;  If the scaled cluster had four worker nodes before, one would be removed. If it had two worker nodes before, one with default settings would be added.  ### Limitations  - Adding and removing worker nodes is currently only supported on AWS-based installations, not on KVM-based ones. - As of now, existing worker nodes cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. - On AWS based clusters, all worker nodes must use the same EC2 instance type (&#x60;instance_type&#x60; node attribute). By not setting an &#x60;instance_type&#x60; when submitting a PATCH request, you ensure that the right instance type is used automatically. 
+     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
+     * @param {String} clusterId Cluster ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
+     */
+    modifyCluster(body, clusterId) {
+      return this.modifyClusterWithHttpInfo(body, clusterId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

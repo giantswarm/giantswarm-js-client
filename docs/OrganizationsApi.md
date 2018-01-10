@@ -27,14 +27,12 @@ let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-
-apiInstance.addOrganization(organizationId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrganization(organizationId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -72,14 +70,12 @@ let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-
-apiInstance.deleteOrganization(organizationId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.deleteOrganization(organizationId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -117,14 +113,12 @@ let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-
-apiInstance.getOrganization(organizationId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getOrganization(organizationId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -159,14 +153,12 @@ This operation allows to fetch a list of organizations the user is a member of. 
 import GiantSwarmV4 from 'GiantSwarmV4';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
-
-apiInstance.getOrganizations((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getOrganizations().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -203,14 +195,12 @@ let organizationId = "organizationId_example"; // String | An ID for the organiz
 
 let body = new GiantSwarmV4.Body(); // Body | 
 
-
-apiInstance.modifyOrganization(organizationId, body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.modifyOrganization(organizationId, body).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

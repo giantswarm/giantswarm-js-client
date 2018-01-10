@@ -37,22 +37,14 @@ export default class OrganizationsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrganization operation.
-     * @callback module:api/OrganizationsApi~addOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create an organization
      * This operation allows a user to create an organization. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:api/OrganizationsApi~addOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    addOrganization(organizationId, callback) {
+    addOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
 
       // verify the required parameter 'organizationId' is set
@@ -79,26 +71,31 @@ export default class OrganizationsApi {
       return this.apiClient.callApi(
         '/v4/organizations/{organization_id}/', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteOrganization operation.
-     * @callback module:api/OrganizationsApi~deleteOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4GenericResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Create an organization
+     * This operation allows a user to create an organization. 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
+    addOrganization(organizationId) {
+      return this.addOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete an organization
      * This operation allows a user to delete an organization that they are a member of. Admin users can delete any organization. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:api/OrganizationsApi~deleteOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteOrganization(organizationId, callback) {
+    deleteOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
 
       // verify the required parameter 'organizationId' is set
@@ -125,26 +122,31 @@ export default class OrganizationsApi {
       return this.apiClient.callApi(
         '/v4/organizations/{organization_id}/', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getOrganization operation.
-     * @callback module:api/OrganizationsApi~getOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete an organization
+     * This operation allows a user to delete an organization that they are a member of. Admin users can delete any organization. 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
+    deleteOrganization(organizationId) {
+      return this.deleteOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get organization details
      * This operation fetches organization details. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:api/OrganizationsApi~getOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    getOrganization(organizationId, callback) {
+    getOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
 
       // verify the required parameter 'organizationId' is set
@@ -171,25 +173,30 @@ export default class OrganizationsApi {
       return this.apiClient.callApi(
         '/v4/organizations/{organization_id}/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getOrganizations operation.
-     * @callback module:api/OrganizationsApi~getOrganizationsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/V4OrganizationListItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get organization details
+     * This operation fetches organization details. 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
+    getOrganization(organizationId) {
+      return this.getOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get organizations
      * This operation allows to fetch a list of organizations the user is a member of. In the case of an admin user, the result includes all existing organizations. 
-     * @param {module:api/OrganizationsApi~getOrganizationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/V4OrganizationListItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4OrganizationListItem>} and HTTP response
      */
-    getOrganizations(callback) {
+    getOrganizationsWithHttpInfo() {
       let postBody = null;
 
 
@@ -210,27 +217,31 @@ export default class OrganizationsApi {
       return this.apiClient.callApi(
         '/v4/organizations/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the modifyOrganization operation.
-     * @callback module:api/OrganizationsApi~modifyOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get organizations
+     * This operation allows to fetch a list of organizations the user is a member of. In the case of an admin user, the result includes all existing organizations. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4OrganizationListItem>}
      */
+    getOrganizations() {
+      return this.getOrganizationsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Modify organization
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - &#x60;members&#x60;: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
      * @param {module:model/Body} body 
-     * @param {module:api/OrganizationsApi~modifyOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    modifyOrganization(organizationId, body, callback) {
+    modifyOrganizationWithHttpInfo(organizationId, body) {
       let postBody = body;
 
       // verify the required parameter 'organizationId' is set
@@ -262,8 +273,22 @@ export default class OrganizationsApi {
       return this.apiClient.callApi(
         '/v4/organizations/{organization_id}/', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * Modify organization
+     * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - &#x60;members&#x60;: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid. 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @param {module:model/Body} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
+     */
+    modifyOrganization(organizationId, body) {
+      return this.modifyOrganizationWithHttpInfo(organizationId, body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

@@ -27,14 +27,12 @@ let apiInstance = new GiantSwarmV4.ClustersApi();
 
 let body = new GiantSwarmV4.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
 
-
-apiInstance.addCluster(body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addCluster(body).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -72,14 +70,12 @@ let apiInstance = new GiantSwarmV4.ClustersApi();
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 
-
-apiInstance.deleteCluster(clusterId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.deleteCluster(clusterId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -117,14 +113,12 @@ let apiInstance = new GiantSwarmV4.ClustersApi();
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 
-
-apiInstance.getCluster(clusterId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getCluster(clusterId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -159,14 +153,12 @@ This operation fetches a list of clusters.  The result depends on the permission
 import GiantSwarmV4 from 'GiantSwarmV4';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
-
-apiInstance.getClusters((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getClusters().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -203,14 +195,12 @@ let body = new GiantSwarmV4.V4ModifyClusterRequest(); // V4ModifyClusterRequest 
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 
-
-apiInstance.modifyCluster(body, clusterId, , (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.modifyCluster(body, clusterId, ).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

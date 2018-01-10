@@ -20,14 +20,12 @@ Returns a set of details on the installation. The output varies based on the pro
 import GiantSwarmV4 from 'GiantSwarmV4';
 
 let apiInstance = new GiantSwarmV4.InfoApi();
-
-apiInstance.getInfo((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getInfo().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

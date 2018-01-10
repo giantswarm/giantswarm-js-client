@@ -34,21 +34,13 @@ export default class ReleasesApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the getReleases operation.
-     * @callback module:api/ReleasesApi~getReleasesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/V4ReleaseListItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get releases
      * Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases. 
-     * @param {module:api/ReleasesApi~getReleasesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/V4ReleaseListItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ReleaseListItem>} and HTTP response
      */
-    getReleases(callback) {
+    getReleasesWithHttpInfo() {
       let postBody = null;
 
 
@@ -69,8 +61,20 @@ export default class ReleasesApi {
       return this.apiClient.callApi(
         '/v4/releases/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * Get releases
+     * Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ReleaseListItem>}
+     */
+    getReleases() {
+      return this.getReleasesWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

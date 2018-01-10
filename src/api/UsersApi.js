@@ -36,23 +36,15 @@ export default class UsersApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createUser operation.
-     * @callback module:api/UsersApi~createUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4GenericResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4CreateUserRequest} body User account details
-     * @param {module:api/UsersApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    createUser(email, body, callback) {
+    createUserWithHttpInfo(email, body) {
       let postBody = body;
 
       // verify the required parameter 'email' is set
@@ -84,26 +76,32 @@ export default class UsersApi {
       return this.apiClient.callApi(
         '/v4/users/{email}/', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteUser operation.
-     * @callback module:api/UsersApi~deleteUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/V4GenericResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Create user
+     * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
+     * @param {String} email The user&#39;s email address
+     * @param {module:model/V4CreateUserRequest} body User account details
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
+    createUser(email, body) {
+      return this.createUserWithHttpInfo(email, body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
      * @param {String} email The user&#39;s email address
-     * @param {module:api/UsersApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteUser(email, callback) {
+    deleteUserWithHttpInfo(email) {
       let postBody = null;
 
       // verify the required parameter 'email' is set
@@ -130,25 +128,30 @@ export default class UsersApi {
       return this.apiClient.callApi(
         '/v4/users/{email}/', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Callback function to receive the result of the getUsers operation.
-     * @callback module:api/UsersApi~getUsersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/V4UserListItem>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete user
+     * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
+     * @param {String} email The user&#39;s email address
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
+    deleteUser(email) {
+      return this.deleteUserWithHttpInfo(email)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/V4UserListItem>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4UserListItem>} and HTTP response
      */
-    getUsers(callback) {
+    getUsersWithHttpInfo() {
       let postBody = null;
 
 
@@ -169,8 +172,20 @@ export default class UsersApi {
       return this.apiClient.callApi(
         '/v4/users/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
+        authNames, contentTypes, accepts, returnType
       );
+    }
+
+    /**
+     * Get users
+     * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4UserListItem>}
+     */
+    getUsers() {
+      return this.getUsersWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 
