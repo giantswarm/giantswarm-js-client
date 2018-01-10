@@ -21,21 +21,20 @@ This operation is used to create a new Kubernetes cluster for an organization. T
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+let apiInstance = new GiantSwarmV4.ClustersApi();
 
-var body = new GiantSwarmV4.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
+let body = new GiantSwarmV4.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
 
 
-var callback = function(error, data, response) {
+apiInstance.addCluster(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.addCluster(body, callback);
+});
 ```
 
 ### Parameters
@@ -67,21 +66,20 @@ This operation allows to delete a cluster.  __Caution:__ Deleting a cluster caus
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+let apiInstance = new GiantSwarmV4.ClustersApi();
 
-var clusterId = "clusterId_example"; // String | Cluster ID
+let clusterId = "clusterId_example"; // String | Cluster ID
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteCluster(clusterId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.deleteCluster(clusterId, , callback);
+});
 ```
 
 ### Parameters
@@ -113,21 +111,20 @@ This operation allows to obtain all available details on a particular cluster.
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+let apiInstance = new GiantSwarmV4.ClustersApi();
 
-var clusterId = "clusterId_example"; // String | Cluster ID
+let clusterId = "clusterId_example"; // String | Cluster ID
 
 
-var callback = function(error, data, response) {
+apiInstance.getCluster(clusterId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getCluster(clusterId, , callback);
+});
 ```
 
 ### Parameters
@@ -159,18 +156,17 @@ This operation fetches a list of clusters.  The result depends on the permission
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+let apiInstance = new GiantSwarmV4.ClustersApi();
 
-var callback = function(error, data, response) {
+apiInstance.getClusters((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getClusters(callback);
+});
 ```
 
 ### Parameters
@@ -199,23 +195,22 @@ This operation allows to modify an existing cluster.  A cluster modification is 
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+let apiInstance = new GiantSwarmV4.ClustersApi();
 
-var body = new GiantSwarmV4.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
+let body = new GiantSwarmV4.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
 
-var clusterId = "clusterId_example"; // String | Cluster ID
+let clusterId = "clusterId_example"; // String | Cluster ID
 
 
-var callback = function(error, data, response) {
+apiInstance.modifyCluster(body, clusterId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.modifyCluster(body, clusterId, , callback);
+});
 ```
 
 ### Parameters

@@ -17,18 +17,17 @@ Lists all releases available for new clusters or for upgrading existing clusters
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.ReleasesApi();
+let apiInstance = new GiantSwarmV4.ReleasesApi();
 
-var callback = function(error, data, response) {
+apiInstance.getReleases((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getReleases(callback);
+});
 ```
 
 ### Parameters

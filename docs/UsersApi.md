@@ -19,23 +19,22 @@ Creates a users in the system. Currently this endpoint is only available to user
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.UsersApi();
+let apiInstance = new GiantSwarmV4.UsersApi();
 
-var email = "email_example"; // String | The user's email address
+let email = "email_example"; // String | The user's email address
 
-var body = new GiantSwarmV4.V4CreateUserRequest(); // V4CreateUserRequest | User account details
+let body = new GiantSwarmV4.V4CreateUserRequest(); // V4CreateUserRequest | User account details
 
 
-var callback = function(error, data, response) {
+apiInstance.createUser(emailbody, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUser(emailbody, callback);
+});
 ```
 
 ### Parameters
@@ -68,21 +67,20 @@ Deletes a users in the system. Currently this endpoint is only available to user
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.UsersApi();
+let apiInstance = new GiantSwarmV4.UsersApi();
 
-var email = "email_example"; // String | The user's email address
+let email = "email_example"; // String | The user's email address
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUser(email, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.deleteUser(email, callback);
+});
 ```
 
 ### Parameters
@@ -114,18 +112,17 @@ Returns a list of all users in the system. Currently this endpoint is only avail
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.UsersApi();
+let apiInstance = new GiantSwarmV4.UsersApi();
 
-var callback = function(error, data, response) {
+apiInstance.getUsers((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getUsers(callback);
+});
 ```
 
 ### Parameters

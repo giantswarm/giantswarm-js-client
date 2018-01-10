@@ -17,18 +17,17 @@ Returns a set of details on the installation. The output varies based on the pro
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.InfoApi();
+let apiInstance = new GiantSwarmV4.InfoApi();
 
-var callback = function(error, data, response) {
+apiInstance.getInfo((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getInfo(callback);
+});
 ```
 
 ### Parameters

@@ -21,21 +21,20 @@ This operation allows a user to create an organization.
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
-var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
 
-var callback = function(error, data, response) {
+apiInstance.addOrganization(organizationId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.addOrganization(organizationId, , callback);
+});
 ```
 
 ### Parameters
@@ -67,21 +66,20 @@ This operation allows a user to delete an organization that they are a member of
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
-var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteOrganization(organizationId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.deleteOrganization(organizationId, , callback);
+});
 ```
 
 ### Parameters
@@ -113,21 +111,20 @@ This operation fetches organization details.
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
-var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
 
-var callback = function(error, data, response) {
+apiInstance.getOrganization(organizationId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getOrganization(organizationId, , callback);
+});
 ```
 
 ### Parameters
@@ -159,18 +156,17 @@ This operation allows to fetch a list of organizations the user is a member of. 
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
-var callback = function(error, data, response) {
+apiInstance.getOrganizations((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getOrganizations(callback);
+});
 ```
 
 ### Parameters
@@ -199,23 +195,22 @@ This operation allows you to modify an existing organization. You must be a memb
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
-var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-var body = new GiantSwarmV4.Body(); // Body | 
+let body = new GiantSwarmV4.Body(); // Body | 
 
 
-var callback = function(error, data, response) {
+apiInstance.modifyOrganization(organizationId, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.modifyOrganization(organizationId, body, callback);
+});
 ```
 
 ### Parameters

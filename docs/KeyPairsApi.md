@@ -18,23 +18,22 @@ This operation allows to create a new key pair for accessing a specific cluster.
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.KeyPairsApi();
+let apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-var clusterId = "clusterId_example"; // String | Cluster ID
+let clusterId = "clusterId_example"; // String | Cluster ID
 
-var body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
+let body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
 
 
-var callback = function(error, data, response) {
+apiInstance.addKeyPair(clusterId, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.addKeyPair(clusterId, body, callback);
+});
 ```
 
 ### Parameters
@@ -67,21 +66,20 @@ Returns a list of information on all key pairs of a cluster as an array.  The in
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('GiantSwarmV4');
+import GiantSwarmV4 from 'GiantSwarmV4';
 
-var apiInstance = new GiantSwarmV4.KeyPairsApi();
+let apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-var clusterId = "clusterId_example"; // String | Cluster ID
+let clusterId = "clusterId_example"; // String | Cluster ID
 
 
-var callback = function(error, data, response) {
+apiInstance.getKeyPairs(clusterId, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getKeyPairs(clusterId, , callback);
+});
 ```
 
 ### Parameters
