@@ -64,6 +64,9 @@ export default class V4ModifyClusterRequest {
             if (data.hasOwnProperty('owner')) {
                 obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
             }
+            if (data.hasOwnProperty('release_version')) {
+                obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+            }
             if (data.hasOwnProperty('workers')) {
                 obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
             }
@@ -81,6 +84,11 @@ export default class V4ModifyClusterRequest {
     * @member {String} owner
     */
     owner = undefined;
+    /**
+    * Release version to use after an upgrade
+    * @member {String} release_version
+    */
+    release_version = undefined;
     /**
     * Worker node array
     * @member {Array.<module:model/V4NodeDefinition>} workers

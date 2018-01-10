@@ -20,9 +20,9 @@ generate: api-spec
 api-spec:
 	mkdir -p api-spec
 	mkdir -p out
-	curl -sS -o api-spec/spec.yaml https://docs.giantswarm.io/api/yaml/spec.yaml
-	curl -sS -o api-spec/definitions.yaml https://docs.giantswarm.io/api/yaml/definitions.yaml
-	curl -sS -o api-spec/parameters.yaml https://docs.giantswarm.io/api/yaml/parameters.yaml
+	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/spec.yaml
+	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/definitions.yaml
+	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/parameters.yaml
 
 clean:
 	rm -rf api-spec
