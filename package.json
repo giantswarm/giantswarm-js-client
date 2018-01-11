@@ -1,8 +1,10 @@
 {
-  "name": "GiantSwarmV4",
+  "name": "giantswarm-v4",
   "version": "4.0.0",
   "description": "Generated JavaScript client for the Giant Swarm API v4.",
   "license": "Unlicense",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/giantswarm/giantswarm-js-client/",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --recursive"
