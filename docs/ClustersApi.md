@@ -22,6 +22,13 @@ This operation is used to create a new Kubernetes cluster for an organization. T
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
 
@@ -47,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -65,6 +72,13 @@ This operation allows to delete a cluster.  __Caution:__ Deleting a cluster caus
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
 
@@ -90,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -108,6 +122,13 @@ This operation allows to obtain all available details on a particular cluster.
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
 
@@ -133,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -151,6 +172,13 @@ This operation fetches a list of clusters.  The result depends on the permission
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
 apiInstance.getClusters().then((data) => {
@@ -170,7 +198,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -188,6 +216,13 @@ This operation allows to modify an existing cluster.  A cluster modification is 
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.ClustersApi();
 
@@ -216,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

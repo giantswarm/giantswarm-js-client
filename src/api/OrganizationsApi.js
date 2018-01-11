@@ -63,7 +63,7 @@ export default class OrganizationsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4Organization;
@@ -114,7 +114,7 @@ export default class OrganizationsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4GenericResponse;
@@ -165,7 +165,7 @@ export default class OrganizationsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4Organization;
@@ -209,7 +209,7 @@ export default class OrganizationsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [V4OrganizationListItem];
@@ -265,7 +265,7 @@ export default class OrganizationsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4Organization;

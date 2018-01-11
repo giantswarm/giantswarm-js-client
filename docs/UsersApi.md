@@ -20,6 +20,13 @@ Creates a users in the system. Currently this endpoint is only available to user
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.UsersApi();
 
@@ -48,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -66,6 +73,13 @@ Deletes a users in the system. Currently this endpoint is only available to user
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.UsersApi();
 
@@ -91,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -109,6 +123,13 @@ Returns a list of all users in the system. Currently this endpoint is only avail
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.UsersApi();
 apiInstance.getUsers().then((data) => {
@@ -128,7 +149,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

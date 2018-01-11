@@ -22,6 +22,13 @@ This operation allows a user to create an organization.
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
@@ -47,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -65,6 +72,13 @@ This operation allows a user to delete an organization that they are a member of
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
@@ -90,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -108,6 +122,13 @@ This operation fetches organization details.
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
@@ -133,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -151,6 +172,13 @@ This operation allows to fetch a list of organizations the user is a member of. 
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
 apiInstance.getOrganizations().then((data) => {
@@ -170,7 +198,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -188,6 +216,13 @@ This operation allows you to modify an existing organization. You must be a memb
 ### Example
 ```javascript
 import GiantSwarmV4 from 'GiantSwarmV4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
@@ -216,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

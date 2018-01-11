@@ -69,7 +69,7 @@ export default class KeyPairsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4AddKeyPairResponse;
@@ -121,7 +121,7 @@ export default class KeyPairsApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4GetKeyPairsResponse;

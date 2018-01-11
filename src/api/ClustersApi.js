@@ -63,7 +63,7 @@ export default class ClustersApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4GenericResponse;
@@ -114,7 +114,7 @@ export default class ClustersApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4GenericResponse;
@@ -165,7 +165,7 @@ export default class ClustersApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4ClusterDetailsResponse;
@@ -209,7 +209,7 @@ export default class ClustersApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = [V4ClusterListItem];
@@ -265,7 +265,7 @@ export default class ClustersApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4ClusterDetailsResponse;

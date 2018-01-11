@@ -54,7 +54,7 @@ export default class InfoApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['AuthorizationHeaderToken'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = V4InfoResponse;
