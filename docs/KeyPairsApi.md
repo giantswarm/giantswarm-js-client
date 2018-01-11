@@ -18,24 +18,24 @@ This operation allows to create a new key pair for accessing a specific cluster.
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.KeyPairsApi();
+var apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-let clusterId = "clusterId_example"; // String | Cluster ID
+var clusterId = "clusterId_example"; // String | Cluster ID
 
-let body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
+var body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
 
-apiInstance.addKeyPair(clusterId, body).then((data) => {
+apiInstance.addKeyPair(clusterId, body).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
@@ -71,22 +71,22 @@ Returns a list of information on all key pairs of a cluster as an array.  The in
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.KeyPairsApi();
+var apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-let clusterId = "clusterId_example"; // String | Cluster ID
+var clusterId = "clusterId_example"; // String | Cluster ID
 
-apiInstance.getKeyPairs(clusterId, ).then((data) => {
+apiInstance.getKeyPairs(clusterId, ).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 

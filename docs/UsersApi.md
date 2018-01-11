@@ -19,24 +19,24 @@ Creates a users in the system. Currently this endpoint is only available to user
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.UsersApi();
+var apiInstance = new GiantSwarmV4.UsersApi();
 
-let email = "email_example"; // String | The user's email address
+var email = "email_example"; // String | The user's email address
 
-let body = new GiantSwarmV4.V4CreateUserRequest(); // V4CreateUserRequest | User account details
+var body = new GiantSwarmV4.V4CreateUserRequest(); // V4CreateUserRequest | User account details
 
-apiInstance.createUser(emailbody).then((data) => {
+apiInstance.createUser(emailbody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
@@ -72,22 +72,22 @@ Deletes a users in the system. Currently this endpoint is only available to user
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.UsersApi();
+var apiInstance = new GiantSwarmV4.UsersApi();
 
-let email = "email_example"; // String | The user's email address
+var email = "email_example"; // String | The user's email address
 
-apiInstance.deleteUser(email).then((data) => {
+apiInstance.deleteUser(email).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
@@ -122,19 +122,19 @@ Returns a list of all users in the system. Currently this endpoint is only avail
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.UsersApi();
-apiInstance.getUsers().then((data) => {
+var apiInstance = new GiantSwarmV4.UsersApi();
+apiInstance.getUsers().then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 

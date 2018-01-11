@@ -17,19 +17,19 @@ Lists all releases available for new clusters or for upgrading existing clusters
 
 ### Example
 ```javascript
-import GiantSwarmV4 from 'giantswarm-v4';
-let defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
-let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new GiantSwarmV4.ReleasesApi();
-apiInstance.getReleases().then((data) => {
+var apiInstance = new GiantSwarmV4.ReleasesApi();
+apiInstance.getReleases().then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
+}, function(error) {
   console.error(error);
 });
 
