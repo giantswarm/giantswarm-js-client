@@ -1,4 +1,4 @@
-# giantswarm-v4.V4InfoResponseWorkersInstanceType
+# GiantSwarmV4.V4InfoResponseWorkersInstanceType
 
 ## Properties
 Name | Type | Description | Notes

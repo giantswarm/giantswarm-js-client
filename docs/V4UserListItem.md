@@ -1,4 +1,4 @@
-# giantswarm-v4.V4UserListItem
+# GiantSwarmV4.V4UserListItem
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# giantswarm-v4.KeyPairsApi
+# GiantSwarmV4.KeyPairsApi
 
 All URIs are relative to *https://api.giantswarm.io*
 
@@ -18,8 +18,8 @@ This operation allows to create a new key pair for accessing a specific cluster.
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -27,11 +27,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.KeyPairsApi();
+let apiInstance = new GiantSwarmV4.KeyPairsApi();
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 
-let body = new giantswarm-v4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
+let body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when ommitted, the `description` is mandatory. 
 
 apiInstance.addKeyPair(clusterId, body).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -71,8 +71,8 @@ Returns a list of information on all key pairs of a cluster as an array.  The in
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -80,7 +80,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.KeyPairsApi();
+let apiInstance = new GiantSwarmV4.KeyPairsApi();
 
 let clusterId = "clusterId_example"; // String | Cluster ID
 

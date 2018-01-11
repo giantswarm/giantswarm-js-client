@@ -1,4 +1,4 @@
-# giantswarm-v4.V4InfoResponseWorkersCountPerCluster
+# GiantSwarmV4.V4InfoResponseWorkersCountPerCluster
 
 ## Properties
 Name | Type | Description | Notes

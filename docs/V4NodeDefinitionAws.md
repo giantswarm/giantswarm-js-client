@@ -1,4 +1,4 @@
-# giantswarm-v4.V4NodeDefinitionAws
+# GiantSwarmV4.V4NodeDefinitionAws
 
 ## Properties
 Name | Type | Description | Notes

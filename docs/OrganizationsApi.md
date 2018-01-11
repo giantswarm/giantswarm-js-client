@@ -1,4 +1,4 @@
-# giantswarm-v4.OrganizationsApi
+# GiantSwarmV4.OrganizationsApi
 
 All URIs are relative to *https://api.giantswarm.io*
 
@@ -21,8 +21,8 @@ This operation allows a user to create an organization.
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -30,7 +30,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
@@ -71,8 +71,8 @@ This operation allows a user to delete an organization that they are a member of
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -80,7 +80,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
@@ -121,8 +121,8 @@ This operation fetches organization details.
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -130,7 +130,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
@@ -171,8 +171,8 @@ This operation allows to fetch a list of organizations the user is a member of. 
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -180,7 +180,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 apiInstance.getOrganizations().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -215,8 +215,8 @@ This operation allows you to modify an existing organization. You must be a memb
 
 ### Example
 ```javascript
-import giantswarm-v4 from 'giantswarm-v4';
-let defaultClient = giantswarm-v4.ApiClient.instance;
+import GiantSwarmV4 from 'giantswarm-v4';
+let defaultClient = GiantSwarmV4.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 let AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -224,11 +224,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-let apiInstance = new giantswarm-v4.OrganizationsApi();
+let apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 let organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-let body = new giantswarm-v4.Body(); // Body | 
+let body = new GiantSwarmV4.Body(); // Body | 
 
 apiInstance.modifyOrganization(organizationId, body).then((data) => {
   console.log('API called successfully. Returned data: ' + data);

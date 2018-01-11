@@ -1,4 +1,4 @@
-# giantswarm-v4.V4NodeDefinition
+# GiantSwarmV4.V4NodeDefinition
 
 ## Properties
 Name | Type | Description | Notes

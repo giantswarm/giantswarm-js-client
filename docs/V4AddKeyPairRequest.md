@@ -1,4 +1,4 @@
-# giantswarm-v4.V4AddKeyPairRequest
+# GiantSwarmV4.V4AddKeyPairRequest
 
 ## Properties
 Name | Type | Description | Notes
