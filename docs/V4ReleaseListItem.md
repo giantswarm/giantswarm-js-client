@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ReleaseListItem
+# giantswarm-v4.V4ReleaseListItem
 
 ## Properties
 Name | Type | Description | Notes

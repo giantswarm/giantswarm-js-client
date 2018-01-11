@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ClusterListItem
+# giantswarm-v4.V4ClusterListItem
 
 ## Properties
 Name | Type | Description | Notes

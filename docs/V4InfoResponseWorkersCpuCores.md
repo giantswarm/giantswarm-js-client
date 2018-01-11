@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseWorkersCpuCores
+# giantswarm-v4.V4InfoResponseWorkersCpuCores
 
 ## Properties
 Name | Type | Description | Notes

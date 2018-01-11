@@ -1,4 +1,4 @@
-# GiantSwarmV4.Body
+# giantswarm-v4.Body
 
 ## Properties
 Name | Type | Description | Notes

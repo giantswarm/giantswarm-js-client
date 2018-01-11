@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4OrganizationListItem
+# giantswarm-v4.V4OrganizationListItem
 
 ## Properties
 Name | Type | Description | Notes

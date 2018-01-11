@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4NodeDefinitionCpu
+# giantswarm-v4.V4NodeDefinitionCpu
 
 ## Properties
 Name | Type | Description | Notes
