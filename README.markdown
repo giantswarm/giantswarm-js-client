@@ -48,7 +48,7 @@ and tests whenever the API spec has changed. Here is the recipe:
 
 - Create a feature branch
 - In case the `api-spec` folder exists, remove it, so that the latest spec gets
-   fetched: `rm -rf api-spec`
+   fetched: `make clean`
 - Run `make generate`.
 - Review the code changes. Check whether they add/change/remove what you expect.
 - If necessary, start a change process on the [API spec](https://github.com/giantswarm/api-spec/) repo. You can use the local copy in the `api-spec` folder to try out things.
