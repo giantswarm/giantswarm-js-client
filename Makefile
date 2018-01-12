@@ -15,6 +15,7 @@ generate: api-spec
 		--input-spec /repo/api-spec/spec.yaml \
 		--lang javascript \
 		--output /repo
+	mv README.md DOCS.md
 
 # Copies the public API spec YAML to a local folder
 api-spec:
