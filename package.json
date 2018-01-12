@@ -2,31 +2,20 @@
   "name": "giantswarm-v4",
   "version": "4.0.0",
   "description": "Generated JavaScript client for the Giant Swarm API v4.",
-  "license": "Apache-2.0",
-  "repository": "https://github.com/giantswarm/giantswarm-js-client/",
+  "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --recursive"
-  },
-  "browserify": {
-    "transform": ["babelify"]
+    "test": "./node_modules/mocha/bin/mocha --recursive"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.24.1",
     "superagent": "3.5.2"
   },
   "devDependencies": {
-    "babel-core": "6.18.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babelify": "^8.0.0",
-    "expect.js": "~0.3.1",
     "mocha": "~2.3.4",
-    "sinon": "1.17.3"
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
   }
 }

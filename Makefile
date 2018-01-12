@@ -27,3 +27,6 @@ api-spec:
 
 clean:
 	rm -rf api-spec
+
+generate-help:
+	docker run --rm -it jimschubert/swagger-codegen-cli:2.2.3 help generate

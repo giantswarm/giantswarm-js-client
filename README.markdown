@@ -40,3 +40,16 @@ apiInstance.getClusters().then(function(data) {
 ## JavaScript API Documentation
 
 See the generated [DOCS](DOCS.md) file for API documentation.
+
+## Generating Code and a new version
+
+The `Makefile` provides all the tooling required to generate new code, docs
+and tests whenever the API spec has changed. Here is the recipe:
+
+- Create a feature branch
+- In case the `api-spec` folder exists, remove it, so that the latest spec gets
+   fetched: `rm -rf api-spec`
+- Run `make generate`.
+- Review the code changes. Check whether they add/change/remove what you expect.
+- If necessary, start a change process on the [API spec](https://github.com/giantswarm/api-spec/) repo. You can use the local copy in the `api-spec` folder to try out things.
+- Ideally test the changes in a [happa](https://github.com/giantswarm/happa/) branch.

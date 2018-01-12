@@ -5,5 +5,3 @@
 #
 git_push.sh
 .travis.yml
-package.json
-.babelrc
