@@ -46,9 +46,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://api.giantswarm.io
+     * @default https://localhost
      */
-    this.basePath = 'https://api.giantswarm.io'.replace(/\/+$/, '');
+    this.basePath = 'https://localhost'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.

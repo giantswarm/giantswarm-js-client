@@ -1,6 +1,6 @@
 # GiantSwarmV4.ReleasesApi
 
-All URIs are relative to *https://api.giantswarm.io*
+All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
