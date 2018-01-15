@@ -1,33 +1,10 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/giantswarm-js-client
-    docker:
-      - image: circleci/node:6-stretch
+    machine: true
     steps:
       - checkout
 
       - run:
-          name: Update npm
-          command: |
-            npm --version
-            #sudo npm install -g --no-progress process-nextick-args util-deprecate isarray core-util-is && sudo npm install -g --no-progress npm@latest
-            #npm --version
-
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-
-      - run:
-          name: Install dependencies from package.json
-          command: npm install --no-progress
-
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-
-      - run:
-          name: Check for dependency updates
-          command: |
-            sudo npm install -g --no-progress npm-check-updates
-            ncu
+          name: Tests
+          command: make test

@@ -1,4 +1,2 @@
-dist/
+api-spec/
 node_modules/
-spec/configuration.js
-npm-debug.log
