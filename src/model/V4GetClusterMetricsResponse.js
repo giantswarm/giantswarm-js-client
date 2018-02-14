@@ -16,82 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/V4NodeMetrics'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./V4NodeMetrics'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4InfoResponseWorkersRamSizeGb = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4GetClusterMetricsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeMetrics);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, V4NodeMetrics) {
   'use strict';
 
 
 
 
   /**
-   * The V4InfoResponseWorkersRamSizeGb model module.
-   * @module model/V4InfoResponseWorkersRamSizeGb
+   * The V4GetClusterMetricsResponse model module.
+   * @module model/V4GetClusterMetricsResponse
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4InfoResponseWorkersRamSizeGb</code>.
-   * RAM amount per worker node, in GB. Only available for KVM clusters.
-   * @alias module:model/V4InfoResponseWorkersRamSizeGb
+   * Constructs a new <code>V4GetClusterMetricsResponse</code>.
+   * Response for the getClusterMetrics operation
+   * @alias module:model/V4GetClusterMetricsResponse
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
   };
 
   /**
-   * Constructs a <code>V4InfoResponseWorkersRamSizeGb</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetClusterMetricsResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4InfoResponseWorkersRamSizeGb} obj Optional instance to populate.
-   * @return {module:model/V4InfoResponseWorkersRamSizeGb} The populated <code>V4InfoResponseWorkersRamSizeGb</code> instance.
+   * @param {module:model/V4GetClusterMetricsResponse} obj Optional instance to populate.
+   * @return {module:model/V4GetClusterMetricsResponse} The populated <code>V4GetClusterMetricsResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('min')) {
-        obj['min'] = ApiClient.convertToType(data['min'], 'Number');
-      }
-      if (data.hasOwnProperty('max')) {
-        obj['max'] = ApiClient.convertToType(data['max'], 'Number');
-      }
-      if (data.hasOwnProperty('default')) {
-        obj['default'] = ApiClient.convertToType(data['default'], 'Number');
+      if (data.hasOwnProperty('workers')) {
+        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeMetrics]);
       }
     }
     return obj;
   }
 
   /**
-   * Minimum amount of RAM allowed in a worker node.
-   * @member {Number} min
+   * Group of metrics regarding workers
+   * @member {Array.<module:model/V4NodeMetrics>} workers
    */
-  exports.prototype['min'] = undefined;
-  /**
-   * Maximum amount of RAM allowed in a worker node.
-   * @member {Number} max
-   */
-  exports.prototype['max'] = undefined;
-  /**
-   * Default amount of RAM provided in a worker node.
-   * @member {Number} default
-   */
-  exports.prototype['default'] = undefined;
+  exports.prototype['workers'] = undefined;
 
 
 
