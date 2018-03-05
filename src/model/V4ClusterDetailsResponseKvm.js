@@ -16,91 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient', 'model/V4PortMappingDefinition'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'), require('./V4PortMappingDefinition'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4ModifyClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4ClusterDetailsResponseKvm = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4PortMappingDefinition);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient, V4PortMappingDefinition) {
   'use strict';
 
 
 
 
   /**
-   * The V4ModifyClusterRequest model module.
-   * @module model/V4ModifyClusterRequest
+   * The V4ClusterDetailsResponseKvm model module.
+   * @module model/V4ClusterDetailsResponseKvm
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ModifyClusterRequest</code>.
-   * Request body for cluster modification
-   * @alias module:model/V4ModifyClusterRequest
+   * Constructs a new <code>V4ClusterDetailsResponseKvm</code>.
+   * Attributes specific to clusters running on KVM (on-prem) installations.
+   * @alias module:model/V4ClusterDetailsResponseKvm
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>V4ModifyClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4ClusterDetailsResponseKvm</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ModifyClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4ModifyClusterRequest} The populated <code>V4ModifyClusterRequest</code> instance.
+   * @param {module:model/V4ClusterDetailsResponseKvm} obj Optional instance to populate.
+   * @return {module:model/V4ClusterDetailsResponseKvm} The populated <code>V4ClusterDetailsResponseKvm</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
+      if (data.hasOwnProperty('port_mappings')) {
+        obj['port_mappings'] = ApiClient.convertToType(data['port_mappings'], [V4PortMappingDefinition]);
       }
     }
     return obj;
   }
 
   /**
-   * Name for the cluster
-   * @member {String} name
+   * Reveals the ports on the host cluster that are mapped to this guest cluster's ingress and which protocol that port supports. Only shown and relevant on our on-prem KVM clusters. 
+   * @member {Array.<module:model/V4PortMappingDefinition>} port_mappings
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Release version to use after an upgrade
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Worker node array
-   * @member {Array.<module:model/V4NodeDefinition>} workers
-   */
-  exports.prototype['workers'] = undefined;
+  exports.prototype['port_mappings'] = undefined;
 
 
 

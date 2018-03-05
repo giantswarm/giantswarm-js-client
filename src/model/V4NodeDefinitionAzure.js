@@ -16,91 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4ModifyClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4NodeDefinitionAzure = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4ModifyClusterRequest model module.
-   * @module model/V4ModifyClusterRequest
+   * The V4NodeDefinitionAzure model module.
+   * @module model/V4NodeDefinitionAzure
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ModifyClusterRequest</code>.
-   * Request body for cluster modification
-   * @alias module:model/V4ModifyClusterRequest
+   * Constructs a new <code>V4NodeDefinitionAzure</code>.
+   * Attributes specific to nodes running on Microsoft Azure 
+   * @alias module:model/V4NodeDefinitionAzure
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>V4ModifyClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4NodeDefinitionAzure</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ModifyClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4ModifyClusterRequest} The populated <code>V4ModifyClusterRequest</code> instance.
+   * @param {module:model/V4NodeDefinitionAzure} obj Optional instance to populate.
+   * @return {module:model/V4NodeDefinitionAzure} The populated <code>V4NodeDefinitionAzure</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
+      if (data.hasOwnProperty('vm_size')) {
+        obj['vm_size'] = ApiClient.convertToType(data['vm_size'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Name for the cluster
-   * @member {String} name
+   * Azure Virtual Machine size. Must be the same for all worker nodes of a cluster. 
+   * @member {String} vm_size
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Release version to use after an upgrade
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Worker node array
-   * @member {Array.<module:model/V4NodeDefinition>} workers
-   */
-  exports.prototype['workers'] = undefined;
+  exports.prototype['vm_size'] = undefined;
 
 
 

@@ -1,6 +1,6 @@
 /**
  * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you acess recources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterMetricsResponse', 'model/V4ModifyClusterRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterMetricsResponse'), require('../model/V4ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
+    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterMetricsResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterMetricsResponse, V4ModifyClusterRequest) {
   'use strict';
 
   /**
@@ -50,7 +50,7 @@
 
     /**
      * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are ommitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
+     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are omitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
      * @param {module:model/V4AddClusterRequest} body New cluster definition
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
@@ -86,7 +86,7 @@
 
     /**
      * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are ommitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
+     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are omitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The &#x60;workers&#x60; attribute, if present, must contain an array of node definition objects. The number of objects given determines the number of workers created.  For example, requesting three worker nodes with default configuration can be achieved by submitting an array of three empty objects:  &#x60;&#x60;&#x60;\&quot;workers\&quot;: [{}, {}, {}]&#x60;&#x60;&#x60;  For clusters on AWS, note that all worker nodes must use the same instance type. 
      * @param {module:model/V4AddClusterRequest} body New cluster definition
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
@@ -194,6 +194,57 @@
      */
     this.getCluster = function(clusterId) {
       return this.getClusterWithHttpInfo(clusterId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get cluster metrics
+     * This operation returns metrics about current resource usage in the cluster. Currently, all metrics reported concern worker nodes, hence they are grouped under a &#x60;workers&#x60; key.  Here is a shortened example, containing only one metric (&#x60;ram_used&#x60;) and only one worker node:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [     {       \&quot;id\&quot;: \&quot;172.17.0.4\&quot;,       \&quot;metrics\&quot;: {         \&quot;ram_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.185000\&quot;,           \&quot;value\&quot;: 4205494272         },         \&quot;cpu_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.029000\&quot;,           \&quot;value\&quot;: 0.1255365799999         }       }     }   ] } &#x60;&#x60;&#x60;  ### Notes  - The &#x60;id&#x60; value contained in a worker entry should be treated as an arbitrary string identifier. It _may_ in fact be be an IPv4 address, a fully qualified host name, or any other string that uniquely identifies a worker node in this guest cluster.  - Metrics are not guaranteed to provide a value. If the underlying backend cannot provide a recent value fast enough, both the &#x60;value&#x60; and &#x60;timestamp&#x60; key have the &#x60;null&#x60; value.  ### Metrics provided for worker nodes  - &#x60;container_count&#x60;: Number of containers running - &#x60;pod_count&#x60;: Number of pods running - &#x60;cpu_used&#x60;: Number of CPU cores currently used - &#x60;ram_free&#x60;: Free memory in bytes - &#x60;ram_available&#x60;: Memory available for new applications, in bytes - &#x60;ram_cached&#x60;: Memory used for file caches, in bytes - &#x60;ram_buffers&#x60;: Memory used for kernel buffers, in bytes - &#x60;ram_mapped&#x60;: Memory used by mapped files, in bytes - &#x60;node_storage_used&#x60;: Amount of local storage used in bytes - &#x60;network_rx&#x60;: Incoming data volume (Rx) in bytes per second - &#x60;network_tx&#x60;: Outgoing data volume (Tx) in bytes per second - &#x60;resource_cpu_requests&#x60;: Sum of CPU requeszs for containers - &#x60;resource_cpu_limits&#x60;: Sum of CPU limits for containers - &#x60;resource_ram_requests&#x60;: Sum of memory requests for containers - &#x60;resource_ram_limits&#x60;: Sum of memory limits for containers 
+     * @param {String} clusterId Cluster ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterMetricsResponse} and HTTP response
+     */
+    this.getClusterMetricsWithHttpInfo = function(clusterId) {
+      var postBody = null;
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling getClusterMetrics");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GetClusterMetricsResponse;
+
+      return this.apiClient.callApi(
+        '/v4/clusters/{cluster_id}/metrics/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get cluster metrics
+     * This operation returns metrics about current resource usage in the cluster. Currently, all metrics reported concern worker nodes, hence they are grouped under a &#x60;workers&#x60; key.  Here is a shortened example, containing only one metric (&#x60;ram_used&#x60;) and only one worker node:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [     {       \&quot;id\&quot;: \&quot;172.17.0.4\&quot;,       \&quot;metrics\&quot;: {         \&quot;ram_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.185000\&quot;,           \&quot;value\&quot;: 4205494272         },         \&quot;cpu_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.029000\&quot;,           \&quot;value\&quot;: 0.1255365799999         }       }     }   ] } &#x60;&#x60;&#x60;  ### Notes  - The &#x60;id&#x60; value contained in a worker entry should be treated as an arbitrary string identifier. It _may_ in fact be be an IPv4 address, a fully qualified host name, or any other string that uniquely identifies a worker node in this guest cluster.  - Metrics are not guaranteed to provide a value. If the underlying backend cannot provide a recent value fast enough, both the &#x60;value&#x60; and &#x60;timestamp&#x60; key have the &#x60;null&#x60; value.  ### Metrics provided for worker nodes  - &#x60;container_count&#x60;: Number of containers running - &#x60;pod_count&#x60;: Number of pods running - &#x60;cpu_used&#x60;: Number of CPU cores currently used - &#x60;ram_free&#x60;: Free memory in bytes - &#x60;ram_available&#x60;: Memory available for new applications, in bytes - &#x60;ram_cached&#x60;: Memory used for file caches, in bytes - &#x60;ram_buffers&#x60;: Memory used for kernel buffers, in bytes - &#x60;ram_mapped&#x60;: Memory used by mapped files, in bytes - &#x60;node_storage_used&#x60;: Amount of local storage used in bytes - &#x60;network_rx&#x60;: Incoming data volume (Rx) in bytes per second - &#x60;network_tx&#x60;: Outgoing data volume (Tx) in bytes per second - &#x60;resource_cpu_requests&#x60;: Sum of CPU requeszs for containers - &#x60;resource_cpu_limits&#x60;: Sum of CPU limits for containers - &#x60;resource_ram_requests&#x60;: Sum of memory requests for containers - &#x60;resource_ram_limits&#x60;: Sum of memory limits for containers 
+     * @param {String} clusterId Cluster ID
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterMetricsResponse}
+     */
+    this.getClusterMetrics = function(clusterId) {
+      return this.getClusterMetricsWithHttpInfo(clusterId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

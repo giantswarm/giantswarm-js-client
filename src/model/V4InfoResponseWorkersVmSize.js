@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4ModifyClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4InfoResponseWorkersVmSize = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4ModifyClusterRequest model module.
-   * @module model/V4ModifyClusterRequest
+   * The V4InfoResponseWorkersVmSize model module.
+   * @module model/V4InfoResponseWorkersVmSize
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ModifyClusterRequest</code>.
-   * Request body for cluster modification
-   * @alias module:model/V4ModifyClusterRequest
+   * Constructs a new <code>V4InfoResponseWorkersVmSize</code>.
+   * Azure Virtual Machine size to be used for worker nodes. Only available for Azure clusters.
+   * @alias module:model/V4InfoResponseWorkersVmSize
    * @class
    */
   var exports = function() {
@@ -50,57 +50,39 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>V4ModifyClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4InfoResponseWorkersVmSize</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ModifyClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4ModifyClusterRequest} The populated <code>V4ModifyClusterRequest</code> instance.
+   * @param {module:model/V4InfoResponseWorkersVmSize} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseWorkersVmSize} The populated <code>V4InfoResponseWorkersVmSize</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('options')) {
+        obj['options'] = ApiClient.convertToType(data['options'], ['String']);
       }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
+      if (data.hasOwnProperty('default')) {
+        obj['default'] = ApiClient.convertToType(data['default'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Name for the cluster
-   * @member {String} name
+   * List of available instance types
+   * @member {Array.<String>} options
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['options'] = undefined;
   /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
+   * The instance type used in new cluster, if not specified
+   * @member {String} default
    */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Release version to use after an upgrade
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Worker node array
-   * @member {Array.<module:model/V4NodeDefinition>} workers
-   */
-  exports.prototype['workers'] = undefined;
+  exports.prototype['default'] = undefined;
 
 
 
