@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4ReleaseListItemComponents();
+    instance = new GiantSwarmV4.V4NodeMetricsMetricsContainerCount();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,22 +49,22 @@
       object[property] = value;
   }
 
-  describe('V4ReleaseListItemComponents', function() {
-    it('should create an instance of V4ReleaseListItemComponents', function() {
-      // uncomment below and update the code to test V4ReleaseListItemComponents
-      //var instane = new GiantSwarmV4.V4ReleaseListItemComponents();
-      //expect(instance).to.be.a(GiantSwarmV4.V4ReleaseListItemComponents);
+  describe('V4NodeMetricsMetricsContainerCount', function() {
+    it('should create an instance of V4NodeMetricsMetricsContainerCount', function() {
+      // uncomment below and update the code to test V4NodeMetricsMetricsContainerCount
+      //var instane = new GiantSwarmV4.V4NodeMetricsMetricsContainerCount();
+      //expect(instance).to.be.a(GiantSwarmV4.V4NodeMetricsMetricsContainerCount);
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarmV4.V4ReleaseListItemComponents();
+    it('should have the property timestamp (base name: "timestamp")', function() {
+      // uncomment below and update the code to test the property timestamp
+      //var instane = new GiantSwarmV4.V4NodeMetricsMetricsContainerCount();
       //expect(instance).to.be();
     });
 
-    it('should have the property version (base name: "version")', function() {
-      // uncomment below and update the code to test the property version
-      //var instane = new GiantSwarmV4.V4ReleaseListItemComponents();
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
+      //var instane = new GiantSwarmV4.V4NodeMetricsMetricsContainerCount();
       //expect(instance).to.be();
     });
 
