@@ -10,7 +10,7 @@ test:
 generate: api-spec
 	docker run --rm -it \
 	  -v ${PWD}:/repo \
-		jimschubert/swagger-codegen-cli:2.3.1 generate \
+		jimschubert/swagger-codegen-cli:2.2.3 generate \
 		--config /repo/swagger-codegen-conf.json \
 		--input-spec /repo/api-spec/spec.yaml \
 		--lang javascript \
