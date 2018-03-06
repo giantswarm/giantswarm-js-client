@@ -1,6 +1,6 @@
 /**
  * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you acess recources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersCpuCores', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersRamSizeGb', 'model/V4InfoResponseWorkersStorageSizeGb', 'model/V4ModifyClusterRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
+    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4ClusterDetailsResponse', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseKvmPortMappings', 'model/V4ClusterListItem', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetClusterMetricsResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersVmSize', 'model/V4ModifyClusterRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4NodeMetrics', 'model/V4NodeMetricsMetrics', 'model/V4NodeMetricsMetricsContainerCount', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/MetricsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterListItem'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersCpuCores'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersRamSizeGb'), require('./model/V4InfoResponseWorkersStorageSizeGb'), require('./model/V4ModifyClusterRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterDetailsResponseKvm'), require('./model/V4ClusterDetailsResponseKvmPortMappings'), require('./model/V4ClusterListItem'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetClusterMetricsResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersVmSize'), require('./model/V4ModifyClusterRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionAzure'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4NodeMetrics'), require('./model/V4NodeMetricsMetrics'), require('./model/V4NodeMetricsMetricsContainerCount'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/MetricsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
   }
-}(function(ApiClient, Body, V4AddClusterRequest, V4AddKeyPairRequest, V4AddKeyPairResponse, V4ClusterDetailsResponse, V4ClusterListItem, V4CreateUserRequest, V4GenericResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseGeneral, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersCpuCores, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersRamSizeGb, V4InfoResponseWorkersStorageSizeGb, V4ModifyClusterRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, ClustersApi, InfoApi, KeyPairsApi, OrganizationsApi, ReleasesApi, UsersApi) {
+}(function(ApiClient, Body, V4AddClusterRequest, V4AddKeyPairRequest, V4AddKeyPairResponse, V4ClusterDetailsResponse, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseKvmPortMappings, V4ClusterListItem, V4CreateUserRequest, V4GenericResponse, V4GetClusterMetricsResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseGeneral, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersVmSize, V4ModifyClusterRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4NodeMetrics, V4NodeMetricsMetrics, V4NodeMetricsMetricsContainerCount, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, ClustersApi, InfoApi, KeyPairsApi, MetricsApi, OrganizationsApi, ReleasesApi, UsersApi) {
   'use strict';
 
   /**
@@ -87,6 +87,16 @@
      */
     V4ClusterDetailsResponse: V4ClusterDetailsResponse,
     /**
+     * The V4ClusterDetailsResponseKvm model constructor.
+     * @property {module:model/V4ClusterDetailsResponseKvm}
+     */
+    V4ClusterDetailsResponseKvm: V4ClusterDetailsResponseKvm,
+    /**
+     * The V4ClusterDetailsResponseKvmPortMappings model constructor.
+     * @property {module:model/V4ClusterDetailsResponseKvmPortMappings}
+     */
+    V4ClusterDetailsResponseKvmPortMappings: V4ClusterDetailsResponseKvmPortMappings,
+    /**
      * The V4ClusterListItem model constructor.
      * @property {module:model/V4ClusterListItem}
      */
@@ -101,6 +111,11 @@
      * @property {module:model/V4GenericResponse}
      */
     V4GenericResponse: V4GenericResponse,
+    /**
+     * The V4GetClusterMetricsResponse model constructor.
+     * @property {module:model/V4GetClusterMetricsResponse}
+     */
+    V4GetClusterMetricsResponse: V4GetClusterMetricsResponse,
     /**
      * The V4GetKeyPairsResponse model constructor.
      * @property {module:model/V4GetKeyPairsResponse}
@@ -132,25 +147,15 @@
      */
     V4InfoResponseWorkersCountPerCluster: V4InfoResponseWorkersCountPerCluster,
     /**
-     * The V4InfoResponseWorkersCpuCores model constructor.
-     * @property {module:model/V4InfoResponseWorkersCpuCores}
-     */
-    V4InfoResponseWorkersCpuCores: V4InfoResponseWorkersCpuCores,
-    /**
      * The V4InfoResponseWorkersInstanceType model constructor.
      * @property {module:model/V4InfoResponseWorkersInstanceType}
      */
     V4InfoResponseWorkersInstanceType: V4InfoResponseWorkersInstanceType,
     /**
-     * The V4InfoResponseWorkersRamSizeGb model constructor.
-     * @property {module:model/V4InfoResponseWorkersRamSizeGb}
+     * The V4InfoResponseWorkersVmSize model constructor.
+     * @property {module:model/V4InfoResponseWorkersVmSize}
      */
-    V4InfoResponseWorkersRamSizeGb: V4InfoResponseWorkersRamSizeGb,
-    /**
-     * The V4InfoResponseWorkersStorageSizeGb model constructor.
-     * @property {module:model/V4InfoResponseWorkersStorageSizeGb}
-     */
-    V4InfoResponseWorkersStorageSizeGb: V4InfoResponseWorkersStorageSizeGb,
+    V4InfoResponseWorkersVmSize: V4InfoResponseWorkersVmSize,
     /**
      * The V4ModifyClusterRequest model constructor.
      * @property {module:model/V4ModifyClusterRequest}
@@ -167,6 +172,11 @@
      */
     V4NodeDefinitionAws: V4NodeDefinitionAws,
     /**
+     * The V4NodeDefinitionAzure model constructor.
+     * @property {module:model/V4NodeDefinitionAzure}
+     */
+    V4NodeDefinitionAzure: V4NodeDefinitionAzure,
+    /**
      * The V4NodeDefinitionCpu model constructor.
      * @property {module:model/V4NodeDefinitionCpu}
      */
@@ -181,6 +191,21 @@
      * @property {module:model/V4NodeDefinitionStorage}
      */
     V4NodeDefinitionStorage: V4NodeDefinitionStorage,
+    /**
+     * The V4NodeMetrics model constructor.
+     * @property {module:model/V4NodeMetrics}
+     */
+    V4NodeMetrics: V4NodeMetrics,
+    /**
+     * The V4NodeMetricsMetrics model constructor.
+     * @property {module:model/V4NodeMetricsMetrics}
+     */
+    V4NodeMetricsMetrics: V4NodeMetricsMetrics,
+    /**
+     * The V4NodeMetricsMetricsContainerCount model constructor.
+     * @property {module:model/V4NodeMetricsMetricsContainerCount}
+     */
+    V4NodeMetricsMetricsContainerCount: V4NodeMetricsMetricsContainerCount,
     /**
      * The V4Organization model constructor.
      * @property {module:model/V4Organization}
@@ -231,6 +256,11 @@
      * @property {module:api/KeyPairsApi}
      */
     KeyPairsApi: KeyPairsApi,
+    /**
+     * The MetricsApi service constructor.
+     * @property {module:api/MetricsApi}
+     */
+    MetricsApi: MetricsApi,
     /**
      * The OrganizationsApi service constructor.
      * @property {module:api/OrganizationsApi}

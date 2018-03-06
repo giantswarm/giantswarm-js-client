@@ -1,6 +1,6 @@
 /**
  * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you acess recources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage'], factory);
+    define(['ApiClient', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinitionAws'), require('./V4NodeDefinitionCpu'), require('./V4NodeDefinitionMemory'), require('./V4NodeDefinitionStorage'));
+    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinitionAws'), require('./V4NodeDefinitionAzure'), require('./V4NodeDefinitionCpu'), require('./V4NodeDefinitionMemory'), require('./V4NodeDefinitionStorage'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4NodeDefinition = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinitionAws, root.GiantSwarmV4.V4NodeDefinitionCpu, root.GiantSwarmV4.V4NodeDefinitionMemory, root.GiantSwarmV4.V4NodeDefinitionStorage);
+    root.GiantSwarmV4.V4NodeDefinition = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinitionAws, root.GiantSwarmV4.V4NodeDefinitionAzure, root.GiantSwarmV4.V4NodeDefinitionCpu, root.GiantSwarmV4.V4NodeDefinitionMemory, root.GiantSwarmV4.V4NodeDefinitionStorage);
   }
-}(this, function(ApiClient, V4NodeDefinitionAws, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage) {
+}(this, function(ApiClient, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage) {
   'use strict';
 
 
@@ -52,6 +52,7 @@
 
 
 
+
   };
 
   /**
@@ -67,6 +68,9 @@
 
       if (data.hasOwnProperty('aws')) {
         obj['aws'] = V4NodeDefinitionAws.constructFromObject(data['aws']);
+      }
+      if (data.hasOwnProperty('azure')) {
+        obj['azure'] = V4NodeDefinitionAzure.constructFromObject(data['azure']);
       }
       if (data.hasOwnProperty('memory')) {
         obj['memory'] = V4NodeDefinitionMemory.constructFromObject(data['memory']);
@@ -88,6 +92,10 @@
    * @member {module:model/V4NodeDefinitionAws} aws
    */
   exports.prototype['aws'] = undefined;
+  /**
+   * @member {module:model/V4NodeDefinitionAzure} azure
+   */
+  exports.prototype['azure'] = undefined;
   /**
    * @member {module:model/V4NodeDefinitionMemory} memory
    */
