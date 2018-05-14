@@ -51,6 +51,7 @@
 
 
 
+
   };
 
   /**
@@ -76,6 +77,9 @@
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
       }
+      if (data.hasOwnProperty('release_version')) {
+        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+      }
     }
     return obj;
   }
@@ -100,6 +104,11 @@
    * @member {String} owner
    */
   exports.prototype['owner'] = undefined;
+  /**
+   * The semantic version number of this cluster
+   * @member {String} release_version
+   */
+  exports.prototype['release_version'] = undefined;
 
 
 
