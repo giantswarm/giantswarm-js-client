@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createUser**](UsersApi.md#createUser) | **PUT** /v4/users/{email}/ | Create user
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /v4/users/{email}/ | Delete user
+[**getCurrentUser**](UsersApi.md#getCurrentUser) | **GET** /v4/user/ | Get current user
+[**getUser**](UsersApi.md#getUser) | **GET** /v4/users/{email}/ | Get user
 [**getUsers**](UsersApi.md#getUsers) | **GET** /v4/users/ | Get users
 
 
@@ -102,6 +104,100 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V4GenericResponse**](V4GenericResponse.md)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getCurrentUser"></a>
+# **getCurrentUser**
+> V4UserListItem getCurrentUser()
+
+Get current user
+
+Returns details about the currently authenticated user 
+
+### Example
+```javascript
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarmV4.UsersApi();
+apiInstance.getCurrentUser().then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**V4UserListItem**](V4UserListItem.md)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getUser"></a>
+# **getUser**
+> V4UserListItem getUser(email)
+
+Get user
+
+Returns details about a specific user 
+
+### Example
+```javascript
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarmV4.UsersApi();
+
+var email = "email_example"; // String | The user's email address
+
+apiInstance.getUser(email).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **String**| The user&#39;s email address | 
+
+### Return type
+
+[**V4UserListItem**](V4UserListItem.md)
 
 ### Authorization
 

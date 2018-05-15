@@ -140,6 +140,8 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.ReleasesApi* | [**getReleases**](docs/ReleasesApi.md#getReleases) | **GET** /v4/releases/ | Get releases
 *GiantSwarmV4.UsersApi* | [**createUser**](docs/UsersApi.md#createUser) | **PUT** /v4/users/{email}/ | Create user
 *GiantSwarmV4.UsersApi* | [**deleteUser**](docs/UsersApi.md#deleteUser) | **DELETE** /v4/users/{email}/ | Delete user
+*GiantSwarmV4.UsersApi* | [**getCurrentUser**](docs/UsersApi.md#getCurrentUser) | **GET** /v4/user/ | Get current user
+*GiantSwarmV4.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /v4/users/{email}/ | Get user
 *GiantSwarmV4.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /v4/users/ | Get users
 
 
