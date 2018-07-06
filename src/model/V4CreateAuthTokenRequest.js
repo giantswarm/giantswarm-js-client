@@ -25,7 +25,7 @@
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddKeyPairRequest = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4CreateAuthTokenRequest = factory(root.GiantSwarmV4.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,73 +34,54 @@
 
 
   /**
-   * The V4AddKeyPairRequest model module.
-   * @module model/V4AddKeyPairRequest
+   * The V4CreateAuthTokenRequest model module.
+   * @module model/V4CreateAuthTokenRequest
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddKeyPairRequest</code>.
-   * @alias module:model/V4AddKeyPairRequest
+   * Constructs a new <code>V4CreateAuthTokenRequest</code>.
+   * @alias module:model/V4CreateAuthTokenRequest
    * @class
-   * @param description {String} Free text information about the key pair
    */
-  var exports = function(description) {
+  var exports = function() {
     var _this = this;
-
-    _this['description'] = description;
 
 
 
   };
 
   /**
-   * Constructs a <code>V4AddKeyPairRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4CreateAuthTokenRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddKeyPairRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddKeyPairRequest} The populated <code>V4AddKeyPairRequest</code> instance.
+   * @param {module:model/V4CreateAuthTokenRequest} obj Optional instance to populate.
+   * @return {module:model/V4CreateAuthTokenRequest} The populated <code>V4CreateAuthTokenRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      if (data.hasOwnProperty('email')) {
+        obj['email'] = ApiClient.convertToType(data['email'], 'String');
       }
-      if (data.hasOwnProperty('ttl_hours')) {
-        obj['ttl_hours'] = ApiClient.convertToType(data['ttl_hours'], 'Number');
-      }
-      if (data.hasOwnProperty('cn_prefix')) {
-        obj['cn_prefix'] = ApiClient.convertToType(data['cn_prefix'], 'String');
-      }
-      if (data.hasOwnProperty('certificate_organizations')) {
-        obj['certificate_organizations'] = ApiClient.convertToType(data['certificate_organizations'], 'String');
+      if (data.hasOwnProperty('password_base64')) {
+        obj['password_base64'] = ApiClient.convertToType(data['password_base64'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Free text information about the key pair
-   * @member {String} description
+   * Your email address
+   * @member {String} email
    */
-  exports.prototype['description'] = undefined;
+  exports.prototype['email'] = undefined;
   /**
-   * Expiration time (from creation) in hours
-   * @member {Number} ttl_hours
+   * Your password as a base64 encoded string
+   * @member {String} password_base64
    */
-  exports.prototype['ttl_hours'] = undefined;
-  /**
-   * The common name prefix of the certificate subject. This only allows characters that are usable in domain names (`a-z`, `0-9`, and `.-`, where `.-` must not occur at either the start or the end).
-   * @member {String} cn_prefix
-   */
-  exports.prototype['cn_prefix'] = undefined;
-  /**
-   * This will set the certificate subject's `organization` fields. Use a comma seperated list of values. 
-   * @member {String} certificate_organizations
-   */
-  exports.prototype['certificate_organizations'] = undefined;
+  exports.prototype['password_base64'] = undefined;
 
 
 

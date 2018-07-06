@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterMetricsResponse', 'model/V4ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4ModifyClusterRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterMetricsResponse'), require('../model/V4ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterMetricsResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
+    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterMetricsResponse, V4ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4ModifyClusterRequest) {
   'use strict';
 
   /**
@@ -194,57 +194,6 @@
      */
     this.getCluster = function(clusterId) {
       return this.getClusterWithHttpInfo(clusterId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get cluster metrics
-     * This operation returns metrics about current resource usage in the cluster. Currently, all metrics reported concern worker nodes, hence they are grouped under a &#x60;workers&#x60; key.  Here is a shortened example, containing only one metric (&#x60;ram_used&#x60;) and only one worker node:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [     {       \&quot;id\&quot;: \&quot;172.17.0.4\&quot;,       \&quot;metrics\&quot;: {         \&quot;ram_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.185000\&quot;,           \&quot;value\&quot;: 4205494272         },         \&quot;cpu_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.029000\&quot;,           \&quot;value\&quot;: 0.1255365799999         }       }     }   ] } &#x60;&#x60;&#x60;  ### Notes  - The &#x60;id&#x60; value contained in a worker entry should be treated as an arbitrary string identifier. It _may_ in fact be be an IPv4 address, a fully qualified host name, or any other string that uniquely identifies a worker node in this guest cluster.  - Metrics are not guaranteed to provide a value. If the underlying backend cannot provide a recent value fast enough, both the &#x60;value&#x60; and &#x60;timestamp&#x60; key have the &#x60;null&#x60; value.  ### Metrics provided for worker nodes  - &#x60;container_count&#x60;: Number of containers running - &#x60;pod_count&#x60;: Number of pods running - &#x60;cpu_used&#x60;: Number of CPU cores currently used - &#x60;ram_free&#x60;: Free memory in bytes - &#x60;ram_available&#x60;: Memory available for new applications, in bytes - &#x60;ram_cached&#x60;: Memory used for file caches, in bytes - &#x60;ram_buffers&#x60;: Memory used for kernel buffers, in bytes - &#x60;ram_mapped&#x60;: Memory used by mapped files, in bytes - &#x60;node_storage_used&#x60;: Amount of local storage used in bytes - &#x60;network_rx&#x60;: Incoming data volume (Rx) in bytes per second - &#x60;network_tx&#x60;: Outgoing data volume (Tx) in bytes per second - &#x60;resource_cpu_requests&#x60;: Sum of CPU requeszs for containers - &#x60;resource_cpu_limits&#x60;: Sum of CPU limits for containers - &#x60;resource_ram_requests&#x60;: Sum of memory requests for containers - &#x60;resource_ram_limits&#x60;: Sum of memory limits for containers 
-     * @param {String} clusterId Cluster ID
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterMetricsResponse} and HTTP response
-     */
-    this.getClusterMetricsWithHttpInfo = function(clusterId) {
-      var postBody = null;
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling getClusterMetrics");
-      }
-
-
-      var pathParams = {
-        'cluster_id': clusterId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GetClusterMetricsResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/metrics/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Get cluster metrics
-     * This operation returns metrics about current resource usage in the cluster. Currently, all metrics reported concern worker nodes, hence they are grouped under a &#x60;workers&#x60; key.  Here is a shortened example, containing only one metric (&#x60;ram_used&#x60;) and only one worker node:  &#x60;&#x60;&#x60;json {   \&quot;workers\&quot;: [     {       \&quot;id\&quot;: \&quot;172.17.0.4\&quot;,       \&quot;metrics\&quot;: {         \&quot;ram_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.185000\&quot;,           \&quot;value\&quot;: 4205494272         },         \&quot;cpu_used\&quot;: {           \&quot;timestamp\&quot;: \&quot;2017-10-23T12:56:12.029000\&quot;,           \&quot;value\&quot;: 0.1255365799999         }       }     }   ] } &#x60;&#x60;&#x60;  ### Notes  - The &#x60;id&#x60; value contained in a worker entry should be treated as an arbitrary string identifier. It _may_ in fact be be an IPv4 address, a fully qualified host name, or any other string that uniquely identifies a worker node in this guest cluster.  - Metrics are not guaranteed to provide a value. If the underlying backend cannot provide a recent value fast enough, both the &#x60;value&#x60; and &#x60;timestamp&#x60; key have the &#x60;null&#x60; value.  ### Metrics provided for worker nodes  - &#x60;container_count&#x60;: Number of containers running - &#x60;pod_count&#x60;: Number of pods running - &#x60;cpu_used&#x60;: Number of CPU cores currently used - &#x60;ram_free&#x60;: Free memory in bytes - &#x60;ram_available&#x60;: Memory available for new applications, in bytes - &#x60;ram_cached&#x60;: Memory used for file caches, in bytes - &#x60;ram_buffers&#x60;: Memory used for kernel buffers, in bytes - &#x60;ram_mapped&#x60;: Memory used by mapped files, in bytes - &#x60;node_storage_used&#x60;: Amount of local storage used in bytes - &#x60;network_rx&#x60;: Incoming data volume (Rx) in bytes per second - &#x60;network_tx&#x60;: Outgoing data volume (Tx) in bytes per second - &#x60;resource_cpu_requests&#x60;: Sum of CPU requeszs for containers - &#x60;resource_cpu_limits&#x60;: Sum of CPU limits for containers - &#x60;resource_ram_requests&#x60;: Sum of memory requests for containers - &#x60;resource_ram_limits&#x60;: Sum of memory limits for containers 
-     * @param {String} clusterId Cluster ID
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterMetricsResponse}
-     */
-    this.getClusterMetrics = function(clusterId) {
-      return this.getClusterMetricsWithHttpInfo(clusterId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

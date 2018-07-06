@@ -4,6 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addCredentials**](OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 [**addOrganization**](OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 [**deleteOrganization**](OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization
 [**getOrganization**](OrganizationsApi.md#getOrganization) | **GET** /v4/organizations/{organization_id}/ | Get organization details
@@ -11,9 +12,62 @@ Method | HTTP request | Description
 [**modifyOrganization**](OrganizationsApi.md#modifyOrganization) | **PATCH** /v4/organizations/{organization_id}/ | Modify organization
 
 
+<a name="addCredentials"></a>
+# **addCredentials**
+> V4GenericResponse addCredentials(organizationId, body)
+
+Set credentials
+
+Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. Currently, only AWS is supported, with support for Azure being planned for the near future.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  &#x60;&#x60;&#x60;json {   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60; 
+
+### Example
+```javascript
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarmV4.OrganizationsApi();
+
+var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+
+var body = new GiantSwarmV4.V4AddCredentialsRequest(); // V4AddCredentialsRequest | 
+
+apiInstance.addCredentials(organizationId, body).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
+ **body** | [**V4AddCredentialsRequest**](V4AddCredentialsRequest.md)|  | 
+
+### Return type
+
+[**V4GenericResponse**](V4GenericResponse.md)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="addOrganization"></a>
 # **addOrganization**
-> V4Organization addOrganization(organizationId, )
+> V4Organization addOrganization(organizationId, body)
 
 Create an organization
 
@@ -34,7 +88,9 @@ var apiInstance = new GiantSwarmV4.OrganizationsApi();
 
 var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
 
-apiInstance.addOrganization(organizationId, ).then(function(data) {
+var body = new GiantSwarmV4.V4Organization(); // V4Organization | 
+
+apiInstance.addOrganization(organizationId, body).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -47,6 +103,7 @@ apiInstance.addOrganization(organizationId, ).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
+ **body** | [**V4Organization**](V4Organization.md)|  | 
 
 ### Return type
 

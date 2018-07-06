@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4ClusterDetailsResponse', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseKvmPortMappings', 'model/V4ClusterListItem', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetClusterMetricsResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersVmSize', 'model/V4ModifyClusterRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4NodeMetrics', 'model/V4NodeMetricsMetrics', 'model/V4NodeMetricsMetricsContainerCount', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/MetricsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
+    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddCredentialsRequest', 'model/V4AddCredentialsRequestAws', 'model/V4AddCredentialsRequestAwsRoles', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4ClusterDetailsResponse', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseKvmPortMappings', 'model/V4ClusterListItem', 'model/V4CreateAuthTokenRequest', 'model/V4CreateAuthTokenResponse', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersVmSize', 'model/V4ModifyClusterRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'api/AuthTokensApi', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterDetailsResponseKvm'), require('./model/V4ClusterDetailsResponseKvmPortMappings'), require('./model/V4ClusterListItem'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetClusterMetricsResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersVmSize'), require('./model/V4ModifyClusterRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionAzure'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4NodeMetrics'), require('./model/V4NodeMetricsMetrics'), require('./model/V4NodeMetricsMetricsContainerCount'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/MetricsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddCredentialsRequest'), require('./model/V4AddCredentialsRequestAws'), require('./model/V4AddCredentialsRequestAwsRoles'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterDetailsResponseKvm'), require('./model/V4ClusterDetailsResponseKvmPortMappings'), require('./model/V4ClusterListItem'), require('./model/V4CreateAuthTokenRequest'), require('./model/V4CreateAuthTokenResponse'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersVmSize'), require('./model/V4ModifyClusterRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionAzure'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./api/AuthTokensApi'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
   }
-}(function(ApiClient, Body, V4AddClusterRequest, V4AddKeyPairRequest, V4AddKeyPairResponse, V4ClusterDetailsResponse, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseKvmPortMappings, V4ClusterListItem, V4CreateUserRequest, V4GenericResponse, V4GetClusterMetricsResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseGeneral, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersVmSize, V4ModifyClusterRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4NodeMetrics, V4NodeMetricsMetrics, V4NodeMetricsMetricsContainerCount, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, ClustersApi, InfoApi, KeyPairsApi, MetricsApi, OrganizationsApi, ReleasesApi, UsersApi) {
+}(function(ApiClient, Body, V4AddClusterRequest, V4AddCredentialsRequest, V4AddCredentialsRequestAws, V4AddCredentialsRequestAwsRoles, V4AddKeyPairRequest, V4AddKeyPairResponse, V4ClusterDetailsResponse, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseKvmPortMappings, V4ClusterListItem, V4CreateAuthTokenRequest, V4CreateAuthTokenResponse, V4CreateUserRequest, V4GenericResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseGeneral, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersVmSize, V4ModifyClusterRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, AuthTokensApi, ClustersApi, InfoApi, KeyPairsApi, OrganizationsApi, ReleasesApi, UsersApi) {
   'use strict';
 
   /**
@@ -72,6 +72,21 @@
      */
     V4AddClusterRequest: V4AddClusterRequest,
     /**
+     * The V4AddCredentialsRequest model constructor.
+     * @property {module:model/V4AddCredentialsRequest}
+     */
+    V4AddCredentialsRequest: V4AddCredentialsRequest,
+    /**
+     * The V4AddCredentialsRequestAws model constructor.
+     * @property {module:model/V4AddCredentialsRequestAws}
+     */
+    V4AddCredentialsRequestAws: V4AddCredentialsRequestAws,
+    /**
+     * The V4AddCredentialsRequestAwsRoles model constructor.
+     * @property {module:model/V4AddCredentialsRequestAwsRoles}
+     */
+    V4AddCredentialsRequestAwsRoles: V4AddCredentialsRequestAwsRoles,
+    /**
      * The V4AddKeyPairRequest model constructor.
      * @property {module:model/V4AddKeyPairRequest}
      */
@@ -102,6 +117,16 @@
      */
     V4ClusterListItem: V4ClusterListItem,
     /**
+     * The V4CreateAuthTokenRequest model constructor.
+     * @property {module:model/V4CreateAuthTokenRequest}
+     */
+    V4CreateAuthTokenRequest: V4CreateAuthTokenRequest,
+    /**
+     * The V4CreateAuthTokenResponse model constructor.
+     * @property {module:model/V4CreateAuthTokenResponse}
+     */
+    V4CreateAuthTokenResponse: V4CreateAuthTokenResponse,
+    /**
      * The V4CreateUserRequest model constructor.
      * @property {module:model/V4CreateUserRequest}
      */
@@ -111,11 +136,6 @@
      * @property {module:model/V4GenericResponse}
      */
     V4GenericResponse: V4GenericResponse,
-    /**
-     * The V4GetClusterMetricsResponse model constructor.
-     * @property {module:model/V4GetClusterMetricsResponse}
-     */
-    V4GetClusterMetricsResponse: V4GetClusterMetricsResponse,
     /**
      * The V4GetKeyPairsResponse model constructor.
      * @property {module:model/V4GetKeyPairsResponse}
@@ -192,21 +212,6 @@
      */
     V4NodeDefinitionStorage: V4NodeDefinitionStorage,
     /**
-     * The V4NodeMetrics model constructor.
-     * @property {module:model/V4NodeMetrics}
-     */
-    V4NodeMetrics: V4NodeMetrics,
-    /**
-     * The V4NodeMetricsMetrics model constructor.
-     * @property {module:model/V4NodeMetricsMetrics}
-     */
-    V4NodeMetricsMetrics: V4NodeMetricsMetrics,
-    /**
-     * The V4NodeMetricsMetricsContainerCount model constructor.
-     * @property {module:model/V4NodeMetricsMetricsContainerCount}
-     */
-    V4NodeMetricsMetricsContainerCount: V4NodeMetricsMetricsContainerCount,
-    /**
      * The V4Organization model constructor.
      * @property {module:model/V4Organization}
      */
@@ -242,6 +247,11 @@
      */
     V4UserListItem: V4UserListItem,
     /**
+     * The AuthTokensApi service constructor.
+     * @property {module:api/AuthTokensApi}
+     */
+    AuthTokensApi: AuthTokensApi,
+    /**
      * The ClustersApi service constructor.
      * @property {module:api/ClustersApi}
      */
@@ -256,11 +266,6 @@
      * @property {module:api/KeyPairsApi}
      */
     KeyPairsApi: KeyPairsApi,
-    /**
-     * The MetricsApi service constructor.
-     * @property {module:api/MetricsApi}
-     */
-    MetricsApi: MetricsApi,
     /**
      * The OrganizationsApi service constructor.
      * @property {module:api/OrganizationsApi}

@@ -69,7 +69,7 @@
   }
 
   /**
-   * Node storage size in GB
+   * Node storage size in GB. Can be an integer or float.
    * @member {Number} size_gb
    */
   exports.prototype['size_gb'] = undefined;

@@ -15,68 +15,53 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
-    }
-    root.GiantSwarmV4.V4NodeDefinitionMemory = factory(root.GiantSwarmV4.ApiClient);
+    factory(root.expect, root.GiantSwarmV4);
   }
-}(this, function(ApiClient) {
+}(this, function(expect, GiantSwarmV4) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new GiantSwarmV4.V4CreateAuthTokenResponse();
+  });
 
-
-  /**
-   * The V4NodeDefinitionMemory model module.
-   * @module model/V4NodeDefinitionMemory
-   * @version 4.0.0
-   */
-
-  /**
-   * Constructs a new <code>V4NodeDefinitionMemory</code>.
-   * @alias module:model/V4NodeDefinitionMemory
-   * @class
-   */
-  var exports = function() {
-    var _this = this;
-
-
-  };
-
-  /**
-   * Constructs a <code>V4NodeDefinitionMemory</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4NodeDefinitionMemory} obj Optional instance to populate.
-   * @return {module:model/V4NodeDefinitionMemory} The populated <code>V4NodeDefinitionMemory</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('size_gb')) {
-        obj['size_gb'] = ApiClient.convertToType(data['size_gb'], 'Number');
-      }
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-  /**
-   * RAM size in GB. Can be an integer or float.
-   * @member {Number} size_gb
-   */
-  exports.prototype['size_gb'] = undefined;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('V4CreateAuthTokenResponse', function() {
+    it('should create an instance of V4CreateAuthTokenResponse', function() {
+      // uncomment below and update the code to test V4CreateAuthTokenResponse
+      //var instane = new GiantSwarmV4.V4CreateAuthTokenResponse();
+      //expect(instance).to.be.a(GiantSwarmV4.V4CreateAuthTokenResponse);
+    });
 
+    it('should have the property authToken (base name: "auth_token")', function() {
+      // uncomment below and update the code to test the property authToken
+      //var instane = new GiantSwarmV4.V4CreateAuthTokenResponse();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+  });
+
 }));
-
-

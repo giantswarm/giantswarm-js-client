@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/V4GenericResponse', 'model/V4Organization', 'model/V4OrganizationListItem'], factory);
+    define(['ApiClient', 'model/Body', 'model/V4AddCredentialsRequest', 'model/V4GenericResponse', 'model/V4Organization', 'model/V4OrganizationListItem'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Body'), require('../model/V4GenericResponse'), require('../model/V4Organization'), require('../model/V4OrganizationListItem'));
+    module.exports = factory(require('../ApiClient'), require('../model/Body'), require('../model/V4AddCredentialsRequest'), require('../model/V4GenericResponse'), require('../model/V4Organization'), require('../model/V4OrganizationListItem'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.OrganizationsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.Body, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4Organization, root.GiantSwarmV4.V4OrganizationListItem);
+    root.GiantSwarmV4.OrganizationsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.Body, root.GiantSwarmV4.V4AddCredentialsRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4Organization, root.GiantSwarmV4.V4OrganizationListItem);
   }
-}(this, function(ApiClient, Body, V4GenericResponse, V4Organization, V4OrganizationListItem) {
+}(this, function(ApiClient, Body, V4AddCredentialsRequest, V4GenericResponse, V4Organization, V4OrganizationListItem) {
   'use strict';
 
   /**
@@ -49,17 +49,81 @@
 
 
     /**
+     * Set credentials
+     * Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. Currently, only AWS is supported, with support for Azure being planned for the near future.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  &#x60;&#x60;&#x60;json {   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60; 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @param {module:model/V4AddCredentialsRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
+     */
+    this.addCredentialsWithHttpInfo = function(organizationId, body) {
+      var postBody = body;
+
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addCredentials");
+      }
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling addCredentials");
+      }
+
+
+      var pathParams = {
+        'organization_id': organizationId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GenericResponse;
+
+      return this.apiClient.callApi(
+        '/v4/organizations/{organization_id}/credentials/', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Set credentials
+     * Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. Currently, only AWS is supported, with support for Azure being planned for the near future.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  &#x60;&#x60;&#x60;json {   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60; 
+     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @param {module:model/V4AddCredentialsRequest} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
+     */
+    this.addCredentials = function(organizationId, body) {
+      return this.addCredentialsWithHttpInfo(organizationId, body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Create an organization
      * This operation allows a user to create an organization. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @param {module:model/V4Organization} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    this.addOrganizationWithHttpInfo = function(organizationId) {
-      var postBody = null;
+    this.addOrganizationWithHttpInfo = function(organizationId, body) {
+      var postBody = body;
 
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling addOrganization");
+      }
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling addOrganization");
       }
 
 
@@ -89,10 +153,11 @@
      * Create an organization
      * This operation allows a user to create an organization. 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+     * @param {module:model/V4Organization} body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    this.addOrganization = function(organizationId) {
-      return this.addOrganizationWithHttpInfo(organizationId)
+    this.addOrganization = function(organizationId, body) {
+      return this.addOrganizationWithHttpInfo(organizationId, body)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

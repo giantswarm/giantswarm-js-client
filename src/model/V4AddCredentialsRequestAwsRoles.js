@@ -25,7 +25,7 @@
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddKeyPairRequest = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4AddCredentialsRequestAwsRoles = factory(root.GiantSwarmV4.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,73 +34,56 @@
 
 
   /**
-   * The V4AddKeyPairRequest model module.
-   * @module model/V4AddKeyPairRequest
+   * The V4AddCredentialsRequestAwsRoles model module.
+   * @module model/V4AddCredentialsRequestAwsRoles
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddKeyPairRequest</code>.
-   * @alias module:model/V4AddKeyPairRequest
+   * Constructs a new <code>V4AddCredentialsRequestAwsRoles</code>.
+   * @alias module:model/V4AddCredentialsRequestAwsRoles
    * @class
-   * @param description {String} Free text information about the key pair
+   * @param admin {String} ARN of the IAM role to assume by Giant Swarm support staff
+   * @param awsoperator {String} ARN of the IAM role to assume by the software operating clusters
    */
-  var exports = function(description) {
+  var exports = function(admin, awsoperator) {
     var _this = this;
 
-    _this['description'] = description;
-
-
-
+    _this['admin'] = admin;
+    _this['awsoperator'] = awsoperator;
   };
 
   /**
-   * Constructs a <code>V4AddKeyPairRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AddCredentialsRequestAwsRoles</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddKeyPairRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddKeyPairRequest} The populated <code>V4AddKeyPairRequest</code> instance.
+   * @param {module:model/V4AddCredentialsRequestAwsRoles} obj Optional instance to populate.
+   * @return {module:model/V4AddCredentialsRequestAwsRoles} The populated <code>V4AddCredentialsRequestAwsRoles</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      if (data.hasOwnProperty('admin')) {
+        obj['admin'] = ApiClient.convertToType(data['admin'], 'String');
       }
-      if (data.hasOwnProperty('ttl_hours')) {
-        obj['ttl_hours'] = ApiClient.convertToType(data['ttl_hours'], 'Number');
-      }
-      if (data.hasOwnProperty('cn_prefix')) {
-        obj['cn_prefix'] = ApiClient.convertToType(data['cn_prefix'], 'String');
-      }
-      if (data.hasOwnProperty('certificate_organizations')) {
-        obj['certificate_organizations'] = ApiClient.convertToType(data['certificate_organizations'], 'String');
+      if (data.hasOwnProperty('awsoperator')) {
+        obj['awsoperator'] = ApiClient.convertToType(data['awsoperator'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Free text information about the key pair
-   * @member {String} description
+   * ARN of the IAM role to assume by Giant Swarm support staff
+   * @member {String} admin
    */
-  exports.prototype['description'] = undefined;
+  exports.prototype['admin'] = undefined;
   /**
-   * Expiration time (from creation) in hours
-   * @member {Number} ttl_hours
+   * ARN of the IAM role to assume by the software operating clusters
+   * @member {String} awsoperator
    */
-  exports.prototype['ttl_hours'] = undefined;
-  /**
-   * The common name prefix of the certificate subject. This only allows characters that are usable in domain names (`a-z`, `0-9`, and `.-`, where `.-` must not occur at either the start or the end).
-   * @member {String} cn_prefix
-   */
-  exports.prototype['cn_prefix'] = undefined;
-  /**
-   * This will set the certificate subject's `organization` fields. Use a comma seperated list of values. 
-   * @member {String} certificate_organizations
-   */
-  exports.prototype['certificate_organizations'] = undefined;
+  exports.prototype['awsoperator'] = undefined;
 
 
 
