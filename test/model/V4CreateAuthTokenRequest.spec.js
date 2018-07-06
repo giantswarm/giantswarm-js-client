@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4UserListItem();
+    instance = new GiantSwarmV4.V4CreateAuthTokenRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,28 +49,22 @@
       object[property] = value;
   }
 
-  describe('V4UserListItem', function() {
-    it('should create an instance of V4UserListItem', function() {
-      // uncomment below and update the code to test V4UserListItem
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be.a(GiantSwarmV4.V4UserListItem);
+  describe('V4CreateAuthTokenRequest', function() {
+    it('should create an instance of V4CreateAuthTokenRequest', function() {
+      // uncomment below and update the code to test V4CreateAuthTokenRequest
+      //var instane = new GiantSwarmV4.V4CreateAuthTokenRequest();
+      //expect(instance).to.be.a(GiantSwarmV4.V4CreateAuthTokenRequest);
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instane = new GiantSwarmV4.V4UserListItem();
+      //var instane = new GiantSwarmV4.V4CreateAuthTokenRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property created (base name: "created")', function() {
-      // uncomment below and update the code to test the property created
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property expiry (base name: "expiry")', function() {
-      // uncomment below and update the code to test the property expiry
-      //var instane = new GiantSwarmV4.V4UserListItem();
+    it('should have the property passwordBase64 (base name: "password_base64")', function() {
+      // uncomment below and update the code to test the property passwordBase64
+      //var instane = new GiantSwarmV4.V4CreateAuthTokenRequest();
       //expect(instance).to.be();
     });
 

@@ -10,11 +10,11 @@ Method | HTTP request | Description
 
 <a name="addKeyPair"></a>
 # **addKeyPair**
-> V4AddKeyPairResponse addKeyPair(clusterIdbody)
+> V4AddKeyPairResponse addKeyPair(clusterId, body)
 
 Create key pair
 
-This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster&#39;s certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text &#x60;description&#x60; that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate&#39;s subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate&#39;s subject.  - &#x60;cn_prefix&#x60;: The certificate&#39;s common name uses this format: &#x60;&lt;cn_prefix&gt;.user.&lt;clusterdomain&gt;&#x60;.    &#x60;clusterdomain&#x60; is specific to your cluster and is not editable.    The &#x60;cn_prefix&#x60; however   is editable. When left blank it will default to the email address of the Giant Swarm user   that is performing the create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - &#x60;certificate_organizations&#x60;: This will set the certificate&#39;s &#x60;organization&#x60; fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the &#x60;POST&#x60; request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you&#39;ll have to repeat the creation request. 
+This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster&#39;s certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text &#x60;description&#x60; that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate&#39;s subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate&#39;s subject.  - &#x60;cn_prefix&#x60;: The certificate&#39;s common name uses this format: &#x60;&lt;cn_prefix&gt;.user.&lt;clusterdomain&gt;&#x60;.    &#x60;clusterdomain&#x60; is specific to your cluster and is not editable.    The &#x60;cn_prefix&#x60; however is editable. When left blank it will default   to the email address of the Giant Swarm user that is performing the   create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - &#x60;certificate_organizations&#x60;: This will set the certificate&#39;s &#x60;organization&#x60; fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the &#x60;POST&#x60; request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you&#39;ll have to repeat the creation request. 
 
 ### Example
 ```javascript
@@ -33,7 +33,7 @@ var clusterId = "clusterId_example"; // String | Cluster ID
 
 var body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
 
-apiInstance.addKeyPair(clusterIdbody).then(function(data) {
+apiInstance.addKeyPair(clusterId, body).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 <a name="getKeyPairs"></a>
 # **getKeyPairs**
-> V4GetKeyPairsResponse getKeyPairs(clusterId)
+> V4GetKeyPairsResponse getKeyPairs(clusterId, )
 
 Get key pairs
 
@@ -84,7 +84,7 @@ var apiInstance = new GiantSwarmV4.KeyPairsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
-apiInstance.getKeyPairs(clusterId).then(function(data) {
+apiInstance.getKeyPairs(clusterId, ).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

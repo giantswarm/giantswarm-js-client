@@ -69,7 +69,7 @@
   }
 
   /**
-   * RAM size in GB
+   * RAM size in GB. Can be an integer or float.
    * @member {Number} size_gb
    */
   exports.prototype['size_gb'] = undefined;

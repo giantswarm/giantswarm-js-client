@@ -103,11 +103,11 @@ AuthorizationHeaderToken.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new GiantSwarmV4.ClustersApi()
+var api = new GiantSwarmV4.AuthTokensApi()
 
-var body = new GiantSwarmV4.V4AddClusterRequest(); // {V4AddClusterRequest} New cluster definition
+var body = new GiantSwarmV4.V4CreateAuthTokenRequest(); // {V4CreateAuthTokenRequest} Create Auth Token Request
 
-api.addCluster(body).then(function(data) {
+api.createAuthToken(body).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -122,16 +122,17 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*GiantSwarmV4.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
+*GiantSwarmV4.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 *GiantSwarmV4.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
 *GiantSwarmV4.ClustersApi* | [**deleteCluster**](docs/ClustersApi.md#deleteCluster) | **DELETE** /v4/clusters/{cluster_id}/ | Delete cluster
 *GiantSwarmV4.ClustersApi* | [**getCluster**](docs/ClustersApi.md#getCluster) | **GET** /v4/clusters/{cluster_id}/ | Get cluster details
-*GiantSwarmV4.ClustersApi* | [**getClusterMetrics**](docs/ClustersApi.md#getClusterMetrics) | **GET** /v4/clusters/{cluster_id}/metrics/ | Get cluster metrics
 *GiantSwarmV4.ClustersApi* | [**getClusters**](docs/ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
 *GiantSwarmV4.ClustersApi* | [**modifyCluster**](docs/ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster
 *GiantSwarmV4.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
 *GiantSwarmV4.KeyPairsApi* | [**addKeyPair**](docs/KeyPairsApi.md#addKeyPair) | **POST** /v4/clusters/{cluster_id}/key-pairs/ | Create key pair
 *GiantSwarmV4.KeyPairsApi* | [**getKeyPairs**](docs/KeyPairsApi.md#getKeyPairs) | **GET** /v4/clusters/{cluster_id}/key-pairs/ | Get key pairs
-*GiantSwarmV4.MetricsApi* | [**getClusterMetrics**](docs/MetricsApi.md#getClusterMetrics) | **GET** /v4/clusters/{cluster_id}/metrics/ | Get cluster metrics
+*GiantSwarmV4.OrganizationsApi* | [**addCredentials**](docs/OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 *GiantSwarmV4.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 *GiantSwarmV4.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization
 *GiantSwarmV4.OrganizationsApi* | [**getOrganization**](docs/OrganizationsApi.md#getOrganization) | **GET** /v4/organizations/{organization_id}/ | Get organization details
@@ -149,15 +150,19 @@ Class | Method | HTTP request | Description
 
  - [GiantSwarmV4.Body](docs/Body.md)
  - [GiantSwarmV4.V4AddClusterRequest](docs/V4AddClusterRequest.md)
+ - [GiantSwarmV4.V4AddCredentialsRequest](docs/V4AddCredentialsRequest.md)
+ - [GiantSwarmV4.V4AddCredentialsRequestAws](docs/V4AddCredentialsRequestAws.md)
+ - [GiantSwarmV4.V4AddCredentialsRequestAwsRoles](docs/V4AddCredentialsRequestAwsRoles.md)
  - [GiantSwarmV4.V4AddKeyPairRequest](docs/V4AddKeyPairRequest.md)
  - [GiantSwarmV4.V4AddKeyPairResponse](docs/V4AddKeyPairResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvm](docs/V4ClusterDetailsResponseKvm.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
  - [GiantSwarmV4.V4ClusterListItem](docs/V4ClusterListItem.md)
+ - [GiantSwarmV4.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
+ - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
- - [GiantSwarmV4.V4GetClusterMetricsResponse](docs/V4GetClusterMetricsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponse](docs/V4GetKeyPairsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponseInner](docs/V4GetKeyPairsResponseInner.md)
  - [GiantSwarmV4.V4InfoResponse](docs/V4InfoResponse.md)
@@ -173,9 +178,6 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4NodeDefinitionCpu](docs/V4NodeDefinitionCpu.md)
  - [GiantSwarmV4.V4NodeDefinitionMemory](docs/V4NodeDefinitionMemory.md)
  - [GiantSwarmV4.V4NodeDefinitionStorage](docs/V4NodeDefinitionStorage.md)
- - [GiantSwarmV4.V4NodeMetrics](docs/V4NodeMetrics.md)
- - [GiantSwarmV4.V4NodeMetricsMetrics](docs/V4NodeMetricsMetrics.md)
- - [GiantSwarmV4.V4NodeMetricsMetricsContainerCount](docs/V4NodeMetricsMetricsContainerCount.md)
  - [GiantSwarmV4.V4Organization](docs/V4Organization.md)
  - [GiantSwarmV4.V4OrganizationListItem](docs/V4OrganizationListItem.md)
  - [GiantSwarmV4.V4OrganizationMember](docs/V4OrganizationMember.md)

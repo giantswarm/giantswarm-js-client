@@ -15,65 +15,77 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/V4AddCredentialsRequestAws'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddCredentialsRequestAws'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    if (!root.GiantSwarmV4) {
+      root.GiantSwarmV4 = {};
+    }
+    root.GiantSwarmV4.V4AddCredentialsRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddCredentialsRequestAws);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(ApiClient, V4AddCredentialsRequestAws) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new GiantSwarmV4.V4UserListItem();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The V4AddCredentialsRequest model module.
+   * @module model/V4AddCredentialsRequest
+   * @version 4.0.0
+   */
+
+  /**
+   * Constructs a new <code>V4AddCredentialsRequest</code>.
+   * Request model for adding a set of credentials
+   * @alias module:model/V4AddCredentialsRequest
+   * @class
+   * @param provider {String} 
+   */
+  var exports = function(provider) {
+    var _this = this;
+
+    _this['provider'] = provider;
+
+  };
+
+  /**
+   * Constructs a <code>V4AddCredentialsRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/V4AddCredentialsRequest} obj Optional instance to populate.
+   * @return {module:model/V4AddCredentialsRequest} The populated <code>V4AddCredentialsRequest</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('provider')) {
+        obj['provider'] = ApiClient.convertToType(data['provider'], 'String');
+      }
+      if (data.hasOwnProperty('aws')) {
+        obj['aws'] = V4AddCredentialsRequestAws.constructFromObject(data['aws']);
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * @member {String} provider
+   */
+  exports.prototype['provider'] = undefined;
+  /**
+   * @member {module:model/V4AddCredentialsRequestAws} aws
+   */
+  exports.prototype['aws'] = undefined;
 
-  describe('V4UserListItem', function() {
-    it('should create an instance of V4UserListItem', function() {
-      // uncomment below and update the code to test V4UserListItem
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be.a(GiantSwarmV4.V4UserListItem);
-    });
 
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property created (base name: "created")', function() {
-      // uncomment below and update the code to test the property created
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property expiry (base name: "expiry")', function() {
-      // uncomment below and update the code to test the property expiry
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

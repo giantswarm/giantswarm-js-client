@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4UserListItem();
+    instance = new GiantSwarmV4.AuthTokensApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,31 +49,27 @@
       object[property] = value;
   }
 
-  describe('V4UserListItem', function() {
-    it('should create an instance of V4UserListItem', function() {
-      // uncomment below and update the code to test V4UserListItem
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be.a(GiantSwarmV4.V4UserListItem);
+  describe('AuthTokensApi', function() {
+    describe('createAuthToken', function() {
+      it('should call createAuthToken successfully', function(done) {
+        //uncomment below and update the code to test createAuthToken
+        //instance.createAuthToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
+    describe('deleteAuthToken', function() {
+      it('should call deleteAuthToken successfully', function(done) {
+        //uncomment below and update the code to test deleteAuthToken
+        //instance.deleteAuthToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
     });
-
-    it('should have the property created (base name: "created")', function() {
-      // uncomment below and update the code to test the property created
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property expiry (base name: "expiry")', function() {
-      // uncomment below and update the code to test the property expiry
-      //var instane = new GiantSwarmV4.V4UserListItem();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));
