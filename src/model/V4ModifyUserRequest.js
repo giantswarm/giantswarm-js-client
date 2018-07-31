@@ -16,80 +16,73 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddCredentialsRequestAws', 'model/V4AddCredentialsRequestAzure'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AddCredentialsRequestAws'), require('./V4AddCredentialsRequestAzure'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddCredentialsRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddCredentialsRequestAws, root.GiantSwarmV4.V4AddCredentialsRequestAzure);
+    root.GiantSwarmV4.V4ModifyUserRequest = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4AddCredentialsRequestAws, V4AddCredentialsRequestAzure) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddCredentialsRequest model module.
-   * @module model/V4AddCredentialsRequest
+   * The V4ModifyUserRequest model module.
+   * @module model/V4ModifyUserRequest
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddCredentialsRequest</code>.
-   * Request model for adding a set of credentials
-   * @alias module:model/V4AddCredentialsRequest
+   * Constructs a new <code>V4ModifyUserRequest</code>.
+   * Request model for modifying a specific user
+   * @alias module:model/V4ModifyUserRequest
    * @class
-   * @param provider {String} 
    */
-  var exports = function(provider) {
+  var exports = function() {
     var _this = this;
 
-    _this['provider'] = provider;
 
 
   };
 
   /**
-   * Constructs a <code>V4AddCredentialsRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4ModifyUserRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddCredentialsRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddCredentialsRequest} The populated <code>V4AddCredentialsRequest</code> instance.
+   * @param {module:model/V4ModifyUserRequest} obj Optional instance to populate.
+   * @return {module:model/V4ModifyUserRequest} The populated <code>V4ModifyUserRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('provider')) {
-        obj['provider'] = ApiClient.convertToType(data['provider'], 'String');
+      if (data.hasOwnProperty('email')) {
+        obj['email'] = ApiClient.convertToType(data['email'], 'String');
       }
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V4AddCredentialsRequestAws.constructFromObject(data['aws']);
-      }
-      if (data.hasOwnProperty('azure')) {
-        obj['azure'] = V4AddCredentialsRequestAzure.constructFromObject(data['azure']);
+      if (data.hasOwnProperty('expiry')) {
+        obj['expiry'] = ApiClient.convertToType(data['expiry'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} provider
+   * New email address
+   * @member {String} email
    */
-  exports.prototype['provider'] = undefined;
+  exports.prototype['email'] = undefined;
   /**
-   * @member {module:model/V4AddCredentialsRequestAws} aws
+   * New expiry date. (Only editable by admins)
+   * @member {String} expiry
    */
-  exports.prototype['aws'] = undefined;
-  /**
-   * @member {module:model/V4AddCredentialsRequestAzure} azure
-   */
-  exports.prototype['azure'] = undefined;
+  exports.prototype['expiry'] = undefined;
 
 
 

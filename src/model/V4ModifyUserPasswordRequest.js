@@ -25,7 +25,7 @@
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4NodeMetricsMetricsContainerCount = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4ModifyUserPasswordRequest = factory(root.GiantSwarmV4.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,54 +34,56 @@
 
 
   /**
-   * The V4NodeMetricsMetricsContainerCount model module.
-   * @module model/V4NodeMetricsMetricsContainerCount
+   * The V4ModifyUserPasswordRequest model module.
+   * @module model/V4ModifyUserPasswordRequest
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4NodeMetricsMetricsContainerCount</code>.
-   * @alias module:model/V4NodeMetricsMetricsContainerCount
+   * Constructs a new <code>V4ModifyUserPasswordRequest</code>.
+   * Request model for modifying a user&#39;s password
+   * @alias module:model/V4ModifyUserPasswordRequest
    * @class
+   * @param newPasswordBase64 {String} New password encoded in Base64
    */
-  var exports = function() {
+  var exports = function(newPasswordBase64) {
     var _this = this;
 
 
-
+    _this['new_password_base64'] = newPasswordBase64;
   };
 
   /**
-   * Constructs a <code>V4NodeMetricsMetricsContainerCount</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4ModifyUserPasswordRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4NodeMetricsMetricsContainerCount} obj Optional instance to populate.
-   * @return {module:model/V4NodeMetricsMetricsContainerCount} The populated <code>V4NodeMetricsMetricsContainerCount</code> instance.
+   * @param {module:model/V4ModifyUserPasswordRequest} obj Optional instance to populate.
+   * @return {module:model/V4ModifyUserPasswordRequest} The populated <code>V4ModifyUserPasswordRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('timestamp')) {
-        obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
+      if (data.hasOwnProperty('current_password_base64')) {
+        obj['current_password_base64'] = ApiClient.convertToType(data['current_password_base64'], 'String');
       }
-      if (data.hasOwnProperty('value')) {
-        obj['value'] = ApiClient.convertToType(data['value'], 'Number');
+      if (data.hasOwnProperty('new_password_base64')) {
+        obj['new_password_base64'] = ApiClient.convertToType(data['new_password_base64'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Time when the given value has been recorded
-   * @member {String} timestamp
+   * Current password encoded in Base64. Not required for admins
+   * @member {String} current_password_base64
    */
-  exports.prototype['timestamp'] = undefined;
+  exports.prototype['current_password_base64'] = undefined;
   /**
-   * The value for the metric. Can be an integer or float.
-   * @member {Number} value
+   * New password encoded in Base64
+   * @member {String} new_password_base64
    */
-  exports.prototype['value'] = undefined;
+  exports.prototype['new_password_base64'] = undefined;
 
 
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getReleases"></a>
 # **getReleases**
-> [V4ReleaseListItem] getReleases()
+> [V4ReleaseListItem] getReleases(authorization, opts)
 
 Get releases
 
@@ -27,7 +27,15 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarmV4.ReleasesApi();
-apiInstance.getReleases().then(function(data) {
+
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.getReleases(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -36,7 +44,13 @@ apiInstance.getReleases().then(function(data) {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 

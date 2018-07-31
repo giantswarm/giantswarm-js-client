@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4ReleaseListItem'], factory);
+    define(['ApiClient', 'model/V4GenericResponse', 'model/V4ReleaseListItem'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4ReleaseListItem'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4GenericResponse'), require('../model/V4ReleaseListItem'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.ReleasesApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ReleaseListItem);
+    root.GiantSwarmV4.ReleasesApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4ReleaseListItem);
   }
-}(this, function(ApiClient, V4ReleaseListItem) {
+}(this, function(ApiClient, V4GenericResponse, V4ReleaseListItem) {
   'use strict';
 
   /**
@@ -51,10 +51,21 @@
     /**
      * Get releases
      * Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ReleaseListItem>} and HTTP response
      */
-    this.getReleasesWithHttpInfo = function() {
+    this.getReleasesWithHttpInfo = function(authorization, opts) {
+      opts = opts || {};
       var postBody = null;
+
+      // verify the required parameter 'authorization' is set
+      if (authorization === undefined || authorization === null) {
+        throw new Error("Missing the required parameter 'authorization' when calling getReleases");
+      }
 
 
       var pathParams = {
@@ -62,6 +73,10 @@
       var queryParams = {
       };
       var headerParams = {
+        'Authorization': authorization,
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
       };
       var formParams = {
       };
@@ -81,10 +96,15 @@
     /**
      * Get releases
      * Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ReleaseListItem>}
      */
-    this.getReleases = function() {
-      return this.getReleasesWithHttpInfo()
+    this.getReleases = function(authorization, opts) {
+      return this.getReleasesWithHttpInfo(authorization, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

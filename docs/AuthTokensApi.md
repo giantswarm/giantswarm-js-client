@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="createAuthToken"></a>
 # **createAuthToken**
-> V4CreateAuthTokenResponse createAuthToken(body)
+> V4CreateAuthTokenResponse createAuthToken(body, opts)
 
 Create Auth Token (Login)
 
@@ -31,7 +31,12 @@ var apiInstance = new GiantSwarmV4.AuthTokensApi();
 
 var body = new GiantSwarmV4.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
 
-apiInstance.createAuthToken(body).then(function(data) {
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.createAuthToken(body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -44,6 +49,9 @@ apiInstance.createAuthToken(body).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V4CreateAuthTokenRequest**](V4CreateAuthTokenRequest.md)| Create Auth Token Request | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 
@@ -60,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteAuthToken"></a>
 # **deleteAuthToken**
-> V4GenericResponse deleteAuthToken(authorization)
+> V4GenericResponse deleteAuthToken(authorization, opts)
 
 Delete Auth Token (Logout)
 
@@ -79,9 +87,14 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.AuthTokensApi();
 
-var authorization = "authorization_example"; // String | giantswarm AUTH_TOKEN_HERE
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
 
-apiInstance.deleteAuthToken(authorization).then(function(data) {
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.deleteAuthToken(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -93,7 +106,10 @@ apiInstance.deleteAuthToken(authorization).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| giantswarm AUTH_TOKEN_HERE | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 

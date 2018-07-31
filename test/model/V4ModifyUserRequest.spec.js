@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.UsersApi();
+    instance = new GiantSwarmV4.V4ModifyUserRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,77 +49,25 @@
       object[property] = value;
   }
 
-  describe('UsersApi', function() {
-    describe('createUser', function() {
-      it('should call createUser successfully', function(done) {
-        //uncomment below and update the code to test createUser
-        //instance.createUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('V4ModifyUserRequest', function() {
+    it('should create an instance of V4ModifyUserRequest', function() {
+      // uncomment below and update the code to test V4ModifyUserRequest
+      //var instane = new GiantSwarmV4.V4ModifyUserRequest();
+      //expect(instance).to.be.a(GiantSwarmV4.V4ModifyUserRequest);
     });
-    describe('deleteUser', function() {
-      it('should call deleteUser successfully', function(done) {
-        //uncomment below and update the code to test deleteUser
-        //instance.deleteUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instane = new GiantSwarmV4.V4ModifyUserRequest();
+      //expect(instance).to.be();
     });
-    describe('getCurrentUser', function() {
-      it('should call getCurrentUser successfully', function(done) {
-        //uncomment below and update the code to test getCurrentUser
-        //instance.getCurrentUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property expiry (base name: "expiry")', function() {
+      // uncomment below and update the code to test the property expiry
+      //var instane = new GiantSwarmV4.V4ModifyUserRequest();
+      //expect(instance).to.be();
     });
-    describe('getUser', function() {
-      it('should call getUser successfully', function(done) {
-        //uncomment below and update the code to test getUser
-        //instance.getUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getUsers', function() {
-      it('should call getUsers successfully', function(done) {
-        //uncomment below and update the code to test getUsers
-        //instance.getUsers(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('modifyPassword', function() {
-      it('should call modifyPassword successfully', function(done) {
-        //uncomment below and update the code to test modifyPassword
-        //instance.modifyPassword(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('modifyUser', function() {
-      it('should call modifyUser successfully', function(done) {
-        //uncomment below and update the code to test modifyUser
-        //instance.modifyUser(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));
