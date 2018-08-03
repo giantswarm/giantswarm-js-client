@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeMetrics'], factory);
+    define(['ApiClient', 'model/V4AddCredentialsRequestAzureCredential'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeMetrics'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddCredentialsRequestAzureCredential'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4GetClusterMetricsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeMetrics);
+    root.GiantSwarmV4.V4AddCredentialsRequestAzure = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddCredentialsRequestAzureCredential);
   }
-}(this, function(ApiClient, V4NodeMetrics) {
+}(this, function(ApiClient, V4AddCredentialsRequestAzureCredential) {
   'use strict';
 
 
 
 
   /**
-   * The V4GetClusterMetricsResponse model module.
-   * @module model/V4GetClusterMetricsResponse
+   * The V4AddCredentialsRequestAzure model module.
+   * @module model/V4AddCredentialsRequestAzure
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4GetClusterMetricsResponse</code>.
-   * Response for the getClusterMetrics operation
-   * @alias module:model/V4GetClusterMetricsResponse
+   * Constructs a new <code>V4AddCredentialsRequestAzure</code>.
+   * Credentials specific to an Azure service principal
+   * @alias module:model/V4AddCredentialsRequestAzure
    * @class
    */
   var exports = function() {
@@ -52,28 +52,27 @@
   };
 
   /**
-   * Constructs a <code>V4GetClusterMetricsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AddCredentialsRequestAzure</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetClusterMetricsResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetClusterMetricsResponse} The populated <code>V4GetClusterMetricsResponse</code> instance.
+   * @param {module:model/V4AddCredentialsRequestAzure} obj Optional instance to populate.
+   * @return {module:model/V4AddCredentialsRequestAzure} The populated <code>V4AddCredentialsRequestAzure</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeMetrics]);
+      if (data.hasOwnProperty('credential')) {
+        obj['credential'] = V4AddCredentialsRequestAzureCredential.constructFromObject(data['credential']);
       }
     }
     return obj;
   }
 
   /**
-   * Group of metrics regarding workers
-   * @member {Array.<module:model/V4NodeMetrics>} workers
+   * @member {module:model/V4AddCredentialsRequestAzureCredential} credential
    */
-  exports.prototype['workers'] = undefined;
+  exports.prototype['credential'] = undefined;
 
 
 

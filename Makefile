@@ -3,7 +3,7 @@
 # Builds our JS source and runs tests inside a docker container
 test:
 	docker build -t giantswarm-js-client-tests .
-	docker run --name giantswarm-js-client-tests --rm=false -ti giantswarm-js-client-tests
+	docker run --name giantswarm-js-client-tests --rm -ti giantswarm-js-client-tests
 
 # Generate client code.
 # Caution: This overwrites existing files, and does not clean up unused files.
@@ -24,6 +24,7 @@ api-spec:
 	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/spec.yaml
 	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/definitions.yaml
 	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/parameters.yaml
+	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/responses.yaml
 
 clean:
 	rm -rf api-spec

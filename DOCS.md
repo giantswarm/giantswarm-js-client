@@ -107,7 +107,12 @@ var api = new GiantSwarmV4.AuthTokensApi()
 
 var body = new GiantSwarmV4.V4CreateAuthTokenRequest(); // {V4CreateAuthTokenRequest} Create Auth Token Request
 
-api.createAuthToken(body).then(function(data) {
+var opts = { 
+  'xRequestID': "xRequestID_example", // {String} A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // {String} Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
+};
+api.createAuthToken(body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -144,6 +149,8 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.UsersApi* | [**getCurrentUser**](docs/UsersApi.md#getCurrentUser) | **GET** /v4/user/ | Get current user
 *GiantSwarmV4.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /v4/users/{email}/ | Get user
 *GiantSwarmV4.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /v4/users/ | Get users
+*GiantSwarmV4.UsersApi* | [**modifyPassword**](docs/UsersApi.md#modifyPassword) | **POST** /v4/users/{email}/password/ | Modify password
+*GiantSwarmV4.UsersApi* | [**modifyUser**](docs/UsersApi.md#modifyUser) | **PATCH** /v4/users/{email}/ | Modify user
 
 
 ## Documentation for Models
@@ -153,6 +160,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4AddCredentialsRequest](docs/V4AddCredentialsRequest.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAws](docs/V4AddCredentialsRequestAws.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAwsRoles](docs/V4AddCredentialsRequestAwsRoles.md)
+ - [GiantSwarmV4.V4AddCredentialsRequestAzure](docs/V4AddCredentialsRequestAzure.md)
+ - [GiantSwarmV4.V4AddCredentialsRequestAzureCredential](docs/V4AddCredentialsRequestAzureCredential.md)
  - [GiantSwarmV4.V4AddKeyPairRequest](docs/V4AddKeyPairRequest.md)
  - [GiantSwarmV4.V4AddKeyPairResponse](docs/V4AddKeyPairResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
@@ -172,6 +181,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4InfoResponseWorkersInstanceType](docs/V4InfoResponseWorkersInstanceType.md)
  - [GiantSwarmV4.V4InfoResponseWorkersVmSize](docs/V4InfoResponseWorkersVmSize.md)
  - [GiantSwarmV4.V4ModifyClusterRequest](docs/V4ModifyClusterRequest.md)
+ - [GiantSwarmV4.V4ModifyUserPasswordRequest](docs/V4ModifyUserPasswordRequest.md)
+ - [GiantSwarmV4.V4ModifyUserRequest](docs/V4ModifyUserRequest.md)
  - [GiantSwarmV4.V4NodeDefinition](docs/V4NodeDefinition.md)
  - [GiantSwarmV4.V4NodeDefinitionAws](docs/V4NodeDefinitionAws.md)
  - [GiantSwarmV4.V4NodeDefinitionAzure](docs/V4NodeDefinitionAzure.md)

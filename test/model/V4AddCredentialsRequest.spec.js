@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property azure (base name: "azure")', function() {
+      // uncomment below and update the code to test the property azure
+      //var instane = new GiantSwarmV4.V4AddCredentialsRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
