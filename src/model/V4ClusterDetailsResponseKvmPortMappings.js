@@ -73,7 +73,7 @@
   }
 
   /**
-   * The port on the host cluster that will forward traffic to the guest cluster 
+   * The port on the control plane that will forward traffic to the tenant cluster 
    * @member {Number} port
    */
   exports.prototype['port'] = undefined;

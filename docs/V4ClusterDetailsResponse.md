@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **owner** | **String** | Name of the organization owning the cluster | [optional] 
 **name** | **String** | Cluster name | [optional] 
 **releaseVersion** | **String** | The [release](https://docs.giantswarm.io/api/#tag/releases) version currently running this cluster.  | [optional] 
-**kubernetesVersion** | **String** | Deprecated. Will be removed in a future API version. | [optional] 
 **workers** | [**[V4NodeDefinition]**](V4NodeDefinition.md) |  | [optional] 
 **kvm** | [**V4ClusterDetailsResponseKvm**](V4ClusterDetailsResponseKvm.md) |  | [optional] 
 

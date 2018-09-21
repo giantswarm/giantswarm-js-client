@@ -70,7 +70,7 @@
   }
 
   /**
-   * Reveals the ports on the host cluster that are mapped to this guest cluster's ingress and which protocol that port supports. Only shown and relevant on our on-prem KVM clusters. 
+   * Reveals the ports on the control plane that are mapped to this tenant cluster's ingress and which protocol that port supports. Only shown and relevant on our on-prem KVM clusters. 
    * @member {Array.<module:model/V4ClusterDetailsResponseKvmPortMappings>} port_mappings
    */
   exports.prototype['port_mappings'] = undefined;
