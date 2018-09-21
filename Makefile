@@ -16,6 +16,9 @@ generate: api-spec
 		--lang javascript \
 		--output /repo
 	mv README.md DOCS.md
+	# fix superagent dependency due to security issue
+	sed -i 's@"superagent": "3.5.2"@"superagent": "3.7.0"@;' package.json
+	sed -i 's@"mocha": "~2.3.4"@"mocha": "^5.2.0"@;' package.json
 
 # Copies the public API spec YAML to a local folder
 api-spec:
