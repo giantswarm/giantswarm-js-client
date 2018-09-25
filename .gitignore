@@ -1,2 +1,3 @@
-api-spec/
-node_modules/
+/api-spec/
+/node_modules/
+/package-lock.json

@@ -53,7 +53,6 @@
 
 
 
-
   };
 
   /**
@@ -75,9 +74,6 @@
       }
       if (data.hasOwnProperty('release_version')) {
         obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('kubernetes_version')) {
-        obj['kubernetes_version'] = ApiClient.convertToType(data['kubernetes_version'], 'String');
       }
       if (data.hasOwnProperty('workers')) {
         obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
@@ -101,11 +97,6 @@
    * @member {String} release_version
    */
   exports.prototype['release_version'] = undefined;
-  /**
-   * Kubernetes version number (deprecated). Doesn't have any effect. This attribute is going to be removed in future API versions. 
-   * @member {String} kubernetes_version
-   */
-  exports.prototype['kubernetes_version'] = undefined;
   /**
    * @member {Array.<module:model/V4NodeDefinition>} workers
    */
