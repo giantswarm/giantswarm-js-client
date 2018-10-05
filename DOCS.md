@@ -140,6 +140,8 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.OrganizationsApi* | [**addCredentials**](docs/OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 *GiantSwarmV4.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 *GiantSwarmV4.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization
+*GiantSwarmV4.OrganizationsApi* | [**getCredential**](docs/OrganizationsApi.md#getCredential) | **GET** /v4/organizations/{organization_id}/credentials/{credential_id}/ | Get credential details
+*GiantSwarmV4.OrganizationsApi* | [**getCredentials**](docs/OrganizationsApi.md#getCredentials) | **GET** /v4/organizations/{organization_id}/credentials/ | Get credentials
 *GiantSwarmV4.OrganizationsApi* | [**getOrganization**](docs/OrganizationsApi.md#getOrganization) | **GET** /v4/organizations/{organization_id}/ | Get organization details
 *GiantSwarmV4.OrganizationsApi* | [**getOrganizations**](docs/OrganizationsApi.md#getOrganizations) | **GET** /v4/organizations/ | Get organizations
 *GiantSwarmV4.OrganizationsApi* | [**modifyOrganization**](docs/OrganizationsApi.md#modifyOrganization) | **PATCH** /v4/organizations/{organization_id}/ | Modify organization
@@ -172,6 +174,12 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
+ - [GiantSwarmV4.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)
+ - [GiantSwarmV4.V4GetCredentialResponseAws](docs/V4GetCredentialResponseAws.md)
+ - [GiantSwarmV4.V4GetCredentialResponseAwsRoles](docs/V4GetCredentialResponseAwsRoles.md)
+ - [GiantSwarmV4.V4GetCredentialResponseAzure](docs/V4GetCredentialResponseAzure.md)
+ - [GiantSwarmV4.V4GetCredentialResponseAzureCredential](docs/V4GetCredentialResponseAzureCredential.md)
+ - [GiantSwarmV4.V4GetCredentialsResponse](docs/V4GetCredentialsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponse](docs/V4GetKeyPairsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponseInner](docs/V4GetKeyPairsResponseInner.md)
  - [GiantSwarmV4.V4InfoResponse](docs/V4InfoResponse.md)

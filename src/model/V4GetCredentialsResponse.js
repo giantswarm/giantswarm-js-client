@@ -16,100 +16,60 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient', 'model/V4GetCredentialResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'), require('./V4GetCredentialResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4GetCredentialsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetCredentialResponse);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient, V4GetCredentialResponse) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4GetCredentialsResponse model module.
+   * @module model/V4GetCredentialsResponse
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4GetCredentialsResponse</code>.
+   * List of credential sets for an organization. As of now, this can contain either zero or one items. 
+   * @alias module:model/V4GetCredentialsResponse
    * @class
-   * @param owner {String} Name of the organization owning the cluster
+   * @extends Array
    */
-  var exports = function(owner) {
+  var exports = function() {
     var _this = this;
+    _this = new Array();
+    Object.setPrototypeOf(_this, exports);
 
-    _this['owner'] = owner;
-
-
-
-
+    return _this;
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetCredentialsResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4GetCredentialsResponse} obj Optional instance to populate.
+   * @return {module:model/V4GetCredentialsResponse} The populated <code>V4GetCredentialsResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      ApiClient.constructFromObject(data, obj, 'V4GetCredentialResponse');
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('kubernetes_version')) {
-        obj['kubernetes_version'] = ApiClient.convertToType(data['kubernetes_version'], 'String');
-      }
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
-      }
     }
     return obj;
   }
 
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Cluster name
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Kubernetes version number (deprecated). Doesn't have any effect. This attribute is going to be removed in future API versions. 
-   * @member {String} kubernetes_version
-   */
-  exports.prototype['kubernetes_version'] = undefined;
-  /**
-   * @member {Array.<module:model/V4NodeDefinition>} workers
-   */
-  exports.prototype['workers'] = undefined;
 
 
 

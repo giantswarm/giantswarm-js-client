@@ -29,7 +29,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -52,7 +52,7 @@ apiInstance.addKeyPair(authorizationclusterId, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **body** | [**V4AddKeyPairRequest**](V4AddKeyPairRequest.md)| While the &#x60;ttl_hours&#x60; attribute is optional and will be set to a default value when omitted, the &#x60;description&#x60; is mandatory.  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -93,7 +93,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.KeyPairsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -114,7 +114,7 @@ apiInstance.getKeyPairs(authorizationclusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 

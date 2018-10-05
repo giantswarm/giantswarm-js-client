@@ -41,6 +41,7 @@
 
   /**
    * Constructs a new <code>V4AddCredentialsRequestAzureCredential</code>.
+   * Service principal credential
    * @alias module:model/V4AddCredentialsRequestAzureCredential
    * @class
    * @param clientId {String} Client ID of the service principal

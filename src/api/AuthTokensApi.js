@@ -113,7 +113,7 @@
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -158,7 +158,7 @@
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 

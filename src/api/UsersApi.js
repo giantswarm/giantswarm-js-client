@@ -51,7 +51,7 @@
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4CreateUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -109,7 +109,7 @@
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4CreateUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -129,7 +129,7 @@
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -181,7 +181,7 @@
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -200,7 +200,7 @@
     /**
      * Get current user
      * Returns details about the currently authenticated user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -245,7 +245,7 @@
     /**
      * Get current user
      * Returns details about the currently authenticated user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -263,7 +263,7 @@
     /**
      * Get user
      * Returns details about a specific user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -315,7 +315,7 @@
     /**
      * Get user
      * Returns details about a specific user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -334,7 +334,7 @@
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -379,7 +379,7 @@
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -397,7 +397,7 @@
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserPasswordRequest} body Modify password request
      * @param {Object} opts Optional parameters
@@ -455,7 +455,7 @@
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserPasswordRequest} body Modify password request
      * @param {Object} opts Optional parameters
@@ -475,7 +475,7 @@
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -533,7 +533,7 @@
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserRequest} body User account details
      * @param {Object} opts Optional parameters
