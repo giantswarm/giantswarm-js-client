@@ -56,6 +56,7 @@
 
 
 
+
   };
 
   /**
@@ -83,6 +84,9 @@
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('credential_id')) {
+        obj['credential_id'] = ApiClient.convertToType(data['credential_id'], 'String');
       }
       if (data.hasOwnProperty('release_version')) {
         obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
@@ -122,6 +126,11 @@
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
+  /**
+   * ID of the credentials used to operate the cluster (only on AWS and Azure). See [Set credentials](#operation/addCredentials) for details. 
+   * @member {String} credential_id
+   */
+  exports.prototype['credential_id'] = undefined;
   /**
    * The [release](https://docs.giantswarm.io/api/#tag/releases) version currently running this cluster. 
    * @member {String} release_version

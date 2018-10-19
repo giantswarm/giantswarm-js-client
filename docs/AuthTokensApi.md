@@ -87,7 +87,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.AuthTokensApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -106,7 +106,7 @@ apiInstance.deleteAuthToken(authorization, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 

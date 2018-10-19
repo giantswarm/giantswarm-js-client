@@ -25,7 +25,7 @@
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddCredentialsRequestAzureCredential = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4GetCredentialResponseAzureCredential = factory(root.GiantSwarmV4.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,36 +34,31 @@
 
 
   /**
-   * The V4AddCredentialsRequestAzureCredential model module.
-   * @module model/V4AddCredentialsRequestAzureCredential
+   * The V4GetCredentialResponseAzureCredential model module.
+   * @module model/V4GetCredentialResponseAzureCredential
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddCredentialsRequestAzureCredential</code>.
+   * Constructs a new <code>V4GetCredentialResponseAzureCredential</code>.
    * Service principal credential
-   * @alias module:model/V4AddCredentialsRequestAzureCredential
+   * @alias module:model/V4GetCredentialResponseAzureCredential
    * @class
-   * @param clientId {String} Client ID of the service principal
-   * @param secretKey {String} Secret key of the service principal
-   * @param subscriptionId {String} Azure subscription ID
-   * @param tenantId {String} Tenant ID of the Azure subscription
    */
-  var exports = function(clientId, secretKey, subscriptionId, tenantId) {
+  var exports = function() {
     var _this = this;
 
-    _this['client_id'] = clientId;
-    _this['secret_key'] = secretKey;
-    _this['subscription_id'] = subscriptionId;
-    _this['tenant_id'] = tenantId;
+
+
+
   };
 
   /**
-   * Constructs a <code>V4AddCredentialsRequestAzureCredential</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetCredentialResponseAzureCredential</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddCredentialsRequestAzureCredential} obj Optional instance to populate.
-   * @return {module:model/V4AddCredentialsRequestAzureCredential} The populated <code>V4AddCredentialsRequestAzureCredential</code> instance.
+   * @param {module:model/V4GetCredentialResponseAzureCredential} obj Optional instance to populate.
+   * @return {module:model/V4GetCredentialResponseAzureCredential} The populated <code>V4GetCredentialResponseAzureCredential</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -71,9 +66,6 @@
 
       if (data.hasOwnProperty('client_id')) {
         obj['client_id'] = ApiClient.convertToType(data['client_id'], 'String');
-      }
-      if (data.hasOwnProperty('secret_key')) {
-        obj['secret_key'] = ApiClient.convertToType(data['secret_key'], 'String');
       }
       if (data.hasOwnProperty('subscription_id')) {
         obj['subscription_id'] = ApiClient.convertToType(data['subscription_id'], 'String');
@@ -90,11 +82,6 @@
    * @member {String} client_id
    */
   exports.prototype['client_id'] = undefined;
-  /**
-   * Secret key of the service principal
-   * @member {String} secret_key
-   */
-  exports.prototype['secret_key'] = undefined;
   /**
    * Azure subscription ID
    * @member {String} subscription_id
