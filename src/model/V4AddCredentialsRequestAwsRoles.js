@@ -41,6 +41,7 @@
 
   /**
    * Constructs a new <code>V4AddCredentialsRequestAwsRoles</code>.
+   * IAM roles to assume by certain entities
    * @alias module:model/V4AddCredentialsRequestAwsRoles
    * @class
    * @param admin {String} ARN of the IAM role to assume by Giant Swarm support staff

@@ -34,7 +34,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var email = "email_example"; // String | The user's email address
 
@@ -57,7 +57,7 @@ apiInstance.createUser(authorizationemail, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **email** | **String**| The user&#39;s email address | 
  **body** | [**V4CreateUserRequest**](V4CreateUserRequest.md)| User account details | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -98,7 +98,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var email = "email_example"; // String | The user's email address
 
@@ -119,7 +119,7 @@ apiInstance.deleteUser(authorizationemail, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **email** | **String**| The user&#39;s email address | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -159,7 +159,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -178,7 +178,7 @@ apiInstance.getCurrentUser(authorization, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -217,7 +217,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var email = "email_example"; // String | The user's email address
 
@@ -238,7 +238,7 @@ apiInstance.getUser(authorizationemail, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **email** | **String**| The user&#39;s email address | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -278,7 +278,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -297,7 +297,7 @@ apiInstance.getUsers(authorization, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -336,7 +336,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var email = "email_example"; // String | The user's email address
 
@@ -359,7 +359,7 @@ apiInstance.modifyPassword(authorizationemail, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **email** | **String**| The user&#39;s email address | 
  **body** | [**V4ModifyUserPasswordRequest**](V4ModifyUserPasswordRequest.md)| Modify password request | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -400,7 +400,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarmV4.UsersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var email = "email_example"; // String | The user's email address
 
@@ -423,7 +423,7 @@ apiInstance.modifyUser(authorizationemail, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section | 
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **email** | **String**| The user&#39;s email address | 
  **body** | [**V4ModifyUserRequest**](V4ModifyUserRequest.md)| User account details | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
