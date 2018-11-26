@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4GetKeyPairsResponseInner](docs/V4GetKeyPairsResponseInner.md)
  - [GiantSwarmV4.V4InfoResponse](docs/V4InfoResponse.md)
  - [GiantSwarmV4.V4InfoResponseGeneral](docs/V4InfoResponseGeneral.md)
+ - [GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones](docs/V4InfoResponseGeneralAvailabilityZones.md)
  - [GiantSwarmV4.V4InfoResponseWorkers](docs/V4InfoResponseWorkers.md)
  - [GiantSwarmV4.V4InfoResponseWorkersCountPerCluster](docs/V4InfoResponseWorkersCountPerCluster.md)
  - [GiantSwarmV4.V4InfoResponseWorkersInstanceType](docs/V4InfoResponseWorkersInstanceType.md)

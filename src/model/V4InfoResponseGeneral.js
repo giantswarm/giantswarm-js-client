@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/V4InfoResponseGeneralAvailabilityZones'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneralAvailabilityZones'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4InfoResponseGeneral = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarmV4.V4InfoResponseGeneral = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, V4InfoResponseGeneralAvailabilityZones) {
   'use strict';
 
 
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -73,6 +74,9 @@
       if (data.hasOwnProperty('datacenter')) {
         obj['datacenter'] = ApiClient.convertToType(data['datacenter'], 'String');
       }
+      if (data.hasOwnProperty('availability_zones')) {
+        obj['availability_zones'] = V4InfoResponseGeneralAvailabilityZones.constructFromObject(data['availability_zones']);
+      }
     }
     return obj;
   }
@@ -92,6 +96,10 @@
    * @member {String} datacenter
    */
   exports.prototype['datacenter'] = undefined;
+  /**
+   * @member {module:model/V4InfoResponseGeneralAvailabilityZones} availability_zones
+   */
+  exports.prototype['availability_zones'] = undefined;
 
 
 
