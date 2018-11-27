@@ -57,6 +57,7 @@
 
 
 
+
   };
 
   /**
@@ -90,6 +91,9 @@
       }
       if (data.hasOwnProperty('release_version')) {
         obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+      }
+      if (data.hasOwnProperty('availability_zones')) {
+        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], ['String']);
       }
       if (data.hasOwnProperty('workers')) {
         obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
@@ -136,6 +140,11 @@
    * @member {String} release_version
    */
   exports.prototype['release_version'] = undefined;
+  /**
+   * List of availability zones a cluster is spread across.
+   * @member {Array.<String>} availability_zones
+   */
+  exports.prototype['availability_zones'] = undefined;
   /**
    * @member {Array.<module:model/V4NodeDefinition>} workers
    */

@@ -16,100 +16,75 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4InfoResponseGeneralAvailabilityZones model module.
+   * @module model/V4InfoResponseGeneralAvailabilityZones
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4InfoResponseGeneralAvailabilityZones</code>.
+   * Number of availability zones which a cluster can be spread across.
+   * @alias module:model/V4InfoResponseGeneralAvailabilityZones
    * @class
-   * @param owner {String} Name of the organization owning the cluster
+   * @param max {Number} Number of availability zones in the region of this installation.
+   * @param _default {Number} Default number of availability zones for a cluster.
    */
-  var exports = function(owner) {
+  var exports = function(max, _default) {
     var _this = this;
 
-    _this['owner'] = owner;
-
-
-
-
+    _this['max'] = max;
+    _this['default'] = _default;
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4InfoResponseGeneralAvailabilityZones</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4InfoResponseGeneralAvailabilityZones} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseGeneralAvailabilityZones} The populated <code>V4InfoResponseGeneralAvailabilityZones</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      if (data.hasOwnProperty('max')) {
+        obj['max'] = ApiClient.convertToType(data['max'], 'Number');
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('availability_zones')) {
-        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], 'Number');
-      }
-      if (data.hasOwnProperty('workers')) {
-        obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
+      if (data.hasOwnProperty('default')) {
+        obj['default'] = ApiClient.convertToType(data['default'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
+   * Number of availability zones in the region of this installation.
+   * @member {Number} max
    */
-  exports.prototype['owner'] = undefined;
+  exports.prototype['max'] = undefined;
   /**
-   * Cluster name
-   * @member {String} name
+   * Default number of availability zones for a cluster.
+   * @member {Number} default
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Number of availability zones a cluster should be spread across. The default is provided via the [info](#operation/getInfo) endpoint.
-   * @member {Number} availability_zones
-   */
-  exports.prototype['availability_zones'] = undefined;
-  /**
-   * @member {Array.<module:model/V4NodeDefinition>} workers
-   */
-  exports.prototype['workers'] = undefined;
+  exports.prototype['default'] = undefined;
 
 
 
