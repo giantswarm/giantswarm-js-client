@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4ModifyClusterRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
+    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterStatusResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest) {
   'use strict';
 
   /**
@@ -254,6 +254,77 @@
      */
     this.getCluster = function(authorization, clusterId, opts) {
       return this.getClusterWithHttpInfo(authorization, clusterId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get cluster status
+     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterStatusResponse} and HTTP response
+     */
+    this.getClusterStatusWithHttpInfo = function(authorization, clusterId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'authorization' is set
+      if (authorization === undefined || authorization === null) {
+        throw new Error("Missing the required parameter 'authorization' when calling getClusterStatus");
+      }
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling getClusterStatus");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'Authorization': authorization,
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GetClusterStatusResponse;
+
+      return this.apiClient.callApi(
+        '/v4/clusters/{cluster_id}/status/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get cluster status
+     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterStatusResponse}
+     */
+    this.getClusterStatus = function(authorization, clusterId, opts) {
+      return this.getClusterStatusWithHttpInfo(authorization, clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
