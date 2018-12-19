@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
 *GiantSwarmV4.ClustersApi* | [**deleteCluster**](docs/ClustersApi.md#deleteCluster) | **DELETE** /v4/clusters/{cluster_id}/ | Delete cluster
 *GiantSwarmV4.ClustersApi* | [**getCluster**](docs/ClustersApi.md#getCluster) | **GET** /v4/clusters/{cluster_id}/ | Get cluster details
+*GiantSwarmV4.ClustersApi* | [**getClusterStatus**](docs/ClustersApi.md#getClusterStatus) | **GET** /v4/clusters/{cluster_id}/status/ | Get cluster status
 *GiantSwarmV4.ClustersApi* | [**getClusters**](docs/ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
 *GiantSwarmV4.ClustersApi* | [**modifyCluster**](docs/ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster
 *GiantSwarmV4.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
@@ -174,6 +175,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
+ - [GiantSwarmV4.V4GetClusterStatusResponse](docs/V4GetClusterStatusResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponseAws](docs/V4GetCredentialResponseAws.md)
  - [GiantSwarmV4.V4GetCredentialResponseAwsRoles](docs/V4GetCredentialResponseAwsRoles.md)
