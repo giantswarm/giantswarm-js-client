@@ -16,33 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4GetClusterStatusResponseAws', 'model/V4GetClusterStatusResponseCluster'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4GetClusterStatusResponseAws'), require('./V4GetClusterStatusResponseCluster'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4GetClusterStatusResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetClusterStatusResponseAws, root.GiantSwarmV4.V4GetClusterStatusResponseCluster);
+    root.GiantSwarmV4.V4GetClusterStatusResponseClusterNodes = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4GetClusterStatusResponseAws, V4GetClusterStatusResponseCluster) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4GetClusterStatusResponse model module.
-   * @module model/V4GetClusterStatusResponse
+   * The V4GetClusterStatusResponseClusterNodes model module.
+   * @module model/V4GetClusterStatusResponseClusterNodes
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4GetClusterStatusResponse</code>.
-   * Object about a cluster&#39;s current state
-   * @alias module:model/V4GetClusterStatusResponse
+   * Constructs a new <code>V4GetClusterStatusResponseClusterNodes</code>.
+   * @alias module:model/V4GetClusterStatusResponseClusterNodes
    * @class
    */
   var exports = function() {
@@ -50,37 +49,48 @@
 
 
 
+
   };
 
   /**
-   * Constructs a <code>V4GetClusterStatusResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetClusterStatusResponseClusterNodes</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetClusterStatusResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetClusterStatusResponse} The populated <code>V4GetClusterStatusResponse</code> instance.
+   * @param {module:model/V4GetClusterStatusResponseClusterNodes} obj Optional instance to populate.
+   * @return {module:model/V4GetClusterStatusResponseClusterNodes} The populated <code>V4GetClusterStatusResponseClusterNodes</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V4GetClusterStatusResponseAws.constructFromObject(data['aws']);
+      if (data.hasOwnProperty('lastTransitionTime')) {
+        obj['lastTransitionTime'] = ApiClient.convertToType(data['lastTransitionTime'], 'String');
       }
-      if (data.hasOwnProperty('cluster')) {
-        obj['cluster'] = V4GetClusterStatusResponseCluster.constructFromObject(data['cluster']);
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('version')) {
+        obj['version'] = ApiClient.convertToType(data['version'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/V4GetClusterStatusResponseAws} aws
+   * lastTransitionTime is the last time the node status transitioned from one status to another. 
+   * @member {String} lastTransitionTime
    */
-  exports.prototype['aws'] = undefined;
+  exports.prototype['lastTransitionTime'] = undefined;
   /**
-   * @member {module:model/V4GetClusterStatusResponseCluster} cluster
+   * Node name.
+   * @member {String} name
    */
-  exports.prototype['cluster'] = undefined;
+  exports.prototype['name'] = undefined;
+  /**
+   * Operator version that this node is using.
+   * @member {String} version
+   */
+  exports.prototype['version'] = undefined;
 
 
 

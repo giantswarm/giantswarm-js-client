@@ -16,71 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4GetClusterStatusResponseAws', 'model/V4GetClusterStatusResponseCluster'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4GetClusterStatusResponseAws'), require('./V4GetClusterStatusResponseCluster'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4GetClusterStatusResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetClusterStatusResponseAws, root.GiantSwarmV4.V4GetClusterStatusResponseCluster);
+    root.GiantSwarmV4.V4GetClusterStatusResponseAwsSubnetPublic = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4GetClusterStatusResponseAws, V4GetClusterStatusResponseCluster) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4GetClusterStatusResponse model module.
-   * @module model/V4GetClusterStatusResponse
+   * The V4GetClusterStatusResponseAwsSubnetPublic model module.
+   * @module model/V4GetClusterStatusResponseAwsSubnetPublic
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4GetClusterStatusResponse</code>.
-   * Object about a cluster&#39;s current state
-   * @alias module:model/V4GetClusterStatusResponse
+   * Constructs a new <code>V4GetClusterStatusResponseAwsSubnetPublic</code>.
+   * Public subnet.
+   * @alias module:model/V4GetClusterStatusResponseAwsSubnetPublic
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
   };
 
   /**
-   * Constructs a <code>V4GetClusterStatusResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetClusterStatusResponseAwsSubnetPublic</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetClusterStatusResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetClusterStatusResponse} The populated <code>V4GetClusterStatusResponse</code> instance.
+   * @param {module:model/V4GetClusterStatusResponseAwsSubnetPublic} obj Optional instance to populate.
+   * @return {module:model/V4GetClusterStatusResponseAwsSubnetPublic} The populated <code>V4GetClusterStatusResponseAwsSubnetPublic</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V4GetClusterStatusResponseAws.constructFromObject(data['aws']);
-      }
-      if (data.hasOwnProperty('cluster')) {
-        obj['cluster'] = V4GetClusterStatusResponseCluster.constructFromObject(data['cluster']);
+      if (data.hasOwnProperty('cidr')) {
+        obj['cidr'] = ApiClient.convertToType(data['cidr'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/V4GetClusterStatusResponseAws} aws
+   * Public subnet CIDR.
+   * @member {String} cidr
    */
-  exports.prototype['aws'] = undefined;
-  /**
-   * @member {module:model/V4GetClusterStatusResponseCluster} cluster
-   */
-  exports.prototype['cluster'] = undefined;
+  exports.prototype['cidr'] = undefined;
 
 
 
