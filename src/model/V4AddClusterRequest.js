@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequestScaling', 'model/V4NodeDefinition'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddClusterRequestScaling'), require('./V4NodeDefinition'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequestScaling, root.GiantSwarmV4.V4NodeDefinition);
   }
-}(this, function(ApiClient, V4NodeDefinition) {
+}(this, function(ApiClient, V4AddClusterRequestScaling, V4NodeDefinition) {
   'use strict';
 
 
@@ -50,6 +50,7 @@
     var _this = this;
 
     _this['owner'] = owner;
+
 
 
 
@@ -79,6 +80,9 @@
       if (data.hasOwnProperty('availability_zones')) {
         obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], 'Number');
       }
+      if (data.hasOwnProperty('scaling')) {
+        obj['scaling'] = V4AddClusterRequestScaling.constructFromObject(data['scaling']);
+      }
       if (data.hasOwnProperty('workers')) {
         obj['workers'] = ApiClient.convertToType(data['workers'], [V4NodeDefinition]);
       }
@@ -107,6 +111,11 @@
    */
   exports.prototype['availability_zones'] = undefined;
   /**
+   * @member {module:model/V4AddClusterRequestScaling} scaling
+   */
+  exports.prototype['scaling'] = undefined;
+  /**
+   * Worker node definition. If present, the first item of the array is expected to contain the specification for all worker nodes. 
    * @member {Array.<module:model/V4NodeDefinition>} workers
    */
   exports.prototype['workers'] = undefined;
