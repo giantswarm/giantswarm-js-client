@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4ClusterDetailsResponseKvm', 'model/V4NodeDefinition'], factory);
+    define(['ApiClient', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseScaling', 'model/V4NodeDefinition'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4ClusterDetailsResponseKvm'), require('./V4NodeDefinition'));
+    module.exports = factory(require('../ApiClient'), require('./V4ClusterDetailsResponseKvm'), require('./V4ClusterDetailsResponseScaling'), require('./V4NodeDefinition'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4ClusterDetailsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ClusterDetailsResponseKvm, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarmV4.V4ClusterDetailsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ClusterDetailsResponseKvm, root.GiantSwarmV4.V4ClusterDetailsResponseScaling, root.GiantSwarmV4.V4NodeDefinition);
   }
-}(this, function(ApiClient, V4ClusterDetailsResponseKvm, V4NodeDefinition) {
+}(this, function(ApiClient, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseScaling, V4NodeDefinition) {
   'use strict';
 
 
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -91,6 +92,9 @@
       }
       if (data.hasOwnProperty('release_version')) {
         obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+      }
+      if (data.hasOwnProperty('scaling')) {
+        obj['scaling'] = V4ClusterDetailsResponseScaling.constructFromObject(data['scaling']);
       }
       if (data.hasOwnProperty('availability_zones')) {
         obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], ['String']);
@@ -141,11 +145,16 @@
    */
   exports.prototype['release_version'] = undefined;
   /**
+   * @member {module:model/V4ClusterDetailsResponseScaling} scaling
+   */
+  exports.prototype['scaling'] = undefined;
+  /**
    * List of availability zones a cluster is spread across.
    * @member {Array.<String>} availability_zones
    */
   exports.prototype['availability_zones'] = undefined;
   /**
+   * Information about worker nodes in the cluster (deprecated)
    * @member {Array.<module:model/V4NodeDefinition>} workers
    */
   exports.prototype['workers'] = undefined;

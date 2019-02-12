@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 
  - [GiantSwarmV4.Body](docs/Body.md)
  - [GiantSwarmV4.V4AddClusterRequest](docs/V4AddClusterRequest.md)
+ - [GiantSwarmV4.V4AddClusterRequestScaling](docs/V4AddClusterRequestScaling.md)
  - [GiantSwarmV4.V4AddCredentialsRequest](docs/V4AddCredentialsRequest.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAws](docs/V4AddCredentialsRequestAws.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAwsRoles](docs/V4AddCredentialsRequestAwsRoles.md)
@@ -170,6 +171,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvm](docs/V4ClusterDetailsResponseKvm.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
+ - [GiantSwarmV4.V4ClusterDetailsResponseScaling](docs/V4ClusterDetailsResponseScaling.md)
  - [GiantSwarmV4.V4ClusterListItem](docs/V4ClusterListItem.md)
  - [GiantSwarmV4.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
@@ -192,6 +194,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4InfoResponseWorkersInstanceType](docs/V4InfoResponseWorkersInstanceType.md)
  - [GiantSwarmV4.V4InfoResponseWorkersVmSize](docs/V4InfoResponseWorkersVmSize.md)
  - [GiantSwarmV4.V4ModifyClusterRequest](docs/V4ModifyClusterRequest.md)
+ - [GiantSwarmV4.V4ModifyClusterRequestScaling](docs/V4ModifyClusterRequestScaling.md)
  - [GiantSwarmV4.V4ModifyUserPasswordRequest](docs/V4ModifyUserPasswordRequest.md)
  - [GiantSwarmV4.V4ModifyUserRequest](docs/V4ModifyUserRequest.md)
  - [GiantSwarmV4.V4NodeDefinition](docs/V4NodeDefinition.md)
