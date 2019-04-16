@@ -16,92 +16,72 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddNodePoolRequest'], factory);
+    define(['ApiClient', 'model/V4ModifyNodePoolRequestScaling'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequest'));
+    module.exports = factory(require('../ApiClient'), require('./V4ModifyNodePoolRequestScaling'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequest);
+    root.GiantSwarmV4.V4ModifyNodePoolRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ModifyNodePoolRequestScaling);
   }
-}(this, function(ApiClient, V4AddNodePoolRequest) {
+}(this, function(ApiClient, V4ModifyNodePoolRequestScaling) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4ModifyNodePoolRequest model module.
+   * @module model/V4ModifyNodePoolRequest
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4ModifyNodePoolRequest</code>.
+   * Request body for node pool modification
+   * @alias module:model/V4ModifyNodePoolRequest
    * @class
-   * @param owner {String} Name of the organization owning the cluster
    */
-  var exports = function(owner) {
+  var exports = function() {
     var _this = this;
-
-    _this['owner'] = owner;
 
 
 
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4ModifyNodePoolRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4ModifyNodePoolRequest} obj Optional instance to populate.
+   * @return {module:model/V4ModifyNodePoolRequest} The populated <code>V4ModifyNodePoolRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = ApiClient.convertToType(data['nodepools'], [V4AddNodePoolRequest]);
+      if (data.hasOwnProperty('scaling')) {
+        obj['scaling'] = V4ModifyNodePoolRequestScaling.constructFromObject(data['scaling']);
       }
     }
     return obj;
   }
 
   /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Cluster name
+   * New name of the node pool
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
+   * @member {module:model/V4ModifyNodePoolRequestScaling} scaling
    */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Specification of node pools to be created
-   * @member {Array.<module:model/V4AddNodePoolRequest>} nodepools
-   */
-  exports.prototype['nodepools'] = undefined;
+  exports.prototype['scaling'] = undefined;
 
 
 

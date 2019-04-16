@@ -74,12 +74,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property workers (base name: "workers")', function() {
-      // uncomment below and update the code to test the property workers
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

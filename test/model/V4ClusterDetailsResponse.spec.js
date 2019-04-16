@@ -86,20 +86,14 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property credentialId (base name: "credential_id")', function() {
+      // uncomment below and update the code to test the property credentialId
+      //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property releaseVersion (base name: "release_version")', function() {
       // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property kubernetesVersion (base name: "kubernetes_version")', function() {
-      // uncomment below and update the code to test the property kubernetesVersion
-      //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property workers (base name: "workers")', function() {
-      // uncomment below and update the code to test the property workers
       //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });

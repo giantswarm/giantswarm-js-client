@@ -16,92 +16,87 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddNodePoolRequest'], factory);
+    define(['ApiClient', 'model/V4AddNodePoolRequestNodeSpecKvm', 'model/V4GetNodePoolResponseNodeSpecAws', 'model/V4GetNodePoolResponseNodeSpecAzure'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequest'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequestNodeSpecKvm'), require('./V4GetNodePoolResponseNodeSpecAws'), require('./V4GetNodePoolResponseNodeSpecAzure'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequest);
+    root.GiantSwarmV4.V4GetNodePoolResponseNodeSpec = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvm, root.GiantSwarmV4.V4GetNodePoolResponseNodeSpecAws, root.GiantSwarmV4.V4GetNodePoolResponseNodeSpecAzure);
   }
-}(this, function(ApiClient, V4AddNodePoolRequest) {
+}(this, function(ApiClient, V4AddNodePoolRequestNodeSpecKvm, V4GetNodePoolResponseNodeSpecAws, V4GetNodePoolResponseNodeSpecAzure) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4GetNodePoolResponseNodeSpec model module.
+   * @module model/V4GetNodePoolResponseNodeSpec
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4GetNodePoolResponseNodeSpec</code>.
+   * @alias module:model/V4GetNodePoolResponseNodeSpec
    * @class
-   * @param owner {String} Name of the organization owning the cluster
    */
-  var exports = function(owner) {
+  var exports = function() {
     var _this = this;
 
-    _this['owner'] = owner;
+
 
 
 
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetNodePoolResponseNodeSpec</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4GetNodePoolResponseNodeSpec} obj Optional instance to populate.
+   * @return {module:model/V4GetNodePoolResponseNodeSpec} The populated <code>V4GetNodePoolResponseNodeSpec</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      if (data.hasOwnProperty('aws')) {
+        obj['aws'] = V4GetNodePoolResponseNodeSpecAws.constructFromObject(data['aws']);
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('azure')) {
+        obj['azure'] = V4GetNodePoolResponseNodeSpecAzure.constructFromObject(data['azure']);
       }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+      if (data.hasOwnProperty('kvm')) {
+        obj['kvm'] = V4AddNodePoolRequestNodeSpecKvm.constructFromObject(data['kvm']);
       }
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = ApiClient.convertToType(data['nodepools'], [V4AddNodePoolRequest]);
+      if (data.hasOwnProperty('labels')) {
+        obj['labels'] = ApiClient.convertToType(data['labels'], Object);
       }
     }
     return obj;
   }
 
   /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
+   * @member {module:model/V4GetNodePoolResponseNodeSpecAws} aws
    */
-  exports.prototype['owner'] = undefined;
+  exports.prototype['aws'] = undefined;
   /**
-   * Cluster name
-   * @member {String} name
+   * @member {module:model/V4GetNodePoolResponseNodeSpecAzure} azure
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['azure'] = undefined;
   /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
+   * @member {module:model/V4AddNodePoolRequestNodeSpecKvm} kvm
    */
-  exports.prototype['release_version'] = undefined;
+  exports.prototype['kvm'] = undefined;
   /**
-   * Specification of node pools to be created
-   * @member {Array.<module:model/V4AddNodePoolRequest>} nodepools
+   * Node labels set to all nodes in the pool 
+   * @member {Object} labels
    */
-  exports.prototype['nodepools'] = undefined;
+  exports.prototype['labels'] = undefined;
 
 
 

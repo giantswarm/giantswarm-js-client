@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.OrganizationsApi();
+    instance = new GiantSwarmV4.V4AddNodePoolRequestNodeSpec();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,87 +49,31 @@
       object[property] = value;
   }
 
-  describe('OrganizationsApi', function() {
-    describe('addCredentials', function() {
-      it('should call addCredentials successfully', function(done) {
-        //uncomment below and update the code to test addCredentials
-        //instance.addCredentials(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('V4AddNodePoolRequestNodeSpec', function() {
+    it('should create an instance of V4AddNodePoolRequestNodeSpec', function() {
+      // uncomment below and update the code to test V4AddNodePoolRequestNodeSpec
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpec();
+      //expect(instance).to.be.a(GiantSwarmV4.V4AddNodePoolRequestNodeSpec);
     });
-    describe('addOrganization', function() {
-      it('should call addOrganization successfully', function(done) {
-        //uncomment below and update the code to test addOrganization
-        //instance.addOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property aws (base name: "aws")', function() {
+      // uncomment below and update the code to test the property aws
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpec();
+      //expect(instance).to.be();
     });
-    describe('deleteOrganization', function() {
-      it('should call deleteOrganization successfully', function(done) {
-        //uncomment below and update the code to test deleteOrganization
-        //instance.deleteOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property azure (base name: "azure")', function() {
+      // uncomment below and update the code to test the property azure
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpec();
+      //expect(instance).to.be();
     });
-    describe('getCredential', function() {
-      it('should call getCredential successfully', function(done) {
-        //uncomment below and update the code to test getCredential
-        //instance.getCredential(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property kvm (base name: "kvm")', function() {
+      // uncomment below and update the code to test the property kvm
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpec();
+      //expect(instance).to.be();
     });
-    describe('getCredentials', function() {
-      it('should call getCredentials successfully', function(done) {
-        //uncomment below and update the code to test getCredentials
-        //instance.getCredentials(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganization', function() {
-      it('should call getOrganization successfully', function(done) {
-        //uncomment below and update the code to test getOrganization
-        //instance.getOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganizations', function() {
-      it('should call getOrganizations successfully', function(done) {
-        //uncomment below and update the code to test getOrganizations
-        //instance.getOrganizations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('modifyOrganization', function() {
-      it('should call modifyOrganization successfully', function(done) {
-        //uncomment below and update the code to test modifyOrganization
-        //instance.modifyOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));

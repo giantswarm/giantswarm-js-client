@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4AddNodePoolRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4GetNodePoolResponse', 'model/V4GetNodePoolsResponse', 'model/V4ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddNodePoolRequest', 'model/V4GenericResponse', 'model/V4GetNodePoolResponse', 'model/V4GetNodePoolStatusResponse', 'model/V4GetNodePoolsResponse', 'model/V4ModifyNodePoolRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4AddNodePoolRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4GetNodePoolResponse'), require('../model/V4GetNodePoolsResponse'), require('../model/V4ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddNodePoolRequest'), require('../model/V4GenericResponse'), require('../model/V4GetNodePoolResponse'), require('../model/V4GetNodePoolStatusResponse'), require('../model/V4GetNodePoolsResponse'), require('../model/V4ModifyNodePoolRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4AddNodePoolRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterStatusResponse, root.GiantSwarmV4.V4GetNodePoolResponse, root.GiantSwarmV4.V4GetNodePoolsResponse, root.GiantSwarmV4.V4ModifyClusterRequest);
+    root.GiantSwarmV4.NodepoolsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetNodePoolResponse, root.GiantSwarmV4.V4GetNodePoolStatusResponse, root.GiantSwarmV4.V4GetNodePoolsResponse, root.GiantSwarmV4.V4ModifyNodePoolRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4AddNodePoolRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4GetNodePoolResponse, V4GetNodePoolsResponse, V4ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddNodePoolRequest, V4GenericResponse, V4GetNodePoolResponse, V4GetNodePoolStatusResponse, V4GetNodePoolsResponse, V4ModifyNodePoolRequest) {
   'use strict';
 
   /**
-   * Clusters service.
-   * @module api/ClustersApi
+   * Nodepools service.
+   * @module api/NodepoolsApi
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new ClustersApi. 
-   * @alias module:api/ClustersApi
+   * Constructs a new NodepoolsApi. 
+   * @alias module:api/NodepoolsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -46,76 +46,6 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-
-
-    /**
-     * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization.  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like node pool configuration, with node specification depending on the provider (EC2 instance type or Azure VM size, memory size and number of CPU cores).  One attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  For all other attributes, defaults will be applied if the attribute is not set. Check out the [getInfo](#operation/getInfo) operation for more info about defaults. If no &#x60;release_version&#x60; is set, the latest release version available for the provider will be used.  ### Node pools  Worker nodes are grouped into node pools of nodes sharing the same configuration. When creating a cluster without submitting the &#x60;nodepools&#x60; attribute, or with its value being an empty array, one node pool with default configuration will be created.  On AWS, node pools can be created, deleted and modified during the entire lifetime of a cluster.  See [node pools](#tag/nodepools) and [Create node pool](#operation/addNodePool) for details.  On Azure and KVM, clusters are currently restricted to have either exactly one node pool or none. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4AddClusterRequest} body New cluster definition
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
-     */
-    this.addClusterWithHttpInfo = function(authorization, body, opts) {
-      opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling addCluster");
-      }
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling addCluster");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GenericResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization.  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like node pool configuration, with node specification depending on the provider (EC2 instance type or Azure VM size, memory size and number of CPU cores).  One attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  For all other attributes, defaults will be applied if the attribute is not set. Check out the [getInfo](#operation/getInfo) operation for more info about defaults. If no &#x60;release_version&#x60; is set, the latest release version available for the provider will be used.  ### Node pools  Worker nodes are grouped into node pools of nodes sharing the same configuration. When creating a cluster without submitting the &#x60;nodepools&#x60; attribute, or with its value being an empty array, one node pool with default configuration will be created.  On AWS, node pools can be created, deleted and modified during the entire lifetime of a cluster.  See [node pools](#tag/nodepools) and [Create node pool](#operation/addNodePool) for details.  On Azure and KVM, clusters are currently restricted to have either exactly one node pool or none. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4AddClusterRequest} body New cluster definition
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
-     */
-    this.addCluster = function(authorization, body, opts) {
-      return this.addClusterWithHttpInfo(authorization, body, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
 
 
     /**
@@ -192,28 +122,150 @@
 
 
     /**
-     * Delete cluster
-     * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
+     * Delete node pool
+     * Deletes a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double check the available capacity of remaining node pools, as well as any node selectors and affinities. Also you can do the draining yourself to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl cordon nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    this.deleteNodePoolWithHttpInfo = function() {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/v4/clusters/{cluster_id}/nodepools/{nodepool_id}/', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Delete node pool
+     * Deletes a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double check the available capacity of remaining node pools, as well as any node selectors and affinities. Also you can do the draining yourself to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl cordon nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    this.deleteNodePool = function() {
+      return this.deleteNodePoolWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get node pool details
+     * Returns all available details on a specific node pool 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {String} nodepoolId Node Pool ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetNodePoolResponse} and HTTP response
+     */
+    this.getNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'authorization' is set
+      if (authorization === undefined || authorization === null) {
+        throw new Error("Missing the required parameter 'authorization' when calling getNodePool");
+      }
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling getNodePool");
+      }
+
+      // verify the required parameter 'nodepoolId' is set
+      if (nodepoolId === undefined || nodepoolId === null) {
+        throw new Error("Missing the required parameter 'nodepoolId' when calling getNodePool");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'nodepool_id': nodepoolId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'Authorization': authorization,
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GetNodePoolResponse;
+
+      return this.apiClient.callApi(
+        '/v4/clusters/{cluster_id}/nodepools/{nodepool_id}/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get node pool details
+     * Returns all available details on a specific node pool 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {String} nodepoolId Node Pool ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetNodePoolResponse}
+     */
+    this.getNodePool = function(authorization, clusterId, nodepoolId, opts) {
+      return this.getNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get node pool status
+     * Returns information on a node pool and the nodes in it.  This endpoint exposes the status content of the Kubernetes resources representing a node pool in the corresponding custom resource. That is, depending on the provider:  TODO: link to resources, as we do in &#x60;getClusterStatus&#x60;  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetNodePoolStatusResponse} and HTTP response
      */
-    this.deleteClusterWithHttpInfo = function(authorization, clusterId, opts) {
+    this.getNodePoolStatusWithHttpInfo = function(authorization, clusterId, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteCluster");
+        throw new Error("Missing the required parameter 'authorization' when calling getNodePoolStatus");
       }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling deleteCluster");
+        throw new Error("Missing the required parameter 'clusterId' when calling getNodePoolStatus");
       }
 
 
@@ -234,233 +286,28 @@
       var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = V4GenericResponse;
+      var returnType = V4GetNodePoolStatusResponse;
 
       return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/', 'DELETE',
+        '/v4/clusters/{cluster_id}/nodepools/{nodepool_id}/status/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Delete cluster
-     * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
+     * Get node pool status
+     * Returns information on a node pool and the nodes in it.  This endpoint exposes the status content of the Kubernetes resources representing a node pool in the corresponding custom resource. That is, depending on the provider:  TODO: link to resources, as we do in &#x60;getClusterStatus&#x60;  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetNodePoolStatusResponse}
      */
-    this.deleteCluster = function(authorization, clusterId, opts) {
-      return this.deleteClusterWithHttpInfo(authorization, clusterId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get cluster details
-     * This operation allows to obtain most available details on a particular cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
-     */
-    this.getClusterWithHttpInfo = function(authorization, clusterId, opts) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getCluster");
-      }
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling getCluster");
-      }
-
-
-      var pathParams = {
-        'cluster_id': clusterId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4ClusterDetailsResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Get cluster details
-     * This operation allows to obtain most available details on a particular cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
-     */
-    this.getCluster = function(authorization, clusterId, opts) {
-      return this.getClusterWithHttpInfo(authorization, clusterId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get cluster status
-     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterStatusResponse} and HTTP response
-     */
-    this.getClusterStatusWithHttpInfo = function(authorization, clusterId, opts) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusterStatus");
-      }
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling getClusterStatus");
-      }
-
-
-      var pathParams = {
-        'cluster_id': clusterId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GetClusterStatusResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/status/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Get cluster status
-     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterStatusResponse}
-     */
-    this.getClusterStatus = function(authorization, clusterId, opts) {
-      return this.getClusterStatusWithHttpInfo(authorization, clusterId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get clusters
-     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster), [getNodePools](#operation/getNodePools), and [getClusterStatus](#operation/getClusterStatus) operations. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ClusterListItem>} and HTTP response
-     */
-    this.getClustersWithHttpInfo = function(authorization, opts) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusters");
-      }
-
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = [V4ClusterListItem];
-
-      return this.apiClient.callApi(
-        '/v4/clusters/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Get clusters
-     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster), [getNodePools](#operation/getNodePools), and [getClusterStatus](#operation/getClusterStatus) operations. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ClusterListItem>}
-     */
-    this.getClusters = function(authorization, opts) {
-      return this.getClustersWithHttpInfo(authorization, opts)
+    this.getNodePoolStatus = function(authorization, clusterId, opts) {
+      return this.getNodePoolStatusWithHttpInfo(authorization, clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -539,39 +386,46 @@
 
 
     /**
-     * Modify cluster
-     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases). 
+     * Modify node pool
+     * Allows to rename a nod pool or change its scaling settings. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
      * @param {String} clusterId Cluster ID
+     * @param {String} nodepoolId Node Pool ID
+     * @param {module:model/V4ModifyNodePoolRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetNodePoolResponse} and HTTP response
      */
-    this.modifyClusterWithHttpInfo = function(authorization, body, clusterId, opts) {
+    this.modifyNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, body, opts) {
       opts = opts || {};
       var postBody = body;
 
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyCluster");
-      }
-
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling modifyCluster");
+        throw new Error("Missing the required parameter 'authorization' when calling modifyNodePool");
       }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling modifyCluster");
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyNodePool");
+      }
+
+      // verify the required parameter 'nodepoolId' is set
+      if (nodepoolId === undefined || nodepoolId === null) {
+        throw new Error("Missing the required parameter 'nodepoolId' when calling modifyNodePool");
+      }
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling modifyNodePool");
       }
 
 
       var pathParams = {
-        'cluster_id': clusterId
+        'cluster_id': clusterId,
+        'nodepool_id': nodepoolId
       };
       var queryParams = {
       };
@@ -587,29 +441,30 @@
       var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = V4ClusterDetailsResponse;
+      var returnType = V4GetNodePoolResponse;
 
       return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/', 'PATCH',
+        '/v4/clusters/{cluster_id}/nodepools/{nodepool_id}/', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Modify cluster
-     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases). 
+     * Modify node pool
+     * Allows to rename a nod pool or change its scaling settings. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
      * @param {String} clusterId Cluster ID
+     * @param {String} nodepoolId Node Pool ID
+     * @param {module:model/V4ModifyNodePoolRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetNodePoolResponse}
      */
-    this.modifyCluster = function(authorization, body, clusterId, opts) {
-      return this.modifyClusterWithHttpInfo(authorization, body, clusterId, opts)
+    this.modifyNodePool = function(authorization, clusterId, nodepoolId, body, opts) {
+      return this.modifyNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

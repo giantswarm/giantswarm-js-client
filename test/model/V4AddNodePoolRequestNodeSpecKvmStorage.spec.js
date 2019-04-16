@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.OrganizationsApi();
+    instance = new GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,87 +49,19 @@
       object[property] = value;
   }
 
-  describe('OrganizationsApi', function() {
-    describe('addCredentials', function() {
-      it('should call addCredentials successfully', function(done) {
-        //uncomment below and update the code to test addCredentials
-        //instance.addCredentials(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('V4AddNodePoolRequestNodeSpecKvmStorage', function() {
+    it('should create an instance of V4AddNodePoolRequestNodeSpecKvmStorage', function() {
+      // uncomment below and update the code to test V4AddNodePoolRequestNodeSpecKvmStorage
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage();
+      //expect(instance).to.be.a(GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage);
     });
-    describe('addOrganization', function() {
-      it('should call addOrganization successfully', function(done) {
-        //uncomment below and update the code to test addOrganization
-        //instance.addOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property sizeGb (base name: "size_gb")', function() {
+      // uncomment below and update the code to test the property sizeGb
+      //var instane = new GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage();
+      //expect(instance).to.be();
     });
-    describe('deleteOrganization', function() {
-      it('should call deleteOrganization successfully', function(done) {
-        //uncomment below and update the code to test deleteOrganization
-        //instance.deleteOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getCredential', function() {
-      it('should call getCredential successfully', function(done) {
-        //uncomment below and update the code to test getCredential
-        //instance.getCredential(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getCredentials', function() {
-      it('should call getCredentials successfully', function(done) {
-        //uncomment below and update the code to test getCredentials
-        //instance.getCredentials(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganization', function() {
-      it('should call getOrganization successfully', function(done) {
-        //uncomment below and update the code to test getOrganization
-        //instance.getOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganizations', function() {
-      it('should call getOrganizations successfully', function(done) {
-        //uncomment below and update the code to test getOrganizations
-        //instance.getOrganizations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('modifyOrganization', function() {
-      it('should call modifyOrganization successfully', function(done) {
-        //uncomment below and update the code to test modifyOrganization
-        //instance.modifyOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));

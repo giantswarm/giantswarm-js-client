@@ -130,14 +130,22 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarmV4.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 *GiantSwarmV4.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
+*GiantSwarmV4.ClustersApi* | [**addNodePool**](docs/ClustersApi.md#addNodePool) | **POST** /v4/clusters/{cluster_id}/nodepools/ | Create node pool
 *GiantSwarmV4.ClustersApi* | [**deleteCluster**](docs/ClustersApi.md#deleteCluster) | **DELETE** /v4/clusters/{cluster_id}/ | Delete cluster
 *GiantSwarmV4.ClustersApi* | [**getCluster**](docs/ClustersApi.md#getCluster) | **GET** /v4/clusters/{cluster_id}/ | Get cluster details
 *GiantSwarmV4.ClustersApi* | [**getClusterStatus**](docs/ClustersApi.md#getClusterStatus) | **GET** /v4/clusters/{cluster_id}/status/ | Get cluster status
 *GiantSwarmV4.ClustersApi* | [**getClusters**](docs/ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
+*GiantSwarmV4.ClustersApi* | [**getNodePools**](docs/ClustersApi.md#getNodePools) | **GET** /v4/clusters/{cluster_id}/nodepools/ | Get node pools
 *GiantSwarmV4.ClustersApi* | [**modifyCluster**](docs/ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster
 *GiantSwarmV4.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
 *GiantSwarmV4.KeyPairsApi* | [**addKeyPair**](docs/KeyPairsApi.md#addKeyPair) | **POST** /v4/clusters/{cluster_id}/key-pairs/ | Create key pair
 *GiantSwarmV4.KeyPairsApi* | [**getKeyPairs**](docs/KeyPairsApi.md#getKeyPairs) | **GET** /v4/clusters/{cluster_id}/key-pairs/ | Get key pairs
+*GiantSwarmV4.NodepoolsApi* | [**addNodePool**](docs/NodepoolsApi.md#addNodePool) | **POST** /v4/clusters/{cluster_id}/nodepools/ | Create node pool
+*GiantSwarmV4.NodepoolsApi* | [**deleteNodePool**](docs/NodepoolsApi.md#deleteNodePool) | **DELETE** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
+*GiantSwarmV4.NodepoolsApi* | [**getNodePool**](docs/NodepoolsApi.md#getNodePool) | **GET** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
+*GiantSwarmV4.NodepoolsApi* | [**getNodePoolStatus**](docs/NodepoolsApi.md#getNodePoolStatus) | **GET** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/status/ | Get node pool status
+*GiantSwarmV4.NodepoolsApi* | [**getNodePools**](docs/NodepoolsApi.md#getNodePools) | **GET** /v4/clusters/{cluster_id}/nodepools/ | Get node pools
+*GiantSwarmV4.NodepoolsApi* | [**modifyNodePool**](docs/NodepoolsApi.md#modifyNodePool) | **PATCH** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
 *GiantSwarmV4.OrganizationsApi* | [**addCredentials**](docs/OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 *GiantSwarmV4.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 *GiantSwarmV4.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization
@@ -160,7 +168,6 @@ Class | Method | HTTP request | Description
 
  - [GiantSwarmV4.Body](docs/Body.md)
  - [GiantSwarmV4.V4AddClusterRequest](docs/V4AddClusterRequest.md)
- - [GiantSwarmV4.V4AddClusterRequestScaling](docs/V4AddClusterRequestScaling.md)
  - [GiantSwarmV4.V4AddCredentialsRequest](docs/V4AddCredentialsRequest.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAws](docs/V4AddCredentialsRequestAws.md)
  - [GiantSwarmV4.V4AddCredentialsRequestAwsRoles](docs/V4AddCredentialsRequestAwsRoles.md)
@@ -168,10 +175,18 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4AddCredentialsRequestAzureCredential](docs/V4AddCredentialsRequestAzureCredential.md)
  - [GiantSwarmV4.V4AddKeyPairRequest](docs/V4AddKeyPairRequest.md)
  - [GiantSwarmV4.V4AddKeyPairResponse](docs/V4AddKeyPairResponse.md)
+ - [GiantSwarmV4.V4AddNodePoolRequest](docs/V4AddNodePoolRequest.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpec](docs/V4AddNodePoolRequestNodeSpec.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecAws](docs/V4AddNodePoolRequestNodeSpecAws.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecAzure](docs/V4AddNodePoolRequestNodeSpecAzure.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvm](docs/V4AddNodePoolRequestNodeSpecKvm.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmCpu](docs/V4AddNodePoolRequestNodeSpecKvmCpu.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmMemory](docs/V4AddNodePoolRequestNodeSpecKvmMemory.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage](docs/V4AddNodePoolRequestNodeSpecKvmStorage.md)
+ - [GiantSwarmV4.V4AddNodePoolRequestScaling](docs/V4AddNodePoolRequestScaling.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvm](docs/V4ClusterDetailsResponseKvm.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
- - [GiantSwarmV4.V4ClusterDetailsResponseScaling](docs/V4ClusterDetailsResponseScaling.md)
  - [GiantSwarmV4.V4ClusterListItem](docs/V4ClusterListItem.md)
  - [GiantSwarmV4.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
@@ -186,6 +201,13 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4GetCredentialsResponse](docs/V4GetCredentialsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponse](docs/V4GetKeyPairsResponse.md)
  - [GiantSwarmV4.V4GetKeyPairsResponseInner](docs/V4GetKeyPairsResponseInner.md)
+ - [GiantSwarmV4.V4GetNodePoolResponse](docs/V4GetNodePoolResponse.md)
+ - [GiantSwarmV4.V4GetNodePoolResponseNodeSpec](docs/V4GetNodePoolResponseNodeSpec.md)
+ - [GiantSwarmV4.V4GetNodePoolResponseNodeSpecAws](docs/V4GetNodePoolResponseNodeSpecAws.md)
+ - [GiantSwarmV4.V4GetNodePoolResponseNodeSpecAzure](docs/V4GetNodePoolResponseNodeSpecAzure.md)
+ - [GiantSwarmV4.V4GetNodePoolResponseScaling](docs/V4GetNodePoolResponseScaling.md)
+ - [GiantSwarmV4.V4GetNodePoolStatusResponse](docs/V4GetNodePoolStatusResponse.md)
+ - [GiantSwarmV4.V4GetNodePoolsResponse](docs/V4GetNodePoolsResponse.md)
  - [GiantSwarmV4.V4InfoResponse](docs/V4InfoResponse.md)
  - [GiantSwarmV4.V4InfoResponseGeneral](docs/V4InfoResponseGeneral.md)
  - [GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones](docs/V4InfoResponseGeneralAvailabilityZones.md)
@@ -194,15 +216,10 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4InfoResponseWorkersInstanceType](docs/V4InfoResponseWorkersInstanceType.md)
  - [GiantSwarmV4.V4InfoResponseWorkersVmSize](docs/V4InfoResponseWorkersVmSize.md)
  - [GiantSwarmV4.V4ModifyClusterRequest](docs/V4ModifyClusterRequest.md)
- - [GiantSwarmV4.V4ModifyClusterRequestScaling](docs/V4ModifyClusterRequestScaling.md)
+ - [GiantSwarmV4.V4ModifyNodePoolRequest](docs/V4ModifyNodePoolRequest.md)
+ - [GiantSwarmV4.V4ModifyNodePoolRequestScaling](docs/V4ModifyNodePoolRequestScaling.md)
  - [GiantSwarmV4.V4ModifyUserPasswordRequest](docs/V4ModifyUserPasswordRequest.md)
  - [GiantSwarmV4.V4ModifyUserRequest](docs/V4ModifyUserRequest.md)
- - [GiantSwarmV4.V4NodeDefinition](docs/V4NodeDefinition.md)
- - [GiantSwarmV4.V4NodeDefinitionAws](docs/V4NodeDefinitionAws.md)
- - [GiantSwarmV4.V4NodeDefinitionAzure](docs/V4NodeDefinitionAzure.md)
- - [GiantSwarmV4.V4NodeDefinitionCpu](docs/V4NodeDefinitionCpu.md)
- - [GiantSwarmV4.V4NodeDefinitionMemory](docs/V4NodeDefinitionMemory.md)
- - [GiantSwarmV4.V4NodeDefinitionStorage](docs/V4NodeDefinitionStorage.md)
  - [GiantSwarmV4.V4Organization](docs/V4Organization.md)
  - [GiantSwarmV4.V4OrganizationListItem](docs/V4OrganizationListItem.md)
  - [GiantSwarmV4.V4OrganizationMember](docs/V4OrganizationMember.md)

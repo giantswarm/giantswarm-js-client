@@ -60,6 +60,16 @@
         done();
       });
     });
+    describe('addNodePool', function() {
+      it('should call addNodePool successfully', function(done) {
+        //uncomment below and update the code to test addNodePool
+        //instance.addNodePool(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteCluster', function() {
       it('should call deleteCluster successfully', function(done) {
         //uncomment below and update the code to test deleteCluster
@@ -80,10 +90,30 @@
         done();
       });
     });
+    describe('getClusterStatus', function() {
+      it('should call getClusterStatus successfully', function(done) {
+        //uncomment below and update the code to test getClusterStatus
+        //instance.getClusterStatus(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getClusters', function() {
       it('should call getClusters successfully', function(done) {
         //uncomment below and update the code to test getClusters
         //instance.getClusters(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getNodePools', function() {
+      it('should call getNodePools successfully', function(done) {
+        //uncomment below and update the code to test getNodePools
+        //instance.getNodePools(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

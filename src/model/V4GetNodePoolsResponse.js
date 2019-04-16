@@ -16,92 +16,59 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddNodePoolRequest'], factory);
+    define(['ApiClient', 'model/V4GetNodePoolResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequest'));
+    module.exports = factory(require('../ApiClient'), require('./V4GetNodePoolResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequest);
+    root.GiantSwarmV4.V4GetNodePoolsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetNodePoolResponse);
   }
-}(this, function(ApiClient, V4AddNodePoolRequest) {
+}(this, function(ApiClient, V4GetNodePoolResponse) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4GetNodePoolsResponse model module.
+   * @module model/V4GetNodePoolsResponse
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4GetNodePoolsResponse</code>.
+   * @alias module:model/V4GetNodePoolsResponse
    * @class
-   * @param owner {String} Name of the organization owning the cluster
+   * @extends Array
    */
-  var exports = function(owner) {
+  var exports = function() {
     var _this = this;
+    _this = new Array();
+    Object.setPrototypeOf(_this, exports);
 
-    _this['owner'] = owner;
-
-
-
+    return _this;
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetNodePoolsResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4GetNodePoolsResponse} obj Optional instance to populate.
+   * @return {module:model/V4GetNodePoolsResponse} The populated <code>V4GetNodePoolsResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
+      ApiClient.constructFromObject(data, obj, 'V4GetNodePoolResponse');
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = ApiClient.convertToType(data['nodepools'], [V4AddNodePoolRequest]);
-      }
     }
     return obj;
   }
 
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Cluster name
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Specification of node pools to be created
-   * @member {Array.<module:model/V4AddNodePoolRequest>} nodepools
-   */
-  exports.prototype['nodepools'] = undefined;
 
 
 

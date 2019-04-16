@@ -16,92 +16,79 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddNodePoolRequest'], factory);
+    define(['ApiClient', 'model/V4AddNodePoolRequestNodeSpecKvmCpu', 'model/V4AddNodePoolRequestNodeSpecKvmMemory', 'model/V4AddNodePoolRequestNodeSpecKvmStorage'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequest'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequestNodeSpecKvmCpu'), require('./V4AddNodePoolRequestNodeSpecKvmMemory'), require('./V4AddNodePoolRequestNodeSpecKvmStorage'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequest);
+    root.GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvm = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmCpu, root.GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmMemory, root.GiantSwarmV4.V4AddNodePoolRequestNodeSpecKvmStorage);
   }
-}(this, function(ApiClient, V4AddNodePoolRequest) {
+}(this, function(ApiClient, V4AddNodePoolRequestNodeSpecKvmCpu, V4AddNodePoolRequestNodeSpecKvmMemory, V4AddNodePoolRequestNodeSpecKvmStorage) {
   'use strict';
 
 
 
 
   /**
-   * The V4AddClusterRequest model module.
-   * @module model/V4AddClusterRequest
+   * The V4AddNodePoolRequestNodeSpecKvm model module.
+   * @module model/V4AddNodePoolRequestNodeSpecKvm
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AddClusterRequest</code>.
-   * Request model for creating a new cluster
-   * @alias module:model/V4AddClusterRequest
+   * Constructs a new <code>V4AddNodePoolRequestNodeSpecKvm</code>.
+   * Attributes specific to the KVM provider 
+   * @alias module:model/V4AddNodePoolRequestNodeSpecKvm
    * @class
-   * @param owner {String} Name of the organization owning the cluster
    */
-  var exports = function(owner) {
+  var exports = function() {
     var _this = this;
 
-    _this['owner'] = owner;
 
 
 
   };
 
   /**
-   * Constructs a <code>V4AddClusterRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AddNodePoolRequestNodeSpecKvm</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
-   * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
+   * @param {module:model/V4AddNodePoolRequestNodeSpecKvm} obj Optional instance to populate.
+   * @return {module:model/V4AddNodePoolRequestNodeSpecKvm} The populated <code>V4AddNodePoolRequestNodeSpecKvm</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      if (data.hasOwnProperty('cpu')) {
+        obj['cpu'] = V4AddNodePoolRequestNodeSpecKvmCpu.constructFromObject(data['cpu']);
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('memory')) {
+        obj['memory'] = V4AddNodePoolRequestNodeSpecKvmMemory.constructFromObject(data['memory']);
       }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = ApiClient.convertToType(data['nodepools'], [V4AddNodePoolRequest]);
+      if (data.hasOwnProperty('storage')) {
+        obj['storage'] = V4AddNodePoolRequestNodeSpecKvmStorage.constructFromObject(data['storage']);
       }
     }
     return obj;
   }
 
   /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
+   * @member {module:model/V4AddNodePoolRequestNodeSpecKvmCpu} cpu
    */
-  exports.prototype['owner'] = undefined;
+  exports.prototype['cpu'] = undefined;
   /**
-   * Cluster name
-   * @member {String} name
+   * @member {module:model/V4AddNodePoolRequestNodeSpecKvmMemory} memory
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['memory'] = undefined;
   /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster 
-   * @member {String} release_version
+   * @member {module:model/V4AddNodePoolRequestNodeSpecKvmStorage} storage
    */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * Specification of node pools to be created
-   * @member {Array.<module:model/V4AddNodePoolRequest>} nodepools
-   */
-  exports.prototype['nodepools'] = undefined;
+  exports.prototype['storage'] = undefined;
 
 
 

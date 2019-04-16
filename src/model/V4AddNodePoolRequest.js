@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4ClusterDetailsResponseKvm'], factory);
+    define(['ApiClient', 'model/V4AddNodePoolRequestNodeSpec', 'model/V4AddNodePoolRequestScaling'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4ClusterDetailsResponseKvm'));
+    module.exports = factory(require('../ApiClient'), require('./V4AddNodePoolRequestNodeSpec'), require('./V4AddNodePoolRequestScaling'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4ClusterDetailsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ClusterDetailsResponseKvm);
+    root.GiantSwarmV4.V4AddNodePoolRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddNodePoolRequestNodeSpec, root.GiantSwarmV4.V4AddNodePoolRequestScaling);
   }
-}(this, function(ApiClient, V4ClusterDetailsResponseKvm) {
+}(this, function(ApiClient, V4AddNodePoolRequestNodeSpec, V4AddNodePoolRequestScaling) {
   'use strict';
 
 
 
 
   /**
-   * The V4ClusterDetailsResponse model module.
-   * @module model/V4ClusterDetailsResponse
+   * The V4AddNodePoolRequest model module.
+   * @module model/V4AddNodePoolRequest
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ClusterDetailsResponse</code>.
-   * Response model showing details of a cluster
-   * @alias module:model/V4ClusterDetailsResponse
+   * Constructs a new <code>V4AddNodePoolRequest</code>.
+   * Request body structure for cerating a node pool 
+   * @alias module:model/V4AddNodePoolRequest
    * @class
    */
   var exports = function() {
@@ -52,90 +52,54 @@
 
 
 
-
-
-
-
   };
 
   /**
-   * Constructs a <code>V4ClusterDetailsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AddNodePoolRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ClusterDetailsResponse} obj Optional instance to populate.
-   * @return {module:model/V4ClusterDetailsResponse} The populated <code>V4ClusterDetailsResponse</code> instance.
+   * @param {module:model/V4AddNodePoolRequest} obj Optional instance to populate.
+   * @return {module:model/V4AddNodePoolRequest} The populated <code>V4AddNodePoolRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('api_endpoint')) {
-        obj['api_endpoint'] = ApiClient.convertToType(data['api_endpoint'], 'String');
-      }
-      if (data.hasOwnProperty('create_date')) {
-        obj['create_date'] = ApiClient.convertToType(data['create_date'], 'String');
-      }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('credential_id')) {
-        obj['credential_id'] = ApiClient.convertToType(data['credential_id'], 'String');
+      if (data.hasOwnProperty('availability_zones')) {
+        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], 'Number');
       }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
+      if (data.hasOwnProperty('scaling')) {
+        obj['scaling'] = V4AddNodePoolRequestScaling.constructFromObject(data['scaling']);
       }
-      if (data.hasOwnProperty('kvm')) {
-        obj['kvm'] = V4ClusterDetailsResponseKvm.constructFromObject(data['kvm']);
+      if (data.hasOwnProperty('node_spec')) {
+        obj['node_spec'] = V4AddNodePoolRequestNodeSpec.constructFromObject(data['node_spec']);
       }
     }
     return obj;
   }
 
   /**
-   * Unique cluster identifier
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * URI of the Kubernetes API endpoint
-   * @member {String} api_endpoint
-   */
-  exports.prototype['api_endpoint'] = undefined;
-  /**
-   * Date/time of cluster creation
-   * @member {String} create_date
-   */
-  exports.prototype['create_date'] = undefined;
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * Cluster name
+   * Node pool name. Must be unique within the cluster. 
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * ID of the credentials used to operate the cluster (only on AWS and Azure). See [Set credentials](#operation/addCredentials) for details. 
-   * @member {String} credential_id
+   * Number of availability zones a cluster should be spread across. The default is provided via the [info](#operation/getInfo) endpoint. 
+   * @member {Number} availability_zones
    */
-  exports.prototype['credential_id'] = undefined;
+  exports.prototype['availability_zones'] = undefined;
   /**
-   * The [release](https://docs.giantswarm.io/api/#tag/releases) version currently running this cluster. 
-   * @member {String} release_version
+   * @member {module:model/V4AddNodePoolRequestScaling} scaling
    */
-  exports.prototype['release_version'] = undefined;
+  exports.prototype['scaling'] = undefined;
   /**
-   * @member {module:model/V4ClusterDetailsResponseKvm} kvm
+   * Worker node specification
+   * @member {module:model/V4AddNodePoolRequestNodeSpec} node_spec
    */
-  exports.prototype['kvm'] = undefined;
+  exports.prototype['node_spec'] = undefined;
 
 
 

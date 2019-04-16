@@ -1,79 +1,16 @@
-# GiantSwarmV4.ClustersApi
+# GiantSwarmV4.NodepoolsApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCluster**](ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
-[**addNodePool**](ClustersApi.md#addNodePool) | **POST** /v4/clusters/{cluster_id}/nodepools/ | Create node pool
-[**deleteCluster**](ClustersApi.md#deleteCluster) | **DELETE** /v4/clusters/{cluster_id}/ | Delete cluster
-[**getCluster**](ClustersApi.md#getCluster) | **GET** /v4/clusters/{cluster_id}/ | Get cluster details
-[**getClusterStatus**](ClustersApi.md#getClusterStatus) | **GET** /v4/clusters/{cluster_id}/status/ | Get cluster status
-[**getClusters**](ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
-[**getNodePools**](ClustersApi.md#getNodePools) | **GET** /v4/clusters/{cluster_id}/nodepools/ | Get node pools
-[**modifyCluster**](ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster
+[**addNodePool**](NodepoolsApi.md#addNodePool) | **POST** /v4/clusters/{cluster_id}/nodepools/ | Create node pool
+[**deleteNodePool**](NodepoolsApi.md#deleteNodePool) | **DELETE** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
+[**getNodePool**](NodepoolsApi.md#getNodePool) | **GET** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
+[**getNodePoolStatus**](NodepoolsApi.md#getNodePoolStatus) | **GET** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/status/ | Get node pool status
+[**getNodePools**](NodepoolsApi.md#getNodePools) | **GET** /v4/clusters/{cluster_id}/nodepools/ | Get node pools
+[**modifyNodePool**](NodepoolsApi.md#modifyNodePool) | **PATCH** /v4/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
 
-
-<a name="addCluster"></a>
-# **addCluster**
-> V4GenericResponse addCluster(authorizationbody, opts)
-
-Create cluster
-
-This operation is used to create a new Kubernetes cluster for an organization.  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like node pool configuration, with node specification depending on the provider (EC2 instance type or Azure VM size, memory size and number of CPU cores).  One attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  For all other attributes, defaults will be applied if the attribute is not set. Check out the [getInfo](#operation/getInfo) operation for more info about defaults. If no &#x60;release_version&#x60; is set, the latest release version available for the provider will be used.  ### Node pools  Worker nodes are grouped into node pools of nodes sharing the same configuration. When creating a cluster without submitting the &#x60;nodepools&#x60; attribute, or with its value being an empty array, one node pool with default configuration will be created.  On AWS, node pools can be created, deleted and modified during the entire lifetime of a cluster.  See [node pools](#tag/nodepools) and [Create node pool](#operation/addNodePool) for details.  On Azure and KVM, clusters are currently restricted to have either exactly one node pool or none. 
-
-### Example
-```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
-
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
-
-var apiInstance = new GiantSwarmV4.ClustersApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var body = new GiantSwarmV4.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
-
-var opts = { 
-  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-};
-apiInstance.addCluster(authorizationbody, opts).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **body** | [**V4AddClusterRequest**](V4AddClusterRequest.md)| New cluster definition | 
- **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
- **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
- **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
-
-### Return type
-
-[**V4GenericResponse**](V4GenericResponse.md)
-
-### Authorization
-
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 <a name="addNodePool"></a>
 # **addNodePool**
@@ -94,7 +31,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -138,13 +75,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="deleteCluster"></a>
-# **deleteCluster**
-> V4GenericResponse deleteCluster(authorizationclusterId, opts)
+<a name="deleteNodePool"></a>
+# **deleteNodePool**
+> deleteNodePool()
 
-Delete cluster
+Delete node pool
 
-This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
+Deletes a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double check the available capacity of remaining node pools, as well as any node selectors and affinities. Also you can do the draining yourself to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl cordon nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
 
 ### Example
 ```javascript
@@ -157,7 +94,115 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
+apiInstance.deleteNodePool().then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getNodePool"></a>
+# **getNodePool**
+> V4GetNodePoolResponse getNodePool(authorizationclusterIdnodepoolId, , opts)
+
+Get node pool details
+
+Returns all available details on a specific node pool 
+
+### Example
+```javascript
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
+
+var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
+
+var clusterId = "clusterId_example"; // String | Cluster ID
+
+var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
+
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.getNodePool(authorizationclusterIdnodepoolId, , opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
+ **clusterId** | **String**| Cluster ID | 
+ **nodepoolId** | **String**| Node Pool ID | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
+
+### Return type
+
+[**V4GetNodePoolResponse**](V4GetNodePoolResponse.md)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getNodePoolStatus"></a>
+# **getNodePoolStatus**
+> V4GetNodePoolStatusResponse getNodePoolStatus(authorizationclusterId, opts)
+
+Get node pool status
+
+Returns information on a node pool and the nodes in it.  This endpoint exposes the status content of the Kubernetes resources representing a node pool in the corresponding custom resource. That is, depending on the provider:  TODO: link to resources, as we do in &#x60;getClusterStatus&#x60;  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
+
+### Example
+```javascript
+var GiantSwarmV4 = require('giantswarm-v4');
+var defaultClient = GiantSwarmV4.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -168,7 +213,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteCluster(authorizationclusterId, opts).then(function(data) {
+apiInstance.getNodePoolStatus(authorizationclusterId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -188,187 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V4GenericResponse**](V4GenericResponse.md)
-
-### Authorization
-
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getCluster"></a>
-# **getCluster**
-> V4ClusterDetailsResponse getCluster(authorizationclusterId, opts)
-
-Get cluster details
-
-This operation allows to obtain most available details on a particular cluster. 
-
-### Example
-```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
-
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
-
-var apiInstance = new GiantSwarmV4.ClustersApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var clusterId = "clusterId_example"; // String | Cluster ID
-
-var opts = { 
-  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-};
-apiInstance.getCluster(authorizationclusterId, opts).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **clusterId** | **String**| Cluster ID | 
- **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
- **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
- **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
-
-### Return type
-
-[**V4ClusterDetailsResponse**](V4ClusterDetailsResponse.md)
-
-### Authorization
-
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getClusterStatus"></a>
-# **getClusterStatus**
-> V4GetClusterStatusResponse getClusterStatus(authorizationclusterId, opts)
-
-Get cluster status
-
-Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
-
-### Example
-```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
-
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
-
-var apiInstance = new GiantSwarmV4.ClustersApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var clusterId = "clusterId_example"; // String | Cluster ID
-
-var opts = { 
-  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-};
-apiInstance.getClusterStatus(authorizationclusterId, opts).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **clusterId** | **String**| Cluster ID | 
- **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
- **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
- **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
-
-### Return type
-
-[**V4GetClusterStatusResponse**](V4GetClusterStatusResponse.md)
-
-### Authorization
-
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getClusters"></a>
-# **getClusters**
-> [V4ClusterListItem] getClusters(authorization, opts)
-
-Get clusters
-
-This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster), [getNodePools](#operation/getNodePools), and [getClusterStatus](#operation/getClusterStatus) operations. 
-
-### Example
-```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
-
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
-
-var apiInstance = new GiantSwarmV4.ClustersApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var opts = { 
-  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-};
-apiInstance.getClusters(authorization, opts).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
- **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
- **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
-
-### Return type
-
-[**[V4ClusterListItem]**](V4ClusterListItem.md)
+[**V4GetNodePoolStatusResponse**](V4GetNodePoolStatusResponse.md)
 
 ### Authorization
 
@@ -398,7 +263,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -440,13 +305,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="modifyCluster"></a>
-# **modifyCluster**
-> V4ClusterDetailsResponse modifyCluster(authorizationbody, clusterId, opts)
+<a name="modifyNodePool"></a>
+# **modifyNodePool**
+> V4GetNodePoolResponse modifyNodePool(authorizationclusterIdnodepoolId, body, opts)
 
-Modify cluster
+Modify node pool
 
-This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases). 
+Allows to rename a nod pool or change its scaling settings. 
 
 ### Example
 ```javascript
@@ -459,20 +324,22 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarmV4.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var body = new GiantSwarmV4.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
-
 var clusterId = "clusterId_example"; // String | Cluster ID
+
+var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
+
+var body = new GiantSwarmV4.V4ModifyNodePoolRequest(); // V4ModifyNodePoolRequest | Merge-patch body
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyCluster(authorizationbody, clusterId, opts).then(function(data) {
+apiInstance.modifyNodePool(authorizationclusterIdnodepoolId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -485,15 +352,16 @@ apiInstance.modifyCluster(authorizationbody, clusterId, opts).then(function(data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **body** | [**V4ModifyClusterRequest**](V4ModifyClusterRequest.md)| Merge-patch body | 
  **clusterId** | **String**| Cluster ID | 
+ **nodepoolId** | **String**| Node Pool ID | 
+ **body** | [**V4ModifyNodePoolRequest**](V4ModifyNodePoolRequest.md)| Merge-patch body | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 
-[**V4ClusterDetailsResponse**](V4ClusterDetailsResponse.md)
+[**V4GetNodePoolResponse**](V4GetNodePoolResponse.md)
 
 ### Authorization
 

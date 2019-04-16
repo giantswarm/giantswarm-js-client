@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.OrganizationsApi();
+    instance = new GiantSwarmV4.NodepoolsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,81 +49,61 @@
       object[property] = value;
   }
 
-  describe('OrganizationsApi', function() {
-    describe('addCredentials', function() {
-      it('should call addCredentials successfully', function(done) {
-        //uncomment below and update the code to test addCredentials
-        //instance.addCredentials(function(error) {
+  describe('NodepoolsApi', function() {
+    describe('addNodePool', function() {
+      it('should call addNodePool successfully', function(done) {
+        //uncomment below and update the code to test addNodePool
+        //instance.addNodePool(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('addOrganization', function() {
-      it('should call addOrganization successfully', function(done) {
-        //uncomment below and update the code to test addOrganization
-        //instance.addOrganization(function(error) {
+    describe('deleteNodePool', function() {
+      it('should call deleteNodePool successfully', function(done) {
+        //uncomment below and update the code to test deleteNodePool
+        //instance.deleteNodePool(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('deleteOrganization', function() {
-      it('should call deleteOrganization successfully', function(done) {
-        //uncomment below and update the code to test deleteOrganization
-        //instance.deleteOrganization(function(error) {
+    describe('getNodePool', function() {
+      it('should call getNodePool successfully', function(done) {
+        //uncomment below and update the code to test getNodePool
+        //instance.getNodePool(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getCredential', function() {
-      it('should call getCredential successfully', function(done) {
-        //uncomment below and update the code to test getCredential
-        //instance.getCredential(function(error) {
+    describe('getNodePoolStatus', function() {
+      it('should call getNodePoolStatus successfully', function(done) {
+        //uncomment below and update the code to test getNodePoolStatus
+        //instance.getNodePoolStatus(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getCredentials', function() {
-      it('should call getCredentials successfully', function(done) {
-        //uncomment below and update the code to test getCredentials
-        //instance.getCredentials(function(error) {
+    describe('getNodePools', function() {
+      it('should call getNodePools successfully', function(done) {
+        //uncomment below and update the code to test getNodePools
+        //instance.getNodePools(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getOrganization', function() {
-      it('should call getOrganization successfully', function(done) {
-        //uncomment below and update the code to test getOrganization
-        //instance.getOrganization(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getOrganizations', function() {
-      it('should call getOrganizations successfully', function(done) {
-        //uncomment below and update the code to test getOrganizations
-        //instance.getOrganizations(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('modifyOrganization', function() {
-      it('should call modifyOrganization successfully', function(done) {
-        //uncomment below and update the code to test modifyOrganization
-        //instance.modifyOrganization(function(error) {
+    describe('modifyNodePool', function() {
+      it('should call modifyNodePool successfully', function(done) {
+        //uncomment below and update the code to test modifyNodePool
+        //instance.modifyNodePool(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
