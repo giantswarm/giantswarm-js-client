@@ -10,12 +10,16 @@
   "browser": {
     "fs": false
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giantswarm/giantswarm-js-client.git"
+  },
   "dependencies": {
     "superagent": "3.8.3"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "sinon": "1.17.3",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.7",
     "expect.js": "~0.3.1"
   }
 }
