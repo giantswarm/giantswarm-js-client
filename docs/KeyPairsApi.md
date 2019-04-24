@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="addKeyPair"></a>
 # **addKeyPair**
-> V4AddKeyPairResponse addKeyPair(authorizationclusterIdbody, opts)
+> V4AddKeyPairResponse addKeyPair(authorization, clusterIdbody, opts)
 
 Create key pair
 
@@ -40,7 +40,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addKeyPair(authorizationclusterIdbody, opts).then(function(data) {
+apiInstance.addKeyPair(authorization, clusterIdbody, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 <a name="getKeyPairs"></a>
 # **getKeyPairs**
-> V4GetKeyPairsResponse getKeyPairs(authorizationclusterId, opts)
+> V4GetKeyPairsResponse getKeyPairs(authorization, clusterId, opts)
 
 Get key pairs
 
@@ -102,7 +102,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getKeyPairs(authorizationclusterId, opts).then(function(data) {
+apiInstance.getKeyPairs(authorization, clusterId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
