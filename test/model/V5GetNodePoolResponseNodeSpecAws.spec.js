@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V5GetNodePoolResponseNodeSpecAws();
+    instance = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V5GetNodePoolResponseNodeSpecAws', function() {
     it('should create an instance of V5GetNodePoolResponseNodeSpecAws', function() {
       // uncomment below and update the code to test V5GetNodePoolResponseNodeSpecAws
-      //var instane = new GiantSwarmV4.V5GetNodePoolResponseNodeSpecAws();
-      //expect(instance).to.be.a(GiantSwarmV4.V5GetNodePoolResponseNodeSpecAws);
+      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+      //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpecAws);
     });
 
     it('should have the property instanceType (base name: "instance_type")', function() {
       // uncomment below and update the code to test the property instanceType
-      //var instane = new GiantSwarmV4.V5GetNodePoolResponseNodeSpecAws();
+      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
       //expect(instance).to.be();
     });
 

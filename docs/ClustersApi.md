@@ -1,4 +1,4 @@
-# GiantSwarmV4.ClustersApi
+# GiantSwarm.ClustersApi
 
 All URIs are relative to *https://localhost*
 
@@ -25,8 +25,8 @@ This operation is used to create a new Kubernetes cluster or \&quot;tenant clust
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -34,11 +34,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var body = new GiantSwarmV4.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
+var body = new GiantSwarm.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -86,8 +86,8 @@ Allows to create most recent clusters on AWS installations.  __Providers__: &lt;
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -95,11 +95,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var body = new GiantSwarmV4.V5AddClusterRequest(); // V5AddClusterRequest | New cluster definition
+var body = new GiantSwarm.V5AddClusterRequest(); // V5AddClusterRequest | New cluster definition
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -147,8 +147,8 @@ This operation triggers deleting a cluster with all resources attached to it.  _
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -156,7 +156,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -208,8 +208,8 @@ This operation allows to obtain basic details on a particular cluster.  __Provid
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -217,7 +217,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -269,8 +269,8 @@ Returns an object about a cluster&#39;s current state and past status transition
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -278,7 +278,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -330,8 +330,8 @@ Allows to retrieve cluster details on AWS installations.  __Providers__: &lt;spa
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -339,7 +339,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -391,8 +391,8 @@ This operation fetches a list of clusters.  __Providers__: &lt;span class&#x3D;\
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -400,7 +400,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -449,8 +449,8 @@ This operation allows to modify an existing cluster.  __Providers__: &lt;span cl
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -458,11 +458,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var body = new GiantSwarmV4.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
+var body = new GiantSwarm.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -513,8 +513,8 @@ Allows to change cluster properties on AWS installations.  __Providers__: &lt;sp
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -522,11 +522,11 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ClustersApi();
+var apiInstance = new GiantSwarm.ClustersApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var body = new GiantSwarmV4.V5ModifyClusterRequest(); // V5ModifyClusterRequest | Merge-patch body
+var body = new GiantSwarm.V5ModifyClusterRequest(); // V5ModifyClusterRequest | Merge-patch body
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 

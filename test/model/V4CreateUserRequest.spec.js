@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4CreateUserRequest();
+    instance = new GiantSwarm.V4CreateUserRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4CreateUserRequest', function() {
     it('should create an instance of V4CreateUserRequest', function() {
       // uncomment below and update the code to test V4CreateUserRequest
-      //var instane = new GiantSwarmV4.V4CreateUserRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V4CreateUserRequest);
+      //var instane = new GiantSwarm.V4CreateUserRequest();
+      //expect(instance).to.be.a(GiantSwarm.V4CreateUserRequest);
     });
 
     it('should have the property password (base name: "password")', function() {
       // uncomment below and update the code to test the property password
-      //var instane = new GiantSwarmV4.V4CreateUserRequest();
+      //var instane = new GiantSwarm.V4CreateUserRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property expiry (base name: "expiry")', function() {
       // uncomment below and update the code to test the property expiry
-      //var instane = new GiantSwarmV4.V4CreateUserRequest();
+      //var instane = new GiantSwarm.V4CreateUserRequest();
       //expect(instance).to.be();
     });
 

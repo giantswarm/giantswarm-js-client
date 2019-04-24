@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4NodeDefinitionAzure();
+    instance = new GiantSwarm.V4NodeDefinitionAzure();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V4NodeDefinitionAzure', function() {
     it('should create an instance of V4NodeDefinitionAzure', function() {
       // uncomment below and update the code to test V4NodeDefinitionAzure
-      //var instane = new GiantSwarmV4.V4NodeDefinitionAzure();
-      //expect(instance).to.be.a(GiantSwarmV4.V4NodeDefinitionAzure);
+      //var instane = new GiantSwarm.V4NodeDefinitionAzure();
+      //expect(instance).to.be.a(GiantSwarm.V4NodeDefinitionAzure);
     });
 
     it('should have the property vmSize (base name: "vm_size")', function() {
       // uncomment below and update the code to test the property vmSize
-      //var instane = new GiantSwarmV4.V4NodeDefinitionAzure();
+      //var instane = new GiantSwarm.V4NodeDefinitionAzure();
       //expect(instance).to.be();
     });
 

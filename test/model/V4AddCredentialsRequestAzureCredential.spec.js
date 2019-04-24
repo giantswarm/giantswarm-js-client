@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
+    instance = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('V4AddCredentialsRequestAzureCredential', function() {
     it('should create an instance of V4AddCredentialsRequestAzureCredential', function() {
       // uncomment below and update the code to test V4AddCredentialsRequestAzureCredential
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
-      //expect(instance).to.be.a(GiantSwarmV4.V4AddCredentialsRequestAzureCredential);
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
+      //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAzureCredential);
     });
 
     it('should have the property clientId (base name: "client_id")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
       //expect(instance).to.be();
     });
 
     it('should have the property secretKey (base name: "secret_key")', function() {
       // uncomment below and update the code to test the property secretKey
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
       //expect(instance).to.be();
     });
 
     it('should have the property subscriptionId (base name: "subscription_id")', function() {
       // uncomment below and update the code to test the property subscriptionId
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
       //expect(instance).to.be();
     });
 
     it('should have the property tenantId (base name: "tenant_id")', function() {
       // uncomment below and update the code to test the property tenantId
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzureCredential();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
       //expect(instance).to.be();
     });
 

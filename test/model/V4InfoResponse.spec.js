@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponse();
+    instance = new GiantSwarm.V4InfoResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4InfoResponse', function() {
     it('should create an instance of V4InfoResponse', function() {
       // uncomment below and update the code to test V4InfoResponse
-      //var instane = new GiantSwarmV4.V4InfoResponse();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponse);
+      //var instane = new GiantSwarm.V4InfoResponse();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponse);
     });
 
     it('should have the property general (base name: "general")', function() {
       // uncomment below and update the code to test the property general
-      //var instane = new GiantSwarmV4.V4InfoResponse();
+      //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property workers (base name: "workers")', function() {
       // uncomment below and update the code to test the property workers
-      //var instane = new GiantSwarmV4.V4InfoResponse();
+      //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();
     });
 

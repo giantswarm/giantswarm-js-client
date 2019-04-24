@@ -1,4 +1,4 @@
-# GiantSwarmV4.ReleasesApi
+# GiantSwarm.ReleasesApi
 
 All URIs are relative to *https://localhost*
 
@@ -17,8 +17,8 @@ Lists all releases available for new clusters or for upgrading existing clusters
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -26,7 +26,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.ReleasesApi();
+var apiInstance = new GiantSwarm.ReleasesApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 

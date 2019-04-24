@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4ReleaseListItemChangelog'), require('./V4ReleaseListItemComponents'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4ReleaseListItem = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ReleaseListItemChangelog, root.GiantSwarmV4.V4ReleaseListItemComponents);
+    root.GiantSwarm.V4ReleaseListItem = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4ReleaseListItemChangelog, root.GiantSwarm.V4ReleaseListItemComponents);
   }
 }(this, function(ApiClient, V4ReleaseListItemChangelog, V4ReleaseListItemComponents) {
   'use strict';

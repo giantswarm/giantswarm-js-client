@@ -1,4 +1,4 @@
-# GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones
+# GiantSwarm.V5AddNodePoolRequestAvailabilityZones
 
 ## Properties
 Name | Type | Description | Notes

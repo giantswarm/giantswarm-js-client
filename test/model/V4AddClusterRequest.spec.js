@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4AddClusterRequest();
+    instance = new GiantSwarm.V4AddClusterRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,43 +52,43 @@
   describe('V4AddClusterRequest', function() {
     it('should create an instance of V4AddClusterRequest', function() {
       // uncomment below and update the code to test V4AddClusterRequest
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V4AddClusterRequest);
+      //var instane = new GiantSwarm.V4AddClusterRequest();
+      //expect(instance).to.be.a(GiantSwarm.V4AddClusterRequest);
     });
 
     it('should have the property owner (base name: "owner")', function() {
       // uncomment below and update the code to test the property owner
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property releaseVersion (base name: "release_version")', function() {
       // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property availabilityZones (base name: "availability_zones")', function() {
       // uncomment below and update the code to test the property availabilityZones
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property scaling (base name: "scaling")', function() {
       // uncomment below and update the code to test the property scaling
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property workers (base name: "workers")', function() {
       // uncomment below and update the code to test the property workers
-      //var instane = new GiantSwarmV4.V4AddClusterRequest();
+      //var instane = new GiantSwarm.V4AddClusterRequest();
       //expect(instance).to.be();
     });
 

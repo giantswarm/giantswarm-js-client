@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4GetCredentialResponse();
+    instance = new GiantSwarm.V4GetCredentialResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('V4GetCredentialResponse', function() {
     it('should create an instance of V4GetCredentialResponse', function() {
       // uncomment below and update the code to test V4GetCredentialResponse
-      //var instane = new GiantSwarmV4.V4GetCredentialResponse();
-      //expect(instance).to.be.a(GiantSwarmV4.V4GetCredentialResponse);
+      //var instane = new GiantSwarm.V4GetCredentialResponse();
+      //expect(instance).to.be.a(GiantSwarm.V4GetCredentialResponse);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new GiantSwarmV4.V4GetCredentialResponse();
+      //var instane = new GiantSwarm.V4GetCredentialResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property provider (base name: "provider")', function() {
       // uncomment below and update the code to test the property provider
-      //var instane = new GiantSwarmV4.V4GetCredentialResponse();
+      //var instane = new GiantSwarm.V4GetCredentialResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property aws (base name: "aws")', function() {
       // uncomment below and update the code to test the property aws
-      //var instane = new GiantSwarmV4.V4GetCredentialResponse();
+      //var instane = new GiantSwarm.V4GetCredentialResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property azure (base name: "azure")', function() {
       // uncomment below and update the code to test the property azure
-      //var instane = new GiantSwarmV4.V4GetCredentialResponse();
+      //var instane = new GiantSwarm.V4GetCredentialResponse();
       //expect(instance).to.be();
     });
 

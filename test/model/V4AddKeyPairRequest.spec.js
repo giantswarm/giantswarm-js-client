@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4AddKeyPairRequest();
+    instance = new GiantSwarm.V4AddKeyPairRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('V4AddKeyPairRequest', function() {
     it('should create an instance of V4AddKeyPairRequest', function() {
       // uncomment below and update the code to test V4AddKeyPairRequest
-      //var instane = new GiantSwarmV4.V4AddKeyPairRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V4AddKeyPairRequest);
+      //var instane = new GiantSwarm.V4AddKeyPairRequest();
+      //expect(instance).to.be.a(GiantSwarm.V4AddKeyPairRequest);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarmV4.V4AddKeyPairRequest();
+      //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property ttlHours (base name: "ttl_hours")', function() {
       // uncomment below and update the code to test the property ttlHours
-      //var instane = new GiantSwarmV4.V4AddKeyPairRequest();
+      //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property cnPrefix (base name: "cn_prefix")', function() {
       // uncomment below and update the code to test the property cnPrefix
-      //var instane = new GiantSwarmV4.V4AddKeyPairRequest();
+      //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property certificateOrganizations (base name: "certificate_organizations")', function() {
       // uncomment below and update the code to test the property certificateOrganizations
-      //var instane = new GiantSwarmV4.V4AddKeyPairRequest();
+      //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 

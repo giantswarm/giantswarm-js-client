@@ -34,7 +34,7 @@ api-spec:
 	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/$(API_SPEC_BRANCH)/responses.yaml
 
 clean:
-	rm -rf api-spec
+	rm -rf api-spec src/* docs/* test/*
 
 generate-help:
 	docker run --rm -it jimschubert/swagger-codegen-cli:2.2.3 help generate

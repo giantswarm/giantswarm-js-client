@@ -1,4 +1,4 @@
-# GiantSwarmV4.NodepoolsApi
+# GiantSwarm.NodepoolsApi
 
 All URIs are relative to *https://localhost*
 
@@ -22,8 +22,8 @@ This allows to add a node pool to a cluster.  __Providers__: &lt;span class&#x3D
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -31,7 +31,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -41,7 +41,7 @@ var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-  'body': new GiantSwarmV4.V5AddNodePoolRequest() // V5AddNodePoolRequest | 
+  'body': new GiantSwarm.V5AddNodePoolRequest() // V5AddNodePoolRequest | 
 };
 apiInstance.addNodePool(authorization, clusterId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -85,8 +85,8 @@ Triggers the deletion of a node pool.  __Providers__: &lt;span class&#x3D;\&quot
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -94,7 +94,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 apiInstance.deleteNodePool().then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -129,8 +129,8 @@ Returns all available details on a specific node pool.  __Providers__: &lt;span 
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -138,7 +138,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -193,8 +193,8 @@ Returns information on a node pool and the nodes in it.  __Providers__: &lt;span
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -202,7 +202,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -254,8 +254,8 @@ Returns a list of node pools from a given cluster.  __Providers__: &lt;span clas
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -263,7 +263,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -315,8 +315,8 @@ Allows to rename a node pool or change its scaling settings.  __Providers__: &lt
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -324,7 +324,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
@@ -332,7 +332,7 @@ var clusterId = "clusterId_example"; // String | Cluster ID
 
 var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
 
-var body = new GiantSwarmV4.V5ModifyNodePoolRequest(); // V5ModifyNodePoolRequest | Merge-patch body
+var body = new GiantSwarm.V5ModifyNodePoolRequest(); // V5ModifyNodePoolRequest | Merge-patch body
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 

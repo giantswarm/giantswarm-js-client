@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponseWorkersInstanceType();
+    instance = new GiantSwarm.V4InfoResponseWorkersInstanceType();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4InfoResponseWorkersInstanceType', function() {
     it('should create an instance of V4InfoResponseWorkersInstanceType', function() {
       // uncomment below and update the code to test V4InfoResponseWorkersInstanceType
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersInstanceType();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseWorkersInstanceType);
+      //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkersInstanceType);
     });
 
     it('should have the property options (base name: "options")', function() {
       // uncomment below and update the code to test the property options
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersInstanceType();
+      //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
       //expect(instance).to.be();
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersInstanceType();
+      //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
       //expect(instance).to.be();
     });
 

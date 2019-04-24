@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V5AddNodePoolRequest();
+    instance = new GiantSwarm.V5AddNodePoolRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('V5AddNodePoolRequest', function() {
     it('should create an instance of V5AddNodePoolRequest', function() {
       // uncomment below and update the code to test V5AddNodePoolRequest
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V5AddNodePoolRequest);
+      //var instane = new GiantSwarm.V5AddNodePoolRequest();
+      //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequest);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequest();
+      //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property availabilityZones (base name: "availability_zones")', function() {
       // uncomment below and update the code to test the property availabilityZones
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequest();
+      //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property scaling (base name: "scaling")', function() {
       // uncomment below and update the code to test the property scaling
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequest();
+      //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property nodeSpec (base name: "node_spec")', function() {
       // uncomment below and update the code to test the property nodeSpec
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequest();
+      //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 

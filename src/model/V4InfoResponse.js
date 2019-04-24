@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneral'), require('./V4InfoResponseWorkers'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4InfoResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseGeneral, root.GiantSwarmV4.V4InfoResponseWorkers);
+    root.GiantSwarm.V4InfoResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseGeneral, root.GiantSwarm.V4InfoResponseWorkers);
   }
 }(this, function(ApiClient, V4InfoResponseGeneral, V4InfoResponseWorkers) {
   'use strict';

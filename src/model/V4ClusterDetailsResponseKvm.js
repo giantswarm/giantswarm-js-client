@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4ClusterDetailsResponseKvmPortMappings'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4ClusterDetailsResponseKvm = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings);
+    root.GiantSwarm.V4ClusterDetailsResponseKvm = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4ClusterDetailsResponseKvmPortMappings);
   }
 }(this, function(ApiClient, V4ClusterDetailsResponseKvmPortMappings) {
   'use strict';

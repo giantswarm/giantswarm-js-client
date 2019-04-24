@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.Body();
+    instance = new GiantSwarm.Body();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('Body', function() {
     it('should create an instance of Body', function() {
       // uncomment below and update the code to test Body
-      //var instane = new GiantSwarmV4.Body();
-      //expect(instance).to.be.a(GiantSwarmV4.Body);
+      //var instane = new GiantSwarm.Body();
+      //expect(instance).to.be.a(GiantSwarm.Body);
     });
 
     it('should have the property members (base name: "members")', function() {
       // uncomment below and update the code to test the property members
-      //var instane = new GiantSwarmV4.Body();
+      //var instane = new GiantSwarm.Body();
       //expect(instance).to.be();
     });
 

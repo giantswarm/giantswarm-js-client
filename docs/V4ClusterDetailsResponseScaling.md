@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ClusterDetailsResponseScaling
+# GiantSwarm.V4ClusterDetailsResponseScaling
 
 ## Properties
 Name | Type | Description | Notes

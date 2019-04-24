@@ -1,4 +1,4 @@
-# GiantSwarmV4.KeyPairsApi
+# GiantSwarm.KeyPairsApi
 
 All URIs are relative to *https://localhost*
 
@@ -18,8 +18,8 @@ This operation allows to create a new key pair for accessing a specific cluster.
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -27,13 +27,13 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.KeyPairsApi();
+var apiInstance = new GiantSwarm.KeyPairsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
-var body = new GiantSwarmV4.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
+var body = new GiantSwarm.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -82,8 +82,8 @@ Returns a list of information on all key pairs of a cluster as an array.  The in
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -91,7 +91,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.KeyPairsApi();
+var apiInstance = new GiantSwarm.KeyPairsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 

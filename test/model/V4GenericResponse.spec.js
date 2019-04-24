@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4GenericResponse();
+    instance = new GiantSwarm.V4GenericResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4GenericResponse', function() {
     it('should create an instance of V4GenericResponse', function() {
       // uncomment below and update the code to test V4GenericResponse
-      //var instane = new GiantSwarmV4.V4GenericResponse();
-      //expect(instance).to.be.a(GiantSwarmV4.V4GenericResponse);
+      //var instane = new GiantSwarm.V4GenericResponse();
+      //expect(instance).to.be.a(GiantSwarm.V4GenericResponse);
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instane = new GiantSwarmV4.V4GenericResponse();
+      //var instane = new GiantSwarm.V4GenericResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instane = new GiantSwarmV4.V4GenericResponse();
+      //var instane = new GiantSwarm.V4GenericResponse();
       //expect(instance).to.be();
     });
 

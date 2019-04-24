@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones();
+    instance = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4InfoResponseGeneralAvailabilityZones', function() {
     it('should create an instance of V4InfoResponseGeneralAvailabilityZones', function() {
       // uncomment below and update the code to test V4InfoResponseGeneralAvailabilityZones
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones);
+      //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseGeneralAvailabilityZones);
     });
 
     it('should have the property max (base name: "max")', function() {
       // uncomment below and update the code to test the property max
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones();
+      //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
       //expect(instance).to.be();
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones();
+      //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
       //expect(instance).to.be();
     });
 

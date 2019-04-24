@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V5AddNodePoolRequestAvailabilityZones'), require('./V5AddNodePoolRequestNodeSpec'), require('./V5AddNodePoolRequestScaling'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5AddNodePoolRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones, root.GiantSwarmV4.V5AddNodePoolRequestNodeSpec, root.GiantSwarmV4.V5AddNodePoolRequestScaling);
+    root.GiantSwarm.V5AddNodePoolRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5AddNodePoolRequestAvailabilityZones, root.GiantSwarm.V5AddNodePoolRequestNodeSpec, root.GiantSwarm.V5AddNodePoolRequestScaling);
   }
 }(this, function(ApiClient, V5AddNodePoolRequestAvailabilityZones, V5AddNodePoolRequestNodeSpec, V5AddNodePoolRequestScaling) {
   'use strict';

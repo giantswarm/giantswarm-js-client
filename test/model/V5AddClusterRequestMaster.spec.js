@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V5AddClusterRequestMaster();
+    instance = new GiantSwarm.V5AddClusterRequestMaster();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V5AddClusterRequestMaster', function() {
     it('should create an instance of V5AddClusterRequestMaster', function() {
       // uncomment below and update the code to test V5AddClusterRequestMaster
-      //var instane = new GiantSwarmV4.V5AddClusterRequestMaster();
-      //expect(instance).to.be.a(GiantSwarmV4.V5AddClusterRequestMaster);
+      //var instane = new GiantSwarm.V5AddClusterRequestMaster();
+      //expect(instance).to.be.a(GiantSwarm.V5AddClusterRequestMaster);
     });
 
     it('should have the property availabilityZone (base name: "availability_zone")', function() {
       // uncomment below and update the code to test the property availabilityZone
-      //var instane = new GiantSwarmV4.V5AddClusterRequestMaster();
+      //var instane = new GiantSwarm.V5AddClusterRequestMaster();
       //expect(instance).to.be();
     });
 

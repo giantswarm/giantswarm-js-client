@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4AddCredentialsRequestAwsRoles();
+    instance = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4AddCredentialsRequestAwsRoles', function() {
     it('should create an instance of V4AddCredentialsRequestAwsRoles', function() {
       // uncomment below and update the code to test V4AddCredentialsRequestAwsRoles
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAwsRoles();
-      //expect(instance).to.be.a(GiantSwarmV4.V4AddCredentialsRequestAwsRoles);
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
+      //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAwsRoles);
     });
 
     it('should have the property admin (base name: "admin")', function() {
       // uncomment below and update the code to test the property admin
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAwsRoles();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
       //expect(instance).to.be();
     });
 
     it('should have the property awsoperator (base name: "awsoperator")', function() {
       // uncomment below and update the code to test the property awsoperator
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAwsRoles();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
       //expect(instance).to.be();
     });
 

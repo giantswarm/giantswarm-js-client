@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ReleaseListItemChangelog
+# GiantSwarm.V4ReleaseListItemChangelog
 
 ## Properties
 Name | Type | Description | Notes

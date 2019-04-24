@@ -1,4 +1,4 @@
-# GiantSwarmV4.V5AddNodePoolRequest
+# GiantSwarm.V5AddNodePoolRequest
 
 ## Properties
 Name | Type | Description | Notes

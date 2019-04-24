@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4GetKeyPairsResponse();
+    instance = new GiantSwarm.V4GetKeyPairsResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,8 +52,8 @@
   describe('V4GetKeyPairsResponse', function() {
     it('should create an instance of V4GetKeyPairsResponse', function() {
       // uncomment below and update the code to test V4GetKeyPairsResponse
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponse();
-      //expect(instance).to.be.a(GiantSwarmV4.V4GetKeyPairsResponse);
+      //var instane = new GiantSwarm.V4GetKeyPairsResponse();
+      //expect(instance).to.be.a(GiantSwarm.V4GetKeyPairsResponse);
     });
 
   });

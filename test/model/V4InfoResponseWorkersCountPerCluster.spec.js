@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponseWorkersCountPerCluster();
+    instance = new GiantSwarm.V4InfoResponseWorkersCountPerCluster();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4InfoResponseWorkersCountPerCluster', function() {
     it('should create an instance of V4InfoResponseWorkersCountPerCluster', function() {
       // uncomment below and update the code to test V4InfoResponseWorkersCountPerCluster
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersCountPerCluster();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseWorkersCountPerCluster);
+      //var instane = new GiantSwarm.V4InfoResponseWorkersCountPerCluster();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkersCountPerCluster);
     });
 
     it('should have the property max (base name: "max")', function() {
       // uncomment below and update the code to test the property max
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersCountPerCluster();
+      //var instane = new GiantSwarm.V4InfoResponseWorkersCountPerCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkersCountPerCluster();
+      //var instane = new GiantSwarm.V4InfoResponseWorkersCountPerCluster();
       //expect(instance).to.be();
     });
 

@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4ReleaseListItemChangelog();
+    instance = new GiantSwarm.V4ReleaseListItemChangelog();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V4ReleaseListItemChangelog', function() {
     it('should create an instance of V4ReleaseListItemChangelog', function() {
       // uncomment below and update the code to test V4ReleaseListItemChangelog
-      //var instane = new GiantSwarmV4.V4ReleaseListItemChangelog();
-      //expect(instance).to.be.a(GiantSwarmV4.V4ReleaseListItemChangelog);
+      //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
+      //expect(instance).to.be.a(GiantSwarm.V4ReleaseListItemChangelog);
     });
 
     it('should have the property component (base name: "component")', function() {
       // uncomment below and update the code to test the property component
-      //var instane = new GiantSwarmV4.V4ReleaseListItemChangelog();
+      //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarmV4.V4ReleaseListItemChangelog();
+      //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
       //expect(instance).to.be();
     });
 

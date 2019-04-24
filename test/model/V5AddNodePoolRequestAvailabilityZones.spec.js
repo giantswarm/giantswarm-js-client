@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones();
+    instance = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,19 +52,19 @@
   describe('V5AddNodePoolRequestAvailabilityZones', function() {
     it('should create an instance of V5AddNodePoolRequestAvailabilityZones', function() {
       // uncomment below and update the code to test V5AddNodePoolRequestAvailabilityZones
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones();
-      //expect(instance).to.be.a(GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones);
+      //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
+      //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestAvailabilityZones);
     });
 
     it('should have the property _number (base name: "number")', function() {
       // uncomment below and update the code to test the property _number
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones();
+      //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
       //expect(instance).to.be();
     });
 
     it('should have the property zones (base name: "zones")', function() {
       // uncomment below and update the code to test the property zones
-      //var instane = new GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones();
+      //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
       //expect(instance).to.be();
     });
 

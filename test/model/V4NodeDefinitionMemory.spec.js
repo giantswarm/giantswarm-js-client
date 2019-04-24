@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4NodeDefinitionMemory();
+    instance = new GiantSwarm.V4NodeDefinitionMemory();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V4NodeDefinitionMemory', function() {
     it('should create an instance of V4NodeDefinitionMemory', function() {
       // uncomment below and update the code to test V4NodeDefinitionMemory
-      //var instane = new GiantSwarmV4.V4NodeDefinitionMemory();
-      //expect(instance).to.be.a(GiantSwarmV4.V4NodeDefinitionMemory);
+      //var instane = new GiantSwarm.V4NodeDefinitionMemory();
+      //expect(instance).to.be.a(GiantSwarm.V4NodeDefinitionMemory);
     });
 
     it('should have the property sizeGb (base name: "size_gb")', function() {
       // uncomment below and update the code to test the property sizeGb
-      //var instane = new GiantSwarmV4.V4NodeDefinitionMemory();
+      //var instane = new GiantSwarm.V4NodeDefinitionMemory();
       //expect(instance).to.be();
     });
 

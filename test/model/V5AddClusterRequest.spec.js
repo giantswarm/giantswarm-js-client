@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V5AddClusterRequest();
+    instance = new GiantSwarm.V5AddClusterRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,37 +52,37 @@
   describe('V5AddClusterRequest', function() {
     it('should create an instance of V5AddClusterRequest', function() {
       // uncomment below and update the code to test V5AddClusterRequest
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V5AddClusterRequest);
+      //var instane = new GiantSwarm.V5AddClusterRequest();
+      //expect(instance).to.be.a(GiantSwarm.V5AddClusterRequest);
     });
 
     it('should have the property owner (base name: "owner")', function() {
       // uncomment below and update the code to test the property owner
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
+      //var instane = new GiantSwarm.V5AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
+      //var instane = new GiantSwarm.V5AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property releaseVersion (base name: "release_version")', function() {
       // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
+      //var instane = new GiantSwarm.V5AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property master (base name: "master")', function() {
       // uncomment below and update the code to test the property master
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
+      //var instane = new GiantSwarm.V5AddClusterRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property nodepools (base name: "nodepools")', function() {
       // uncomment below and update the code to test the property nodepools
-      //var instane = new GiantSwarmV4.V5AddClusterRequest();
+      //var instane = new GiantSwarm.V5AddClusterRequest();
       //expect(instance).to.be();
     });
 

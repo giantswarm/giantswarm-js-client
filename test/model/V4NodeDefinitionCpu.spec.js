@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4NodeDefinitionCpu();
+    instance = new GiantSwarm.V4NodeDefinitionCpu();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V4NodeDefinitionCpu', function() {
     it('should create an instance of V4NodeDefinitionCpu', function() {
       // uncomment below and update the code to test V4NodeDefinitionCpu
-      //var instane = new GiantSwarmV4.V4NodeDefinitionCpu();
-      //expect(instance).to.be.a(GiantSwarmV4.V4NodeDefinitionCpu);
+      //var instane = new GiantSwarm.V4NodeDefinitionCpu();
+      //expect(instance).to.be.a(GiantSwarm.V4NodeDefinitionCpu);
     });
 
     it('should have the property cores (base name: "cores")', function() {
       // uncomment below and update the code to test the property cores
-      //var instane = new GiantSwarmV4.V4NodeDefinitionCpu();
+      //var instane = new GiantSwarm.V4NodeDefinitionCpu();
       //expect(instance).to.be();
     });
 

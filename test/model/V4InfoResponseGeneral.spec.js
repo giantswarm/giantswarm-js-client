@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponseGeneral();
+    instance = new GiantSwarm.V4InfoResponseGeneral();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,31 +52,31 @@
   describe('V4InfoResponseGeneral', function() {
     it('should create an instance of V4InfoResponseGeneral', function() {
       // uncomment below and update the code to test V4InfoResponseGeneral
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneral();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseGeneral);
+      //var instane = new GiantSwarm.V4InfoResponseGeneral();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseGeneral);
     });
 
     it('should have the property installationName (base name: "installation_name")', function() {
       // uncomment below and update the code to test the property installationName
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneral();
+      //var instane = new GiantSwarm.V4InfoResponseGeneral();
       //expect(instance).to.be();
     });
 
     it('should have the property provider (base name: "provider")', function() {
       // uncomment below and update the code to test the property provider
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneral();
+      //var instane = new GiantSwarm.V4InfoResponseGeneral();
       //expect(instance).to.be();
     });
 
     it('should have the property datacenter (base name: "datacenter")', function() {
       // uncomment below and update the code to test the property datacenter
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneral();
+      //var instane = new GiantSwarm.V4InfoResponseGeneral();
       //expect(instance).to.be();
     });
 
     it('should have the property availabilityZones (base name: "availability_zones")', function() {
       // uncomment below and update the code to test the property availabilityZones
-      //var instane = new GiantSwarmV4.V4InfoResponseGeneral();
+      //var instane = new GiantSwarm.V4InfoResponseGeneral();
       //expect(instance).to.be();
     });
 

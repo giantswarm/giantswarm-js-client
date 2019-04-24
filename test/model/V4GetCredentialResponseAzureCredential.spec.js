@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4GetCredentialResponseAzureCredential();
+    instance = new GiantSwarm.V4GetCredentialResponseAzureCredential();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('V4GetCredentialResponseAzureCredential', function() {
     it('should create an instance of V4GetCredentialResponseAzureCredential', function() {
       // uncomment below and update the code to test V4GetCredentialResponseAzureCredential
-      //var instane = new GiantSwarmV4.V4GetCredentialResponseAzureCredential();
-      //expect(instance).to.be.a(GiantSwarmV4.V4GetCredentialResponseAzureCredential);
+      //var instane = new GiantSwarm.V4GetCredentialResponseAzureCredential();
+      //expect(instance).to.be.a(GiantSwarm.V4GetCredentialResponseAzureCredential);
     });
 
     it('should have the property clientId (base name: "client_id")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instane = new GiantSwarmV4.V4GetCredentialResponseAzureCredential();
+      //var instane = new GiantSwarm.V4GetCredentialResponseAzureCredential();
       //expect(instance).to.be();
     });
 
     it('should have the property subscriptionId (base name: "subscription_id")', function() {
       // uncomment below and update the code to test the property subscriptionId
-      //var instane = new GiantSwarmV4.V4GetCredentialResponseAzureCredential();
+      //var instane = new GiantSwarm.V4GetCredentialResponseAzureCredential();
       //expect(instance).to.be();
     });
 
     it('should have the property tenantId (base name: "tenant_id")', function() {
       // uncomment below and update the code to test the property tenantId
-      //var instane = new GiantSwarmV4.V4GetCredentialResponseAzureCredential();
+      //var instane = new GiantSwarm.V4GetCredentialResponseAzureCredential();
       //expect(instance).to.be();
     });
 

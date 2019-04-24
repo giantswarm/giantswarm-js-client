@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/V4GenericResponse'), require('../model/V5AddNodePoolRequest'), require('../model/V5GetNodePoolResponse'), require('../model/V5GetNodePoolStatusResponse'), require('../model/V5GetNodePoolsResponse'), require('../model/V5ModifyNodePoolRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.NodepoolsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V5AddNodePoolRequest, root.GiantSwarmV4.V5GetNodePoolResponse, root.GiantSwarmV4.V5GetNodePoolStatusResponse, root.GiantSwarmV4.V5GetNodePoolsResponse, root.GiantSwarmV4.V5ModifyNodePoolRequest);
+    root.GiantSwarm.NodepoolsApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V5AddNodePoolRequest, root.GiantSwarm.V5GetNodePoolResponse, root.GiantSwarm.V5GetNodePoolStatusResponse, root.GiantSwarm.V5GetNodePoolsResponse, root.GiantSwarm.V5ModifyNodePoolRequest);
   }
 }(this, function(ApiClient, V4GenericResponse, V5AddNodePoolRequest, V5GetNodePoolResponse, V5GetNodePoolStatusResponse, V5GetNodePoolsResponse, V5ModifyNodePoolRequest) {
   'use strict';

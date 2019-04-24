@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V5ClusterDetailsResponseMaster'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5ClusterDetailsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V5ClusterDetailsResponseMaster);
+    root.GiantSwarm.V5ClusterDetailsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterDetailsResponseMaster);
   }
 }(this, function(ApiClient, V5ClusterDetailsResponseMaster) {
   'use strict';

@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+    instance = new GiantSwarm.V4GetKeyPairsResponseInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,43 +52,43 @@
   describe('V4GetKeyPairsResponseInner', function() {
     it('should create an instance of V4GetKeyPairsResponseInner', function() {
       // uncomment below and update the code to test V4GetKeyPairsResponseInner
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
-      //expect(instance).to.be.a(GiantSwarmV4.V4GetKeyPairsResponseInner);
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
+      //expect(instance).to.be.a(GiantSwarm.V4GetKeyPairsResponseInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property ttlHours (base name: "ttl_hours")', function() {
       // uncomment below and update the code to test the property ttlHours
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property createDate (base name: "create_date")', function() {
       // uncomment below and update the code to test the property createDate
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property commonName (base name: "common_name")', function() {
       // uncomment below and update the code to test the property commonName
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property certificateOrganizations (base name: "certificate_organizations")', function() {
       // uncomment below and update the code to test the property certificateOrganizations
-      //var instane = new GiantSwarmV4.V4GetKeyPairsResponseInner();
+      //var instane = new GiantSwarm.V4GetKeyPairsResponseInner();
       //expect(instance).to.be();
     });
 

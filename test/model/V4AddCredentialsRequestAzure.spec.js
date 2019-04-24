@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4AddCredentialsRequestAzure();
+    instance = new GiantSwarm.V4AddCredentialsRequestAzure();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V4AddCredentialsRequestAzure', function() {
     it('should create an instance of V4AddCredentialsRequestAzure', function() {
       // uncomment below and update the code to test V4AddCredentialsRequestAzure
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzure();
-      //expect(instance).to.be.a(GiantSwarmV4.V4AddCredentialsRequestAzure);
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzure();
+      //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAzure);
     });
 
     it('should have the property credential (base name: "credential")', function() {
       // uncomment below and update the code to test the property credential
-      //var instane = new GiantSwarmV4.V4AddCredentialsRequestAzure();
+      //var instane = new GiantSwarm.V4AddCredentialsRequestAzure();
       //expect(instance).to.be();
     });
 

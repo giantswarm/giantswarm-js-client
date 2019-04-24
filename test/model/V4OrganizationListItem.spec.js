@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4OrganizationListItem();
+    instance = new GiantSwarm.V4OrganizationListItem();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,13 +52,13 @@
   describe('V4OrganizationListItem', function() {
     it('should create an instance of V4OrganizationListItem', function() {
       // uncomment below and update the code to test V4OrganizationListItem
-      //var instane = new GiantSwarmV4.V4OrganizationListItem();
-      //expect(instance).to.be.a(GiantSwarmV4.V4OrganizationListItem);
+      //var instane = new GiantSwarm.V4OrganizationListItem();
+      //expect(instance).to.be.a(GiantSwarm.V4OrganizationListItem);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new GiantSwarmV4.V4OrganizationListItem();
+      //var instane = new GiantSwarm.V4OrganizationListItem();
       //expect(instance).to.be();
     });
 

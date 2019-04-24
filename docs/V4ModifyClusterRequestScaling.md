@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ModifyClusterRequestScaling
+# GiantSwarm.V4ModifyClusterRequestScaling
 
 ## Properties
 Name | Type | Description | Notes

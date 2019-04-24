@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'), require('../model/V5AddClusterRequest'), require('../model/V5ClusterDetailsResponse'), require('../model/V5ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.ClustersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequest, root.GiantSwarmV4.V4ClusterDetailsResponse, root.GiantSwarmV4.V4ClusterListItem, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterStatusResponse, root.GiantSwarmV4.V4ModifyClusterRequest, root.GiantSwarmV4.V5AddClusterRequest, root.GiantSwarmV4.V5ClusterDetailsResponse, root.GiantSwarmV4.V5ModifyClusterRequest);
+    root.GiantSwarm.ClustersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequest, root.GiantSwarm.V4ClusterDetailsResponse, root.GiantSwarm.V4ClusterListItem, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterStatusResponse, root.GiantSwarm.V4ModifyClusterRequest, root.GiantSwarm.V5AddClusterRequest, root.GiantSwarm.V5ClusterDetailsResponse, root.GiantSwarm.V5ModifyClusterRequest);
   }
 }(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest, V5AddClusterRequest, V5ClusterDetailsResponse, V5ModifyClusterRequest) {
   'use strict';

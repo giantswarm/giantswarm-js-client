@@ -22,15 +22,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarmV4);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(expect, GiantSwarmV4) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4InfoResponseWorkers();
+    instance = new GiantSwarm.V4InfoResponseWorkers();
   });
 
   var getProperty = function(object, getter, property) {
@@ -52,25 +52,25 @@
   describe('V4InfoResponseWorkers', function() {
     it('should create an instance of V4InfoResponseWorkers', function() {
       // uncomment below and update the code to test V4InfoResponseWorkers
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkers();
-      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseWorkers);
+      //var instane = new GiantSwarm.V4InfoResponseWorkers();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkers);
     });
 
     it('should have the property countPerCluster (base name: "count_per_cluster")', function() {
       // uncomment below and update the code to test the property countPerCluster
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkers();
+      //var instane = new GiantSwarm.V4InfoResponseWorkers();
       //expect(instance).to.be();
     });
 
     it('should have the property instanceType (base name: "instance_type")', function() {
       // uncomment below and update the code to test the property instanceType
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkers();
+      //var instane = new GiantSwarm.V4InfoResponseWorkers();
       //expect(instance).to.be();
     });
 
     it('should have the property vmSize (base name: "vm_size")', function() {
       // uncomment below and update the code to test the property vmSize
-      //var instane = new GiantSwarmV4.V4InfoResponseWorkers();
+      //var instane = new GiantSwarm.V4InfoResponseWorkers();
       //expect(instance).to.be();
     });
 
