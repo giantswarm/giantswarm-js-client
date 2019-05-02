@@ -138,6 +138,8 @@ Class | Method | HTTP request | Description
 *GiantSwarmV4.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
 *GiantSwarmV4.KeyPairsApi* | [**addKeyPair**](docs/KeyPairsApi.md#addKeyPair) | **POST** /v4/clusters/{cluster_id}/key-pairs/ | Create key pair
 *GiantSwarmV4.KeyPairsApi* | [**getKeyPairs**](docs/KeyPairsApi.md#getKeyPairs) | **GET** /v4/clusters/{cluster_id}/key-pairs/ | Get key pairs
+*GiantSwarmV4.ManagedAppsApi* | [**getAppCatalogs**](docs/ManagedAppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
+*GiantSwarmV4.ManagedAppsApi* | [**getClusterApps**](docs/ManagedAppsApi.md#getClusterApps) | **GET** /v4/clusters/{cluster_id}/apps/ | Get cluster apps
 *GiantSwarmV4.OrganizationsApi* | [**addCredentials**](docs/OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 *GiantSwarmV4.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 *GiantSwarmV4.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization
@@ -168,6 +170,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4AddCredentialsRequestAzureCredential](docs/V4AddCredentialsRequestAzureCredential.md)
  - [GiantSwarmV4.V4AddKeyPairRequest](docs/V4AddKeyPairRequest.md)
  - [GiantSwarmV4.V4AddKeyPairResponse](docs/V4AddKeyPairResponse.md)
+ - [GiantSwarmV4.V4AppCatalogsResponse](docs/V4AppCatalogsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvm](docs/V4ClusterDetailsResponseKvm.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
@@ -177,6 +180,12 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponse](docs/V4GetClusterAppsResponse.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponseInner](docs/V4GetClusterAppsResponseInner.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponseInnerMetadata](docs/V4GetClusterAppsResponseInnerMetadata.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponseInnerSpec](docs/V4GetClusterAppsResponseInnerSpec.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponseInnerStatus](docs/V4GetClusterAppsResponseInnerStatus.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponseInnerStatusRelease](docs/V4GetClusterAppsResponseInnerStatusRelease.md)
  - [GiantSwarmV4.V4GetClusterStatusResponse](docs/V4GetClusterStatusResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponseAws](docs/V4GetCredentialResponseAws.md)
