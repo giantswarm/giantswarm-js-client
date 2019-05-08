@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/giantswarm-js-client.svg?style=svg)](https://circleci.com/gh/giantswarm/giantswarm-js-client)
+[![CircleCI](https://circleci.com/gh/giantswarm/giantswarm-js-client.svg?style=shield)](https://circleci.com/gh/giantswarm/giantswarm-js-client)
 
 # JavaScript Client for the Giant Swarm API v4
 
