@@ -103,16 +103,21 @@ AuthorizationHeaderToken.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new GiantSwarmV4.AuthTokensApi()
+var api = new GiantSwarmV4.AppsApi()
 
-var body = new GiantSwarmV4.V4CreateAuthTokenRequest(); // {V4CreateAuthTokenRequest} Create Auth Token Request
+var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
+
+var clusterId = "clusterId_example"; // {String} Cluster ID
+
+var appName = "appName_example"; // {String} App Name
 
 var opts = { 
   'xRequestID': "xRequestID_example", // {String} A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // {String} Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
+  'body': new GiantSwarmV4.V4CreateAppRequest() // {V4CreateAppRequest} 
 };
-api.createAuthToken(body, opts).then(function(data) {
+api.createClusterApp(authorizationclusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -127,6 +132,10 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*GiantSwarmV4.AppsApi* | [**createClusterApp**](docs/AppsApi.md#createClusterApp) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app
+*GiantSwarmV4.AppsApi* | [**deleteClusterApp**](docs/AppsApi.md#deleteClusterApp) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app
+*GiantSwarmV4.AppsApi* | [**getAppCatalogs**](docs/AppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
+*GiantSwarmV4.AppsApi* | [**getClusterApps**](docs/AppsApi.md#getClusterApps) | **GET** /v4/clusters/{cluster_id}/apps/ | Get cluster apps
 *GiantSwarmV4.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarmV4.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 *GiantSwarmV4.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
@@ -168,15 +177,24 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4AddCredentialsRequestAzureCredential](docs/V4AddCredentialsRequestAzureCredential.md)
  - [GiantSwarmV4.V4AddKeyPairRequest](docs/V4AddKeyPairRequest.md)
  - [GiantSwarmV4.V4AddKeyPairResponse](docs/V4AddKeyPairResponse.md)
+ - [GiantSwarmV4.V4App](docs/V4App.md)
+ - [GiantSwarmV4.V4AppCatalogsResponse](docs/V4AppCatalogsResponse.md)
+ - [GiantSwarmV4.V4AppMetadata](docs/V4AppMetadata.md)
+ - [GiantSwarmV4.V4AppSpec](docs/V4AppSpec.md)
+ - [GiantSwarmV4.V4AppStatus](docs/V4AppStatus.md)
+ - [GiantSwarmV4.V4AppStatusRelease](docs/V4AppStatusRelease.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvm](docs/V4ClusterDetailsResponseKvm.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseScaling](docs/V4ClusterDetailsResponseScaling.md)
  - [GiantSwarmV4.V4ClusterListItem](docs/V4ClusterListItem.md)
+ - [GiantSwarmV4.V4CreateAppRequest](docs/V4CreateAppRequest.md)
+ - [GiantSwarmV4.V4CreateAppRequestSpec](docs/V4CreateAppRequestSpec.md)
  - [GiantSwarmV4.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
+ - [GiantSwarmV4.V4GetClusterAppsResponse](docs/V4GetClusterAppsResponse.md)
  - [GiantSwarmV4.V4GetClusterStatusResponse](docs/V4GetClusterStatusResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponseAws](docs/V4GetCredentialResponseAws.md)

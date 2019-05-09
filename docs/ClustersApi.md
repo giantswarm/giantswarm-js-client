@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCluster"></a>
 # **deleteCluster**
-> V4GenericResponse deleteCluster(authorizationclusterId, opts)
+> V4GenericResponse deleteCluster(authorizationclusterId, , opts)
 
 Delete cluster
 
@@ -103,7 +103,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteCluster(authorizationclusterId, opts).then(function(data) {
+apiInstance.deleteCluster(authorizationclusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 <a name="getCluster"></a>
 # **getCluster**
-> V4ClusterDetailsResponse getCluster(authorizationclusterId, opts)
+> V4ClusterDetailsResponse getCluster(authorizationclusterId, , opts)
 
 Get cluster details
 
@@ -164,7 +164,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCluster(authorizationclusterId, opts).then(function(data) {
+apiInstance.getCluster(authorizationclusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterStatus"></a>
 # **getClusterStatus**
-> V4GetClusterStatusResponse getClusterStatus(authorizationclusterId, opts)
+> V4GetClusterStatusResponse getClusterStatus(authorizationclusterId, , opts)
 
 Get cluster status
 
@@ -225,7 +225,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterStatus(authorizationclusterId, opts).then(function(data) {
+apiInstance.getClusterStatus(authorizationclusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyCluster"></a>
 # **modifyCluster**
-> V4ClusterDetailsResponse modifyCluster(authorizationbody, clusterId, opts)
+> V4ClusterDetailsResponse modifyCluster(authorizationbody, clusterId, , opts)
 
 Modify cluster
 
@@ -346,7 +346,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyCluster(authorizationbody, clusterId, opts).then(function(data) {
+apiInstance.modifyCluster(authorizationbody, clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

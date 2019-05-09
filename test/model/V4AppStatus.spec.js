@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarmV4.V4ModifyClusterRequest();
+    instance = new GiantSwarmV4.V4AppStatus();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,40 +49,28 @@
       object[property] = value;
   }
 
-  describe('V4ModifyClusterRequest', function() {
-    it('should create an instance of V4ModifyClusterRequest', function() {
-      // uncomment below and update the code to test V4ModifyClusterRequest
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
-      //expect(instance).to.be.a(GiantSwarmV4.V4ModifyClusterRequest);
+  describe('V4AppStatus', function() {
+    it('should create an instance of V4AppStatus', function() {
+      // uncomment below and update the code to test V4AppStatus
+      //var instane = new GiantSwarmV4.V4AppStatus();
+      //expect(instance).to.be.a(GiantSwarmV4.V4AppStatus);
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
+    it('should have the property appVersion (base name: "app_version")', function() {
+      // uncomment below and update the code to test the property appVersion
+      //var instane = new GiantSwarmV4.V4AppStatus();
       //expect(instance).to.be();
     });
 
-    it('should have the property owner (base name: "owner")', function() {
-      // uncomment below and update the code to test the property owner
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
+    it('should have the property version (base name: "version")', function() {
+      // uncomment below and update the code to test the property version
+      //var instane = new GiantSwarmV4.V4AppStatus();
       //expect(instance).to.be();
     });
 
-    it('should have the property releaseVersion (base name: "release_version")', function() {
-      // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property scaling (base name: "scaling")', function() {
-      // uncomment below and update the code to test the property scaling
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property workers (base name: "workers")', function() {
-      // uncomment below and update the code to test the property workers
-      //var instane = new GiantSwarmV4.V4ModifyClusterRequest();
+    it('should have the property release (base name: "release")', function() {
+      // uncomment below and update the code to test the property release
+      //var instane = new GiantSwarmV4.V4AppStatus();
       //expect(instance).to.be();
     });
 

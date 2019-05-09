@@ -11,10 +11,10 @@
     "fs": false
   },
   "dependencies": {
-    "superagent": "3.8.3"
+    "superagent": "3.5.2"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
+    "mocha": "~2.3.4",
     "sinon": "1.17.3",
     "expect.js": "~0.3.1"
   }
