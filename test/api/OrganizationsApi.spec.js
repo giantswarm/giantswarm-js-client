@@ -80,6 +80,26 @@
         done();
       });
     });
+    describe('getCredential', function() {
+      it('should call getCredential successfully', function(done) {
+        //uncomment below and update the code to test getCredential
+        //instance.getCredential(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getCredentials', function() {
+      it('should call getCredentials successfully', function(done) {
+        //uncomment below and update the code to test getCredentials
+        //instance.getCredentials(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getOrganization', function() {
       it('should call getOrganization successfully', function(done) {
         //uncomment below and update the code to test getOrganization

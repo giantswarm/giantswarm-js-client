@@ -86,14 +86,26 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property credentialId (base name: "credential_id")', function() {
+      // uncomment below and update the code to test the property credentialId
+      //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property releaseVersion (base name: "release_version")', function() {
       // uncomment below and update the code to test the property releaseVersion
       //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property kubernetesVersion (base name: "kubernetes_version")', function() {
-      // uncomment below and update the code to test the property kubernetesVersion
+    it('should have the property scaling (base name: "scaling")', function() {
+      // uncomment below and update the code to test the property scaling
+      //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property availabilityZones (base name: "availability_zones")', function() {
+      // uncomment below and update the code to test the property availabilityZones
       //var instane = new GiantSwarmV4.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });

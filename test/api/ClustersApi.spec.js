@@ -80,6 +80,16 @@
         done();
       });
     });
+    describe('getClusterStatus', function() {
+      it('should call getClusterStatus successfully', function(done) {
+        //uncomment below and update the code to test getClusterStatus
+        //instance.getClusterStatus(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getClusters', function() {
       it('should call getClusters successfully', function(done) {
         //uncomment below and update the code to test getClusters
