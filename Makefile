@@ -24,10 +24,10 @@ generate: api-spec
 api-spec:
 	mkdir -p api-spec
 	mkdir -p out
-	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/managed-apps/spec.yaml
-	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/managed-apps/definitions.yaml
-	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/managed-apps/parameters.yaml
-	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/managed-apps/responses.yaml
+	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/spec.yaml
+	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/definitions.yaml
+	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/parameters.yaml
+	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/responses.yaml
 
 clean:
 	rm -rf api-spec
