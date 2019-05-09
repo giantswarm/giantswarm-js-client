@@ -16,60 +16,78 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4App'], factory);
+    define(['ApiClient', 'model/V4AppMetadata', 'model/V4AppSpec', 'model/V4AppStatus'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4App'));
+    module.exports = factory(require('../ApiClient'), require('./V4AppMetadata'), require('./V4AppSpec'), require('./V4AppStatus'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4GetClusterAppsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App);
+    root.GiantSwarmV4.V4App = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppMetadata, root.GiantSwarmV4.V4AppSpec, root.GiantSwarmV4.V4AppStatus);
   }
-}(this, function(ApiClient, V4App) {
+}(this, function(ApiClient, V4AppMetadata, V4AppSpec, V4AppStatus) {
   'use strict';
 
 
 
 
   /**
-   * The V4GetClusterAppsResponse model module.
-   * @module model/V4GetClusterAppsResponse
+   * The V4App model module.
+   * @module model/V4App
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4GetClusterAppsResponse</code>.
-   * Array of apps
-   * @alias module:model/V4GetClusterAppsResponse
+   * Constructs a new <code>V4App</code>.
+   * @alias module:model/V4App
    * @class
-   * @extends Array
    */
   var exports = function() {
     var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
 
-    return _this;
+
+
+
   };
 
   /**
-   * Constructs a <code>V4GetClusterAppsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4App</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetClusterAppsResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetClusterAppsResponse} The populated <code>V4GetClusterAppsResponse</code> instance.
+   * @param {module:model/V4App} obj Optional instance to populate.
+   * @return {module:model/V4App} The populated <code>V4App</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'V4App');
 
+      if (data.hasOwnProperty('metadata')) {
+        obj['metadata'] = V4AppMetadata.constructFromObject(data['metadata']);
+      }
+      if (data.hasOwnProperty('spec')) {
+        obj['spec'] = V4AppSpec.constructFromObject(data['spec']);
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = V4AppStatus.constructFromObject(data['status']);
+      }
     }
     return obj;
   }
 
+  /**
+   * @member {module:model/V4AppMetadata} metadata
+   */
+  exports.prototype['metadata'] = undefined;
+  /**
+   * @member {module:model/V4AppSpec} spec
+   */
+  exports.prototype['spec'] = undefined;
+  /**
+   * @member {module:model/V4AppStatus} status
+   */
+  exports.prototype['status'] = undefined;
 
 
 

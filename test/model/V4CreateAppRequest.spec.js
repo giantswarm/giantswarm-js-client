@@ -15,65 +15,53 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4App'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4App'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
-    }
-    root.GiantSwarmV4.V4GetClusterAppsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App);
+    factory(root.expect, root.GiantSwarmV4);
   }
-}(this, function(ApiClient, V4App) {
+}(this, function(expect, GiantSwarmV4) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new GiantSwarmV4.V4CreateAppRequest();
+  });
 
-
-  /**
-   * The V4GetClusterAppsResponse model module.
-   * @module model/V4GetClusterAppsResponse
-   * @version 4.0.0
-   */
-
-  /**
-   * Constructs a new <code>V4GetClusterAppsResponse</code>.
-   * Array of apps
-   * @alias module:model/V4GetClusterAppsResponse
-   * @class
-   * @extends Array
-   */
-  var exports = function() {
-    var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
-
-    return _this;
-  };
-
-  /**
-   * Constructs a <code>V4GetClusterAppsResponse</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetClusterAppsResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetClusterAppsResponse} The populated <code>V4GetClusterAppsResponse</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'V4App');
-
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('V4CreateAppRequest', function() {
+    it('should create an instance of V4CreateAppRequest', function() {
+      // uncomment below and update the code to test V4CreateAppRequest
+      //var instane = new GiantSwarmV4.V4CreateAppRequest();
+      //expect(instance).to.be.a(GiantSwarmV4.V4CreateAppRequest);
+    });
 
+    it('should have the property spec (base name: "spec")', function() {
+      // uncomment below and update the code to test the property spec
+      //var instane = new GiantSwarmV4.V4CreateAppRequest();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+  });
+
 }));
-
-
