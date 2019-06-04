@@ -15,64 +15,65 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppCatalogsResponseInner'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInner'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
-    }
-    root.GiantSwarmV4.V4AppCatalogsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppCatalogsResponseInner);
+    factory(root.expect, root.GiantSwarmV4);
   }
-}(this, function(ApiClient, V4AppCatalogsResponseInner) {
+}(this, function(expect, GiantSwarmV4) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration();
+  });
 
-
-  /**
-   * The V4AppCatalogsResponse model module.
-   * @module model/V4AppCatalogsResponse
-   * @version 4.0.0
-   */
-
-  /**
-   * Constructs a new <code>V4AppCatalogsResponse</code>.
-   * @alias module:model/V4AppCatalogsResponse
-   * @class
-   * @extends Array
-   */
-  var exports = function() {
-    var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
-
-    return _this;
-  };
-
-  /**
-   * Constructs a <code>V4AppCatalogsResponse</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppCatalogsResponse} obj Optional instance to populate.
-   * @return {module:model/V4AppCatalogsResponse} The populated <code>V4AppCatalogsResponse</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'V4AppCatalogsResponseInner');
-
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('V4InfoResponseStatsClusterCreationDuration', function() {
+    it('should create an instance of V4InfoResponseStatsClusterCreationDuration', function() {
+      // uncomment below and update the code to test V4InfoResponseStatsClusterCreationDuration
+      //var instane = new GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration();
+      //expect(instance).to.be.a(GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration);
+    });
 
+    it('should have the property median (base name: "median")', function() {
+      // uncomment below and update the code to test the property median
+      //var instane = new GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+    it('should have the property p25 (base name: "p25")', function() {
+      // uncomment below and update the code to test the property p25
+      //var instane = new GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property p75 (base name: "p75")', function() {
+      // uncomment below and update the code to test the property p75
+      //var instane = new GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration();
+      //expect(instance).to.be();
+    });
+
+  });
+
 }));
-
-
