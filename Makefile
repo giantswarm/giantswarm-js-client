@@ -1,4 +1,4 @@
-BRANCH := add-info-stats
+BRANCH := master
 
 .PHONY: test generate
 
