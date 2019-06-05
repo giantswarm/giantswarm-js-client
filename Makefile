@@ -1,3 +1,5 @@
+BRANCH := add-info-stats
+
 .PHONY: test generate
 
 # Builds our JS source and runs tests inside a docker container
@@ -24,10 +26,10 @@ generate: api-spec
 api-spec:
 	mkdir -p api-spec
 	mkdir -p out
-	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/spec.yaml
-	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/definitions.yaml
-	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/parameters.yaml
-	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/master/responses.yaml
+	curl -sS -o api-spec/spec.yaml https://raw.githubusercontent.com/giantswarm/api-spec/$(BRANCH)/spec.yaml
+	curl -sS -o api-spec/definitions.yaml https://raw.githubusercontent.com/giantswarm/api-spec/$(BRANCH)/definitions.yaml
+	curl -sS -o api-spec/parameters.yaml https://raw.githubusercontent.com/giantswarm/api-spec/$(BRANCH)/parameters.yaml
+	curl -sS -o api-spec/responses.yaml https://raw.githubusercontent.com/giantswarm/api-spec/$(BRANCH)/responses.yaml
 
 clean:
 	rm -rf api-spec

@@ -16,59 +16,70 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppCatalogsResponseInner'], factory);
+    define(['ApiClient', 'model/V4AppCatalogsResponseInnerMetadata', 'model/V4AppCatalogsResponseInnerSpec'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInner'));
+    module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInnerMetadata'), require('./V4AppCatalogsResponseInnerSpec'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AppCatalogsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppCatalogsResponseInner);
+    root.GiantSwarmV4.V4AppCatalogsResponseInner = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppCatalogsResponseInnerMetadata, root.GiantSwarmV4.V4AppCatalogsResponseInnerSpec);
   }
-}(this, function(ApiClient, V4AppCatalogsResponseInner) {
+}(this, function(ApiClient, V4AppCatalogsResponseInnerMetadata, V4AppCatalogsResponseInnerSpec) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppCatalogsResponse model module.
-   * @module model/V4AppCatalogsResponse
+   * The V4AppCatalogsResponseInner model module.
+   * @module model/V4AppCatalogsResponseInner
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppCatalogsResponse</code>.
-   * @alias module:model/V4AppCatalogsResponse
+   * Constructs a new <code>V4AppCatalogsResponseInner</code>.
+   * @alias module:model/V4AppCatalogsResponseInner
    * @class
-   * @extends Array
    */
   var exports = function() {
     var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
 
-    return _this;
+
+
   };
 
   /**
-   * Constructs a <code>V4AppCatalogsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AppCatalogsResponseInner</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppCatalogsResponse} obj Optional instance to populate.
-   * @return {module:model/V4AppCatalogsResponse} The populated <code>V4AppCatalogsResponse</code> instance.
+   * @param {module:model/V4AppCatalogsResponseInner} obj Optional instance to populate.
+   * @return {module:model/V4AppCatalogsResponseInner} The populated <code>V4AppCatalogsResponseInner</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'V4AppCatalogsResponseInner');
 
+      if (data.hasOwnProperty('metadata')) {
+        obj['metadata'] = V4AppCatalogsResponseInnerMetadata.constructFromObject(data['metadata']);
+      }
+      if (data.hasOwnProperty('spec')) {
+        obj['spec'] = V4AppCatalogsResponseInnerSpec.constructFromObject(data['spec']);
+      }
     }
     return obj;
   }
 
+  /**
+   * @member {module:model/V4AppCatalogsResponseInnerMetadata} metadata
+   */
+  exports.prototype['metadata'] = undefined;
+  /**
+   * @member {module:model/V4AppCatalogsResponseInnerSpec} spec
+   */
+  exports.prototype['spec'] = undefined;
 
 
 

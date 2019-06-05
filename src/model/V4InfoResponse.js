@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseWorkers'], factory);
+    define(['ApiClient', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseStats', 'model/V4InfoResponseWorkers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneral'), require('./V4InfoResponseWorkers'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneral'), require('./V4InfoResponseStats'), require('./V4InfoResponseWorkers'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4InfoResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseGeneral, root.GiantSwarmV4.V4InfoResponseWorkers);
+    root.GiantSwarmV4.V4InfoResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseGeneral, root.GiantSwarmV4.V4InfoResponseStats, root.GiantSwarmV4.V4InfoResponseWorkers);
   }
-}(this, function(ApiClient, V4InfoResponseGeneral, V4InfoResponseWorkers) {
+}(this, function(ApiClient, V4InfoResponseGeneral, V4InfoResponseStats, V4InfoResponseWorkers) {
   'use strict';
 
 
@@ -49,6 +49,7 @@
 
 
 
+
   };
 
   /**
@@ -65,6 +66,9 @@
       if (data.hasOwnProperty('general')) {
         obj['general'] = V4InfoResponseGeneral.constructFromObject(data['general']);
       }
+      if (data.hasOwnProperty('stats')) {
+        obj['stats'] = V4InfoResponseStats.constructFromObject(data['stats']);
+      }
       if (data.hasOwnProperty('workers')) {
         obj['workers'] = V4InfoResponseWorkers.constructFromObject(data['workers']);
       }
@@ -76,6 +80,10 @@
    * @member {module:model/V4InfoResponseGeneral} general
    */
   exports.prototype['general'] = undefined;
+  /**
+   * @member {module:model/V4InfoResponseStats} stats
+   */
+  exports.prototype['stats'] = undefined;
   /**
    * @member {module:model/V4InfoResponseWorkers} workers
    */
