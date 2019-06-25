@@ -1,5 +1,5 @@
 
-BRANCH := app-config
+BRANCH := master
 
 .PHONY: test generate
 
