@@ -133,8 +133,11 @@ All URIs are relative to *https://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *GiantSwarmV4.AppsApi* | [**createClusterApp**](docs/AppsApi.md#createClusterApp) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app
+*GiantSwarmV4.AppsApi* | [**createClusterAppConfig**](docs/AppsApi.md#createClusterAppConfig) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config
 *GiantSwarmV4.AppsApi* | [**deleteClusterApp**](docs/AppsApi.md#deleteClusterApp) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app
+*GiantSwarmV4.AppsApi* | [**deleteClusterAppConfig**](docs/AppsApi.md#deleteClusterAppConfig) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config
 *GiantSwarmV4.AppsApi* | [**getAppCatalogs**](docs/AppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
+*GiantSwarmV4.AppsApi* | [**getClusterAppConfig**](docs/AppsApi.md#getClusterAppConfig) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config
 *GiantSwarmV4.AppsApi* | [**getClusterApps**](docs/AppsApi.md#getClusterApps) | **GET** /v4/clusters/{cluster_id}/apps/ | Get cluster apps
 *GiantSwarmV4.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarmV4.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
@@ -185,6 +188,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4AppCatalogsResponseInnerSpecStorage](docs/V4AppCatalogsResponseInnerSpecStorage.md)
  - [GiantSwarmV4.V4AppMetadata](docs/V4AppMetadata.md)
  - [GiantSwarmV4.V4AppSpec](docs/V4AppSpec.md)
+ - [GiantSwarmV4.V4AppSpecUserConfigConfigMap](docs/V4AppSpecUserConfigConfigMap.md)
+ - [GiantSwarmV4.V4AppSpecUserConfigConfigMapConfigmap](docs/V4AppSpecUserConfigConfigMapConfigmap.md)
  - [GiantSwarmV4.V4AppStatus](docs/V4AppStatus.md)
  - [GiantSwarmV4.V4AppStatusRelease](docs/V4AppStatusRelease.md)
  - [GiantSwarmV4.V4ClusterDetailsResponse](docs/V4ClusterDetailsResponse.md)
@@ -192,12 +197,14 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings](docs/V4ClusterDetailsResponseKvmPortMappings.md)
  - [GiantSwarmV4.V4ClusterDetailsResponseScaling](docs/V4ClusterDetailsResponseScaling.md)
  - [GiantSwarmV4.V4ClusterListItem](docs/V4ClusterListItem.md)
+ - [GiantSwarmV4.V4CreateAppConfigRequest](docs/V4CreateAppConfigRequest.md)
  - [GiantSwarmV4.V4CreateAppRequest](docs/V4CreateAppRequest.md)
  - [GiantSwarmV4.V4CreateAppRequestSpec](docs/V4CreateAppRequestSpec.md)
  - [GiantSwarmV4.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
  - [GiantSwarmV4.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
  - [GiantSwarmV4.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarmV4.V4GenericResponse](docs/V4GenericResponse.md)
+ - [GiantSwarmV4.V4GetClusterAppConfigResponse](docs/V4GetClusterAppConfigResponse.md)
  - [GiantSwarmV4.V4GetClusterAppsResponse](docs/V4GetClusterAppsResponse.md)
  - [GiantSwarmV4.V4GetClusterStatusResponse](docs/V4GetClusterStatusResponse.md)
  - [GiantSwarmV4.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)

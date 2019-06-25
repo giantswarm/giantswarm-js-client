@@ -16,98 +16,55 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppSpecUserConfigConfigMap'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfigConfigMap'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.V4AppSpec = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppSpecUserConfigConfigMap);
+    root.GiantSwarmV4.V4GetClusterAppConfigResponse = factory(root.GiantSwarmV4.ApiClient);
   }
-}(this, function(ApiClient, V4AppSpecUserConfigConfigMap) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppSpec model module.
-   * @module model/V4AppSpec
+   * The V4GetClusterAppConfigResponse model module.
+   * @module model/V4GetClusterAppConfigResponse
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppSpec</code>.
-   * @alias module:model/V4AppSpec
+   * Constructs a new <code>V4GetClusterAppConfigResponse</code>.
+   * The values configmap for a given app returned as a yaml file
+   * @alias module:model/V4GetClusterAppConfigResponse
    * @class
    */
   var exports = function() {
     var _this = this;
 
-
-
-
-
-
   };
 
   /**
-   * Constructs a <code>V4AppSpec</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4GetClusterAppConfigResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppSpec} obj Optional instance to populate.
-   * @return {module:model/V4AppSpec} The populated <code>V4AppSpec</code> instance.
+   * @param {module:model/V4GetClusterAppConfigResponse} obj Optional instance to populate.
+   * @return {module:model/V4GetClusterAppConfigResponse} The populated <code>V4GetClusterAppConfigResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('namespace')) {
-        obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
-      }
-      if (data.hasOwnProperty('version')) {
-        obj['version'] = ApiClient.convertToType(data['version'], 'String');
-      }
-      if (data.hasOwnProperty('catalog')) {
-        obj['catalog'] = ApiClient.convertToType(data['catalog'], 'String');
-      }
-      if (data.hasOwnProperty('user_config')) {
-        obj['user_config'] = V4AppSpecUserConfigConfigMap.constructFromObject(data['user_config']);
-      }
     }
     return obj;
   }
 
-  /**
-   * Name of the chart that was used to install this app
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * Namespace that this app is installed to
-   * @member {String} namespace
-   */
-  exports.prototype['namespace'] = undefined;
-  /**
-   * Version of the chart that was used to install this app
-   * @member {String} version
-   */
-  exports.prototype['version'] = undefined;
-  /**
-   * The catalog that this app came from
-   * @member {String} catalog
-   */
-  exports.prototype['catalog'] = undefined;
-  /**
-   * @member {module:model/V4AppSpecUserConfigConfigMap} user_config
-   */
-  exports.prototype['user_config'] = undefined;
 
 
 

@@ -83,7 +83,7 @@
    */
   exports.prototype['median'] = undefined;
   /**
-   * 75th percentile of the value distribution
+   * 25th percentile of the value distribution
    * @member {Number} p25
    */
   exports.prototype['p25'] = undefined;
