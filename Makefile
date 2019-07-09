@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := app-update
 
 .PHONY: test generate
 
