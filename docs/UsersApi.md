@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="createUser"></a>
 # **createUser**
-> V4GenericResponse createUser(authorizationemail, body, opts)
+> V4GenericResponse createUser(authorization, email, body, opts)
 
 Create user
 
@@ -45,7 +45,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.createUser(authorizationemail, body, opts).then(function(data) {
+apiInstance.createUser(authorization, email, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteUser"></a>
 # **deleteUser**
-> V4GenericResponse deleteUser(authorizationemail, , opts)
+> V4GenericResponse deleteUser(authorization, email, , opts)
 
 Delete user
 
@@ -107,7 +107,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteUser(authorizationemail, , opts).then(function(data) {
+apiInstance.deleteUser(authorization, email, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="getCurrentUser"></a>
 # **getCurrentUser**
-> V4UserListItem getCurrentUser(authorization, opts)
+> V4UserListItem getCurrentUser(authorization, , opts)
 
 Get current user
 
@@ -166,7 +166,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCurrentUser(authorization, opts).then(function(data) {
+apiInstance.getCurrentUser(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 <a name="getUser"></a>
 # **getUser**
-> V4UserListItem getUser(authorizationemail, , opts)
+> V4UserListItem getUser(authorization, email, , opts)
 
 Get user
 
@@ -226,7 +226,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getUser(authorizationemail, , opts).then(function(data) {
+apiInstance.getUser(authorization, email, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 <a name="getUsers"></a>
 # **getUsers**
-> [V4UserListItem] getUsers(authorization, opts)
+> [V4UserListItem] getUsers(authorization, , opts)
 
 Get users
 
@@ -285,7 +285,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getUsers(authorization, opts).then(function(data) {
+apiInstance.getUsers(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyPassword"></a>
 # **modifyPassword**
-> V4GenericResponse modifyPassword(authorizationemail, body, opts)
+> V4GenericResponse modifyPassword(authorization, email, body, opts)
 
 Modify password
 
@@ -347,7 +347,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyPassword(authorizationemail, body, opts).then(function(data) {
+apiInstance.modifyPassword(authorization, email, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyUser"></a>
 # **modifyUser**
-> V4UserListItem modifyUser(authorizationemail, body, opts)
+> V4UserListItem modifyUser(authorization, email, body, opts)
 
 Modify user
 
@@ -411,7 +411,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyUser(authorizationemail, body, opts).then(function(data) {
+apiInstance.modifyUser(authorization, email, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

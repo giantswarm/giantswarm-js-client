@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="createClusterApp"></a>
 # **createClusterApp**
-> V4App createClusterApp(authorizationclusterId, appName, opts)
+> V4App createClusterApp(authorization, clusterId, appName, opts)
 
 Install an app
 
@@ -46,7 +46,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarmV4.V4CreateAppRequest() // V4CreateAppRequest | 
 };
-apiInstance.createClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.createClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="createClusterAppConfig"></a>
 # **createClusterAppConfig**
-> V4GenericResponse createClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse createClusterAppConfig(authorization, clusterId, appName, opts)
 
 Create app config
 
@@ -112,7 +112,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarmV4.V4CreateAppConfigRequest() // V4CreateAppConfigRequest | 
 };
-apiInstance.createClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.createClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterApp"></a>
 # **deleteClusterApp**
-> V4GenericResponse deleteClusterApp(authorizationclusterId, appName, opts)
+> V4GenericResponse deleteClusterApp(authorization, clusterId, appName, opts)
 
 Delete an app
 
@@ -177,7 +177,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.deleteClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterAppConfig"></a>
 # **deleteClusterAppConfig**
-> V4GenericResponse deleteClusterAppConfig(authorizationorganizationId, , opts)
+> V4GenericResponse deleteClusterAppConfig(authorization, clusterId, appName, opts)
 
 Delete an app config
 
@@ -232,14 +232,16 @@ var apiInstance = new GiantSwarmV4.AppsApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
-var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
+var clusterId = "clusterId_example"; // String | Cluster ID
+
+var appName = "appName_example"; // String | App Name
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterAppConfig(authorizationorganizationId, , opts).then(function(data) {
+apiInstance.deleteClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -252,7 +254,8 @@ apiInstance.deleteClusterAppConfig(authorizationorganizationId, , opts).then(fun
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
- **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
+ **clusterId** | **String**| Cluster ID | 
+ **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -272,7 +275,7 @@ Name | Type | Description  | Notes
 
 <a name="getAppCatalogs"></a>
 # **getAppCatalogs**
-> V4AppCatalogsResponse getAppCatalogs(authorization, opts)
+> V4AppCatalogsResponse getAppCatalogs(authorization, , opts)
 
 Get a list of app catalogs configured on your installation.
 
@@ -298,7 +301,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getAppCatalogs(authorization, opts).then(function(data) {
+apiInstance.getAppCatalogs(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -330,7 +333,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterAppConfig"></a>
 # **getClusterAppConfig**
-> V4GetClusterAppConfigResponse getClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GetClusterAppConfigResponse getClusterAppConfig(authorization, clusterId, appName, opts)
 
 Get app config
 
@@ -360,7 +363,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.getClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -394,7 +397,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterApps"></a>
 # **getClusterApps**
-> V4GetClusterAppsResponse getClusterApps(authorizationclusterId, , opts)
+> V4GetClusterAppsResponse getClusterApps(authorization, clusterId, , opts)
 
 Get cluster apps
 
@@ -422,7 +425,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterApps(authorizationclusterId, , opts).then(function(data) {
+apiInstance.getClusterApps(authorization, clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
