@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4App', 'model/V4AppCatalogsResponse', 'model/V4CreateAppConfigRequest', 'model/V4CreateAppRequest', 'model/V4GenericResponse', 'model/V4GetClusterAppConfigResponse', 'model/V4GetClusterAppsResponse'], factory);
+    define(['ApiClient', 'model/V4App', 'model/V4AppCatalogsResponse', 'model/V4CreateAppRequest', 'model/V4GenericResponse', 'model/V4GetClusterAppsResponse', 'model/V4ModifyAppRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4App'), require('../model/V4AppCatalogsResponse'), require('../model/V4CreateAppConfigRequest'), require('../model/V4CreateAppRequest'), require('../model/V4GenericResponse'), require('../model/V4GetClusterAppConfigResponse'), require('../model/V4GetClusterAppsResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4App'), require('../model/V4AppCatalogsResponse'), require('../model/V4CreateAppRequest'), require('../model/V4GenericResponse'), require('../model/V4GetClusterAppsResponse'), require('../model/V4ModifyAppRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarmV4) {
       root.GiantSwarmV4 = {};
     }
-    root.GiantSwarmV4.AppsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App, root.GiantSwarmV4.V4AppCatalogsResponse, root.GiantSwarmV4.V4CreateAppConfigRequest, root.GiantSwarmV4.V4CreateAppRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterAppConfigResponse, root.GiantSwarmV4.V4GetClusterAppsResponse);
+    root.GiantSwarmV4.AppsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App, root.GiantSwarmV4.V4AppCatalogsResponse, root.GiantSwarmV4.V4CreateAppRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterAppsResponse, root.GiantSwarmV4.V4ModifyAppRequest);
   }
-}(this, function(ApiClient, V4App, V4AppCatalogsResponse, V4CreateAppConfigRequest, V4CreateAppRequest, V4GenericResponse, V4GetClusterAppConfigResponse, V4GetClusterAppsResponse) {
+}(this, function(ApiClient, V4App, V4AppCatalogsResponse, V4CreateAppRequest, V4GenericResponse, V4GetClusterAppsResponse, V4ModifyAppRequest) {
   'use strict';
 
   /**
@@ -50,7 +50,7 @@
 
     /**
      * Install an app
-     * Install an app on a tenant cluster by posting to this endpoint.  The spec field represents the app we&#39;ll be installing, and so spec.name refers to the name of the chart that installs this app in the catalog.  The response you get on a succesful create includes the status of the app. However since the App is still initialising and this is an asynchronous operation, it is likely that the fields in this status object will be all empty values.  To check on the status of your app, perform a GET to /v4/clusters/{cluster_id}/apps/, and check the status field of the app. ###  ### Example PUT request &#x60;&#x60;&#x60;json   {     \&quot;spec\&quot;: {       \&quot;catalog\&quot;: \&quot;sample-catalog\&quot;,       \&quot;name\&quot;: \&quot;prometheus-chart\&quot;,       \&quot;namespace\&quot;: \&quot;prometheus\&quot;,       \&quot;version\&quot;: \&quot;0.2.0\&quot;,       \&quot;user_config\&quot;: {         \&quot;configmap\&quot;: {           \&quot;name\&quot;: \&quot;prometheus-user-values\&quot;,           \&quot;namespace\&quot;: \&quot;123ab\&quot;         }       }     }   } &#x60;&#x60;&#x60; 
+     * Install an app on a tenant cluster by posting to this endpoint.  The spec field represents the app we&#39;ll be installing, and so spec.name refers to the name of the chart that installs this app in the catalog.  The response you get on a succesful create includes the status of the app. However since the App is still initialising and this is an asynchronous operation, it is likely that the fields in this status object will be all empty values.  To check on the status of your app, perform a GET to /v4/clusters/{cluster_id}/apps/, and check the status field of the app.  ### Example PUT request &#x60;&#x60;&#x60;json   {     \&quot;spec\&quot;: {       \&quot;catalog\&quot;: \&quot;sample-catalog\&quot;,       \&quot;name\&quot;: \&quot;prometheus-chart\&quot;,       \&quot;namespace\&quot;: \&quot;prometheus\&quot;,       \&quot;version\&quot;: \&quot;0.2.0\&quot;,     }   } &#x60;&#x60;&#x60;  ### About the user_config field in the response This field is not editable by you, but is set automatically by the API if a configmap named &#x60;{app_name}-user-values&#x60; exists in the tenant cluster namespace on the control plane.  The &#x60;/v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoints allows you to create such a configmap using this API.  It is recommended to create your config before creating your app. This will result in a faster deploy.  However, you can create your config after creating the app if you wish, this API will take care of setting the &#x60;user_config&#x60; field of the app correctly for you.  ### Why can&#39;t I just set the &#x60;user_config&#x60; value myself? It simplifies usage while also being a security measure.  Furthermore it is also a security measure and ensures that users of this API can&#39;t access arbitrary configmaps of the control plane.  This API will only allow you to edit or access configmaps that adhere to a strict naming convention. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -110,7 +110,7 @@
 
     /**
      * Install an app
-     * Install an app on a tenant cluster by posting to this endpoint.  The spec field represents the app we&#39;ll be installing, and so spec.name refers to the name of the chart that installs this app in the catalog.  The response you get on a succesful create includes the status of the app. However since the App is still initialising and this is an asynchronous operation, it is likely that the fields in this status object will be all empty values.  To check on the status of your app, perform a GET to /v4/clusters/{cluster_id}/apps/, and check the status field of the app. ###  ### Example PUT request &#x60;&#x60;&#x60;json   {     \&quot;spec\&quot;: {       \&quot;catalog\&quot;: \&quot;sample-catalog\&quot;,       \&quot;name\&quot;: \&quot;prometheus-chart\&quot;,       \&quot;namespace\&quot;: \&quot;prometheus\&quot;,       \&quot;version\&quot;: \&quot;0.2.0\&quot;,       \&quot;user_config\&quot;: {         \&quot;configmap\&quot;: {           \&quot;name\&quot;: \&quot;prometheus-user-values\&quot;,           \&quot;namespace\&quot;: \&quot;123ab\&quot;         }       }     }   } &#x60;&#x60;&#x60; 
+     * Install an app on a tenant cluster by posting to this endpoint.  The spec field represents the app we&#39;ll be installing, and so spec.name refers to the name of the chart that installs this app in the catalog.  The response you get on a succesful create includes the status of the app. However since the App is still initialising and this is an asynchronous operation, it is likely that the fields in this status object will be all empty values.  To check on the status of your app, perform a GET to /v4/clusters/{cluster_id}/apps/, and check the status field of the app.  ### Example PUT request &#x60;&#x60;&#x60;json   {     \&quot;spec\&quot;: {       \&quot;catalog\&quot;: \&quot;sample-catalog\&quot;,       \&quot;name\&quot;: \&quot;prometheus-chart\&quot;,       \&quot;namespace\&quot;: \&quot;prometheus\&quot;,       \&quot;version\&quot;: \&quot;0.2.0\&quot;,     }   } &#x60;&#x60;&#x60;  ### About the user_config field in the response This field is not editable by you, but is set automatically by the API if a configmap named &#x60;{app_name}-user-values&#x60; exists in the tenant cluster namespace on the control plane.  The &#x60;/v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoints allows you to create such a configmap using this API.  It is recommended to create your config before creating your app. This will result in a faster deploy.  However, you can create your config after creating the app if you wish, this API will take care of setting the &#x60;user_config&#x60; field of the app correctly for you.  ### Why can&#39;t I just set the &#x60;user_config&#x60; value myself? It simplifies usage while also being a security measure.  Furthermore it is also a security measure and ensures that users of this API can&#39;t access arbitrary configmaps of the control plane.  This API will only allow you to edit or access configmaps that adhere to a strict naming convention. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -123,87 +123,6 @@
      */
     this.createClusterApp = function(authorization, clusterId, appName, opts) {
       return this.createClusterAppWithHttpInfo(authorization, clusterId, appName, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Create app config
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {String} appName App Name
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4CreateAppConfigRequest} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
-     */
-    this.createClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
-      opts = opts || {};
-      var postBody = opts['body'];
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling createClusterAppConfig");
-      }
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling createClusterAppConfig");
-      }
-
-      // verify the required parameter 'appName' is set
-      if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling createClusterAppConfig");
-      }
-
-
-      var pathParams = {
-        'cluster_id': clusterId,
-        'app_name': appName
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GenericResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/apps/{app_name}/config/', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Create app config
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {String} appName App Name
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4CreateAppConfigRequest} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
-     */
-    this.createClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.createClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -290,77 +209,6 @@
 
 
     /**
-     * Delete an app config
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
-     */
-    this.deleteClusterAppConfigWithHttpInfo = function(authorization, organizationId, opts) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteClusterAppConfig");
-      }
-
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling deleteClusterAppConfig");
-      }
-
-
-      var pathParams = {
-        'organization_id': organizationId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GenericResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/apps/{app_name}/config/', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Delete an app config
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
-     */
-    this.deleteClusterAppConfig = function(authorization, organizationId, opts) {
-      return this.deleteClusterAppConfigWithHttpInfo(authorization, organizationId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Get a list of app catalogs configured on your installation.
      * Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.   ### Example &#x60;&#x60;&#x60;json   [     {       \&quot;metadata\&quot;: {         \&quot;name\&quot;: \&quot;sample-catalog\&quot;,       },        \&quot;spec\&quot;: {         \&quot;description\&quot;: \&quot;Giant Swarm&#39;s Sample Catalog with a few apps to test things out.\&quot;,         \&quot;logoURL\&quot;: \&quot;https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\&quot;,          \&quot;storage\&quot;: {           \&quot;URL\&quot;: \&quot;https://giantswarm.github.com/sample-catalog/\&quot;,           \&quot;type\&quot;: \&quot;helm\&quot;         },         \&quot;title\&quot;: \&quot;Sample Catalog\&quot;       }     }   ] &#x60;&#x60;&#x60; 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
@@ -417,85 +265,6 @@
      */
     this.getAppCatalogs = function(authorization, opts) {
       return this.getAppCatalogsWithHttpInfo(authorization, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get app config
-     * This operation allows you to fetch the user values configmap associated with an app. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {String} appName App Name
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppConfigResponse} and HTTP response
-     */
-    this.getClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusterAppConfig");
-      }
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling getClusterAppConfig");
-      }
-
-      // verify the required parameter 'appName' is set
-      if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling getClusterAppConfig");
-      }
-
-
-      var pathParams = {
-        'cluster_id': clusterId,
-        'app_name': appName
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'Authorization': authorization,
-        'X-Request-ID': opts['xRequestID'],
-        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
-        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
-      };
-      var formParams = {
-      };
-
-      var authNames = ['AuthorizationHeaderToken'];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = V4GetClusterAppConfigResponse;
-
-      return this.apiClient.callApi(
-        '/v4/clusters/{cluster_id}/apps/{app_name}/config/', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType
-      );
-    }
-
-    /**
-     * Get app config
-     * This operation allows you to fetch the user values configmap associated with an app. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {String} clusterId Cluster ID
-     * @param {String} appName App Name
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
-     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
-     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppConfigResponse}
-     */
-    this.getClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.getClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -567,6 +336,87 @@
      */
     this.getClusterApps = function(authorization, clusterId, opts) {
       return this.getClusterAppsWithHttpInfo(authorization, clusterId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Modify an app
+     * This operation allows you to modify an existing app.  The following attributes can be modified:  - &#x60;version&#x60;: Changing this field lets you upgrade or downgrade an app.  &#x60;catalog&#x60;, &#x60;name&#x60;, &#x60;namespace&#x60;, and &#x60;user_config&#x60; are not editable. If you need to move or rename an app, you should instead delete the app and make it again.  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4ModifyAppRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
+     */
+    this.modifyClusterAppWithHttpInfo = function(authorization, clusterId, appName, opts) {
+      opts = opts || {};
+      var postBody = opts['body'];
+
+      // verify the required parameter 'authorization' is set
+      if (authorization === undefined || authorization === null) {
+        throw new Error("Missing the required parameter 'authorization' when calling modifyClusterApp");
+      }
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyClusterApp");
+      }
+
+      // verify the required parameter 'appName' is set
+      if (appName === undefined || appName === null) {
+        throw new Error("Missing the required parameter 'appName' when calling modifyClusterApp");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'app_name': appName
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'Authorization': authorization,
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4App;
+
+      return this.apiClient.callApi(
+        '/v4/clusters/{cluster_id}/apps/{app_name}/', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Modify an app
+     * This operation allows you to modify an existing app.  The following attributes can be modified:  - &#x60;version&#x60;: Changing this field lets you upgrade or downgrade an app.  &#x60;catalog&#x60;, &#x60;name&#x60;, &#x60;namespace&#x60;, and &#x60;user_config&#x60; are not editable. If you need to move or rename an app, you should instead delete the app and make it again.  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header. 
+     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4ModifyAppRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
+     */
+    this.modifyClusterApp = function(authorization, clusterId, appName, opts) {
+      return this.modifyClusterAppWithHttpInfo(authorization, clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

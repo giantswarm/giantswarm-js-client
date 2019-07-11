@@ -103,7 +103,7 @@ AuthorizationHeaderToken.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new GiantSwarmV4.AppsApi()
+var api = new GiantSwarmV4.AppConfigsApi()
 
 var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
 
@@ -115,9 +115,9 @@ var opts = {
   'xRequestID': "xRequestID_example", // {String} A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // {String} Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
-  'body': new GiantSwarmV4.V4CreateAppRequest() // {V4CreateAppRequest} 
+  'body': new GiantSwarmV4.V4CreateAppConfigRequest() // {V4CreateAppConfigRequest} 
 };
-api.createClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+api.createClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -132,13 +132,15 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*GiantSwarmV4.AppConfigsApi* | [**createClusterAppConfig**](docs/AppConfigsApi.md#createClusterAppConfig) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config
+*GiantSwarmV4.AppConfigsApi* | [**deleteClusterAppConfig**](docs/AppConfigsApi.md#deleteClusterAppConfig) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config
+*GiantSwarmV4.AppConfigsApi* | [**getClusterAppConfig**](docs/AppConfigsApi.md#getClusterAppConfig) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config
+*GiantSwarmV4.AppConfigsApi* | [**modifyClusterAppConfig**](docs/AppConfigsApi.md#modifyClusterAppConfig) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Modify app config
 *GiantSwarmV4.AppsApi* | [**createClusterApp**](docs/AppsApi.md#createClusterApp) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app
-*GiantSwarmV4.AppsApi* | [**createClusterAppConfig**](docs/AppsApi.md#createClusterAppConfig) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config
 *GiantSwarmV4.AppsApi* | [**deleteClusterApp**](docs/AppsApi.md#deleteClusterApp) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app
-*GiantSwarmV4.AppsApi* | [**deleteClusterAppConfig**](docs/AppsApi.md#deleteClusterAppConfig) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config
 *GiantSwarmV4.AppsApi* | [**getAppCatalogs**](docs/AppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
-*GiantSwarmV4.AppsApi* | [**getClusterAppConfig**](docs/AppsApi.md#getClusterAppConfig) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config
 *GiantSwarmV4.AppsApi* | [**getClusterApps**](docs/AppsApi.md#getClusterApps) | **GET** /v4/clusters/{cluster_id}/apps/ | Get cluster apps
+*GiantSwarmV4.AppsApi* | [**modifyClusterApp**](docs/AppsApi.md#modifyClusterApp) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/ | Modify an app
 *GiantSwarmV4.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarmV4.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 *GiantSwarmV4.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster
@@ -224,6 +226,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarmV4.V4InfoResponseWorkersCountPerCluster](docs/V4InfoResponseWorkersCountPerCluster.md)
  - [GiantSwarmV4.V4InfoResponseWorkersInstanceType](docs/V4InfoResponseWorkersInstanceType.md)
  - [GiantSwarmV4.V4InfoResponseWorkersVmSize](docs/V4InfoResponseWorkersVmSize.md)
+ - [GiantSwarmV4.V4ModifyAppRequest](docs/V4ModifyAppRequest.md)
+ - [GiantSwarmV4.V4ModifyAppRequestSpec](docs/V4ModifyAppRequestSpec.md)
  - [GiantSwarmV4.V4ModifyClusterRequest](docs/V4ModifyClusterRequest.md)
  - [GiantSwarmV4.V4ModifyClusterRequestScaling](docs/V4ModifyClusterRequestScaling.md)
  - [GiantSwarmV4.V4ModifyUserPasswordRequest](docs/V4ModifyUserPasswordRequest.md)
