@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5AddNodePoolRequestAvailabilityZones = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarm.V5AddNodePoolRequestAvailabilityZones = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V5AddNodePoolRequestAvailabilityZones</code>.
-   * Specifies how the nodes of a pool are spread over availability zones. The object must contain either the &#x60;number&#x60; attribute or the &#x60;zones&#x60; attribute, but not both. When not given, availability zones assignment is handled automatically. 
+   * Specifies how the nodes of a pool are spread over availability zones. The object must contain either the &#x60;number&#x60; attribute or the &#x60;zones&#x60; attribute, but not both. The maximum &#x60;number&#x60; of availbility zones is the same as that found under &#x60;general.availability_zones.max&#x60; from the &#x60;/v4/info/&#x60; endpoint. When not given, availability zones assignment is handled automatically. 
    * @alias module:model/V5AddNodePoolRequestAvailabilityZones
    * @class
    */
@@ -74,12 +74,12 @@
   }
 
   /**
-   * Number of zones to use. If given, the zones are picked automatically. 
+   * Number of zones to use. If given, the zones are picked automatically. _(Maximum limit of 4 supported.)_ 
    * @member {Number} number
    */
   exports.prototype['number'] = undefined;
   /**
-   * Names of the availability zones to use. 
+   * Names of the availability zones to use. _(Must be same region as the cluster.)_ 
    * @member {Array.<String>} zones
    */
   exports.prototype['zones'] = undefined;

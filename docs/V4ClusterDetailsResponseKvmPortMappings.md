@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ClusterDetailsResponseKvmPortMappings
+# GiantSwarm.V4ClusterDetailsResponseKvmPortMappings
 
 ## Properties
 Name | Type | Description | Notes

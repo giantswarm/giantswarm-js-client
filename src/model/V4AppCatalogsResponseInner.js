@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInnerMetadata'), require('./V4AppCatalogsResponseInnerSpec'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4AppCatalogsResponseInner = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppCatalogsResponseInnerMetadata, root.GiantSwarmV4.V4AppCatalogsResponseInnerSpec);
+    root.GiantSwarm.V4AppCatalogsResponseInner = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppCatalogsResponseInnerMetadata, root.GiantSwarm.V4AppCatalogsResponseInnerSpec);
   }
 }(this, function(ApiClient, V4AppCatalogsResponseInnerMetadata, V4AppCatalogsResponseInnerSpec) {
   'use strict';

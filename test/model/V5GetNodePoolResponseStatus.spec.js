@@ -15,77 +15,59 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    // AMD.
+    define(['expect.js', '../../src/index'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarm) {
-      root.GiantSwarm = {};
-    }
-    root.GiantSwarm.V5ClusterDetailsResponseVersions = factory(root.GiantSwarm.ApiClient);
+    factory(root.expect, root.GiantSwarm);
   }
-}(this, function(ApiClient) {
+}(this, function(expect, GiantSwarm) {
   'use strict';
 
+  var instance;
 
+  beforeEach(function() {
+    instance = new GiantSwarm.V5GetNodePoolResponseStatus();
+  });
 
-
-  /**
-   * The V5ClusterDetailsResponseVersions model module.
-   * @module model/V5ClusterDetailsResponseVersions
-   * @version 4.0.0
-   */
-
-  /**
-   * Constructs a new <code>V5ClusterDetailsResponseVersions</code>.
-   * @alias module:model/V5ClusterDetailsResponseVersions
-   * @class
-   */
-  var exports = function() {
-    var _this = this;
-
-
-
-  };
-
-  /**
-   * Constructs a <code>V5ClusterDetailsResponseVersions</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ClusterDetailsResponseVersions} obj Optional instance to populate.
-   * @return {module:model/V5ClusterDetailsResponseVersions} The populated <code>V5ClusterDetailsResponseVersions</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('last_transition_time')) {
-        obj['last_transition_time'] = ApiClient.convertToType(data['last_transition_time'], 'String');
-      }
-      if (data.hasOwnProperty('version')) {
-        obj['version'] = ApiClient.convertToType(data['version'], 'String');
-      }
-    }
-    return obj;
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
   }
 
-  /**
-   * Date and time when the cluster got created with or upgrated to this version
-   * @member {String} last_transition_time
-   */
-  exports.prototype['last_transition_time'] = undefined;
-  /**
-   * Semantic version number
-   * @member {String} version
-   */
-  exports.prototype['version'] = undefined;
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('V5GetNodePoolResponseStatus', function() {
+    it('should create an instance of V5GetNodePoolResponseStatus', function() {
+      // uncomment below and update the code to test V5GetNodePoolResponseStatus
+      //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
+      //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseStatus);
+    });
 
+    it('should have the property nodes (base name: "nodes")', function() {
+      // uncomment below and update the code to test the property nodes
+      //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
+      //expect(instance).to.be();
+    });
 
-  return exports;
+    it('should have the property nodesReady (base name: "nodes_ready")', function() {
+      // uncomment below and update the code to test the property nodesReady
+      //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
+      //expect(instance).to.be();
+    });
+
+  });
+
 }));
-
-

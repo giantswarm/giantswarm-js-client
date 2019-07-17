@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseWorkers
+# GiantSwarm.V4InfoResponseWorkers
 
 ## Properties
 Name | Type | Description | Notes

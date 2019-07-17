@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4NodeDefinitionAws'), require('./V4NodeDefinitionAzure'), require('./V4NodeDefinitionCpu'), require('./V4NodeDefinitionMemory'), require('./V4NodeDefinitionStorage'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4NodeDefinition = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4NodeDefinitionAws, root.GiantSwarmV4.V4NodeDefinitionAzure, root.GiantSwarmV4.V4NodeDefinitionCpu, root.GiantSwarmV4.V4NodeDefinitionMemory, root.GiantSwarmV4.V4NodeDefinitionStorage);
+    root.GiantSwarm.V4NodeDefinition = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4NodeDefinitionAws, root.GiantSwarm.V4NodeDefinitionAzure, root.GiantSwarm.V4NodeDefinitionCpu, root.GiantSwarm.V4NodeDefinitionMemory, root.GiantSwarm.V4NodeDefinitionStorage);
   }
 }(this, function(ApiClient, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage) {
   'use strict';

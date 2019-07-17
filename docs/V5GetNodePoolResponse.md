@@ -1,4 +1,4 @@
-# GiantSwarmV4.V5GetNodePoolResponse
+# GiantSwarm.V5GetNodePoolResponse
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **scaling** | [**V5GetNodePoolResponseScaling**](V5GetNodePoolResponseScaling.md) |  | [optional] 
 **subnet** | **String** | IP address block used by the node pool | [optional] 
 **nodeSpec** | [**V5GetNodePoolResponseNodeSpec**](V5GetNodePoolResponseNodeSpec.md) | Worker node specification | [optional] 
+**status** | [**V5GetNodePoolResponseStatus**](V5GetNodePoolResponseStatus.md) |  | [optional] 
 
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpec', 'model/V5GetNodePoolResponseScaling'], factory);
+    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpec', 'model/V5GetNodePoolResponseScaling', 'model/V5GetNodePoolResponseStatus'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpec'), require('./V5GetNodePoolResponseScaling'));
+    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpec'), require('./V5GetNodePoolResponseScaling'), require('./V5GetNodePoolResponseStatus'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5GetNodePoolResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V5GetNodePoolResponseNodeSpec, root.GiantSwarmV4.V5GetNodePoolResponseScaling);
+    root.GiantSwarm.V5GetNodePoolResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5GetNodePoolResponseNodeSpec, root.GiantSwarm.V5GetNodePoolResponseScaling, root.GiantSwarm.V5GetNodePoolResponseStatus);
   }
-}(this, function(ApiClient, V5GetNodePoolResponseNodeSpec, V5GetNodePoolResponseScaling) {
+}(this, function(ApiClient, V5GetNodePoolResponseNodeSpec, V5GetNodePoolResponseScaling, V5GetNodePoolResponseStatus) {
   'use strict';
 
 
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -84,6 +85,9 @@
       if (data.hasOwnProperty('node_spec')) {
         obj['node_spec'] = V5GetNodePoolResponseNodeSpec.constructFromObject(data['node_spec']);
       }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = V5GetNodePoolResponseStatus.constructFromObject(data['status']);
+      }
     }
     return obj;
   }
@@ -117,6 +121,10 @@
    * @member {module:model/V5GetNodePoolResponseNodeSpec} node_spec
    */
   exports.prototype['node_spec'] = undefined;
+  /**
+   * @member {module:model/V5GetNodePoolResponseStatus} status
+   */
+  exports.prototype['status'] = undefined;
 
 
 

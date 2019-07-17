@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V5ModifyNodePoolRequestScaling'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5ModifyNodePoolRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V5ModifyNodePoolRequestScaling);
+    root.GiantSwarm.V5ModifyNodePoolRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ModifyNodePoolRequestScaling);
   }
 }(this, function(ApiClient, V5ModifyNodePoolRequestScaling) {
   'use strict';

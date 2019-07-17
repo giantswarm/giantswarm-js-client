@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5AddNodePoolRequestNodeSpecAws = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarm.V5AddNodePoolRequestNodeSpecAws = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -70,7 +70,7 @@
   }
 
   /**
-   * EC2 instance type to use for all nodes in the node pool 
+   * EC2 instance type to use for all nodes in the node pool. _(Validated against available instance types.)_ 
    * @member {String} instance_type
    */
   exports.prototype['instance_type'] = undefined;

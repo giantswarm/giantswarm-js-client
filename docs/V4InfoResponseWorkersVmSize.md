@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseWorkersVmSize
+# GiantSwarm.V4InfoResponseWorkersVmSize
 
 ## Properties
 Name | Type | Description | Notes

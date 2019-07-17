@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4OrganizationMember'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.Body = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4OrganizationMember);
+    root.GiantSwarm.Body = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4OrganizationMember);
   }
 }(this, function(ApiClient, V4OrganizationMember) {
   'use strict';

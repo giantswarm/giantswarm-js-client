@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5AddNodePoolRequestScaling = factory(root.GiantSwarmV4.ApiClient);
+    root.GiantSwarm.V5AddNodePoolRequestScaling = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V5AddNodePoolRequestScaling</code>.
-   * Attributes specific to cluster node scaling. To have full control of the cluster size, min and max can be set to the same value. If only &#x60;min&#x60; or only &#x60;max&#x60; is specified, &#x60;min&#x60; and &#x60;max&#x60; will be set equally. 
+   * Attributes specific to cluster node scaling. To have full control of the cluster size, min and max can be set to the same value, however &#x60;max&#x60; must be greater or equal to &#x60;min&#x60;. If only &#x60;min&#x60; or only &#x60;max&#x60; is specified, &#x60;min&#x60; and &#x60;max&#x60; will be set equally. 
    * @alias module:model/V5AddNodePoolRequestScaling
    * @class
    */
@@ -74,12 +74,12 @@
   }
 
   /**
-   * Minimum number of nodes in the pool
+   * Minimum number of nodes in the pool.
    * @member {Number} min
    */
   exports.prototype['min'] = undefined;
   /**
-   * Maximum number of nodes in the pool
+   * Maximum number of nodes in the pool.
    * @member {Number} max
    */
   exports.prototype['max'] = undefined;

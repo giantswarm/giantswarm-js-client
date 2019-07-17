@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V5AddClusterRequestMaster'), require('./V5AddNodePoolRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V5AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V5AddClusterRequestMaster, root.GiantSwarmV4.V5AddNodePoolRequest);
+    root.GiantSwarm.V5AddClusterRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5AddClusterRequestMaster, root.GiantSwarm.V5AddNodePoolRequest);
   }
 }(this, function(ApiClient, V5AddClusterRequestMaster, V5AddNodePoolRequest) {
   'use strict';

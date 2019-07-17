@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneralAvailabilityZones'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4InfoResponseGeneral = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones);
+    root.GiantSwarm.V4InfoResponseGeneral = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseGeneralAvailabilityZones);
   }
 }(this, function(ApiClient, V4InfoResponseGeneralAvailabilityZones) {
   'use strict';

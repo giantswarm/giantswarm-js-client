@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4GetCredentialResponseAws', 'model/V4GetCredentialResponseAzure'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4GetCredentialResponseAws'), require('./V4GetCredentialResponseAzure'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4GetCredentialResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GetCredentialResponseAws, root.GiantSwarm.V4GetCredentialResponseAzure);
+    root.GiantSwarm.V5GetNodePoolResponseStatus = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V4GetCredentialResponseAws, V4GetCredentialResponseAzure) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4GetCredentialResponse model module.
-   * @module model/V4GetCredentialResponse
+   * The V5GetNodePoolResponseStatus model module.
+   * @module model/V5GetNodePoolResponseStatus
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4GetCredentialResponse</code>.
-   * Response model for getting details on a set of credentials
-   * @alias module:model/V4GetCredentialResponse
+   * Constructs a new <code>V5GetNodePoolResponseStatus</code>.
+   * Information on the current size and status of the node pool
+   * @alias module:model/V5GetNodePoolResponseStatus
    * @class
    */
   var exports = function() {
@@ -50,55 +50,39 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>V4GetCredentialResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5GetNodePoolResponseStatus</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4GetCredentialResponse} obj Optional instance to populate.
-   * @return {module:model/V4GetCredentialResponse} The populated <code>V4GetCredentialResponse</code> instance.
+   * @param {module:model/V5GetNodePoolResponseStatus} obj Optional instance to populate.
+   * @return {module:model/V5GetNodePoolResponseStatus} The populated <code>V5GetNodePoolResponseStatus</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('nodes')) {
+        obj['nodes'] = ApiClient.convertToType(data['nodes'], 'Number');
       }
-      if (data.hasOwnProperty('provider')) {
-        obj['provider'] = ApiClient.convertToType(data['provider'], 'String');
-      }
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V4GetCredentialResponseAws.constructFromObject(data['aws']);
-      }
-      if (data.hasOwnProperty('azure')) {
-        obj['azure'] = V4GetCredentialResponseAzure.constructFromObject(data['azure']);
+      if (data.hasOwnProperty('nodes_ready')) {
+        obj['nodes_ready'] = ApiClient.convertToType(data['nodes_ready'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Unique ID of the credentials
-   * @member {String} id
+   * Desired number of nodes in the pool
+   * @member {Number} nodes
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['nodes'] = undefined;
   /**
-   * Either 'aws' or 'azure'
-   * @member {String} provider
+   * Number of nodes in state NodeReady
+   * @member {Number} nodes_ready
    */
-  exports.prototype['provider'] = undefined;
-  /**
-   * @member {module:model/V4GetCredentialResponseAws} aws
-   */
-  exports.prototype['aws'] = undefined;
-  /**
-   * @member {module:model/V4GetCredentialResponseAzure} azure
-   */
-  exports.prototype['azure'] = undefined;
+  exports.prototype['nodes_ready'] = undefined;
 
 
 

@@ -1,4 +1,4 @@
-# GiantSwarmV4.V5ModifyNodePoolRequestScaling
+# GiantSwarm.V5ModifyNodePoolRequestScaling
 
 ## Properties
 Name | Type | Description | Notes

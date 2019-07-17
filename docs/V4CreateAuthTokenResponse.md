@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4CreateAuthTokenResponse
+# GiantSwarm.V4CreateAuthTokenResponse
 
 ## Properties
 Name | Type | Description | Notes

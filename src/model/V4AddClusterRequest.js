@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4AddClusterRequestScaling'), require('./V4NodeDefinition'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4AddClusterRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddClusterRequestScaling, root.GiantSwarmV4.V4NodeDefinition);
+    root.GiantSwarm.V4AddClusterRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequestScaling, root.GiantSwarm.V4NodeDefinition);
   }
 }(this, function(ApiClient, V4AddClusterRequestScaling, V4NodeDefinition) {
   'use strict';

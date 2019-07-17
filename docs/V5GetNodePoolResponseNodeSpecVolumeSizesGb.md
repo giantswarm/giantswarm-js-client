@@ -1,4 +1,4 @@
-# GiantSwarmV4.V5GetNodePoolResponseNodeSpecVolumeSizesGb
+# GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb
 
 ## Properties
 Name | Type | Description | Notes
