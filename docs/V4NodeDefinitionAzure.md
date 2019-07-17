@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4NodeDefinitionAzure
+# GiantSwarm.V4NodeDefinitionAzure
 
 ## Properties
 Name | Type | Description | Notes

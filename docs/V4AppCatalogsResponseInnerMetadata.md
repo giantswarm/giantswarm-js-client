@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AppCatalogsResponseInnerMetadata
+# GiantSwarm.V4AppCatalogsResponseInnerMetadata
 
 ## Properties
 Name | Type | Description | Notes

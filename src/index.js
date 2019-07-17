@@ -25,14 +25,14 @@
   'use strict';
 
   /**
-   * Generated JavaScript client for the Giant Swarm API v4..<br>
+   * Generated JavaScript client for the Giant Swarm API..<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var GiantSwarmV4 = require('index'); // See note below*.
-   * var xxxSvc = new GiantSwarmV4.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new GiantSwarmV4.Yyy(); // Construct a model instance.
+   * var GiantSwarm = require('index'); // See note below*.
+   * var xxxSvc = new GiantSwarm.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new GiantSwarm.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -44,8 +44,8 @@
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new GiantSwarmV4.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new GiantSwarmV4.Yyy(); // Construct a model instance.
+   * var xxxSvc = new GiantSwarm.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new GiantSwarm.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

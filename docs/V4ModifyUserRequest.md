@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ModifyUserRequest
+# GiantSwarm.V4ModifyUserRequest
 
 ## Properties
 Name | Type | Description | Notes

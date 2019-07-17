@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4GetKeyPairsResponseInner'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4GetKeyPairsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetKeyPairsResponseInner);
+    root.GiantSwarm.V4GetKeyPairsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GetKeyPairsResponseInner);
   }
 }(this, function(ApiClient, V4GetKeyPairsResponseInner) {
   'use strict';

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4GetCredentialResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4GetCredentialsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4GetCredentialResponse);
+    root.GiantSwarm.V4GetCredentialsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GetCredentialResponse);
   }
 }(this, function(ApiClient, V4GetCredentialResponse) {
   'use strict';

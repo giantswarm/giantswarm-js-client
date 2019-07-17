@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4GetKeyPairsResponseInner
+# GiantSwarm.V4GetKeyPairsResponseInner
 
 ## Properties
 Name | Type | Description | Notes

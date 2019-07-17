@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseGeneralAvailabilityZones
+# GiantSwarm.V4InfoResponseGeneralAvailabilityZones
 
 ## Properties
 Name | Type | Description | Notes

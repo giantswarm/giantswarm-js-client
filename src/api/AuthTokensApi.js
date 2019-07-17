@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/V4CreateAuthTokenRequest'), require('../model/V4CreateAuthTokenResponse'), require('../model/V4GenericResponse'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.AuthTokensApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4CreateAuthTokenRequest, root.GiantSwarmV4.V4CreateAuthTokenResponse, root.GiantSwarmV4.V4GenericResponse);
+    root.GiantSwarm.AuthTokensApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4CreateAuthTokenRequest, root.GiantSwarm.V4CreateAuthTokenResponse, root.GiantSwarm.V4GenericResponse);
   }
 }(this, function(ApiClient, V4CreateAuthTokenRequest, V4CreateAuthTokenResponse, V4GenericResponse) {
   'use strict';

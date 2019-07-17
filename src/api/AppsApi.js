@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/V4App'), require('../model/V4AppCatalogsResponse'), require('../model/V4CreateAppRequest'), require('../model/V4GenericResponse'), require('../model/V4GetClusterAppsResponse'), require('../model/V4ModifyAppRequest'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.AppsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App, root.GiantSwarmV4.V4AppCatalogsResponse, root.GiantSwarmV4.V4CreateAppRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetClusterAppsResponse, root.GiantSwarmV4.V4ModifyAppRequest);
+    root.GiantSwarm.AppsApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4App, root.GiantSwarm.V4AppCatalogsResponse, root.GiantSwarm.V4CreateAppRequest, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterAppsResponse, root.GiantSwarm.V4ModifyAppRequest);
   }
 }(this, function(ApiClient, V4App, V4AppCatalogsResponse, V4CreateAppRequest, V4GenericResponse, V4GetClusterAppsResponse, V4ModifyAppRequest) {
   'use strict';

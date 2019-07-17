@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Body'), require('../model/V4AddCredentialsRequest'), require('../model/V4GenericResponse'), require('../model/V4GetCredentialResponse'), require('../model/V4GetCredentialsResponse'), require('../model/V4Organization'), require('../model/V4OrganizationListItem'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.OrganizationsApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.Body, root.GiantSwarmV4.V4AddCredentialsRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4GetCredentialResponse, root.GiantSwarmV4.V4GetCredentialsResponse, root.GiantSwarmV4.V4Organization, root.GiantSwarmV4.V4OrganizationListItem);
+    root.GiantSwarm.OrganizationsApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.Body, root.GiantSwarm.V4AddCredentialsRequest, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetCredentialResponse, root.GiantSwarm.V4GetCredentialsResponse, root.GiantSwarm.V4Organization, root.GiantSwarm.V4OrganizationListItem);
   }
 }(this, function(ApiClient, Body, V4AddCredentialsRequest, V4GenericResponse, V4GetCredentialResponse, V4GetCredentialsResponse, V4Organization, V4OrganizationListItem) {
   'use strict';

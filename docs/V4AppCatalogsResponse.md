@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AppCatalogsResponse
+# GiantSwarm.V4AppCatalogsResponse
 
 ## Properties
 Name | Type | Description | Notes

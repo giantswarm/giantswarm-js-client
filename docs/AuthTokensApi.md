@@ -1,4 +1,4 @@
-# GiantSwarmV4.AuthTokensApi
+# GiantSwarm.AuthTokensApi
 
 All URIs are relative to *https://localhost*
 
@@ -18,8 +18,8 @@ Creates a Auth Token for a given user. Must authenticate with email and password
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm-');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -27,9 +27,9 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.AuthTokensApi();
+var apiInstance = new GiantSwarm.AuthTokensApi();
 
-var body = new GiantSwarmV4.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
+var body = new GiantSwarm.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -76,8 +76,8 @@ Deletes the authentication token provided in the Authorization header. This effe
 
 ### Example
 ```javascript
-var GiantSwarmV4 = require('giantswarm-v4');
-var defaultClient = GiantSwarmV4.ApiClient.instance;
+var GiantSwarm = require('giantswarm-');
+var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -85,7 +85,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarmV4.AuthTokensApi();
+var apiInstance = new GiantSwarm.AuthTokensApi();
 
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 

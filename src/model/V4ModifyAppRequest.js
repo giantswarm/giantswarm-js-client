@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4ModifyAppRequestSpec'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4ModifyAppRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4ModifyAppRequestSpec);
+    root.GiantSwarm.V4ModifyAppRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4ModifyAppRequestSpec);
   }
 }(this, function(ApiClient, V4ModifyAppRequestSpec) {
   'use strict';

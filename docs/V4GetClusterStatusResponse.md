@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4GetClusterStatusResponse
+# GiantSwarm.V4GetClusterStatusResponse
 
 ## Properties
 Name | Type | Description | Notes

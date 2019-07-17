@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AddCredentialsRequestAws
+# GiantSwarm.V4AddCredentialsRequestAws
 
 ## Properties
 Name | Type | Description | Notes

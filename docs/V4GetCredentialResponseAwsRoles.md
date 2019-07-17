@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4GetCredentialResponseAwsRoles
+# GiantSwarm.V4GetCredentialResponseAwsRoles
 
 ## Properties
 Name | Type | Description | Notes

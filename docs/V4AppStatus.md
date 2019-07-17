@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AppStatus
+# GiantSwarm.V4AppStatus
 
 ## Properties
 Name | Type | Description | Notes
