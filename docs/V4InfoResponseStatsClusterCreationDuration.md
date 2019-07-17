@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration
+# GiantSwarm.V4InfoResponseStatsClusterCreationDuration
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4GetCredentialResponseAzureCredential
+# GiantSwarm.V4GetCredentialResponseAzureCredential
 
 ## Properties
 Name | Type | Description | Notes

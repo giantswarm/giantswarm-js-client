@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AppMetadata
+# GiantSwarm.V4AppMetadata
 
 ## Properties
 Name | Type | Description | Notes

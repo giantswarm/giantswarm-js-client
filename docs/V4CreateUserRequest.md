@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4CreateUserRequest
+# GiantSwarm.V4CreateUserRequest
 
 ## Properties
 Name | Type | Description | Notes

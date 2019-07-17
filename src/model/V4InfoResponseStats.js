@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4InfoResponseStatsClusterCreationDuration'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4InfoResponseStats = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4InfoResponseStatsClusterCreationDuration);
+    root.GiantSwarm.V4InfoResponseStats = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseStatsClusterCreationDuration);
   }
 }(this, function(ApiClient, V4InfoResponseStatsClusterCreationDuration) {
   'use strict';

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/V4CreateUserRequest'), require('../model/V4GenericResponse'), require('../model/V4ModifyUserPasswordRequest'), require('../model/V4ModifyUserRequest'), require('../model/V4UserListItem'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.UsersApi = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4CreateUserRequest, root.GiantSwarmV4.V4GenericResponse, root.GiantSwarmV4.V4ModifyUserPasswordRequest, root.GiantSwarmV4.V4ModifyUserRequest, root.GiantSwarmV4.V4UserListItem);
+    root.GiantSwarm.UsersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4CreateUserRequest, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4ModifyUserPasswordRequest, root.GiantSwarm.V4ModifyUserRequest, root.GiantSwarm.V4UserListItem);
   }
 }(this, function(ApiClient, V4CreateUserRequest, V4GenericResponse, V4ModifyUserPasswordRequest, V4ModifyUserRequest, V4UserListItem) {
   'use strict';

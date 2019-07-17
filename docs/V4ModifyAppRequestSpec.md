@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ModifyAppRequestSpec
+# GiantSwarm.V4ModifyAppRequestSpec
 
 ## Properties
 Name | Type | Description | Notes

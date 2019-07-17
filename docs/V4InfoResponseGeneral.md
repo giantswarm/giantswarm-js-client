@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4InfoResponseGeneral
+# GiantSwarm.V4InfoResponseGeneral
 
 ## Properties
 Name | Type | Description | Notes

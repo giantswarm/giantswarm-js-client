@@ -1,8 +1,8 @@
 {
-    "projectName": "giantswarm-v4",
+    "projectName": "giantswarm-",
     "projectVersion": "4.0.0",
-    "moduleName": "GiantSwarmV4",
-    "projectDescription": "Generated JavaScript client for the Giant Swarm API v4.",
+    "moduleName": "GiantSwarm",
+    "projectDescription": "Generated JavaScript client for the Giant Swarm API.",
     "useES6": false,
     "usePromises": true
 }

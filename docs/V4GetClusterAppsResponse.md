@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4GetClusterAppsResponse
+# GiantSwarm.V4GetClusterAppsResponse
 
 ## Properties
 Name | Type | Description | Notes

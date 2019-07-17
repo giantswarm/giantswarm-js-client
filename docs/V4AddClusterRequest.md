@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AddClusterRequest
+# GiantSwarm.V4AddClusterRequest
 
 ## Properties
 Name | Type | Description | Notes

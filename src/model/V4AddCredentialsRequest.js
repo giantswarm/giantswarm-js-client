@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4AddCredentialsRequestAws'), require('./V4AddCredentialsRequestAzure'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4AddCredentialsRequest = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AddCredentialsRequestAws, root.GiantSwarmV4.V4AddCredentialsRequestAzure);
+    root.GiantSwarm.V4AddCredentialsRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddCredentialsRequestAws, root.GiantSwarm.V4AddCredentialsRequestAzure);
   }
 }(this, function(ApiClient, V4AddCredentialsRequestAws, V4AddCredentialsRequestAzure) {
   'use strict';

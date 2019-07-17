@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4AppSpecUserConfigConfigMapConfigmap
+# GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap
 
 ## Properties
 Name | Type | Description | Notes

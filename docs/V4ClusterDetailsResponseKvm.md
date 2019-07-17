@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4ClusterDetailsResponseKvm
+# GiantSwarm.V4ClusterDetailsResponseKvm
 
 ## Properties
 Name | Type | Description | Notes

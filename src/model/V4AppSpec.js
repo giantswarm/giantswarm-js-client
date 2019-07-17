@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfigConfigMap'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4AppSpec = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4AppSpecUserConfigConfigMap);
+    root.GiantSwarm.V4AppSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfigConfigMap);
   }
 }(this, function(ApiClient, V4AppSpecUserConfigConfigMap) {
   'use strict';

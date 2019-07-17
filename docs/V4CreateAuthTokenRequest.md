@@ -1,4 +1,4 @@
-# GiantSwarmV4.V4CreateAuthTokenRequest
+# GiantSwarm.V4CreateAuthTokenRequest
 
 ## Properties
 Name | Type | Description | Notes

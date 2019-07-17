@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./V4App'));
   } else {
     // Browser globals (root is window)
-    if (!root.GiantSwarmV4) {
-      root.GiantSwarmV4 = {};
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
     }
-    root.GiantSwarmV4.V4GetClusterAppsResponse = factory(root.GiantSwarmV4.ApiClient, root.GiantSwarmV4.V4App);
+    root.GiantSwarm.V4GetClusterAppsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4App);
   }
 }(this, function(ApiClient, V4App) {
   'use strict';
