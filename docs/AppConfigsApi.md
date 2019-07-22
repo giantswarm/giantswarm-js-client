@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createClusterAppConfig"></a>
 # **createClusterAppConfig**
-> V4GenericResponse createClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse createClusterAppConfig(authorization, clusterId, appName, opts)
 
 Create app config
 
@@ -43,7 +43,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // V4CreateAppConfigRequest | 
 };
-apiInstance.createClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.createClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterAppConfig"></a>
 # **deleteClusterAppConfig**
-> V4GenericResponse deleteClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse deleteClusterAppConfig(authorization, clusterId, appName, opts)
 
 Delete an app config
 
@@ -108,7 +108,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.deleteClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterAppConfig"></a>
 # **getClusterAppConfig**
-> V4GetClusterAppConfigResponse getClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GetClusterAppConfigResponse getClusterAppConfig(authorization, clusterId, appName, opts)
 
 Get app config
 
@@ -172,7 +172,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.getClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyClusterAppConfig"></a>
 # **modifyClusterAppConfig**
-> V4GenericResponse modifyClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse modifyClusterAppConfig(authorization, clusterId, appName, opts)
 
 Modify app config
 
@@ -237,7 +237,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // V4CreateAppConfigRequest | 
 };
-apiInstance.modifyClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.modifyClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

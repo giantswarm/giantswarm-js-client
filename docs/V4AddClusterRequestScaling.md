@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**min** | **Number** | The minimum number of cluster nodes  | [optional] 
-**max** | **Number** | The maximum number of cluster nodes  | [optional] 
+**min** | **Number** | Minimum number of cluster nodes  | [optional] 
+**max** | **Number** | Maximum number of cluster nodes  | [optional] 
 
 

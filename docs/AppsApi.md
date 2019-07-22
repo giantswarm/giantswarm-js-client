@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createClusterApp"></a>
 # **createClusterApp**
-> V4App createClusterApp(authorizationclusterId, appName, opts)
+> V4App createClusterApp(authorization, clusterId, appName, opts)
 
 Install an app
 
@@ -44,7 +44,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppRequest() // V4CreateAppRequest | 
 };
-apiInstance.createClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.createClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterApp"></a>
 # **deleteClusterApp**
-> V4GenericResponse deleteClusterApp(authorizationclusterId, appName, opts)
+> V4GenericResponse deleteClusterApp(authorization, clusterId, appName, opts)
 
 Delete an app
 
@@ -109,7 +109,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.deleteClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 <a name="getAppCatalogs"></a>
 # **getAppCatalogs**
-> V4AppCatalogsResponse getAppCatalogs(authorization, opts)
+> V4AppCatalogsResponse getAppCatalogs(authorization, , opts)
 
 Get a list of app catalogs configured on your installation.
 
@@ -169,7 +169,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getAppCatalogs(authorization, opts).then(function(data) {
+apiInstance.getAppCatalogs(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterApps"></a>
 # **getClusterApps**
-> V4GetClusterAppsResponse getClusterApps(authorizationclusterId, , opts)
+> V4GetClusterAppsResponse getClusterApps(authorization, clusterId, , opts)
 
 Get cluster apps
 
@@ -229,7 +229,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterApps(authorizationclusterId, , opts).then(function(data) {
+apiInstance.getClusterApps(authorization, clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyClusterApp"></a>
 # **modifyClusterApp**
-> V4App modifyClusterApp(authorizationclusterId, appName, opts)
+> V4App modifyClusterApp(authorization, clusterId, appName, opts)
 
 Modify an app
 
@@ -293,7 +293,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4ModifyAppRequest() // V4ModifyAppRequest | 
 };
-apiInstance.modifyClusterApp(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.modifyClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
