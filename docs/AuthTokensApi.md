@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteAuthToken"></a>
 # **deleteAuthToken**
-> V4GenericResponse deleteAuthToken(authorization, opts)
+> V4GenericResponse deleteAuthToken(authorization, , opts)
 
 Delete Auth Token (Logout)
 
@@ -94,7 +94,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteAuthToken(authorization, opts).then(function(data) {
+apiInstance.deleteAuthToken(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

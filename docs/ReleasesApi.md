@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getReleases"></a>
 # **getReleases**
-> [V4ReleaseListItem] getReleases(authorization, opts)
+> [V4ReleaseListItem] getReleases(authorization, , opts)
 
 Get releases
 
@@ -35,7 +35,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getReleases(authorization, opts).then(function(data) {
+apiInstance.getReleases(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
