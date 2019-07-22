@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="addCredentials"></a>
 # **addCredentials**
-> V4GenericResponse addCredentials(authorizationorganizationId, body, opts)
+> V4GenericResponse addCredentials(authorization, organizationId, body, opts)
 
 Set credentials
 
@@ -46,7 +46,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addCredentials(authorizationorganizationId, body, opts).then(function(data) {
+apiInstance.addCredentials(authorization, organizationId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 <a name="addOrganization"></a>
 # **addOrganization**
-> V4Organization addOrganization(authorizationorganizationId, body, opts)
+> V4Organization addOrganization(authorization, organizationId, body, opts)
 
 Create an organization
 
@@ -110,7 +110,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addOrganization(authorizationorganizationId, body, opts).then(function(data) {
+apiInstance.addOrganization(authorization, organizationId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteOrganization"></a>
 # **deleteOrganization**
-> V4GenericResponse deleteOrganization(authorizationorganizationId, , opts)
+> V4GenericResponse deleteOrganization(authorization, organizationId, , opts)
 
 Delete an organization
 
@@ -172,7 +172,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteOrganization(authorizationorganizationId, , opts).then(function(data) {
+apiInstance.deleteOrganization(authorization, organizationId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 <a name="getCredential"></a>
 # **getCredential**
-> V4GetCredentialResponse getCredential(authorizationorganizationId, credentialId, opts)
+> V4GetCredentialResponse getCredential(authorization, organizationId, credentialId, opts)
 
 Get credential details
 
@@ -235,7 +235,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCredential(authorizationorganizationId, credentialId, opts).then(function(data) {
+apiInstance.getCredential(authorization, organizationId, credentialId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="getCredentials"></a>
 # **getCredentials**
-> V4GetCredentialsResponse getCredentials(authorizationorganizationId, , opts)
+> V4GetCredentialsResponse getCredentials(authorization, organizationId, , opts)
 
 Get credentials
 
@@ -297,7 +297,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCredentials(authorizationorganizationId, , opts).then(function(data) {
+apiInstance.getCredentials(authorization, organizationId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 <a name="getOrganization"></a>
 # **getOrganization**
-> V4Organization getOrganization(authorizationorganizationId, , opts)
+> V4Organization getOrganization(authorization, organizationId, , opts)
 
 Get organization details
 
@@ -358,7 +358,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getOrganization(authorizationorganizationId, , opts).then(function(data) {
+apiInstance.getOrganization(authorization, organizationId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 <a name="getOrganizations"></a>
 # **getOrganizations**
-> [V4OrganizationListItem] getOrganizations(authorization, opts)
+> [V4OrganizationListItem] getOrganizations(authorization, , opts)
 
 Get organizations
 
@@ -417,7 +417,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getOrganizations(authorization, opts).then(function(data) {
+apiInstance.getOrganizations(authorization, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyOrganization"></a>
 # **modifyOrganization**
-> V4Organization modifyOrganization(authorizationorganizationId, body, opts)
+> V4Organization modifyOrganization(authorization, organizationId, body, opts)
 
 Modify organization
 
@@ -479,7 +479,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyOrganization(authorizationorganizationId, body, opts).then(function(data) {
+apiInstance.modifyOrganization(authorization, organizationId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **String** | Cluster name | [optional] 
 **owner** | **String** | Name of the organization owning the cluster | [optional] 
 **releaseVersion** | **String** | The semantic version number of this cluster | [optional] 
+**path** | **String** | API path of the cluster resource | [optional] 
 
 
