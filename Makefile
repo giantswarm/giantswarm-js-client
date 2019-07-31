@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := fix-returned-array
 
 .PHONY: test generate
 
