@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V4AppCatalogsResponse](docs/V4AppCatalogsResponse.md)
  - [GiantSwarm.V4AppCatalogsResponseInner](docs/V4AppCatalogsResponseInner.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerMetadata](docs/V4AppCatalogsResponseInnerMetadata.md)
+ - [GiantSwarm.V4AppCatalogsResponseInnerMetadataLabels](docs/V4AppCatalogsResponseInnerMetadataLabels.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerSpec](docs/V4AppCatalogsResponseInnerSpec.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerSpecStorage](docs/V4AppCatalogsResponseInnerSpecStorage.md)
  - [GiantSwarm.V4AppMetadata](docs/V4AppMetadata.md)
