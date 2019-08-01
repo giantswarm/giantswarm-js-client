@@ -47,6 +47,7 @@ The `Makefile` provides all the tooling required to generate new code, docs
 and tests whenever the API spec has changed. Here is the recipe:
 
 - Create a feature branch
+- Change the branch in makefile if needed
 - In case the `api-spec` folder exists, remove it, so that the latest spec gets
    fetched: `make clean`
 - Run `make generate`.
