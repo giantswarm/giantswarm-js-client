@@ -18,27 +18,23 @@ This example shows you how to instantiate a client, set credentials, and fetch
 a list of clusters.
 
 ```javascript
-var GiantSwarmV4 = require("giantswarm-v4");
+var GiantSwarmV4 = require('giantswarm-v4');
 var defaultClient = GiantSwarmV4.ApiClient.instance;
 
-defaultClient.basePath = "https://api.example.com";
+defaultClient.basePath = 'https://api.example.com';
 
-var defaultClientAuth =
-  defaultClient.authentications["AuthorizationHeaderToken"];
+var defaultClientAuth = defaultClient.authentications['AuthorizationHeaderToken'];
 
-defaultClientAuth.apiKey = "TOKEN";
-defaultClientAuth.apiKeyPrefix = "giantswarm";
+defaultClientAuth.apiKey = 'TOKEN';
+defaultClientAuth.apiKeyPrefix = 'giantswarm';
 
 var apiInstance = new GiantSwarmV4.ClustersApi();
-apiInstance.getClusters().then(
-  function(data) {
-    console.log("API called successfully. Returned data:");
-    console.log(data);
-  },
-  function(error) {
-    console.error(error);
-  }
-);
+apiInstance.getClusters().then(function(data) {
+  console.log('API called successfully. Returned data:');
+  console.log(data);
+}, function(error) {
+  console.error(error);
+});
 ```
 
 ## JavaScript API Documentation
@@ -53,7 +49,7 @@ and tests whenever the API spec has changed. Here is the recipe:
 - Create a feature branch
 - Change the branch in makefile if needed
 - In case the `api-spec` folder exists, remove it, so that the latest spec gets
-  fetched: `make clean`
+   fetched: `make clean`
 - Run `make generate`.
 - Review the code changes. Check whether they add/change/remove what you expect.
 - If necessary, start a change process on the [API spec](https://github.com/giantswarm/api-spec/) repo. You can use the local copy in the `api-spec` folder to try out things.
