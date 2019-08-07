@@ -22,7 +22,7 @@ This operation allows you to create a values configmap for a specific app. The a
 ### Example
 
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -87,7 +87,7 @@ This operation allows a user to delete an app&#39;s user config if it has been n
 ### Example
 
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -150,7 +150,7 @@ This operation allows you to fetch the user values configmap associated with an 
 ### Example
 
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
@@ -213,7 +213,7 @@ This operation allows you to modify the values configmap for a specific app. It&
 ### Example
 
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];

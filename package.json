@@ -1,5 +1,5 @@
 {
-  "name": "giantswarm-",
+  "name": "giantswarm",
   "version": "4.0.0",
   "description": "Generated JavaScript client for the Giant Swarm API.",
   "license": "Apache 2.0",
