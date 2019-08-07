@@ -1,6 +1,7 @@
 # GiantSwarm.V4CreateAppRequestSpec
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the chart that should be used to install this app | 

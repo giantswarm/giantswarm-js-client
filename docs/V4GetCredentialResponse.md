@@ -1,6 +1,7 @@
 # GiantSwarm.V4GetCredentialResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique ID of the credentials | [optional] 

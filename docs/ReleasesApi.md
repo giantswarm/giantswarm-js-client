@@ -1,25 +1,26 @@
 # GiantSwarm.ReleasesApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getReleases**](ReleasesApi.md#getReleases) | **GET** /v4/releases/ | Get releases
 
 
-<a name="getReleases"></a>
-# **getReleases**
-> [V4ReleaseListItem] getReleases(authorization, , opts)
+
+## getReleases
+
+> [V4ReleaseListItem] getReleases(authorization, opts)
 
 Get releases
 
 Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -27,15 +28,13 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.ReleasesApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getReleases(authorization, , opts).then(function(data) {
+apiInstance.getReleases(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -44,6 +43,8 @@ apiInstance.getReleases(authorization, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -62,6 +63,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

@@ -1,6 +1,7 @@
 # GiantSwarm.V4AppStatusRelease
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastDeployed** | **String** | Date and time that the app was last last deployed | [optional] 

@@ -1,6 +1,7 @@
 # GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the config map containing values to apply, e.g. prometheus-user-values | [optional] 

@@ -1,6 +1,7 @@
 # GiantSwarm.V4AddCredentialsRequestAzureCredential
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clientId** | **String** | Client ID of the service principal | 

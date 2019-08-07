@@ -1,6 +1,7 @@
 # GiantSwarm.V5ClusterDetailsResponseConditions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lastTransitionTime** | **String** | Date and time when the cluster transitioned into this condition | [optional] 

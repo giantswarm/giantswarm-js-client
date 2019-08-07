@@ -1,6 +1,7 @@
 # GiantSwarm.V4AppSpec
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the chart that was used to install this app | [optional] 

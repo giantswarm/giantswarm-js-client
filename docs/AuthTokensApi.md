@@ -1,6 +1,6 @@
 # GiantSwarm.AuthTokensApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**deleteAuthToken**](AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 
 
-<a name="createAuthToken"></a>
-# **createAuthToken**
+
+## createAuthToken
+
 > V4CreateAuthTokenResponse createAuthToken(body, opts)
 
 Create Auth Token (Login)
@@ -17,10 +18,10 @@ Create Auth Token (Login)
 Creates a Auth Token for a given user. Must authenticate with email and password. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -28,10 +29,8 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
-
 var body = new GiantSwarm.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
@@ -45,6 +44,8 @@ apiInstance.createAuthToken(body, opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -63,22 +64,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="deleteAuthToken"></a>
-# **deleteAuthToken**
-> V4GenericResponse deleteAuthToken(authorization, , opts)
+
+## deleteAuthToken
+
+> V4GenericResponse deleteAuthToken(authorization, opts)
 
 Delete Auth Token (Logout)
 
 Deletes the authentication token provided in the Authorization header. This effectively logs you out. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -86,15 +88,13 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteAuthToken(authorization, , opts).then(function(data) {
+apiInstance.deleteAuthToken(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -103,6 +103,8 @@ apiInstance.deleteAuthToken(authorization, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -121,6 +123,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

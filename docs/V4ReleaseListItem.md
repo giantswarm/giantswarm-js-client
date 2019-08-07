@@ -1,6 +1,7 @@
 # GiantSwarm.V4ReleaseListItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **String** | The semantic version number | 

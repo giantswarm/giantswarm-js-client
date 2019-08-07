@@ -1,6 +1,6 @@
 # GiantSwarm.UsersApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,8 +13,9 @@ Method | HTTP request | Description
 [**modifyUser**](UsersApi.md#modifyUser) | **PATCH** /v4/users/{email}/ | Modify user
 
 
-<a name="createUser"></a>
-# **createUser**
+
+## createUser
+
 > V4GenericResponse createUser(authorization, email, body, opts)
 
 Create user
@@ -22,10 +23,10 @@ Create user
 Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -33,14 +34,10 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var email = "email_example"; // String | The user's email address
-
 var body = new GiantSwarm.V4CreateUserRequest(); // V4CreateUserRequest | User account details
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
@@ -54,6 +51,8 @@ apiInstance.createUser(authorization, email, body, opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -74,22 +73,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="deleteUser"></a>
-# **deleteUser**
-> V4GenericResponse deleteUser(authorization, email, , opts)
+
+## deleteUser
+
+> V4GenericResponse deleteUser(authorization, email, opts)
 
 Delete user
 
 Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -97,17 +97,14 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var email = "email_example"; // String | The user's email address
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteUser(authorization, email, , opts).then(function(data) {
+apiInstance.deleteUser(authorization, email, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -116,6 +113,8 @@ apiInstance.deleteUser(authorization, email, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -135,22 +134,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getCurrentUser"></a>
-# **getCurrentUser**
-> V4UserListItem getCurrentUser(authorization, , opts)
+
+## getCurrentUser
+
+> V4UserListItem getCurrentUser(authorization, opts)
 
 Get current user
 
 Returns details about the currently authenticated user 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -158,15 +158,13 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCurrentUser(authorization, , opts).then(function(data) {
+apiInstance.getCurrentUser(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -175,6 +173,8 @@ apiInstance.getCurrentUser(authorization, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -193,22 +193,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUser"></a>
-# **getUser**
-> V4UserListItem getUser(authorization, email, , opts)
+
+## getUser
+
+> V4UserListItem getUser(authorization, email, opts)
 
 Get user
 
 Returns details about a specific user 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -216,17 +217,14 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var email = "email_example"; // String | The user's email address
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getUser(authorization, email, , opts).then(function(data) {
+apiInstance.getUser(authorization, email, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -235,6 +233,8 @@ apiInstance.getUser(authorization, email, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -254,22 +254,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUsers"></a>
-# **getUsers**
-> [V4UserListItem] getUsers(authorization, , opts)
+
+## getUsers
+
+> [V4UserListItem] getUsers(authorization, opts)
 
 Get users
 
 Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -277,15 +278,13 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getUsers(authorization, , opts).then(function(data) {
+apiInstance.getUsers(authorization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -294,6 +293,8 @@ apiInstance.getUsers(authorization, , opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -312,11 +313,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="modifyPassword"></a>
-# **modifyPassword**
+
+## modifyPassword
+
 > V4GenericResponse modifyPassword(authorization, email, body, opts)
 
 Modify password
@@ -324,10 +326,10 @@ Modify password
 This operation allows you to change your password. Admins are able to change passwords of other users. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -335,14 +337,10 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var email = "email_example"; // String | The user's email address
-
 var body = new GiantSwarm.V4ModifyUserPasswordRequest(); // V4ModifyUserPasswordRequest | Modify password request
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
@@ -356,6 +354,8 @@ apiInstance.modifyPassword(authorization, email, body, opts).then(function(data)
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -376,11 +376,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="modifyUser"></a>
-# **modifyUser**
+
+## modifyUser
+
 > V4UserListItem modifyUser(authorization, email, body, opts)
 
 Modify user
@@ -388,10 +389,10 @@ Modify user
 This operation allows you to change details of a given user. Only administrators can edit accounts of other users. 
 
 ### Example
+
 ```javascript
 var GiantSwarm = require('giantswarm-');
 var defaultClient = GiantSwarm.ApiClient.instance;
-
 // Configure API key authorization: AuthorizationHeaderToken
 var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
 AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
@@ -399,14 +400,10 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
-
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var email = "email_example"; // String | The user's email address
-
 var body = new GiantSwarm.V4ModifyUserRequest(); // V4ModifyUserRequest | User account details
-
-var opts = { 
+var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
@@ -420,6 +417,8 @@ apiInstance.modifyUser(authorization, email, body, opts).then(function(data) {
 ```
 
 ### Parameters
+
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -440,6 +439,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

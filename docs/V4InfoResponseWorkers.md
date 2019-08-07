@@ -1,6 +1,7 @@
 # GiantSwarm.V4InfoResponseWorkers
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **countPerCluster** | [**V4InfoResponseWorkersCountPerCluster**](V4InfoResponseWorkersCountPerCluster.md) |  | [optional] 

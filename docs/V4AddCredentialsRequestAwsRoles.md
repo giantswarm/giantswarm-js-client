@@ -1,6 +1,7 @@
 # GiantSwarm.V4AddCredentialsRequestAwsRoles
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **admin** | **String** | ARN of the IAM role to assume by Giant Swarm support staff | 

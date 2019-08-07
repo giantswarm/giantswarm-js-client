@@ -1,6 +1,7 @@
 # GiantSwarm.V4InfoResponseStatsClusterCreationDuration
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **median** | **Number** | Median of the value distribution | [optional] 

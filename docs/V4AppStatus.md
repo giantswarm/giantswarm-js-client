@@ -1,6 +1,7 @@
 # GiantSwarm.V4AppStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **appVersion** | **String** | Version of the installed app | [optional] 

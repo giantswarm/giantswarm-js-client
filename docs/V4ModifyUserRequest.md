@@ -1,6 +1,7 @@
 # GiantSwarm.V4ModifyUserRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **String** | New email address | [optional] 

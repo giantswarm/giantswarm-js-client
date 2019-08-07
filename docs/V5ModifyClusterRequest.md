@@ -1,6 +1,7 @@
 # GiantSwarm.V5ModifyClusterRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | New cluster name | [optional] 

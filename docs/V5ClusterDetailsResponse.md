@@ -1,6 +1,7 @@
 # GiantSwarm.V5ClusterDetailsResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Unique cluster identifier | [optional] 

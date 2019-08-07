@@ -1,6 +1,7 @@
 # GiantSwarm.V5GetNodePoolResponseStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **nodes** | **Number** | Desired number of nodes in the pool | [optional] 

@@ -1,6 +1,7 @@
 # GiantSwarm.V4InfoResponseWorkersInstanceType
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **options** | **[String]** | List of available instance types | [optional] 

@@ -1,6 +1,7 @@
 # GiantSwarm.V5ModifyNodePoolRequestScaling
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **min** | **Number** | Minimum number of nodes in the pool | [optional] 
