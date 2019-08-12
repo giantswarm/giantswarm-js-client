@@ -58,12 +58,12 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4CreateAppRequest} opts.body 
+     * @param {module:model/V4CreateAppRequest} opts.v4CreateAppRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     this.createClusterAppWithHttpInfo = function(authorization, clusterId, appName, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = opts['v4CreateAppRequest'];
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling createClusterApp");
@@ -94,7 +94,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4App;
@@ -115,7 +115,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4CreateAppRequest} opts.body 
+     * @param {module:model/V4CreateAppRequest} opts.v4CreateAppRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     this.createClusterApp = function(authorization, clusterId, appName, opts) {
@@ -171,7 +171,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -204,7 +204,7 @@
 
     /**
      * Get a list of app catalogs configured on your installation.
-     * Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.   #### About the Labels  - `application.giantswarm.io/catalog-type`   Describes the type of catalog.    - `managed` - Apps in this catalog are managed by Giant Swarm.   - `incubator` - Apps in this catalog are a work in progress. They're                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - `test` - Apps in this catalog will soon graduate to incubator status,              you most likely will not see any `test` catalogs on your              installations.   - `community` - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as `internal`, however these catalogs   contain apps that run on our control planes. These `internal` app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example ```json   [     {       \"metadata\": {         \"name\": \"sample-catalog\",         \"labels\": {           \"application.giantswarm.io/catalog-type\": \"test\",           \"app-operator.giantswarm.io/version\": \"1.0.0\",         },       },        \"spec\": {         \"description\": \"Giant Swarm's Sample Catalog with a few apps to test things out.\",         \"logoURL\": \"https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\",          \"storage\": {           \"URL\": \"https://giantswarm.github.com/sample-catalog/\",           \"type\": \"helm\"         },         \"title\": \"Sample Catalog\"       }     }   ] ``` 
+     * Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.  #### About the Labels  - `application.giantswarm.io/catalog-type`   Describes the type of catalog.    - `managed` - Apps in this catalog are managed by Giant Swarm.   - `incubator` - Apps in this catalog are a work in progress. They're                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - `test` - Apps in this catalog will soon graduate to incubator status,               you most likely will not see any `test` catalogs on your               installations.   - `community` - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as `internal`, however these catalogs   contain apps that run on our control planes. These `internal` app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example ```json   [     {       \"metadata\": {         \"name\": \"sample-catalog\",         \"labels\": {           \"application.giantswarm.io/catalog-type\": \"test\",           \"app-operator.giantswarm.io/version\": \"1.0.0\",         },       },        \"spec\": {         \"description\": \"Giant Swarm's Sample Catalog with a few apps to test things out.\",         \"logoURL\": \"https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\",          \"storage\": {           \"URL\": \"https://giantswarm.github.com/sample-catalog/\",           \"type\": \"helm\"         },         \"title\": \"Sample Catalog\"       }     }   ] ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -235,7 +235,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [Object];
@@ -248,7 +248,7 @@
 
     /**
      * Get a list of app catalogs configured on your installation.
-     * Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.   #### About the Labels  - `application.giantswarm.io/catalog-type`   Describes the type of catalog.    - `managed` - Apps in this catalog are managed by Giant Swarm.   - `incubator` - Apps in this catalog are a work in progress. They're                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - `test` - Apps in this catalog will soon graduate to incubator status,              you most likely will not see any `test` catalogs on your              installations.   - `community` - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as `internal`, however these catalogs   contain apps that run on our control planes. These `internal` app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example ```json   [     {       \"metadata\": {         \"name\": \"sample-catalog\",         \"labels\": {           \"application.giantswarm.io/catalog-type\": \"test\",           \"app-operator.giantswarm.io/version\": \"1.0.0\",         },       },        \"spec\": {         \"description\": \"Giant Swarm's Sample Catalog with a few apps to test things out.\",         \"logoURL\": \"https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\",          \"storage\": {           \"URL\": \"https://giantswarm.github.com/sample-catalog/\",           \"type\": \"helm\"         },         \"title\": \"Sample Catalog\"       }     }   ] ``` 
+     * Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.  #### About the Labels  - `application.giantswarm.io/catalog-type`   Describes the type of catalog.    - `managed` - Apps in this catalog are managed by Giant Swarm.   - `incubator` - Apps in this catalog are a work in progress. They're                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - `test` - Apps in this catalog will soon graduate to incubator status,               you most likely will not see any `test` catalogs on your               installations.   - `community` - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as `internal`, however these catalogs   contain apps that run on our control planes. These `internal` app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example ```json   [     {       \"metadata\": {         \"name\": \"sample-catalog\",         \"labels\": {           \"application.giantswarm.io/catalog-type\": \"test\",           \"app-operator.giantswarm.io/version\": \"1.0.0\",         },       },        \"spec\": {         \"description\": \"Giant Swarm's Sample Catalog with a few apps to test things out.\",         \"logoURL\": \"https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\",          \"storage\": {           \"URL\": \"https://giantswarm.github.com/sample-catalog/\",           \"type\": \"helm\"         },         \"title\": \"Sample Catalog\"       }     }   ] ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -303,7 +303,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V4App];
@@ -343,12 +343,12 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4ModifyAppRequest} opts.body 
+     * @param {module:model/V4ModifyAppRequest} opts.v4ModifyAppRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     this.modifyClusterAppWithHttpInfo = function(authorization, clusterId, appName, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = opts['v4ModifyAppRequest'];
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling modifyClusterApp");
@@ -379,7 +379,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4App;
@@ -400,7 +400,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V4ModifyAppRequest} opts.body 
+     * @param {module:model/V4ModifyAppRequest} opts.v4ModifyAppRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     this.modifyClusterApp = function(authorization, clusterId, appName, opts) {

@@ -1,6 +1,6 @@
 # GiantSwarm.AppsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,12 +24,6 @@ Install an app on a tenant cluster by posting to this endpoint.  The spec field 
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -39,7 +33,7 @@ var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example", // String | If activity has been issued by a CLI, this header can contain the command line 
-  'body': new GiantSwarm.V4CreateAppRequest() // V4CreateAppRequest | 
+  'v4CreateAppRequest': new GiantSwarm.V4CreateAppRequest() // V4CreateAppRequest | 
 };
 apiInstance.createClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -61,7 +55,7 @@ Name | Type | Description  | Notes
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
- **body** | [**V4CreateAppRequest**](V4CreateAppRequest.md)|  | [optional] 
+ **v4CreateAppRequest** | [**V4CreateAppRequest**](V4CreateAppRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -69,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -89,12 +83,6 @@ This operation allows a user to delete an app.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -132,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -146,18 +134,12 @@ Name | Type | Description  | Notes
 
 Get a list of app catalogs configured on your installation.
 
-Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.   #### About the Labels  - &#x60;application.giantswarm.io/catalog-type&#x60;   Describes the type of catalog.    - &#x60;managed&#x60; - Apps in this catalog are managed by Giant Swarm.   - &#x60;incubator&#x60; - Apps in this catalog are a work in progress. They&#39;re                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - &#x60;test&#x60; - Apps in this catalog will soon graduate to incubator status,              you most likely will not see any &#x60;test&#x60; catalogs on your              installations.   - &#x60;community&#x60; - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as &#x60;internal&#x60;, however these catalogs   contain apps that run on our control planes. These &#x60;internal&#x60; app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example &#x60;&#x60;&#x60;json   [     {       \&quot;metadata\&quot;: {         \&quot;name\&quot;: \&quot;sample-catalog\&quot;,         \&quot;labels\&quot;: {           \&quot;application.giantswarm.io/catalog-type\&quot;: \&quot;test\&quot;,           \&quot;app-operator.giantswarm.io/version\&quot;: \&quot;1.0.0\&quot;,         },       },        \&quot;spec\&quot;: {         \&quot;description\&quot;: \&quot;Giant Swarm&#39;s Sample Catalog with a few apps to test things out.\&quot;,         \&quot;logoURL\&quot;: \&quot;https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\&quot;,          \&quot;storage\&quot;: {           \&quot;URL\&quot;: \&quot;https://giantswarm.github.com/sample-catalog/\&quot;,           \&quot;type\&quot;: \&quot;helm\&quot;         },         \&quot;title\&quot;: \&quot;Sample Catalog\&quot;       }     }   ] &#x60;&#x60;&#x60; 
+Returns an array of app catalog objects, which contains further metadata, including a URL to fetch the full index of each catalog.  #### About the Labels  - &#x60;application.giantswarm.io/catalog-type&#x60;   Describes the type of catalog.    - &#x60;managed&#x60; - Apps in this catalog are managed by Giant Swarm.   - &#x60;incubator&#x60; - Apps in this catalog are a work in progress. They&#39;re                   made with your Giant Swarm cluster in mind though, so                   they should work. Feedback is appreciated on these apps.   - &#x60;test&#x60; - Apps in this catalog will soon graduate to incubator status,               you most likely will not see any &#x60;test&#x60; catalogs on your               installations.   - &#x60;community&#x60; - Apps in this catalog are provided by the kubernetes                   community. They will most likely not work without making                   some changes to the security settings of your cluster.    App Catalogs can also be labeled as &#x60;internal&#x60;, however these catalogs   contain apps that run on our control planes. These &#x60;internal&#x60; app catalogs   will be filtered out and never shown when calling this endpoint.    For more details on app catalogs visit: https://docs.giantswarm.io/basics/app-catalog/   ### Example &#x60;&#x60;&#x60;json   [     {       \&quot;metadata\&quot;: {         \&quot;name\&quot;: \&quot;sample-catalog\&quot;,         \&quot;labels\&quot;: {           \&quot;application.giantswarm.io/catalog-type\&quot;: \&quot;test\&quot;,           \&quot;app-operator.giantswarm.io/version\&quot;: \&quot;1.0.0\&quot;,         },       },        \&quot;spec\&quot;: {         \&quot;description\&quot;: \&quot;Giant Swarm&#39;s Sample Catalog with a few apps to test things out.\&quot;,         \&quot;logoURL\&quot;: \&quot;https://s.giantswarm.io/app-catalog/1/images/sample-catalog.png\&quot;,          \&quot;storage\&quot;: {           \&quot;URL\&quot;: \&quot;https://giantswarm.github.com/sample-catalog/\&quot;,           \&quot;type\&quot;: \&quot;helm\&quot;         },         \&quot;title\&quot;: \&quot;Sample Catalog\&quot;       }     }   ] &#x60;&#x60;&#x60; 
 
 ### Example
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -191,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -211,12 +193,6 @@ Returns an array of apps installed on a given cluster.  ### Example &#x60;&#x60;
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -252,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -272,12 +248,6 @@ This operation allows you to modify an existing app.  The following attributes c
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -287,7 +257,7 @@ var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example", // String | If activity has been issued by a CLI, this header can contain the command line 
-  'body': new GiantSwarm.V4ModifyAppRequest() // V4ModifyAppRequest | 
+  'v4ModifyAppRequest': new GiantSwarm.V4ModifyAppRequest() // V4ModifyAppRequest | 
 };
 apiInstance.modifyClusterApp(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -309,7 +279,7 @@ Name | Type | Description  | Notes
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
- **body** | [**V4ModifyAppRequest**](V4ModifyAppRequest.md)|  | [optional] 
+ **v4ModifyAppRequest** | [**V4ModifyAppRequest**](V4ModifyAppRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -317,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 

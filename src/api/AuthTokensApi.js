@@ -51,19 +51,19 @@
     /**
      * Create Auth Token (Login)
      * Creates a Auth Token for a given user. Must authenticate with email and password. 
-     * @param {module:model/V4CreateAuthTokenRequest} body Create Auth Token Request
+     * @param {module:model/V4CreateAuthTokenRequest} v4CreateAuthTokenRequest Create Auth Token Request
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4CreateAuthTokenResponse} and HTTP response
      */
-    this.createAuthTokenWithHttpInfo = function(body, opts) {
+    this.createAuthTokenWithHttpInfo = function(v4CreateAuthTokenRequest, opts) {
       opts = opts || {};
-      var postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling createAuthToken");
+      var postBody = v4CreateAuthTokenRequest;
+      // verify the required parameter 'v4CreateAuthTokenRequest' is set
+      if (v4CreateAuthTokenRequest === undefined || v4CreateAuthTokenRequest === null) {
+        throw new Error("Missing the required parameter 'v4CreateAuthTokenRequest' when calling createAuthToken");
       }
 
       var pathParams = {
@@ -80,7 +80,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4CreateAuthTokenResponse;
@@ -94,15 +94,15 @@
     /**
      * Create Auth Token (Login)
      * Creates a Auth Token for a given user. Must authenticate with email and password. 
-     * @param {module:model/V4CreateAuthTokenRequest} body Create Auth Token Request
+     * @param {module:model/V4CreateAuthTokenRequest} v4CreateAuthTokenRequest Create Auth Token Request
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4CreateAuthTokenResponse}
      */
-    this.createAuthToken = function(body, opts) {
-      return this.createAuthTokenWithHttpInfo(body, opts)
+    this.createAuthToken = function(v4CreateAuthTokenRequest, opts) {
+      return this.createAuthTokenWithHttpInfo(v4CreateAuthTokenRequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -142,7 +142,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;

@@ -74,7 +74,7 @@
         obj['cpu'] = V4NodeDefinitionCpu.constructFromObject(data['cpu']);
       }
       if (data.hasOwnProperty('labels')) {
-        obj['labels'] = ApiClient.convertToType(data['labels'], Object);
+        obj['labels'] = ApiClient.convertToType(data['labels'], {'String': Object});
       }
     }
     return obj;
@@ -101,7 +101,7 @@
    */
   exports.prototype['cpu'] = undefined;
   /**
-   * @member {Object} labels
+   * @member {Object.<String, Object>} labels
    */
   exports.prototype['labels'] = undefined;
 

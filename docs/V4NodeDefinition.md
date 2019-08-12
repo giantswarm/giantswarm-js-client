@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **memory** | [**V4NodeDefinitionMemory**](V4NodeDefinitionMemory.md) |  | [optional] 
 **storage** | [**V4NodeDefinitionStorage**](V4NodeDefinitionStorage.md) |  | [optional] 
 **cpu** | [**V4NodeDefinitionCpu**](V4NodeDefinitionCpu.md) |  | [optional] 
-**labels** | [**Object**](.md) |  | [optional] 
+**labels** | **{String: Object}** |  | [optional] 
 
 

@@ -46,16 +46,15 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://localhost
+     * @default https://localhost:8000
      */
-    this.basePath = 'http://localhost'.replace(/\/+$/, '');
+    this.basePath = 'https://localhost:8000'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
      * @type {Array.<String>}
      */
     this.authentications = {
-      'AuthorizationHeaderToken': {type: 'apiKey', 'in': 'header', name: 'Authorization'}
     };
     /**
      * The default HTTP headers to be included for all API calls.
@@ -589,8 +588,14 @@
     exports.hostSettings = function() {
         return [
             {
-              'url': "/",
-              'description': "No description provided",
+              'url': "https://{path}",
+              'description': "The production API server",
+              'variables': {
+                path: {
+                    'description': "The path to a giantswarm API server running on a control plane",
+                    'default_value': "localhost:8000",
+                  }
+                }
             }
       ];
     };

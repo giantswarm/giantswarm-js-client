@@ -88,12 +88,6 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var GiantSwarm = require('giantswarm');
 
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new GiantSwarm.AppConfigsApi()
 var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
@@ -103,7 +97,7 @@ var opts = {
   'xRequestID': "xRequestID_example", // {String} A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // {String} Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example", // {String} If activity has been issued by a CLI, this header can contain the command line 
-  'body': null // {Object} 
+  'requestBody': {key: null} // {{String: Object}} 
 };
 api.createClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -116,7 +110,7 @@ api.createClusterAppConfig(authorization, clusterId, appName, opts).then(functio
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://localhost:8000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -253,12 +247,4 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-
-
-### AuthorizationHeaderToken
-
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+All endpoints do not require authorization.

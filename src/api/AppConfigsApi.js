@@ -50,7 +50,7 @@
 
     /**
      * Create app config
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it's user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the `PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/` endpoint.   ### Example POST request ```json   {     \"agent\": {       \"key\": \"secret-key-here\",       \"endpointHost\": \"saas-eu-west-1.instana.io\",       \"endpointPort\": \"443\",     },     \"zone\": {       \"name\": \"giantswarm-cluster\"     }   } ``` 
+     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it's user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the `PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/` endpoint.  ### Example POST request ```json   {     \"agent\": {       \"key\": \"secret-key-here\",       \"endpointHost\": \"saas-eu-west-1.instana.io\",       \"endpointPort\": \"443\",     },     \"zone\": {       \"name\": \"giantswarm-cluster\"     }   } ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -58,12 +58,12 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {Object} opts.body 
+     * @param {Object.<String, {String: Object}>} opts.requestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     this.createClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = opts['requestBody'];
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling createClusterAppConfig");
@@ -94,7 +94,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json', 'appication/json'];
       var returnType = V4GenericResponse;
@@ -107,7 +107,7 @@
 
     /**
      * Create app config
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it's user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the `PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/` endpoint.   ### Example POST request ```json   {     \"agent\": {       \"key\": \"secret-key-here\",       \"endpointHost\": \"saas-eu-west-1.instana.io\",       \"endpointPort\": \"443\",     },     \"zone\": {       \"name\": \"giantswarm-cluster\"     }   } ``` 
+     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it's user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the `PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/` endpoint.  ### Example POST request ```json   {     \"agent\": {       \"key\": \"secret-key-here\",       \"endpointHost\": \"saas-eu-west-1.instana.io\",       \"endpointPort\": \"443\",     },     \"zone\": {       \"name\": \"giantswarm-cluster\"     }   } ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -115,7 +115,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {Object} opts.body 
+     * @param {Object.<String, {String: Object}>} opts.requestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     this.createClusterAppConfig = function(authorization, clusterId, appName, opts) {
@@ -171,7 +171,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -212,7 +212,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object.<String, {String: Object}>} and HTTP response
      */
     this.getClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
       opts = opts || {};
@@ -247,10 +247,10 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json', 'appication/json'];
-      var returnType = Object;
+      var returnType = {'String': Object};
       return this.apiClient.callApi(
         '/v4/clusters/{cluster_id}/apps/{app_name}/config/', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
@@ -268,7 +268,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {String: Object}>}
      */
     this.getClusterAppConfig = function(authorization, clusterId, appName, opts) {
       return this.getClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
@@ -288,12 +288,12 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {Object} opts.body 
+     * @param {Object.<String, {String: Object}>} opts.requestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     this.modifyClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = opts['requestBody'];
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling modifyClusterAppConfig");
@@ -324,7 +324,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json', 'appication/json'];
       var returnType = V4GenericResponse;
@@ -345,7 +345,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {Object} opts.body 
+     * @param {Object.<String, {String: Object}>} opts.requestBody 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     this.modifyClusterAppConfig = function(authorization, clusterId, appName, opts) {

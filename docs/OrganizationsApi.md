@@ -1,6 +1,6 @@
 # GiantSwarm.OrganizationsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## addCredentials
 
-> V4GenericResponse addCredentials(authorization, organizationId, body, opts)
+> V4GenericResponse addCredentials(authorization, organizationId, v4AddCredentialsRequest, opts)
 
 Set credentials
 
@@ -27,23 +27,17 @@ Add a set of credentials to the organization allowing the creation and operation
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-var body = new GiantSwarm.V4AddCredentialsRequest(); // V4AddCredentialsRequest | 
+var v4AddCredentialsRequest = new GiantSwarm.V4AddCredentialsRequest(); // V4AddCredentialsRequest | 
 var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addCredentials(authorization, organizationId, body, opts).then(function(data) {
+apiInstance.addCredentials(authorization, organizationId, v4AddCredentialsRequest, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -59,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
- **body** | [**V4AddCredentialsRequest**](V4AddCredentialsRequest.md)|  | 
+ **v4AddCredentialsRequest** | [**V4AddCredentialsRequest**](V4AddCredentialsRequest.md)|  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -70,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## addOrganization
 
-> V4Organization addOrganization(authorization, organizationId, body, opts)
+> V4Organization addOrganization(authorization, organizationId, v4Organization, opts)
 
 Create an organization
 
@@ -90,23 +84,17 @@ This operation allows a user to create an organization.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-var body = new GiantSwarm.V4Organization(); // V4Organization | 
+var v4Organization = new GiantSwarm.V4Organization(); // V4Organization | 
 var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addOrganization(authorization, organizationId, body, opts).then(function(data) {
+apiInstance.addOrganization(authorization, organizationId, v4Organization, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -122,7 +110,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
- **body** | [**V4Organization**](V4Organization.md)|  | 
+ **v4Organization** | [**V4Organization**](V4Organization.md)|  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -133,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -153,12 +141,6 @@ This operation allows a user to delete an organization that they are a member of
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -194,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -214,12 +196,6 @@ Returns details for a particular set of credentials, identified by its ID. The r
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -257,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -277,12 +253,6 @@ Returns credentials for an organization, if available. For more information on c
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -318,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -338,12 +308,6 @@ This operation fetches organization details.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -379,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -399,12 +363,6 @@ This operation allows to fetch a list of organizations the user is a member of. 
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -438,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -448,7 +406,7 @@ Name | Type | Description  | Notes
 
 ## modifyOrganization
 
-> V4Organization modifyOrganization(authorization, organizationId, body, opts)
+> V4Organization modifyOrganization(authorization, organizationId, inlineObject, opts)
 
 Modify organization
 
@@ -458,23 +416,17 @@ This operation allows you to modify an existing organization. You must be a memb
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 var organizationId = "organizationId_example"; // String | An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-var body = new GiantSwarm.InlineObject(); // InlineObject | 
+var inlineObject = new GiantSwarm.InlineObject(); // InlineObject | 
 var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyOrganization(authorization, organizationId, body, opts).then(function(data) {
+apiInstance.modifyOrganization(authorization, organizationId, inlineObject, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -490,7 +442,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **organizationId** | **String**| An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$  | 
- **body** | [**InlineObject**](InlineObject.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -501,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 

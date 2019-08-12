@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := openapi3
 
 .PHONY: test generate
 
@@ -17,11 +17,13 @@ generate: api-spec
 			-i /local/api-spec/spec/spec.yaml \
 			-g javascript \
 			-o /local/
+	# fix superagent dependency due to security issue
+	perl -pi -e 's/"superagent": "3.7.0"/"superagent": "5.1.0"/' -- package.json
 
 # Copies the public API spec YAML to a local folder
 api-spec: clean
 	mkdir -p api-spec
-	git clone --depth=1 https://github.com/giantswarm/api-spec/
+	git clone --single-branch --branch ${BRANCH} --depth=1 https://github.com/giantswarm/api-spec/
 
 clean:
 	rm -rf api-spec

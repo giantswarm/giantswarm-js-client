@@ -57,12 +57,12 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V5AddNodePoolRequest} opts.body 
+     * @param {module:model/V5AddNodePoolRequest} opts.v5AddNodePoolRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
     this.addNodePoolWithHttpInfo = function(authorization, clusterId, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = opts['v5AddNodePoolRequest'];
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling addNodePool");
@@ -88,7 +88,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;
@@ -108,7 +108,7 @@
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V5AddNodePoolRequest} opts.body 
+     * @param {module:model/V5AddNodePoolRequest} opts.v5AddNodePoolRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
     this.addNodePool = function(authorization, clusterId, opts) {
@@ -121,7 +121,7 @@
 
     /**
      * Delete node pool
-     * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  ``` kubectl drain nodes -l giantswarm.nodepool_id=<nodepool_id> ... ```  TODO: adapt the command for correct label syntax 
+     * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  ``` kubectl drain nodes -l giantswarm.nodepool_id= ... ```  TODO: adapt the command for correct label syntax 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
@@ -164,7 +164,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -177,7 +177,7 @@
 
     /**
      * Delete node pool
-     * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  ``` kubectl drain nodes -l giantswarm.nodepool_id=<nodepool_id> ... ```  TODO: adapt the command for correct label syntax 
+     * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  ``` kubectl drain nodes -l giantswarm.nodepool_id= ... ```  TODO: adapt the command for correct label syntax 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
@@ -240,7 +240,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;
@@ -310,7 +310,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V5GetNodePoolResponse];
@@ -346,16 +346,16 @@
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
-     * @param {module:model/V5ModifyNodePoolRequest} body Merge-patch body
+     * @param {module:model/V5ModifyNodePoolRequest} v5ModifyNodePoolRequest Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    this.modifyNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, body, opts) {
+    this.modifyNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, v5ModifyNodePoolRequest, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = v5ModifyNodePoolRequest;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling modifyNodePool");
@@ -368,9 +368,9 @@
       if (nodepoolId === undefined || nodepoolId === null) {
         throw new Error("Missing the required parameter 'nodepoolId' when calling modifyNodePool");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling modifyNodePool");
+      // verify the required parameter 'v5ModifyNodePoolRequest' is set
+      if (v5ModifyNodePoolRequest === undefined || v5ModifyNodePoolRequest === null) {
+        throw new Error("Missing the required parameter 'v5ModifyNodePoolRequest' when calling modifyNodePool");
       }
 
       var pathParams = {
@@ -390,7 +390,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;
@@ -407,15 +407,15 @@
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
-     * @param {module:model/V5ModifyNodePoolRequest} body Merge-patch body
+     * @param {module:model/V5ModifyNodePoolRequest} v5ModifyNodePoolRequest Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    this.modifyNodePool = function(authorization, clusterId, nodepoolId, body, opts) {
-      return this.modifyNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, body, opts)
+    this.modifyNodePool = function(authorization, clusterId, nodepoolId, v5ModifyNodePoolRequest, opts) {
+      return this.modifyNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, v5ModifyNodePoolRequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

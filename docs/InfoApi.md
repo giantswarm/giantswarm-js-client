@@ -1,6 +1,6 @@
 # GiantSwarm.InfoApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,12 +20,6 @@ Returns a set of details on the installation. The output varies based on the pro
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.InfoApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -59,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 

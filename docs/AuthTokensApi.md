@@ -1,6 +1,6 @@
 # GiantSwarm.AuthTokensApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## createAuthToken
 
-> V4CreateAuthTokenResponse createAuthToken(body, opts)
+> V4CreateAuthTokenResponse createAuthToken(v4CreateAuthTokenRequest, opts)
 
 Create Auth Token (Login)
 
@@ -21,21 +21,15 @@ Creates a Auth Token for a given user. Must authenticate with email and password
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
-var body = new GiantSwarm.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
+var v4CreateAuthTokenRequest = new GiantSwarm.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
 var opts = {
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.createAuthToken(body, opts).then(function(data) {
+apiInstance.createAuthToken(v4CreateAuthTokenRequest, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -49,7 +43,7 @@ apiInstance.createAuthToken(body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**V4CreateAuthTokenRequest**](V4CreateAuthTokenRequest.md)| Create Auth Token Request | 
+ **v4CreateAuthTokenRequest** | [**V4CreateAuthTokenRequest**](V4CreateAuthTokenRequest.md)| Create Auth Token Request | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -60,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,12 +74,6 @@ Deletes the authentication token provided in the Authorization header. This effe
 
 ```javascript
 var GiantSwarm = require('giantswarm');
-var defaultClient = GiantSwarm.ApiClient.instance;
-// Configure API key authorization: AuthorizationHeaderToken
-var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
-AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -119,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+No authorization required
 
 ### HTTP request headers
 

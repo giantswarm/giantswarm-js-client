@@ -53,16 +53,16 @@
      * Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. AWS and Azure are currently supported.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  ```json {   \"provider\": \"aws\",   \"aws\": {     \"roles\": {       \"admin\": \"arn:aws:iam::123456789012:role/GiantSwarmAdmin\",       \"awsoperator\": \"arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\"     }   } } ```  ### Example request body for Azure  ```json {   \"provider\": \"azure\",   \"azure\": {     \"credential\": {       \"client_id\": \"c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\",       \"secret_key\": \"720e38f7-3af4-463c-9313-abcdf2ead612\",       \"subscription_id\": \"b388b7c7-4479-4040-9ac5-1e13edd6b1cd\",       \"tenant_id\": \"3dd2e94a-92ba-434c-99be-32bb65864a99\"     }   } } ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/V4AddCredentialsRequest} body 
+     * @param {module:model/V4AddCredentialsRequest} v4AddCredentialsRequest 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.addCredentialsWithHttpInfo = function(authorization, organizationId, body, opts) {
+    this.addCredentialsWithHttpInfo = function(authorization, organizationId, v4AddCredentialsRequest, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = v4AddCredentialsRequest;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling addCredentials");
@@ -71,9 +71,9 @@
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling addCredentials");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling addCredentials");
+      // verify the required parameter 'v4AddCredentialsRequest' is set
+      if (v4AddCredentialsRequest === undefined || v4AddCredentialsRequest === null) {
+        throw new Error("Missing the required parameter 'v4AddCredentialsRequest' when calling addCredentials");
       }
 
       var pathParams = {
@@ -92,7 +92,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -108,15 +108,15 @@
      * Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. AWS and Azure are currently supported.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  ```json {   \"provider\": \"aws\",   \"aws\": {     \"roles\": {       \"admin\": \"arn:aws:iam::123456789012:role/GiantSwarmAdmin\",       \"awsoperator\": \"arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\"     }   } } ```  ### Example request body for Azure  ```json {   \"provider\": \"azure\",   \"azure\": {     \"credential\": {       \"client_id\": \"c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\",       \"secret_key\": \"720e38f7-3af4-463c-9313-abcdf2ead612\",       \"subscription_id\": \"b388b7c7-4479-4040-9ac5-1e13edd6b1cd\",       \"tenant_id\": \"3dd2e94a-92ba-434c-99be-32bb65864a99\"     }   } } ``` 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/V4AddCredentialsRequest} body 
+     * @param {module:model/V4AddCredentialsRequest} v4AddCredentialsRequest 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.addCredentials = function(authorization, organizationId, body, opts) {
-      return this.addCredentialsWithHttpInfo(authorization, organizationId, body, opts)
+    this.addCredentials = function(authorization, organizationId, v4AddCredentialsRequest, opts) {
+      return this.addCredentialsWithHttpInfo(authorization, organizationId, v4AddCredentialsRequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -128,16 +128,16 @@
      * This operation allows a user to create an organization. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/V4Organization} body 
+     * @param {module:model/V4Organization} v4Organization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    this.addOrganizationWithHttpInfo = function(authorization, organizationId, body, opts) {
+    this.addOrganizationWithHttpInfo = function(authorization, organizationId, v4Organization, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = v4Organization;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling addOrganization");
@@ -146,9 +146,9 @@
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling addOrganization");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling addOrganization");
+      // verify the required parameter 'v4Organization' is set
+      if (v4Organization === undefined || v4Organization === null) {
+        throw new Error("Missing the required parameter 'v4Organization' when calling addOrganization");
       }
 
       var pathParams = {
@@ -167,7 +167,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4Organization;
@@ -183,15 +183,15 @@
      * This operation allows a user to create an organization. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/V4Organization} body 
+     * @param {module:model/V4Organization} v4Organization 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    this.addOrganization = function(authorization, organizationId, body, opts) {
-      return this.addOrganizationWithHttpInfo(authorization, organizationId, body, opts)
+    this.addOrganization = function(authorization, organizationId, v4Organization, opts) {
+      return this.addOrganizationWithHttpInfo(authorization, organizationId, v4Organization, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -237,7 +237,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -312,7 +312,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GetCredentialResponse;
@@ -382,7 +382,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V4GetCredentialResponse];
@@ -451,7 +451,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4Organization;
@@ -514,7 +514,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V4OrganizationListItem];
@@ -548,16 +548,16 @@
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - `members`: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the `Content-Type: application/merge-patch+json` header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject} inlineObject 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    this.modifyOrganizationWithHttpInfo = function(authorization, organizationId, body, opts) {
+    this.modifyOrganizationWithHttpInfo = function(authorization, organizationId, inlineObject, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = inlineObject;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling modifyOrganization");
@@ -566,9 +566,9 @@
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling modifyOrganization");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling modifyOrganization");
+      // verify the required parameter 'inlineObject' is set
+      if (inlineObject === undefined || inlineObject === null) {
+        throw new Error("Missing the required parameter 'inlineObject' when calling modifyOrganization");
       }
 
       var pathParams = {
@@ -587,7 +587,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4Organization;
@@ -603,15 +603,15 @@
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - `members`: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the `Content-Type: application/merge-patch+json` header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} organizationId An ID for the organization. This ID must be unique and match this regular expression: ^[a-z0-9_]{4,30}$ 
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject} inlineObject 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    this.modifyOrganization = function(authorization, organizationId, body, opts) {
-      return this.modifyOrganizationWithHttpInfo(authorization, organizationId, body, opts)
+    this.modifyOrganization = function(authorization, organizationId, inlineObject, opts) {
+      return this.modifyOrganizationWithHttpInfo(authorization, organizationId, inlineObject, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

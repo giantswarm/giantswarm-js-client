@@ -50,19 +50,19 @@
 
     /**
      * Create key pair
-     * This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster's certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text `description` that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate's subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate's subject.  - `cn_prefix`: The certificate's common name uses this format: `<cn_prefix>.user.<clusterdomain>`.    `clusterdomain` is specific to your cluster and is not editable.    The `cn_prefix` however is editable. When left blank it will default   to the email address of the Giant Swarm user that is performing the   create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - `certificate_organizations`: This will set the certificate's `organization` fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the `POST` request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you'll have to repeat the creation request. 
+     * This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster's certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text `description` that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate's subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate's subject.  - `cn_prefix`: The certificate's common name uses this format: `.user.`.    `clusterdomain` is specific to your cluster and is not editable.    The `cn_prefix` however is editable. When left blank it will default   to the email address of the Giant Swarm user that is performing the   create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - `certificate_organizations`: This will set the certificate's `organization` fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the `POST` request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you'll have to repeat the creation request. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
-     * @param {module:model/V4AddKeyPairRequest} body While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
+     * @param {module:model/V4AddKeyPairRequest} v4AddKeyPairRequest While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4AddKeyPairResponse} and HTTP response
      */
-    this.addKeyPairWithHttpInfo = function(authorization, clusterId, body, opts) {
+    this.addKeyPairWithHttpInfo = function(authorization, clusterId, v4AddKeyPairRequest, opts) {
       opts = opts || {};
-      var postBody = body;
+      var postBody = v4AddKeyPairRequest;
       // verify the required parameter 'authorization' is set
       if (authorization === undefined || authorization === null) {
         throw new Error("Missing the required parameter 'authorization' when calling addKeyPair");
@@ -71,9 +71,9 @@
       if (clusterId === undefined || clusterId === null) {
         throw new Error("Missing the required parameter 'clusterId' when calling addKeyPair");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling addKeyPair");
+      // verify the required parameter 'v4AddKeyPairRequest' is set
+      if (v4AddKeyPairRequest === undefined || v4AddKeyPairRequest === null) {
+        throw new Error("Missing the required parameter 'v4AddKeyPairRequest' when calling addKeyPair");
       }
 
       var pathParams = {
@@ -92,7 +92,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4AddKeyPairResponse;
@@ -105,18 +105,18 @@
 
     /**
      * Create key pair
-     * This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster's certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text `description` that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate's subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate's subject.  - `cn_prefix`: The certificate's common name uses this format: `<cn_prefix>.user.<clusterdomain>`.    `clusterdomain` is specific to your cluster and is not editable.    The `cn_prefix` however is editable. When left blank it will default   to the email address of the Giant Swarm user that is performing the   create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - `certificate_organizations`: This will set the certificate's `organization` fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the `POST` request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you'll have to repeat the creation request. 
+     * This operation allows to create a new key pair for accessing a specific cluster.  A key pair consists of an unencrypted private RSA key and an X.509 certificate. In addition, when obtaining a key pair for a cluster, the cluster's certificate authority file (CA certificate) is delivered, which is required by TLS clients to establish trust to the cluster.  In addition to the credentials itself, a key pair has some metadata like a unique ID, a creation timestamp and a free text `description` that you can use at will, for example to note for whom a key pair has been issued.  ### Customizing the certificate's subject for K8s RBAC  It is possible to set the Common Name and Organization fields of the generated certificate's subject.  - `cn_prefix`: The certificate's common name uses this format: `.user.`.    `clusterdomain` is specific to your cluster and is not editable.    The `cn_prefix` however is editable. When left blank it will default   to the email address of the Giant Swarm user that is performing the   create key pair request.    The common name is used as the username for requests to the Kubernetes API. This allows you   to set up role-based access controls.   - `certificate_organizations`: This will set the certificate's `organization` fields. Use a comma separated list of values.   The Kubernetes API will use these values as group memberships.  __Note:__ The actual credentials coming with the key pair (key, certificate) can only be accessed once, as the result of the `POST` request that triggers their creation. This restriction exists to minimize the risk of credentials being leaked. If you fail to capture the credentials upon creation, you'll have to repeat the creation request. 
      * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
-     * @param {module:model/V4AddKeyPairRequest} body While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
+     * @param {module:model/V4AddKeyPairRequest} v4AddKeyPairRequest While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4AddKeyPairResponse}
      */
-    this.addKeyPair = function(authorization, clusterId, body, opts) {
-      return this.addKeyPairWithHttpInfo(authorization, clusterId, body, opts)
+    this.addKeyPair = function(authorization, clusterId, v4AddKeyPairRequest, opts) {
+      return this.addKeyPairWithHttpInfo(authorization, clusterId, v4AddKeyPairRequest, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -162,7 +162,7 @@
       var formParams = {
       };
 
-      var authNames = ['AuthorizationHeaderToken'];
+      var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [Object];
