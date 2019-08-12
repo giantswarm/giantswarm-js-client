@@ -88,6 +88,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var GiantSwarm = require('giantswarm');
 
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new GiantSwarm.AppConfigsApi()
 var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
@@ -247,4 +253,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+
+
+### AuthorizationHeaderToken
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+

@@ -26,6 +26,12 @@ Creates a users in the system. Currently this endpoint is only available to user
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -63,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -83,6 +89,12 @@ Deletes a users in the system. Currently this endpoint is only available to user
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -118,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -138,6 +150,12 @@ Returns details about the currently authenticated user
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -171,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -191,6 +209,12 @@ Returns details about a specific user
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -226,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -246,6 +270,12 @@ Returns a list of all users in the system. Currently this endpoint is only avail
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -279,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -299,6 +329,12 @@ This operation allows you to change your password. Admins are able to change pas
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -336,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -356,6 +392,12 @@ This operation allows you to change details of a given user. Only administrators
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.UsersApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -393,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

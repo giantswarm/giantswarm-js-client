@@ -27,6 +27,12 @@ Add a set of credentials to the organization allowing the creation and operation
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -64,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -84,6 +90,12 @@ This operation allows a user to create an organization.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -121,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -141,6 +153,12 @@ This operation allows a user to delete an organization that they are a member of
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -176,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -196,6 +214,12 @@ Returns details for a particular set of credentials, identified by its ID. The r
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -233,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -253,6 +277,12 @@ Returns credentials for an organization, if available. For more information on c
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -288,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -308,6 +338,12 @@ This operation fetches organization details.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -343,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -363,6 +399,12 @@ This operation allows to fetch a list of organizations the user is a member of. 
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -396,7 +438,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -416,6 +458,12 @@ This operation allows you to modify an existing organization. You must be a memb
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.OrganizationsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -453,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

@@ -94,7 +94,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json', 'appication/json'];
       var returnType = V4GenericResponse;
@@ -171,7 +171,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -247,7 +247,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json', 'appication/json'];
       var returnType = {'String': Object};
@@ -324,7 +324,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json', 'appication/json'];
       var returnType = V4GenericResponse;

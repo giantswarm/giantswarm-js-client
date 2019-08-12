@@ -24,6 +24,12 @@ Install an app on a tenant cluster by posting to this endpoint.  The spec field 
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -63,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -83,6 +89,12 @@ This operation allows a user to delete an app.
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -120,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -140,6 +152,12 @@ Returns an array of app catalog objects, which contains further metadata, includ
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -173,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -193,6 +211,12 @@ Returns an array of apps installed on a given cluster.  ### Example &#x60;&#x60;
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -228,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -248,6 +272,12 @@ This operation allows you to modify an existing app.  The following attributes c
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppsApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -287,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

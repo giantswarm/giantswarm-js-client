@@ -88,7 +88,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;
@@ -164,7 +164,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -240,7 +240,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;
@@ -310,7 +310,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V5GetNodePoolResponse];
@@ -390,7 +390,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5GetNodePoolResponse;

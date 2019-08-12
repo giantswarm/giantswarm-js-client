@@ -21,6 +21,12 @@ Creates a Auth Token for a given user. Must authenticate with email and password
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
 var v4CreateAuthTokenRequest = new GiantSwarm.V4CreateAuthTokenRequest(); // V4CreateAuthTokenRequest | Create Auth Token Request
@@ -54,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 
@@ -74,6 +80,12 @@ Deletes the authentication token provided in the Authorization header. This effe
 
 ```javascript
 var GiantSwarm = require('giantswarm');
+var defaultClient = GiantSwarm.ApiClient.instance;
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AuthTokensApi();
 var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
@@ -107,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
 
 ### HTTP request headers
 

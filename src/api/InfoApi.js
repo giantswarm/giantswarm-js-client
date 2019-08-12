@@ -81,7 +81,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4InfoResponse;

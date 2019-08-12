@@ -86,7 +86,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -154,7 +154,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5ClusterDetailsResponse;
@@ -223,7 +223,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4GenericResponse;
@@ -292,7 +292,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V4ClusterDetailsResponse;
@@ -361,7 +361,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = {'String': Object};
@@ -430,7 +430,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = V5ClusterDetailsResponse;
@@ -493,7 +493,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = [];
       var accepts = ['application/json'];
       var returnType = [V4ClusterListItem];
@@ -566,7 +566,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V4ClusterDetailsResponse;
@@ -641,7 +641,7 @@
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['AuthorizationHeaderToken'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = V5ClusterDetailsResponse;
