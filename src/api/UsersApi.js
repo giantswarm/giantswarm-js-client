@@ -51,7 +51,6 @@
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4CreateUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -60,14 +59,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.createUserWithHttpInfo = function(authorization, email, body, opts) {
+    this.createUserWithHttpInfo = function(email, body, opts) {
       opts = opts || {};
       var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling createUser");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
@@ -86,7 +80,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -109,7 +102,6 @@
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4CreateUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -118,8 +110,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.createUser = function(authorization, email, body, opts) {
-      return this.createUserWithHttpInfo(authorization, email, body, opts)
+    this.createUser = function(email, body, opts) {
+      return this.createUserWithHttpInfo(email, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -129,7 +121,6 @@
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -137,14 +128,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteUserWithHttpInfo = function(authorization, email, opts) {
+    this.deleteUserWithHttpInfo = function(email, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteUser");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
@@ -158,7 +144,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -181,7 +166,6 @@
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -189,8 +173,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteUser = function(authorization, email, opts) {
-      return this.deleteUserWithHttpInfo(authorization, email, opts)
+    this.deleteUser = function(email, opts) {
+      return this.deleteUserWithHttpInfo(email, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -200,21 +184,15 @@
     /**
      * Get current user
      * Returns details about the currently authenticated user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4UserListItem} and HTTP response
      */
-    this.getCurrentUserWithHttpInfo = function(authorization, opts) {
+    this.getCurrentUserWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getCurrentUser");
-      }
 
 
       var pathParams = {
@@ -222,7 +200,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -245,15 +222,14 @@
     /**
      * Get current user
      * Returns details about the currently authenticated user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4UserListItem}
      */
-    this.getCurrentUser = function(authorization, opts) {
-      return this.getCurrentUserWithHttpInfo(authorization, opts)
+    this.getCurrentUser = function(opts) {
+      return this.getCurrentUserWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -263,7 +239,6 @@
     /**
      * Get user
      * Returns details about a specific user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -271,14 +246,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4UserListItem} and HTTP response
      */
-    this.getUserWithHttpInfo = function(authorization, email, opts) {
+    this.getUserWithHttpInfo = function(email, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getUser");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
@@ -292,7 +262,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -315,7 +284,6 @@
     /**
      * Get user
      * Returns details about a specific user 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -323,8 +291,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4UserListItem}
      */
-    this.getUser = function(authorization, email, opts) {
-      return this.getUserWithHttpInfo(authorization, email, opts)
+    this.getUser = function(email, opts) {
+      return this.getUserWithHttpInfo(email, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -334,21 +302,15 @@
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4UserListItem>} and HTTP response
      */
-    this.getUsersWithHttpInfo = function(authorization, opts) {
+    this.getUsersWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getUsers");
-      }
 
 
       var pathParams = {
@@ -356,7 +318,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -379,15 +340,14 @@
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4UserListItem>}
      */
-    this.getUsers = function(authorization, opts) {
-      return this.getUsersWithHttpInfo(authorization, opts)
+    this.getUsers = function(opts) {
+      return this.getUsersWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -397,7 +357,6 @@
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserPasswordRequest} body Modify password request
      * @param {Object} opts Optional parameters
@@ -406,14 +365,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.modifyPasswordWithHttpInfo = function(authorization, email, body, opts) {
+    this.modifyPasswordWithHttpInfo = function(email, body, opts) {
       opts = opts || {};
       var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyPassword");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
@@ -432,7 +386,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -455,7 +408,6 @@
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserPasswordRequest} body Modify password request
      * @param {Object} opts Optional parameters
@@ -464,8 +416,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.modifyPassword = function(authorization, email, body, opts) {
-      return this.modifyPasswordWithHttpInfo(authorization, email, body, opts)
+    this.modifyPassword = function(email, body, opts) {
+      return this.modifyPasswordWithHttpInfo(email, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -475,7 +427,6 @@
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -484,14 +435,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4UserListItem} and HTTP response
      */
-    this.modifyUserWithHttpInfo = function(authorization, email, body, opts) {
+    this.modifyUserWithHttpInfo = function(email, body, opts) {
       opts = opts || {};
       var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyUser");
-      }
 
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
@@ -510,7 +456,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -533,7 +478,6 @@
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} email The user&#39;s email address
      * @param {module:model/V4ModifyUserRequest} body User account details
      * @param {Object} opts Optional parameters
@@ -542,8 +486,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4UserListItem}
      */
-    this.modifyUser = function(authorization, email, body, opts) {
-      return this.modifyUserWithHttpInfo(authorization, email, body, opts)
+    this.modifyUser = function(email, body, opts) {
+      return this.modifyUserWithHttpInfo(email, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

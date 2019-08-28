@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createClusterApp"></a>
 # **createClusterApp**
-> V4App createClusterApp(authorization, clusterId, appName, opts)
+> V4App createClusterApp(clusterId, appName, opts)
 
 Install an app
 
@@ -32,8 +32,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var appName = "appName_example"; // String | App Name
@@ -44,7 +42,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppRequest() // V4CreateAppRequest | 
 };
-apiInstance.createClusterApp(authorization, clusterId, appName, opts).then(function(data) {
+apiInstance.createClusterApp(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -56,7 +54,6 @@ apiInstance.createClusterApp(authorization, clusterId, appName, opts).then(funct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -79,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterApp"></a>
 # **deleteClusterApp**
-> V4GenericResponse deleteClusterApp(authorization, clusterId, appName, opts)
+> V4GenericResponse deleteClusterApp(clusterId, appName, opts)
 
 Delete an app
 
@@ -98,8 +95,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var appName = "appName_example"; // String | App Name
@@ -109,7 +104,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterApp(authorization, clusterId, appName, opts).then(function(data) {
+apiInstance.deleteClusterApp(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -121,7 +116,6 @@ apiInstance.deleteClusterApp(authorization, clusterId, appName, opts).then(funct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -143,7 +137,7 @@ Name | Type | Description  | Notes
 
 <a name="getAppCatalogs"></a>
 # **getAppCatalogs**
-> V4AppCatalogsResponse getAppCatalogs(authorization, , opts)
+> V4AppCatalogsResponse getAppCatalogs(opts)
 
 Get a list of app catalogs configured on your installation.
 
@@ -162,14 +156,12 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getAppCatalogs(authorization, , opts).then(function(data) {
+apiInstance.getAppCatalogs(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -181,7 +173,6 @@ apiInstance.getAppCatalogs(authorization, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
@@ -201,7 +192,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterApps"></a>
 # **getClusterApps**
-> V4GetClusterAppsResponse getClusterApps(authorization, clusterId, , opts)
+> V4GetClusterAppsResponse getClusterApps(clusterId, , opts)
 
 Get cluster apps
 
@@ -220,8 +211,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -229,7 +218,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterApps(authorization, clusterId, , opts).then(function(data) {
+apiInstance.getClusterApps(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -241,7 +230,6 @@ apiInstance.getClusterApps(authorization, clusterId, , opts).then(function(data)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -262,7 +250,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyClusterApp"></a>
 # **modifyClusterApp**
-> V4App modifyClusterApp(authorization, clusterId, appName, opts)
+> V4App modifyClusterApp(clusterId, appName, opts)
 
 Modify an app
 
@@ -281,8 +269,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var appName = "appName_example"; // String | App Name
@@ -293,7 +279,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4ModifyAppRequest() // V4ModifyAppRequest | 
 };
-apiInstance.modifyClusterApp(authorization, clusterId, appName, opts).then(function(data) {
+apiInstance.modifyClusterApp(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -305,7 +291,6 @@ apiInstance.modifyClusterApp(authorization, clusterId, appName, opts).then(funct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 

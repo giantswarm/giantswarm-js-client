@@ -105,8 +105,6 @@ AuthorizationHeaderToken.apiKey = "YOUR API KEY"
 
 var api = new GiantSwarm.AppConfigsApi()
 
-var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // {String} Cluster ID
 
 var appName = "appName_example"; // {String} App Name
@@ -117,7 +115,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // {V4CreateAppConfigRequest} 
 };
-api.createClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
+api.createClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

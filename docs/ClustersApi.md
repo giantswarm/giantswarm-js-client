@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="addCluster"></a>
 # **addCluster**
-> V4GenericResponse addCluster(authorization, body, opts)
+> V4GenericResponse addCluster(body, opts)
 
 Create cluster (v4)
 
@@ -36,8 +36,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var body = new GiantSwarm.V4AddClusterRequest(); // V4AddClusterRequest | New cluster definition
 
 var opts = { 
@@ -45,7 +43,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addCluster(authorization, body, opts).then(function(data) {
+apiInstance.addCluster(body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -57,7 +55,6 @@ apiInstance.addCluster(authorization, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **body** | [**V4AddClusterRequest**](V4AddClusterRequest.md)| New cluster definition | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -78,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="addClusterV5"></a>
 # **addClusterV5**
-> V5ClusterDetailsResponse addClusterV5(authorization, body, opts)
+> V5ClusterDetailsResponse addClusterV5(body, opts)
 
 Create cluster (v5)
 
@@ -97,8 +94,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var body = new GiantSwarm.V5AddClusterRequest(); // V5AddClusterRequest | New cluster definition
 
 var opts = { 
@@ -106,7 +101,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addClusterV5(authorization, body, opts).then(function(data) {
+apiInstance.addClusterV5(body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -118,7 +113,6 @@ apiInstance.addClusterV5(authorization, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **body** | [**V5AddClusterRequest**](V5AddClusterRequest.md)| New cluster definition | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -139,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteCluster"></a>
 # **deleteCluster**
-> V4GenericResponse deleteCluster(authorization, clusterId, , opts)
+> V4GenericResponse deleteCluster(clusterId, , opts)
 
 Delete cluster
 
@@ -158,8 +152,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -167,7 +159,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteCluster(authorization, clusterId, , opts).then(function(data) {
+apiInstance.deleteCluster(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -179,7 +171,6 @@ apiInstance.deleteCluster(authorization, clusterId, , opts).then(function(data) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -200,7 +191,7 @@ Name | Type | Description  | Notes
 
 <a name="getCluster"></a>
 # **getCluster**
-> V4ClusterDetailsResponse getCluster(authorization, clusterId, , opts)
+> V4ClusterDetailsResponse getCluster(clusterId, , opts)
 
 Get cluster details (v4)
 
@@ -219,8 +210,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -228,7 +217,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getCluster(authorization, clusterId, , opts).then(function(data) {
+apiInstance.getCluster(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -240,7 +229,6 @@ apiInstance.getCluster(authorization, clusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -261,7 +249,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterStatus"></a>
 # **getClusterStatus**
-> V4GetClusterStatusResponse getClusterStatus(authorization, clusterId, , opts)
+> V4GetClusterStatusResponse getClusterStatus(clusterId, , opts)
 
 Get cluster status
 
@@ -280,8 +268,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -289,7 +275,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterStatus(authorization, clusterId, , opts).then(function(data) {
+apiInstance.getClusterStatus(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -301,7 +287,6 @@ apiInstance.getClusterStatus(authorization, clusterId, , opts).then(function(dat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -322,7 +307,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterV5"></a>
 # **getClusterV5**
-> V5ClusterDetailsResponse getClusterV5(authorization, clusterId, , opts)
+> V5ClusterDetailsResponse getClusterV5(clusterId, , opts)
 
 Get cluster details (v5)
 
@@ -341,8 +326,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -350,7 +333,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterV5(authorization, clusterId, , opts).then(function(data) {
+apiInstance.getClusterV5(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -362,7 +345,6 @@ apiInstance.getClusterV5(authorization, clusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -438,7 +420,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyCluster"></a>
 # **modifyCluster**
-> V4ClusterDetailsResponse modifyCluster(authorization, clusterId, body, opts)
+> V4ClusterDetailsResponse modifyCluster(clusterId, body, opts)
 
 Modify cluster (v4)
 
@@ -457,8 +439,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var body = new GiantSwarm.V4ModifyClusterRequest(); // V4ModifyClusterRequest | Merge-patch body
@@ -468,7 +448,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyCluster(authorization, clusterId, body, opts).then(function(data) {
+apiInstance.modifyCluster(clusterId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -480,7 +460,6 @@ apiInstance.modifyCluster(authorization, clusterId, body, opts).then(function(da
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **body** | [**V4ModifyClusterRequest**](V4ModifyClusterRequest.md)| Merge-patch body | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -502,7 +481,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyClusterV5"></a>
 # **modifyClusterV5**
-> V5ClusterDetailsResponse modifyClusterV5(authorization, clusterId, body, opts)
+> V5ClusterDetailsResponse modifyClusterV5(clusterId, body, opts)
 
 Modify cluster (v5)
 
@@ -521,8 +500,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var body = new GiantSwarm.V5ModifyClusterRequest(); // V5ModifyClusterRequest | Merge-patch body
@@ -532,7 +509,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyClusterV5(authorization, clusterId, body, opts).then(function(data) {
+apiInstance.modifyClusterV5(clusterId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -544,7 +521,6 @@ apiInstance.modifyClusterV5(authorization, clusterId, body, opts).then(function(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **body** | [**V5ModifyClusterRequest**](V5ModifyClusterRequest.md)| Merge-patch body | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
