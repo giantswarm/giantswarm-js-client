@@ -15,59 +15,69 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarm);
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
+    }
+    root.GiantSwarm.V4InfoResponseFeaturesNodepools = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(expect, GiantSwarm) {
+}(this, function(ApiClient) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new GiantSwarm.V4AppCatalogsResponseInner();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The V4InfoResponseFeaturesNodepools model module.
+   * @module model/V4InfoResponseFeaturesNodepools
+   * @version 4.0.0
+   */
+
+  /**
+   * Constructs a new <code>V4InfoResponseFeaturesNodepools</code>.
+   * Support for grouping of worker nodes into node pools.
+   * @alias module:model/V4InfoResponseFeaturesNodepools
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+  };
+
+  /**
+   * Constructs a <code>V4InfoResponseFeaturesNodepools</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/V4InfoResponseFeaturesNodepools} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseFeaturesNodepools} The populated <code>V4InfoResponseFeaturesNodepools</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('release_version_minimum')) {
+        obj['release_version_minimum'] = ApiClient.convertToType(data['release_version_minimum'], 'String');
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * The minimum release version number required to have support for node pools.
+   * @member {String} release_version_minimum
+   */
+  exports.prototype['release_version_minimum'] = undefined;
 
-  describe('V4AppCatalogsResponseInner', function() {
-    it('should create an instance of V4AppCatalogsResponseInner', function() {
-      // uncomment below and update the code to test V4AppCatalogsResponseInner
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be.a(GiantSwarm.V4AppCatalogsResponseInner);
-    });
 
-    it('should have the property metadata (base name: "metadata")', function() {
-      // uncomment below and update the code to test the property metadata
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property spec (base name: "spec")', function() {
-      // uncomment below and update the code to test the property spec
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

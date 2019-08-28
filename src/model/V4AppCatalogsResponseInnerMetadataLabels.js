@@ -16,32 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppCatalogsResponseInnerMetadataLabels'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInnerMetadataLabels'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppCatalogsResponseInnerMetadata = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppCatalogsResponseInnerMetadataLabels);
+    root.GiantSwarm.V4AppCatalogsResponseInnerMetadataLabels = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V4AppCatalogsResponseInnerMetadataLabels) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppCatalogsResponseInnerMetadata model module.
-   * @module model/V4AppCatalogsResponseInnerMetadata
+   * The V4AppCatalogsResponseInnerMetadataLabels model module.
+   * @module model/V4AppCatalogsResponseInnerMetadataLabels
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppCatalogsResponseInnerMetadata</code>.
-   * @alias module:model/V4AppCatalogsResponseInnerMetadata
+   * Constructs a new <code>V4AppCatalogsResponseInnerMetadataLabels</code>.
+   * The labels that are set on this app catalog
+   * @alias module:model/V4AppCatalogsResponseInnerMetadataLabels
    * @class
    */
   var exports = function() {
@@ -52,35 +53,34 @@
   };
 
   /**
-   * Constructs a <code>V4AppCatalogsResponseInnerMetadata</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AppCatalogsResponseInnerMetadataLabels</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppCatalogsResponseInnerMetadata} obj Optional instance to populate.
-   * @return {module:model/V4AppCatalogsResponseInnerMetadata} The populated <code>V4AppCatalogsResponseInnerMetadata</code> instance.
+   * @param {module:model/V4AppCatalogsResponseInnerMetadataLabels} obj Optional instance to populate.
+   * @return {module:model/V4AppCatalogsResponseInnerMetadataLabels} The populated <code>V4AppCatalogsResponseInnerMetadataLabels</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('application.giantswarm.io/catalog-type')) {
+        obj['application.giantswarm.io/catalog-type'] = ApiClient.convertToType(data['application.giantswarm.io/catalog-type'], 'String');
       }
-      if (data.hasOwnProperty('labels')) {
-        obj['labels'] = V4AppCatalogsResponseInnerMetadataLabels.constructFromObject(data['labels']);
+      if (data.hasOwnProperty('app-operator.giantswarm.io/version')) {
+        obj['app-operator.giantswarm.io/version'] = ApiClient.convertToType(data['app-operator.giantswarm.io/version'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * A URL friendly identifier for the catalog.
-   * @member {String} name
+   * @member {String} application.giantswarm.io/catalog-type
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['application.giantswarm.io/catalog-type'] = undefined;
   /**
-   * @member {module:model/V4AppCatalogsResponseInnerMetadataLabels} labels
+   * @member {String} app-operator.giantswarm.io/version
    */
-  exports.prototype['labels'] = undefined;
+  exports.prototype['app-operator.giantswarm.io/version'] = undefined;
 
 
 

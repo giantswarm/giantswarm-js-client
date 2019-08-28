@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := remove-required-auth-header
 
 .PHONY: test generate
 

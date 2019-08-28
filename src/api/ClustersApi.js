@@ -475,21 +475,15 @@
     /**
      * Get clusters
      * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getClusterStatus](#operation/getClusterStatus) operation. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ClusterListItem>} and HTTP response
      */
-    this.getClustersWithHttpInfo = function(authorization, opts) {
+    this.getClustersWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusters");
-      }
 
 
       var pathParams = {
@@ -497,7 +491,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -520,15 +513,14 @@
     /**
      * Get clusters
      * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getClusterStatus](#operation/getClusterStatus) operation. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ClusterListItem>}
      */
-    this.getClusters = function(authorization, opts) {
-      return this.getClustersWithHttpInfo(authorization, opts)
+    this.getClusters = function(opts) {
+      return this.getClustersWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
