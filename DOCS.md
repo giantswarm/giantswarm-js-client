@@ -105,8 +105,6 @@ AuthorizationHeaderToken.apiKey = "YOUR API KEY"
 
 var api = new GiantSwarm.AppConfigsApi()
 
-var authorization = "authorization_example"; // {String} As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // {String} Cluster ID
 
 var appName = "appName_example"; // {String} App Name
@@ -117,7 +115,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // {V4CreateAppConfigRequest} 
 };
-api.createClusterAppConfig(authorization, clusterId, appName, opts).then(function(data) {
+api.createClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -194,6 +192,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V4AppCatalogsResponse](docs/V4AppCatalogsResponse.md)
  - [GiantSwarm.V4AppCatalogsResponseInner](docs/V4AppCatalogsResponseInner.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerMetadata](docs/V4AppCatalogsResponseInnerMetadata.md)
+ - [GiantSwarm.V4AppCatalogsResponseInnerMetadataLabels](docs/V4AppCatalogsResponseInnerMetadataLabels.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerSpec](docs/V4AppCatalogsResponseInnerSpec.md)
  - [GiantSwarm.V4AppCatalogsResponseInnerSpecStorage](docs/V4AppCatalogsResponseInnerSpecStorage.md)
  - [GiantSwarm.V4AppMetadata](docs/V4AppMetadata.md)
@@ -226,6 +225,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V4GetKeyPairsResponse](docs/V4GetKeyPairsResponse.md)
  - [GiantSwarm.V4GetKeyPairsResponseInner](docs/V4GetKeyPairsResponseInner.md)
  - [GiantSwarm.V4InfoResponse](docs/V4InfoResponse.md)
+ - [GiantSwarm.V4InfoResponseFeatures](docs/V4InfoResponseFeatures.md)
+ - [GiantSwarm.V4InfoResponseFeaturesNodepools](docs/V4InfoResponseFeaturesNodepools.md)
  - [GiantSwarm.V4InfoResponseGeneral](docs/V4InfoResponseGeneral.md)
  - [GiantSwarm.V4InfoResponseGeneralAvailabilityZones](docs/V4InfoResponseGeneralAvailabilityZones.md)
  - [GiantSwarm.V4InfoResponseStats](docs/V4InfoResponseStats.md)

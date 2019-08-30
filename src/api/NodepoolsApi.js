@@ -51,7 +51,6 @@
     /**
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;instance_type&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -60,14 +59,9 @@
      * @param {module:model/V5AddNodePoolRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    this.addNodePoolWithHttpInfo = function(authorization, clusterId, opts) {
+    this.addNodePoolWithHttpInfo = function(clusterId, opts) {
       opts = opts || {};
       var postBody = opts['body'];
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling addNodePool");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -81,7 +75,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -104,7 +97,6 @@
     /**
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;instance_type&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -113,8 +105,8 @@
      * @param {module:model/V5AddNodePoolRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    this.addNodePool = function(authorization, clusterId, opts) {
-      return this.addNodePoolWithHttpInfo(authorization, clusterId, opts)
+    this.addNodePool = function(clusterId, opts) {
+      return this.addNodePoolWithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -124,7 +116,6 @@
     /**
      * Delete node pool
      * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {Object} opts Optional parameters
@@ -133,14 +124,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, opts) {
+    this.deleteNodePoolWithHttpInfo = function(clusterId, nodepoolId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteNodePool");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -160,7 +146,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -183,7 +168,6 @@
     /**
      * Delete node pool
      * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {Object} opts Optional parameters
@@ -192,8 +176,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteNodePool = function(authorization, clusterId, nodepoolId, opts) {
-      return this.deleteNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, opts)
+    this.deleteNodePool = function(clusterId, nodepoolId, opts) {
+      return this.deleteNodePoolWithHttpInfo(clusterId, nodepoolId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -203,7 +187,6 @@
     /**
      * Get node pool details
      * Returns all available details on a specific node pool. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {Object} opts Optional parameters
@@ -212,14 +195,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    this.getNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, opts) {
+    this.getNodePoolWithHttpInfo = function(clusterId, nodepoolId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getNodePool");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -239,7 +217,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -262,7 +239,6 @@
     /**
      * Get node pool details
      * Returns all available details on a specific node pool. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {Object} opts Optional parameters
@@ -271,8 +247,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    this.getNodePool = function(authorization, clusterId, nodepoolId, opts) {
-      return this.getNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, opts)
+    this.getNodePool = function(clusterId, nodepoolId, opts) {
+      return this.getNodePoolWithHttpInfo(clusterId, nodepoolId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -282,7 +258,6 @@
     /**
      * Get node pools
      * Returns a list of node pools from a given cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -290,14 +265,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolsResponse} and HTTP response
      */
-    this.getNodePoolsWithHttpInfo = function(authorization, clusterId, opts) {
+    this.getNodePoolsWithHttpInfo = function(clusterId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getNodePools");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -311,7 +281,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -334,7 +303,6 @@
     /**
      * Get node pools
      * Returns a list of node pools from a given cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -342,8 +310,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolsResponse}
      */
-    this.getNodePools = function(authorization, clusterId, opts) {
-      return this.getNodePoolsWithHttpInfo(authorization, clusterId, opts)
+    this.getNodePools = function(clusterId, opts) {
+      return this.getNodePoolsWithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -353,7 +321,6 @@
     /**
      * Modify node pool
      * Allows to rename a node pool or change its scaling settings. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {module:model/V5ModifyNodePoolRequest} body Merge-patch body
@@ -363,14 +330,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    this.modifyNodePoolWithHttpInfo = function(authorization, clusterId, nodepoolId, body, opts) {
+    this.modifyNodePoolWithHttpInfo = function(clusterId, nodepoolId, body, opts) {
       opts = opts || {};
       var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyNodePool");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -395,7 +357,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -418,7 +379,6 @@
     /**
      * Modify node pool
      * Allows to rename a node pool or change its scaling settings. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} nodepoolId Node Pool ID
      * @param {module:model/V5ModifyNodePoolRequest} body Merge-patch body
@@ -428,8 +388,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    this.modifyNodePool = function(authorization, clusterId, nodepoolId, body, opts) {
-      return this.modifyNodePoolWithHttpInfo(authorization, clusterId, nodepoolId, body, opts)
+    this.modifyNodePool = function(clusterId, nodepoolId, body, opts) {
+      return this.modifyNodePoolWithHttpInfo(clusterId, nodepoolId, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

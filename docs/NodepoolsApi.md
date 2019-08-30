@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="addNodePool"></a>
 # **addNodePool**
-> V5GetNodePoolResponse addNodePool(authorization, clusterId, , opts)
+> V5GetNodePoolResponse addNodePool(clusterId, , opts)
 
 Create node pool
 
@@ -32,8 +32,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.NodepoolsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -42,7 +40,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V5AddNodePoolRequest() // V5AddNodePoolRequest | 
 };
-apiInstance.addNodePool(authorization, clusterId, , opts).then(function(data) {
+apiInstance.addNodePool(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -54,7 +52,6 @@ apiInstance.addNodePool(authorization, clusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -76,7 +73,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteNodePool"></a>
 # **deleteNodePool**
-> V4GenericResponse deleteNodePool(authorization, clusterId, nodepoolId, , opts)
+> V4GenericResponse deleteNodePool(clusterId, nodepoolId, , opts)
 
 Delete node pool
 
@@ -95,8 +92,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.NodepoolsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
@@ -106,7 +101,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteNodePool(authorization, clusterId, nodepoolId, , opts).then(function(data) {
+apiInstance.deleteNodePool(clusterId, nodepoolId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -118,7 +113,6 @@ apiInstance.deleteNodePool(authorization, clusterId, nodepoolId, , opts).then(fu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **nodepoolId** | **String**| Node Pool ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -140,7 +134,7 @@ Name | Type | Description  | Notes
 
 <a name="getNodePool"></a>
 # **getNodePool**
-> V5GetNodePoolResponse getNodePool(authorization, clusterId, nodepoolId, , opts)
+> V5GetNodePoolResponse getNodePool(clusterId, nodepoolId, , opts)
 
 Get node pool details
 
@@ -159,8 +153,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.NodepoolsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
@@ -170,7 +162,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getNodePool(authorization, clusterId, nodepoolId, , opts).then(function(data) {
+apiInstance.getNodePool(clusterId, nodepoolId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -182,7 +174,6 @@ apiInstance.getNodePool(authorization, clusterId, nodepoolId, , opts).then(funct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **nodepoolId** | **String**| Node Pool ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -204,7 +195,7 @@ Name | Type | Description  | Notes
 
 <a name="getNodePools"></a>
 # **getNodePools**
-> V5GetNodePoolsResponse getNodePools(authorization, clusterId, , opts)
+> V5GetNodePoolsResponse getNodePools(clusterId, , opts)
 
 Get node pools
 
@@ -223,8 +214,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.NodepoolsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -232,7 +221,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getNodePools(authorization, clusterId, , opts).then(function(data) {
+apiInstance.getNodePools(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -244,7 +233,6 @@ apiInstance.getNodePools(authorization, clusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
@@ -265,7 +253,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyNodePool"></a>
 # **modifyNodePool**
-> V5GetNodePoolResponse modifyNodePool(authorization, clusterId, nodepoolId, body, opts)
+> V5GetNodePoolResponse modifyNodePool(clusterId, nodepoolId, body, opts)
 
 Modify node pool
 
@@ -284,8 +272,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.NodepoolsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var nodepoolId = "nodepoolId_example"; // String | Node Pool ID
@@ -297,7 +283,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.modifyNodePool(authorization, clusterId, nodepoolId, body, opts).then(function(data) {
+apiInstance.modifyNodePool(clusterId, nodepoolId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -309,7 +295,6 @@ apiInstance.modifyNodePool(authorization, clusterId, nodepoolId, body, opts).the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **nodepoolId** | **String**| Node Pool ID | 
  **body** | [**V5ModifyNodePoolRequest**](V5ModifyNodePoolRequest.md)| Merge-patch body | 

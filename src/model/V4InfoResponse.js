@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseStats', 'model/V4InfoResponseWorkers'], factory);
+    define(['ApiClient', 'model/V4InfoResponseFeatures', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseStats', 'model/V4InfoResponseWorkers'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseGeneral'), require('./V4InfoResponseStats'), require('./V4InfoResponseWorkers'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeatures'), require('./V4InfoResponseGeneral'), require('./V4InfoResponseStats'), require('./V4InfoResponseWorkers'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4InfoResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseGeneral, root.GiantSwarm.V4InfoResponseStats, root.GiantSwarm.V4InfoResponseWorkers);
+    root.GiantSwarm.V4InfoResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeatures, root.GiantSwarm.V4InfoResponseGeneral, root.GiantSwarm.V4InfoResponseStats, root.GiantSwarm.V4InfoResponseWorkers);
   }
-}(this, function(ApiClient, V4InfoResponseGeneral, V4InfoResponseStats, V4InfoResponseWorkers) {
+}(this, function(ApiClient, V4InfoResponseFeatures, V4InfoResponseGeneral, V4InfoResponseStats, V4InfoResponseWorkers) {
   'use strict';
 
 
@@ -50,6 +50,7 @@
 
 
 
+
   };
 
   /**
@@ -66,6 +67,9 @@
       if (data.hasOwnProperty('general')) {
         obj['general'] = V4InfoResponseGeneral.constructFromObject(data['general']);
       }
+      if (data.hasOwnProperty('features')) {
+        obj['features'] = V4InfoResponseFeatures.constructFromObject(data['features']);
+      }
       if (data.hasOwnProperty('stats')) {
         obj['stats'] = V4InfoResponseStats.constructFromObject(data['stats']);
       }
@@ -80,6 +84,10 @@
    * @member {module:model/V4InfoResponseGeneral} general
    */
   exports.prototype['general'] = undefined;
+  /**
+   * @member {module:model/V4InfoResponseFeatures} features
+   */
+  exports.prototype['features'] = undefined;
   /**
    * @member {module:model/V4InfoResponseStats} stats
    */

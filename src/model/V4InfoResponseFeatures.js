@@ -15,59 +15,68 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient', 'model/V4InfoResponseFeaturesNodepools'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesNodepools'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarm);
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
+    }
+    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesNodepools);
   }
-}(this, function(expect, GiantSwarm) {
+}(this, function(ApiClient, V4InfoResponseFeaturesNodepools) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new GiantSwarm.V4AppCatalogsResponseInner();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The V4InfoResponseFeatures model module.
+   * @module model/V4InfoResponseFeatures
+   * @version 4.0.0
+   */
+
+  /**
+   * Constructs a new <code>V4InfoResponseFeatures</code>.
+   * Information on particular capabilities of the installation.
+   * @alias module:model/V4InfoResponseFeatures
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+  };
+
+  /**
+   * Constructs a <code>V4InfoResponseFeatures</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/V4InfoResponseFeatures} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseFeatures} The populated <code>V4InfoResponseFeatures</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('nodepools')) {
+        obj['nodepools'] = V4InfoResponseFeaturesNodepools.constructFromObject(data['nodepools']);
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
+   */
+  exports.prototype['nodepools'] = undefined;
 
-  describe('V4AppCatalogsResponseInner', function() {
-    it('should create an instance of V4AppCatalogsResponseInner', function() {
-      // uncomment below and update the code to test V4AppCatalogsResponseInner
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be.a(GiantSwarm.V4AppCatalogsResponseInner);
-    });
 
-    it('should have the property metadata (base name: "metadata")', function() {
-      // uncomment below and update the code to test the property metadata
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property spec (base name: "spec")', function() {
-      // uncomment below and update the code to test the property spec
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInner();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+

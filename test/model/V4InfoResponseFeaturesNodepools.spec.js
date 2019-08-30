@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
+    instance = new GiantSwarm.V4InfoResponseFeaturesNodepools();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,34 +49,16 @@
       object[property] = value;
   }
 
-  describe('V4AddCredentialsRequestAzureCredential', function() {
-    it('should create an instance of V4AddCredentialsRequestAzureCredential', function() {
-      // uncomment below and update the code to test V4AddCredentialsRequestAzureCredential
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
-      //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAzureCredential);
+  describe('V4InfoResponseFeaturesNodepools', function() {
+    it('should create an instance of V4InfoResponseFeaturesNodepools', function() {
+      // uncomment below and update the code to test V4InfoResponseFeaturesNodepools
+      //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
+      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseFeaturesNodepools);
     });
 
-    it('should have the property clientId (base name: "client_id")', function() {
-      // uncomment below and update the code to test the property clientId
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property secretKey (base name: "secret_key")', function() {
-      // uncomment below and update the code to test the property secretKey
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property subscriptionId (base name: "subscription_id")', function() {
-      // uncomment below and update the code to test the property subscriptionId
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property tenantId (base name: "tenant_id")', function() {
-      // uncomment below and update the code to test the property tenantId
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAzureCredential();
+    it('should have the property releaseVersionMinimum (base name: "release_version_minimum")', function() {
+      // uncomment below and update the code to test the property releaseVersionMinimum
+      //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
       //expect(instance).to.be();
     });
 

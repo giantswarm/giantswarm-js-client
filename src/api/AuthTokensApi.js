@@ -113,21 +113,15 @@
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteAuthTokenWithHttpInfo = function(authorization, opts) {
+    this.deleteAuthTokenWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteAuthToken");
-      }
 
 
       var pathParams = {
@@ -135,7 +129,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -158,15 +151,14 @@
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteAuthToken = function(authorization, opts) {
-      return this.deleteAuthTokenWithHttpInfo(authorization, opts)
+    this.deleteAuthToken = function(opts) {
+      return this.deleteAuthTokenWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
