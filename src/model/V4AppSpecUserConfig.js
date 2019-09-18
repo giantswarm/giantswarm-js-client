@@ -16,32 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppSpecUserConfig'], factory);
+    define(['ApiClient', 'model/V4AppSpecUserConfigConfigmap', 'model/V4AppSpecUserConfigSecret'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfig'));
+    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfigConfigmap'), require('./V4AppSpecUserConfigSecret'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfig);
+    root.GiantSwarm.V4AppSpecUserConfig = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfigConfigmap, root.GiantSwarm.V4AppSpecUserConfigSecret);
   }
-}(this, function(ApiClient, V4AppSpecUserConfig) {
+}(this, function(ApiClient, V4AppSpecUserConfigConfigmap, V4AppSpecUserConfigSecret) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppSpec model module.
-   * @module model/V4AppSpec
+   * The V4AppSpecUserConfig model module.
+   * @module model/V4AppSpecUserConfig
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppSpec</code>.
-   * @alias module:model/V4AppSpec
+   * Constructs a new <code>V4AppSpecUserConfig</code>.
+   * User definable configuration to be applied when the app is deployed
+   * @alias module:model/V4AppSpecUserConfig
    * @class
    */
   var exports = function() {
@@ -49,65 +50,37 @@
 
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>V4AppSpec</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AppSpecUserConfig</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppSpec} obj Optional instance to populate.
-   * @return {module:model/V4AppSpec} The populated <code>V4AppSpec</code> instance.
+   * @param {module:model/V4AppSpecUserConfig} obj Optional instance to populate.
+   * @return {module:model/V4AppSpecUserConfig} The populated <code>V4AppSpecUserConfig</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('configmap')) {
+        obj['configmap'] = V4AppSpecUserConfigConfigmap.constructFromObject(data['configmap']);
       }
-      if (data.hasOwnProperty('namespace')) {
-        obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
-      }
-      if (data.hasOwnProperty('version')) {
-        obj['version'] = ApiClient.convertToType(data['version'], 'String');
-      }
-      if (data.hasOwnProperty('catalog')) {
-        obj['catalog'] = ApiClient.convertToType(data['catalog'], 'String');
-      }
-      if (data.hasOwnProperty('user_config')) {
-        obj['user_config'] = V4AppSpecUserConfig.constructFromObject(data['user_config']);
+      if (data.hasOwnProperty('secret')) {
+        obj['secret'] = V4AppSpecUserConfigSecret.constructFromObject(data['secret']);
       }
     }
     return obj;
   }
 
   /**
-   * Name of the chart that was used to install this app
-   * @member {String} name
+   * @member {module:model/V4AppSpecUserConfigConfigmap} configmap
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['configmap'] = undefined;
   /**
-   * Namespace that this app is installed to
-   * @member {String} namespace
+   * @member {module:model/V4AppSpecUserConfigSecret} secret
    */
-  exports.prototype['namespace'] = undefined;
-  /**
-   * Version of the chart that was used to install this app
-   * @member {String} version
-   */
-  exports.prototype['version'] = undefined;
-  /**
-   * The catalog that this app came from
-   * @member {String} catalog
-   */
-  exports.prototype['catalog'] = undefined;
-  /**
-   * @member {module:model/V4AppSpecUserConfig} user_config
-   */
-  exports.prototype['user_config'] = undefined;
+  exports.prototype['secret'] = undefined;
 
 
 

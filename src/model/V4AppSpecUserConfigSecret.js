@@ -15,59 +15,77 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarm);
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
+    }
+    root.GiantSwarm.V4AppSpecUserConfigSecret = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(expect, GiantSwarm) {
+}(this, function(ApiClient) {
   'use strict';
 
-  var instance;
 
-  beforeEach(function() {
-    instance = new GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The V4AppSpecUserConfigSecret model module.
+   * @module model/V4AppSpecUserConfigSecret
+   * @version 4.0.0
+   */
+
+  /**
+   * Constructs a new <code>V4AppSpecUserConfigSecret</code>.
+   * @alias module:model/V4AppSpecUserConfigSecret
+   * @class
+   */
+  var exports = function() {
+    var _this = this;
+
+
+
+  };
+
+  /**
+   * Constructs a <code>V4AppSpecUserConfigSecret</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/V4AppSpecUserConfigSecret} obj Optional instance to populate.
+   * @return {module:model/V4AppSpecUserConfigSecret} The populated <code>V4AppSpecUserConfigSecret</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('namespace')) {
+        obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
+      }
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+  /**
+   * Name of the Secret on the control plane, which will become available wherever the app is installed
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * Namespace of the Secret on the control plane, e.g. 123ab
+   * @member {String} namespace
+   */
+  exports.prototype['namespace'] = undefined;
 
-  describe('V4AppSpecUserConfigConfigMapConfigmap', function() {
-    it('should create an instance of V4AppSpecUserConfigConfigMapConfigmap', function() {
-      // uncomment below and update the code to test V4AppSpecUserConfigConfigMapConfigmap
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap();
-      //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap);
-    });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property namespace (base name: "namespace")', function() {
-      // uncomment below and update the code to test the property namespace
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigMapConfigmap();
-      //expect(instance).to.be();
-    });
-
-  });
-
+  return exports;
 }));
+
+
