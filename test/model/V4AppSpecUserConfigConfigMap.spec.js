@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarm.V4AppSpecUserConfigConfigMap();
+    instance = new GiantSwarm.V4AppSpecUserConfigConfigmap();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,16 +49,22 @@
       object[property] = value;
   }
 
-  describe('V4AppSpecUserConfigConfigMap', function() {
-    it('should create an instance of V4AppSpecUserConfigConfigMap', function() {
-      // uncomment below and update the code to test V4AppSpecUserConfigConfigMap
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigMap();
-      //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfigConfigMap);
+  describe('V4AppSpecUserConfigConfigmap', function() {
+    it('should create an instance of V4AppSpecUserConfigConfigmap', function() {
+      // uncomment below and update the code to test V4AppSpecUserConfigConfigmap
+      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
+      //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfigConfigmap);
     });
 
-    it('should have the property configmap (base name: "configmap")', function() {
-      // uncomment below and update the code to test the property configmap
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigMap();
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property namespace (base name: "namespace")', function() {
+      // uncomment below and update the code to test the property namespace
+      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
       //expect(instance).to.be();
     });
 
