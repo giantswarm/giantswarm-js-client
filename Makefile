@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := secrets
 
 .PHONY: test generate
 

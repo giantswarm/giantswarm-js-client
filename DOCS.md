@@ -134,6 +134,10 @@ Class | Method | HTTP request | Description
 *GiantSwarm.AppConfigsApi* | [**deleteClusterAppConfig**](docs/AppConfigsApi.md#deleteClusterAppConfig) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config
 *GiantSwarm.AppConfigsApi* | [**getClusterAppConfig**](docs/AppConfigsApi.md#getClusterAppConfig) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config
 *GiantSwarm.AppConfigsApi* | [**modifyClusterAppConfig**](docs/AppConfigsApi.md#modifyClusterAppConfig) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Modify app config
+*GiantSwarm.AppSecretsApi* | [**createClusterAppSecret**](docs/AppSecretsApi.md#createClusterAppSecret) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Create Secret
+*GiantSwarm.AppSecretsApi* | [**deleteClusterAppSecret**](docs/AppSecretsApi.md#deleteClusterAppSecret) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Delete a Secret
+*GiantSwarm.AppSecretsApi* | [**getClusterAppSecret**](docs/AppSecretsApi.md#getClusterAppSecret) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Get Secret
+*GiantSwarm.AppSecretsApi* | [**modifyClusterAppSecret**](docs/AppSecretsApi.md#modifyClusterAppSecret) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Modify Secret
 *GiantSwarm.AppsApi* | [**createClusterApp**](docs/AppsApi.md#createClusterApp) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app
 *GiantSwarm.AppsApi* | [**deleteClusterApp**](docs/AppsApi.md#deleteClusterApp) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app
 *GiantSwarm.AppsApi* | [**getAppCatalogs**](docs/AppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
@@ -211,9 +215,11 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V4CreateAppRequestSpec](docs/V4CreateAppRequestSpec.md)
  - [GiantSwarm.V4CreateAuthTokenRequest](docs/V4CreateAuthTokenRequest.md)
  - [GiantSwarm.V4CreateAuthTokenResponse](docs/V4CreateAuthTokenResponse.md)
+ - [GiantSwarm.V4CreateClusterAppSecretRequest](docs/V4CreateClusterAppSecretRequest.md)
  - [GiantSwarm.V4CreateUserRequest](docs/V4CreateUserRequest.md)
  - [GiantSwarm.V4GenericResponse](docs/V4GenericResponse.md)
  - [GiantSwarm.V4GetClusterAppConfigResponse](docs/V4GetClusterAppConfigResponse.md)
+ - [GiantSwarm.V4GetClusterAppSecretResponse](docs/V4GetClusterAppSecretResponse.md)
  - [GiantSwarm.V4GetClusterAppsResponse](docs/V4GetClusterAppsResponse.md)
  - [GiantSwarm.V4GetClusterStatusResponse](docs/V4GetClusterStatusResponse.md)
  - [GiantSwarm.V4GetCredentialResponse](docs/V4GetCredentialResponse.md)
