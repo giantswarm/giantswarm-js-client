@@ -16,32 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/V4AppSpecUserConfigConfigmap', 'model/V4AppSpecUserConfigSecret'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfigConfigmap'), require('./V4AppSpecUserConfigSecret'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppSpecUserConfigConfigmap = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V4AppSpecUserConfig = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfigConfigmap, root.GiantSwarm.V4AppSpecUserConfigSecret);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, V4AppSpecUserConfigConfigmap, V4AppSpecUserConfigSecret) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppSpecUserConfigConfigmap model module.
-   * @module model/V4AppSpecUserConfigConfigmap
+   * The V4AppSpecUserConfig model module.
+   * @module model/V4AppSpecUserConfig
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppSpecUserConfigConfigmap</code>.
-   * @alias module:model/V4AppSpecUserConfigConfigmap
+   * Constructs a new <code>V4AppSpecUserConfig</code>.
+   * User definable configuration to be applied when the app is deployed
+   * @alias module:model/V4AppSpecUserConfig
    * @class
    */
   var exports = function() {
@@ -52,36 +53,34 @@
   };
 
   /**
-   * Constructs a <code>V4AppSpecUserConfigConfigmap</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AppSpecUserConfig</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppSpecUserConfigConfigmap} obj Optional instance to populate.
-   * @return {module:model/V4AppSpecUserConfigConfigmap} The populated <code>V4AppSpecUserConfigConfigmap</code> instance.
+   * @param {module:model/V4AppSpecUserConfig} obj Optional instance to populate.
+   * @return {module:model/V4AppSpecUserConfig} The populated <code>V4AppSpecUserConfig</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('configmap')) {
+        obj['configmap'] = V4AppSpecUserConfigConfigmap.constructFromObject(data['configmap']);
       }
-      if (data.hasOwnProperty('namespace')) {
-        obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
+      if (data.hasOwnProperty('secret')) {
+        obj['secret'] = V4AppSpecUserConfigSecret.constructFromObject(data['secret']);
       }
     }
     return obj;
   }
 
   /**
-   * Name of the config map containing values to apply, e.g. prometheus-user-values
-   * @member {String} name
+   * @member {module:model/V4AppSpecUserConfigConfigmap} configmap
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['configmap'] = undefined;
   /**
-   * Namespace of the values config map on the control plane, e.g. 123ab
-   * @member {String} namespace
+   * @member {module:model/V4AppSpecUserConfigSecret} secret
    */
-  exports.prototype['namespace'] = undefined;
+  exports.prototype['secret'] = undefined;
 
 
 

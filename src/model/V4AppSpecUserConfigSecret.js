@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppSpecUserConfigConfigmap = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V4AppSpecUserConfigSecret = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The V4AppSpecUserConfigConfigmap model module.
-   * @module model/V4AppSpecUserConfigConfigmap
+   * The V4AppSpecUserConfigSecret model module.
+   * @module model/V4AppSpecUserConfigSecret
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppSpecUserConfigConfigmap</code>.
-   * @alias module:model/V4AppSpecUserConfigConfigmap
+   * Constructs a new <code>V4AppSpecUserConfigSecret</code>.
+   * @alias module:model/V4AppSpecUserConfigSecret
    * @class
    */
   var exports = function() {
@@ -52,11 +52,11 @@
   };
 
   /**
-   * Constructs a <code>V4AppSpecUserConfigConfigmap</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4AppSpecUserConfigSecret</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppSpecUserConfigConfigmap} obj Optional instance to populate.
-   * @return {module:model/V4AppSpecUserConfigConfigmap} The populated <code>V4AppSpecUserConfigConfigmap</code> instance.
+   * @param {module:model/V4AppSpecUserConfigSecret} obj Optional instance to populate.
+   * @return {module:model/V4AppSpecUserConfigSecret} The populated <code>V4AppSpecUserConfigSecret</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -73,12 +73,12 @@
   }
 
   /**
-   * Name of the config map containing values to apply, e.g. prometheus-user-values
+   * Name of the Secret on the control plane, which will become available wherever the app is installed
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Namespace of the values config map on the control plane, e.g. 123ab
+   * Namespace of the Secret on the control plane, e.g. 123ab
    * @member {String} namespace
    */
   exports.prototype['namespace'] = undefined;

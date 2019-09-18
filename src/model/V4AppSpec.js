@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppSpecUserConfigConfigMap'], factory);
+    define(['ApiClient', 'model/V4AppSpecUserConfig'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfigConfigMap'));
+    module.exports = factory(require('../ApiClient'), require('./V4AppSpecUserConfig'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfigConfigMap);
+    root.GiantSwarm.V4AppSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppSpecUserConfig);
   }
-}(this, function(ApiClient, V4AppSpecUserConfigConfigMap) {
+}(this, function(ApiClient, V4AppSpecUserConfig) {
   'use strict';
 
 
@@ -78,7 +78,7 @@
         obj['catalog'] = ApiClient.convertToType(data['catalog'], 'String');
       }
       if (data.hasOwnProperty('user_config')) {
-        obj['user_config'] = V4AppSpecUserConfigConfigMap.constructFromObject(data['user_config']);
+        obj['user_config'] = V4AppSpecUserConfig.constructFromObject(data['user_config']);
       }
     }
     return obj;
@@ -105,7 +105,7 @@
    */
   exports.prototype['catalog'] = undefined;
   /**
-   * @member {module:model/V4AppSpecUserConfigConfigMap} user_config
+   * @member {module:model/V4AppSpecUserConfig} user_config
    */
   exports.prototype['user_config'] = undefined;
 
