@@ -1,5 +1,5 @@
 
-BRANCH := availability-zones-names
+BRANCH := master
 
 .PHONY: test generate
 
