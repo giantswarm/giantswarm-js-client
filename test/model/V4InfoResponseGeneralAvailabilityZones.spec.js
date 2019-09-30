@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property zones (base name: "zones")', function() {
+      // uncomment below and update the code to test the property zones
+      //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

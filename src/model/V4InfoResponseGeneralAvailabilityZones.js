@@ -52,6 +52,7 @@
 
     _this['max'] = max;
     _this['default'] = _default;
+
   };
 
   /**
@@ -71,6 +72,9 @@
       if (data.hasOwnProperty('default')) {
         obj['default'] = ApiClient.convertToType(data['default'], 'Number');
       }
+      if (data.hasOwnProperty('zones')) {
+        obj['zones'] = ApiClient.convertToType(data['zones'], ['String']);
+      }
     }
     return obj;
   }
@@ -85,6 +89,11 @@
    * @member {Number} default
    */
   exports.prototype['default'] = undefined;
+  /**
+   * The availability zones available in the installation's region for use with tenant clusters.
+   * @member {Array.<String>} zones
+   */
+  exports.prototype['zones'] = undefined;
 
 
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5AddClusterRequestMaster', 'model/V5AddNodePoolRequest'], factory);
+    define(['ApiClient', 'model/V5AddClusterRequestMaster'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5AddClusterRequestMaster'), require('./V5AddNodePoolRequest'));
+    module.exports = factory(require('../ApiClient'), require('./V5AddClusterRequestMaster'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5AddClusterRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5AddClusterRequestMaster, root.GiantSwarm.V5AddNodePoolRequest);
+    root.GiantSwarm.V5AddClusterRequest = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5AddClusterRequestMaster);
   }
-}(this, function(ApiClient, V5AddClusterRequestMaster, V5AddNodePoolRequest) {
+}(this, function(ApiClient, V5AddClusterRequestMaster) {
   'use strict';
 
 
@@ -49,7 +49,6 @@
     var _this = this;
 
     _this['owner'] = owner;
-
 
 
 
@@ -78,9 +77,6 @@
       if (data.hasOwnProperty('master')) {
         obj['master'] = V5AddClusterRequestMaster.constructFromObject(data['master']);
       }
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = ApiClient.convertToType(data['nodepools'], [V5AddNodePoolRequest]);
-      }
     }
     return obj;
   }
@@ -104,11 +100,6 @@
    * @member {module:model/V5AddClusterRequestMaster} master
    */
   exports.prototype['master'] = undefined;
-  /**
-   * Specification of node pools to be created immediately with the cluster. 
-   * @member {Array.<module:model/V5AddNodePoolRequest>} nodepools
-   */
-  exports.prototype['nodepools'] = undefined;
 
 
 

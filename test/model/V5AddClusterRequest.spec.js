@@ -80,12 +80,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property nodepools (base name: "nodepools")', function() {
-      // uncomment below and update the code to test the property nodepools
-      //var instane = new GiantSwarm.V5AddClusterRequest();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));
