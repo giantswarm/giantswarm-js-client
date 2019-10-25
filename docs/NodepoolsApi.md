@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="addNodePool"></a>
 # **addNodePool**
-> V5GetNodePoolResponse addNodePool(clusterId, , opts)
+> V5GetNodePoolResponse addNodePool(clusterId, body, opts)
 
 Create node pool
 
@@ -34,13 +34,14 @@ var apiInstance = new GiantSwarm.NodepoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
+var body = new GiantSwarm.V5AddNodePoolRequest(); // V5AddNodePoolRequest | 
+
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
-  'body': new GiantSwarm.V5AddNodePoolRequest() // V5AddNodePoolRequest | 
 };
-apiInstance.addNodePool(clusterId, , opts).then(function(data) {
+apiInstance.addNodePool(clusterId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -53,10 +54,10 @@ apiInstance.addNodePool(clusterId, , opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clusterId** | **String**| Cluster ID | 
+ **body** | [**V5AddNodePoolRequest**](V5AddNodePoolRequest.md)|  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
- **body** | [**V5AddNodePoolRequest**](V5AddNodePoolRequest.md)|  | [optional] 
 
 ### Return type
 

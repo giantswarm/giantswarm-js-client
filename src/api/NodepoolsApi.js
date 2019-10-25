@@ -52,20 +52,25 @@
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;instance_type&#x60; 
      * @param {String} clusterId Cluster ID
+     * @param {module:model/V5AddNodePoolRequest} body 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V5AddNodePoolRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    this.addNodePoolWithHttpInfo = function(clusterId, opts) {
+    this.addNodePoolWithHttpInfo = function(clusterId, body, opts) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = body;
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
         throw new Error("Missing the required parameter 'clusterId' when calling addNodePool");
+      }
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling addNodePool");
       }
 
 
@@ -98,15 +103,15 @@
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;instance_type&#x60; 
      * @param {String} clusterId Cluster ID
+     * @param {module:model/V5AddNodePoolRequest} body 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
-     * @param {module:model/V5AddNodePoolRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    this.addNodePool = function(clusterId, opts) {
-      return this.addNodePoolWithHttpInfo(clusterId, opts)
+    this.addNodePool = function(clusterId, body, opts) {
+      return this.addNodePoolWithHttpInfo(clusterId, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
