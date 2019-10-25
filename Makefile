@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := required-body
 
 .PHONY: test generate
 

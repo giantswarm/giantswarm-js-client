@@ -73,7 +73,7 @@
   }
 
   /**
-   * Date and time when the cluster got created with or upgrated to this version
+   * Date and time when the cluster got created with or upgraded to this version
    * @member {String} last_transition_time
    */
   exports.prototype['last_transition_time'] = undefined;
