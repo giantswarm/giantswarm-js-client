@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createClusterAppConfig"></a>
 # **createClusterAppConfig**
-> V4GenericResponse createClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse createClusterAppConfig(clusterId, appName, opts)
 
 Create app config
 
@@ -20,7 +20,7 @@ This operation allows you to create a values configmap for a specific app. The a
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -30,8 +30,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppConfigsApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -43,7 +41,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // V4CreateAppConfigRequest | 
 };
-apiInstance.createClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.createClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -55,7 +53,6 @@ apiInstance.createClusterAppConfig(authorizationclusterId, appName, opts).then(f
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -78,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteClusterAppConfig"></a>
 # **deleteClusterAppConfig**
-> V4GenericResponse deleteClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse deleteClusterAppConfig(clusterId, appName, opts)
 
 Delete an app config
 
@@ -86,7 +83,7 @@ This operation allows a user to delete an app&#39;s user config if it has been n
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -97,8 +94,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppConfigsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var appName = "appName_example"; // String | App Name
@@ -108,7 +103,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.deleteClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.deleteClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -120,7 +115,6 @@ apiInstance.deleteClusterAppConfig(authorizationclusterId, appName, opts).then(f
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -142,7 +136,7 @@ Name | Type | Description  | Notes
 
 <a name="getClusterAppConfig"></a>
 # **getClusterAppConfig**
-> V4GetClusterAppConfigResponse getClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GetClusterAppConfigResponse getClusterAppConfig(clusterId, appName, opts)
 
 Get app config
 
@@ -150,7 +144,7 @@ This operation allows you to fetch the user values configmap associated with an 
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -161,8 +155,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.AppConfigsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var appName = "appName_example"; // String | App Name
@@ -172,7 +164,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.getClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -184,7 +176,6 @@ apiInstance.getClusterAppConfig(authorizationclusterId, appName, opts).then(func
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -206,7 +197,7 @@ Name | Type | Description  | Notes
 
 <a name="modifyClusterAppConfig"></a>
 # **modifyClusterAppConfig**
-> V4GenericResponse modifyClusterAppConfig(authorizationclusterId, appName, opts)
+> V4GenericResponse modifyClusterAppConfig(clusterId, appName, opts)
 
 Modify app config
 
@@ -214,7 +205,7 @@ This operation allows you to modify the values configmap for a specific app. It&
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -224,8 +215,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
 var apiInstance = new GiantSwarm.AppConfigsApi();
-
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -237,7 +226,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // V4CreateAppConfigRequest | 
 };
-apiInstance.modifyClusterAppConfig(authorizationclusterId, appName, opts).then(function(data) {
+apiInstance.modifyClusterAppConfig(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -249,7 +238,6 @@ apiInstance.modifyClusterAppConfig(authorizationclusterId, appName, opts).then(f
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **appName** | **String**| App Name | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 

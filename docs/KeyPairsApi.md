@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="addKeyPair"></a>
 # **addKeyPair**
-> V4AddKeyPairResponse addKeyPair(authorizationclusterId, body, opts)
+> V4AddKeyPairResponse addKeyPair(clusterId, body, opts)
 
 Create key pair
 
@@ -18,7 +18,7 @@ This operation allows to create a new key pair for accessing a specific cluster.
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -29,8 +29,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.KeyPairsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var body = new GiantSwarm.V4AddKeyPairRequest(); // V4AddKeyPairRequest | While the `ttl_hours` attribute is optional and will be set to a default value when omitted, the `description` is mandatory. 
@@ -40,7 +38,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.addKeyPair(authorizationclusterId, body, opts).then(function(data) {
+apiInstance.addKeyPair(clusterId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -52,7 +50,6 @@ apiInstance.addKeyPair(authorizationclusterId, body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **body** | [**V4AddKeyPairRequest**](V4AddKeyPairRequest.md)| While the &#x60;ttl_hours&#x60; attribute is optional and will be set to a default value when omitted, the &#x60;description&#x60; is mandatory.  | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
@@ -74,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="getKeyPairs"></a>
 # **getKeyPairs**
-> V4GetKeyPairsResponse getKeyPairs(authorizationclusterId, , opts)
+> V4GetKeyPairsResponse getKeyPairs(clusterId, , opts)
 
 Get key pairs
 
@@ -82,7 +79,7 @@ Returns a list of information on all key pairs of a cluster as an array.  The in
 
 ### Example
 ```javascript
-var GiantSwarm = require('giantswarm-');
+var GiantSwarm = require('giantswarm');
 var defaultClient = GiantSwarm.ApiClient.instance;
 
 // Configure API key authorization: AuthorizationHeaderToken
@@ -93,8 +90,6 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.KeyPairsApi();
 
-var authorization = "authorization_example"; // String | As described in the [authentication](#section/Authentication) section 
-
 var clusterId = "clusterId_example"; // String | Cluster ID
 
 var opts = { 
@@ -102,7 +97,7 @@ var opts = {
   'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
 };
-apiInstance.getKeyPairs(authorizationclusterId, , opts).then(function(data) {
+apiInstance.getKeyPairs(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -114,7 +109,6 @@ apiInstance.getKeyPairs(authorizationclusterId, , opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **String**| As described in the [authentication](#section/Authentication) section  | 
  **clusterId** | **String**| Cluster ID | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 

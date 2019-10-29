@@ -1,6 +1,6 @@
 /**
- * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * The Giant Swarm API
+ * This is the documentation for the Giant Swarm API.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4ModifyClusterRequest', 'model/V5AddClusterRequest', 'model/V5ClusterDetailsResponse', 'model/V5ModifyClusterRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'), require('../model/V5AddClusterRequest'), require('../model/V5ClusterDetailsResponse'), require('../model/V5ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.ClustersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequest, root.GiantSwarm.V4ClusterDetailsResponse, root.GiantSwarm.V4ClusterListItem, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterStatusResponse, root.GiantSwarm.V4ModifyClusterRequest);
+    root.GiantSwarm.ClustersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequest, root.GiantSwarm.V4ClusterDetailsResponse, root.GiantSwarm.V4ClusterListItem, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterStatusResponse, root.GiantSwarm.V4ModifyClusterRequest, root.GiantSwarm.V5AddClusterRequest, root.GiantSwarm.V5ClusterDetailsResponse, root.GiantSwarm.V5ModifyClusterRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest, V5AddClusterRequest, V5ClusterDetailsResponse, V5ModifyClusterRequest) {
   'use strict';
 
   /**
@@ -49,9 +49,8 @@
 
 
     /**
-     * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are omitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The specification of worker nodes, for example the instance type on AWS, can be provided via the &#x60;workers&#x60; array. Here, the first item of the array is used as a specification for all worker nodes. For any missing specification attribute, defaults are assumed. Check out the [getInfo](#operation/getInfo) operation for more info about defaults.  ### Availability Zones (AWS only)  The number of &#x60;availability_zones&#x60; affects the total number of nodes that can be created in the cluster. The number of availability zones splits the IP range that can be used for the cluster in multiple smaller IP ranges. The [getInfo](#operation/getInfo) endpoint provides more details about the cluster IP range.  __IP range example:__  If a cluster gets a &#x60;/22&#x60; range (1022 hosts) and the cluster should be spawned across 3 availability zones, the range will then be split up into four &#x60;/24&#x60; (254 hosts) that can be assigned to four different availability zones. One range will stay unused because network addresses must be powers of two. See [CIDR addressing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Each of the &#x60;/24&#x60; will then be split into two &#x60;/25&#x60; (126 hosts) for public and private subnets. The private subnet is used for nodes and internal loadbalancer (only if you create them within Kubernetes). The public subnet will be used by the public loadbalancers. Tenant cluster come with two public loadbalancers by default. One for the Kubernetes API and one for Ingress.  __Note:__ AWS ELBs can take up to 8 IP addresses due to the way how they scale. In addition to this, every AWS subnet has four first addresses (.1-.4) reserved for internal use.  ### Initial cluster size and autoscaling  The API allows to define the cluster size on creation using the &#x60;scaling&#x60; attribute, setting a minimum and maximum worker node count.  For releases starting from 6.2.0 (on AWS), the cluster size is controlled by the [Kubernetes Autoscaler](https://github.com/kubernetes/autoscaler) within the limits defined by the &#x60;scaling&#x60; setting. This setting can also be modified any time later in the cluster lifecycle.  By setting both the minimum and maximum to the same value, autoscaling is effectively disabled. This is also the default behaviour when no initial cluster size is given, or when clusters are upgraded from releases before 6.2.0.  Until autoscaling is available on providers other than AWS, for Azure and KVM (on-premises) the &#x60;min&#x60; and &#x60;max&#x60; scaling value must be identical. The same is true for tenant clusters using a release before 6.2.0 on AWS.  ### Backward compatibility note  Before the introduction of autoscaling and the &#x60;scaling&#x60; attribute, the number of worker nodes could be determined via the number of items contained in the &#x60;workers&#x60; array. This behaviour will be still accepted for a transition period, but only if the &#x60;scaling&#x60; attribute is _not_ provided in the request. In this case, a &#x60;workers&#x60; array length of 5, for example, will be translated to a scaling where both &#x60;min&#x60; and &#x60;max&#x60; are set to 5, which effectively turns off autoscaling. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Create cluster (v4)
+     * This operation is used to create a new Kubernetes cluster or \&quot;tenant cluster\&quot;.  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like worker node configuration, with node specification depending on the provider (e. g. on &lt;span class&#x3D;\&quot;badge azure\&quot;&gt;Azure&lt;/span&gt; the VM size, or on &lt;span class&#x3D;\&quot;badge kvm\&quot;&gt;KVM&lt;/span&gt; the memory size and number of CPU cores).  One attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  For all other attributes, defaults will be applied if the attribute is not set. Check out the [getInfo](#operation/getInfo) operation for more info about defaults. If no &#x60;release_version&#x60; is set, the latest release version available for the provider will be used. 
      * @param {module:model/V4AddClusterRequest} body New cluster definition
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -59,14 +58,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.addClusterWithHttpInfo = function(authorization, body, opts) {
+    this.addClusterWithHttpInfo = function(body, opts) {
       opts = opts || {};
       var postBody = body;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling addCluster");
-      }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
@@ -79,7 +73,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -100,9 +93,8 @@
     }
 
     /**
-     * Create cluster
-     * This operation is used to create a new Kubernetes cluster for an organization. The desired configuration can be specified using the __cluster definition format__ (see [external documentation](https://github.com/giantswarm/api-spec/blob/master/details/CLUSTER_DEFINITION.md) for details).  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like memory size and number of CPU cores. However, one attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  It is *recommended* to also specify the &#x60;name&#x60; attribute to give the cluster a friendly name, like e. g. \&quot;Development Cluster\&quot;.  Additional definition attributes can be used. Where attributes are omitted, default configuration values will be applied. For example, if no &#x60;release_version&#x60; is specified, the most recent version is used.  The specification of worker nodes, for example the instance type on AWS, can be provided via the &#x60;workers&#x60; array. Here, the first item of the array is used as a specification for all worker nodes. For any missing specification attribute, defaults are assumed. Check out the [getInfo](#operation/getInfo) operation for more info about defaults.  ### Availability Zones (AWS only)  The number of &#x60;availability_zones&#x60; affects the total number of nodes that can be created in the cluster. The number of availability zones splits the IP range that can be used for the cluster in multiple smaller IP ranges. The [getInfo](#operation/getInfo) endpoint provides more details about the cluster IP range.  __IP range example:__  If a cluster gets a &#x60;/22&#x60; range (1022 hosts) and the cluster should be spawned across 3 availability zones, the range will then be split up into four &#x60;/24&#x60; (254 hosts) that can be assigned to four different availability zones. One range will stay unused because network addresses must be powers of two. See [CIDR addressing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Each of the &#x60;/24&#x60; will then be split into two &#x60;/25&#x60; (126 hosts) for public and private subnets. The private subnet is used for nodes and internal loadbalancer (only if you create them within Kubernetes). The public subnet will be used by the public loadbalancers. Tenant cluster come with two public loadbalancers by default. One for the Kubernetes API and one for Ingress.  __Note:__ AWS ELBs can take up to 8 IP addresses due to the way how they scale. In addition to this, every AWS subnet has four first addresses (.1-.4) reserved for internal use.  ### Initial cluster size and autoscaling  The API allows to define the cluster size on creation using the &#x60;scaling&#x60; attribute, setting a minimum and maximum worker node count.  For releases starting from 6.2.0 (on AWS), the cluster size is controlled by the [Kubernetes Autoscaler](https://github.com/kubernetes/autoscaler) within the limits defined by the &#x60;scaling&#x60; setting. This setting can also be modified any time later in the cluster lifecycle.  By setting both the minimum and maximum to the same value, autoscaling is effectively disabled. This is also the default behaviour when no initial cluster size is given, or when clusters are upgraded from releases before 6.2.0.  Until autoscaling is available on providers other than AWS, for Azure and KVM (on-premises) the &#x60;min&#x60; and &#x60;max&#x60; scaling value must be identical. The same is true for tenant clusters using a release before 6.2.0 on AWS.  ### Backward compatibility note  Before the introduction of autoscaling and the &#x60;scaling&#x60; attribute, the number of worker nodes could be determined via the number of items contained in the &#x60;workers&#x60; array. This behaviour will be still accepted for a transition period, but only if the &#x60;scaling&#x60; attribute is _not_ provided in the request. In this case, a &#x60;workers&#x60; array length of 5, for example, will be translated to a scaling where both &#x60;min&#x60; and &#x60;max&#x60; are set to 5, which effectively turns off autoscaling. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Create cluster (v4)
+     * This operation is used to create a new Kubernetes cluster or \&quot;tenant cluster\&quot;.  ### Cluster definition  The cluster definition format allows to set a number of optional configuration details, like worker node configuration, with node specification depending on the provider (e. g. on &lt;span class&#x3D;\&quot;badge azure\&quot;&gt;Azure&lt;/span&gt; the VM size, or on &lt;span class&#x3D;\&quot;badge kvm\&quot;&gt;KVM&lt;/span&gt; the memory size and number of CPU cores).  One attribute is __mandatory__ upon creation: The &#x60;owner&#x60; attribute must carry the name of the organization the cluster will belong to. Note that the acting user must be a member of that organization in order to create a cluster.  For all other attributes, defaults will be applied if the attribute is not set. Check out the [getInfo](#operation/getInfo) operation for more info about defaults. If no &#x60;release_version&#x60; is set, the latest release version available for the provider will be used. 
      * @param {module:model/V4AddClusterRequest} body New cluster definition
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -110,8 +102,70 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.addCluster = function(authorization, body, opts) {
-      return this.addClusterWithHttpInfo(authorization, body, opts)
+    this.addCluster = function(body, opts) {
+      return this.addClusterWithHttpInfo(body, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create cluster (v5)
+     * Allows to create clusters supporting node pools on AWS installations.  The cluster will not have any worker nodes until you create a first node pool.  See [node pools](#tag/nodepools) and [create node pool](#operation/addNodePool) for details. 
+     * @param {module:model/V5AddClusterRequest} body New cluster definition
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterDetailsResponse} and HTTP response
+     */
+    this.addClusterV5WithHttpInfo = function(body, opts) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling addClusterV5");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V5ClusterDetailsResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Create cluster (v5)
+     * Allows to create clusters supporting node pools on AWS installations.  The cluster will not have any worker nodes until you create a first node pool.  See [node pools](#tag/nodepools) and [create node pool](#operation/addNodePool) for details. 
+     * @param {module:model/V5AddClusterRequest} body New cluster definition
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterDetailsResponse}
+     */
+    this.addClusterV5 = function(body, opts) {
+      return this.addClusterV5WithHttpInfo(body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -120,8 +174,7 @@
 
     /**
      * Delete cluster
-     * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * This operation triggers deleting a cluster with all resources attached to it.  Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -129,14 +182,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteClusterWithHttpInfo = function(authorization, clusterId, opts) {
+    this.deleteClusterWithHttpInfo = function(clusterId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteCluster");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -150,7 +198,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -172,8 +219,7 @@
 
     /**
      * Delete cluster
-     * This operation allows to delete a cluster.  __Caution:__ Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * This operation triggers deleting a cluster with all resources attached to it.  Deleting a cluster causes the termination of all workloads running on the cluster. Data stored on the worker nodes will be lost. There is no way to undo this operation.  The response is sent as soon as the request is validated. At that point, workloads might still be running on the cluster and may be accessible for a little wile, until the cluster is actually deleted. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -181,8 +227,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteCluster = function(authorization, clusterId, opts) {
-      return this.deleteClusterWithHttpInfo(authorization, clusterId, opts)
+    this.deleteCluster = function(clusterId, opts) {
+      return this.deleteClusterWithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -190,9 +236,8 @@
 
 
     /**
-     * Get cluster details
-     * This operation allows to obtain most available details on a particular cluster.  __Deprecation note:__ The &#x60;workers&#x60; attribute will be removed by from this operation&#39;s response in the near future. Please use the [getClusterStatus](#operation/getClusterStatus) operation instead to get up-to-date details on the workers nodes in a cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Get cluster details (v4)
+     * This operation allows to obtain basic details on a particular cluster. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -200,14 +245,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
      */
-    this.getClusterWithHttpInfo = function(authorization, clusterId, opts) {
+    this.getClusterWithHttpInfo = function(clusterId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getCluster");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -221,7 +261,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -242,9 +281,8 @@
     }
 
     /**
-     * Get cluster details
-     * This operation allows to obtain most available details on a particular cluster.  __Deprecation note:__ The &#x60;workers&#x60; attribute will be removed by from this operation&#39;s response in the near future. Please use the [getClusterStatus](#operation/getClusterStatus) operation instead to get up-to-date details on the workers nodes in a cluster. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Get cluster details (v4)
+     * This operation allows to obtain basic details on a particular cluster. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -252,8 +290,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
      */
-    this.getCluster = function(authorization, clusterId, opts) {
-      return this.getClusterWithHttpInfo(authorization, clusterId, opts)
+    this.getCluster = function(clusterId, opts) {
+      return this.getClusterWithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -262,8 +300,7 @@
 
     /**
      * Get cluster status
-     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [&#x60;awsconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [&#x60;azureconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [&#x60;kvmconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -271,14 +308,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterStatusResponse} and HTTP response
      */
-    this.getClusterStatusWithHttpInfo = function(authorization, clusterId, opts) {
+    this.getClusterStatusWithHttpInfo = function(clusterId, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusterStatus");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -292,7 +324,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -314,8 +345,7 @@
 
     /**
      * Get cluster status
-     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [awsconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [azureconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [kvmconfig.provider.giantswarm.io](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * Returns an object about a cluster&#39;s current state and past status transitions.  This endpoint exposes the status content of the Kubernetes resources representing a cluster in the corresponding custom resource. That is, depending on the provider:  - [&#x60;awsconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AWSConfig) - [&#x60;azureconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#AzureConfig) - [&#x60;kvmconfig.provider.giantswarm.io&#x60;](https://godoc.org/github.com/giantswarm/apiextensions/pkg/apis/provider/v1alpha1#KVMConfig)  Note that structure and style differ from the rest of the v4 API. Also note that the structure depends on the release version and changes can be expected frequently. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -323,8 +353,71 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterStatusResponse}
      */
-    this.getClusterStatus = function(authorization, clusterId, opts) {
-      return this.getClusterStatusWithHttpInfo(authorization, clusterId, opts)
+    this.getClusterStatus = function(clusterId, opts) {
+      return this.getClusterStatusWithHttpInfo(clusterId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get cluster details (v5)
+     * Allows to retrieve details of a cluster supporting node pools on AWS installations. 
+     * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterDetailsResponse} and HTTP response
+     */
+    this.getClusterV5WithHttpInfo = function(clusterId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling getClusterV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V5ClusterDetailsResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get cluster details (v5)
+     * Allows to retrieve details of a cluster supporting node pools on AWS installations. 
+     * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterDetailsResponse}
+     */
+    this.getClusterV5 = function(clusterId, opts) {
+      return this.getClusterV5WithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -333,22 +426,16 @@
 
     /**
      * Get clusters
-     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster) and [getClusterStatus](#operation/getClusterStatus) operations. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getClusterStatus](#operation/getClusterStatus) operation. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ClusterListItem>} and HTTP response
      */
-    this.getClustersWithHttpInfo = function(authorization, opts) {
+    this.getClustersWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusters");
-      }
 
 
       var pathParams = {
@@ -356,7 +443,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -378,16 +464,15 @@
 
     /**
      * Get clusters
-     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getCluster](#operation/getCluster) and [getClusterStatus](#operation/getClusterStatus) operations. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
+     * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getClusterStatus](#operation/getClusterStatus) operation. 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ClusterListItem>}
      */
-    this.getClusters = function(authorization, opts) {
-      return this.getClustersWithHttpInfo(authorization, opts)
+    this.getClusters = function(opts) {
+      return this.getClustersWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -395,34 +480,28 @@
 
 
     /**
-     * Modify cluster
-     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases).  - &#x60;scaling&#x60;: Adjust the cluster node limits to make use of auto scaling or to have full control over the node count. The latter can be achieved by setting &#x60;min&#x60; and &#x60;max&#x60; to the same values. Note that setting &#x60;min&#x60; and &#x60;max&#x60; to different values (effectively enabling autoscaling) is only available on AWS with releases from 6.2.0.  - &#x60;workers&#x60; (deprecated): For backward compatibility reasons, it is possible to provide this attribute as an array, where the number of items contained in the array determines the intended number of worker nodes in the cluster. The item count will be applied as both &#x60;min&#x60; and &#x60;max&#x60; value of the scaling limits, effectively disabling autoscaling. This requires the &#x60;scaling&#x60; attribute must not be present in the same request.  ### Limitations  - As of now, existing worker nodes cannot be modified. - The number of availability zones cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
+     * Modify cluster (v4)
+     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases).  - &#x60;scaling&#x60;: Adjust the cluster node limits to make use of auto scaling or to have full control over the node count. The latter can be achieved by setting &#x60;min&#x60; and &#x60;max&#x60; to the same values. Note that setting &#x60;min&#x60; and &#x60;max&#x60; to different values (effectively enabling autoscaling) is only available on AWS with releases from 6.2.0.   - &#x60;workers&#x60; (deprecated): For backward compatibility reasons, it is possible to provide this attribute as an array, where the number of items contained in the array determines the intended number of worker nodes in the cluster. The item count will be applied as both &#x60;min&#x60; and &#x60;max&#x60; value of the scaling limits, effectively disabling autoscaling. This requires the &#x60;scaling&#x60; attribute must not be present in the same request.  ### Limitations  - As of now, existing worker nodes cannot be modified. - The number of availability zones cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. 
      * @param {String} clusterId Cluster ID
+     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4ClusterDetailsResponse} and HTTP response
      */
-    this.modifyClusterWithHttpInfo = function(authorization, body, clusterId, opts) {
+    this.modifyClusterWithHttpInfo = function(clusterId, body, opts) {
       opts = opts || {};
       var postBody = body;
 
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyCluster");
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyCluster");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
         throw new Error("Missing the required parameter 'body' when calling modifyCluster");
-      }
-
-      // verify the required parameter 'clusterId' is set
-      if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling modifyCluster");
       }
 
 
@@ -432,7 +511,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -453,19 +531,88 @@
     }
 
     /**
-     * Modify cluster
-     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases).  - &#x60;scaling&#x60;: Adjust the cluster node limits to make use of auto scaling or to have full control over the node count. The latter can be achieved by setting &#x60;min&#x60; and &#x60;max&#x60; to the same values. Note that setting &#x60;min&#x60; and &#x60;max&#x60; to different values (effectively enabling autoscaling) is only available on AWS with releases from 6.2.0.  - &#x60;workers&#x60; (deprecated): For backward compatibility reasons, it is possible to provide this attribute as an array, where the number of items contained in the array determines the intended number of worker nodes in the cluster. The item count will be applied as both &#x60;min&#x60; and &#x60;max&#x60; value of the scaling limits, effectively disabling autoscaling. This requires the &#x60;scaling&#x60; attribute must not be present in the same request.  ### Limitations  - As of now, existing worker nodes cannot be modified. - The number of availability zones cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
-     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
+     * Modify cluster (v4)
+     * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases).  - &#x60;scaling&#x60;: Adjust the cluster node limits to make use of auto scaling or to have full control over the node count. The latter can be achieved by setting &#x60;min&#x60; and &#x60;max&#x60; to the same values. Note that setting &#x60;min&#x60; and &#x60;max&#x60; to different values (effectively enabling autoscaling) is only available on AWS with releases from 6.2.0.   - &#x60;workers&#x60; (deprecated): For backward compatibility reasons, it is possible to provide this attribute as an array, where the number of items contained in the array determines the intended number of worker nodes in the cluster. The item count will be applied as both &#x60;min&#x60; and &#x60;max&#x60; value of the scaling limits, effectively disabling autoscaling. This requires the &#x60;scaling&#x60; attribute must not be present in the same request.  ### Limitations  - As of now, existing worker nodes cannot be modified. - The number of availability zones cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed. 
      * @param {String} clusterId Cluster ID
+     * @param {module:model/V4ModifyClusterRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4ClusterDetailsResponse}
      */
-    this.modifyCluster = function(authorization, body, clusterId, opts) {
-      return this.modifyClusterWithHttpInfo(authorization, body, clusterId, opts)
+    this.modifyCluster = function(clusterId, body, opts) {
+      return this.modifyClusterWithHttpInfo(clusterId, body, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Modify cluster (v5)
+     * Allows to change properties of a cluster supporting node pools on AWS installations.  The following attributes allow to be modified:  - &#x60;name&#x60; - &#x60;release_version&#x60; 
+     * @param {String} clusterId Cluster ID
+     * @param {module:model/V5ModifyClusterRequest} body Merge-patch body
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterDetailsResponse} and HTTP response
+     */
+    this.modifyClusterV5WithHttpInfo = function(clusterId, body, opts) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyClusterV5");
+      }
+
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling modifyClusterV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V5ClusterDetailsResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Modify cluster (v5)
+     * Allows to change properties of a cluster supporting node pools on AWS installations.  The following attributes allow to be modified:  - &#x60;name&#x60; - &#x60;release_version&#x60; 
+     * @param {String} clusterId Cluster ID
+     * @param {module:model/V5ModifyClusterRequest} body Merge-patch body
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterDetailsResponse}
+     */
+    this.modifyClusterV5 = function(clusterId, body, opts) {
+      return this.modifyClusterV5WithHttpInfo(clusterId, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

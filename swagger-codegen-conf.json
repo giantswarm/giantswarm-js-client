@@ -1,5 +1,5 @@
 {
-    "projectName": "giantswarm-",
+    "projectName": "giantswarm",
     "projectVersion": "4.0.0",
     "moduleName": "GiantSwarm",
     "projectDescription": "Generated JavaScript client for the Giant Swarm API.",

@@ -1,6 +1,6 @@
 /**
- * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * The Giant Swarm API
+ * This is the documentation for the Giant Swarm API.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -51,7 +51,6 @@
     /**
      * Create app config
      * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -61,14 +60,9 @@
      * @param {module:model/V4CreateAppConfigRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.createClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
+    this.createClusterAppConfigWithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = opts['body'];
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling createClusterAppConfig");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -88,7 +82,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -111,7 +104,6 @@
     /**
      * Create app config
      * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60; 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -121,8 +113,8 @@
      * @param {module:model/V4CreateAppConfigRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.createClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.createClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
+    this.createClusterAppConfig = function(clusterId, appName, opts) {
+      return this.createClusterAppConfigWithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -132,7 +124,6 @@
     /**
      * Delete an app config
      * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -141,14 +132,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
+    this.deleteClusterAppConfigWithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling deleteClusterAppConfig");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -168,7 +154,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -191,7 +176,6 @@
     /**
      * Delete an app config
      * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -200,8 +184,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.deleteClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
+    this.deleteClusterAppConfig = function(clusterId, appName, opts) {
+      return this.deleteClusterAppConfigWithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -211,7 +195,6 @@
     /**
      * Get app config
      * This operation allows you to fetch the user values configmap associated with an app. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -220,14 +203,9 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppConfigResponse} and HTTP response
      */
-    this.getClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
+    this.getClusterAppConfigWithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = null;
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling getClusterAppConfig");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -247,7 +225,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -270,7 +247,6 @@
     /**
      * Get app config
      * This operation allows you to fetch the user values configmap associated with an app. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -279,8 +255,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppConfigResponse}
      */
-    this.getClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.getClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
+    this.getClusterAppConfig = function(clusterId, appName, opts) {
+      return this.getClusterAppConfigWithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -290,7 +266,6 @@
     /**
      * Modify app config
      * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -300,14 +275,9 @@
      * @param {module:model/V4CreateAppConfigRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.modifyClusterAppConfigWithHttpInfo = function(authorization, clusterId, appName, opts) {
+    this.modifyClusterAppConfigWithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = opts['body'];
-
-      // verify the required parameter 'authorization' is set
-      if (authorization === undefined || authorization === null) {
-        throw new Error("Missing the required parameter 'authorization' when calling modifyClusterAppConfig");
-      }
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
@@ -327,7 +297,6 @@
       var queryParams = {
       };
       var headerParams = {
-        'Authorization': authorization,
         'X-Request-ID': opts['xRequestID'],
         'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
         'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
@@ -350,7 +319,6 @@
     /**
      * Modify app config
      * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed. 
-     * @param {String} authorization As described in the [authentication](#section/Authentication) section 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -360,8 +328,8 @@
      * @param {module:model/V4CreateAppConfigRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.modifyClusterAppConfig = function(authorization, clusterId, appName, opts) {
-      return this.modifyClusterAppConfigWithHttpInfo(authorization, clusterId, appName, opts)
+    this.modifyClusterAppConfig = function(clusterId, appName, opts) {
+      return this.modifyClusterAppConfigWithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -1,6 +1,6 @@
 /**
- * The Giant Swarm API v4
- * This is the documentation for the Giant Swarm API starting at version `v4`.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
+ * The Giant Swarm API
+ * This is the documentation for the Giant Swarm API.  For an introduction to Giant Swarm, refer to the [documentation site](https://docs.giantswarm.io/).  The Giant Swarm API attempts to behave in a __restful__ way. As a developer, you access resources using the `GET` method and, for example, delete them using the same path and the `DELETE` method.  Accessing resources via GET usually returns all information available about a resource, while collections, like for example the list of all clusters you have access to, only contain a selected few attributes of each member item.  Some requests, like for example the request to create a new cluster, don't return the resource itself. Instead, the response delivers a standard message body, showing a `code` and a `message` part. The `message` contains information for you or a client's end user. The `code` attribute contains some string (example: `RESOURCE_CREATED`) that is supposed to give you details on the state of the operation, in addition to standard HTTP status codes. This message format is also used in the case of errors. We provide a [list of all response codes](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) outside this documentation.  Feedback on the API as well as this documentation is welcome via `support@giantswarm.io` or on IRC channel [#giantswarm](irc://irc.freenode.org:6667/#giantswarm) on freenode.  ## Source  The source of this documentation is available on [GitHub](https://github.com/giantswarm/api-spec). 
  *
  * OpenAPI spec version: 4.0.0
  *
@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddClusterRequestScaling', 'model/V4AddCredentialsRequest', 'model/V4AddCredentialsRequestAws', 'model/V4AddCredentialsRequestAwsRoles', 'model/V4AddCredentialsRequestAzure', 'model/V4AddCredentialsRequestAzureCredential', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4App', 'model/V4AppCatalogsResponse', 'model/V4AppCatalogsResponseInner', 'model/V4AppCatalogsResponseInnerMetadata', 'model/V4AppCatalogsResponseInnerSpec', 'model/V4AppCatalogsResponseInnerSpecStorage', 'model/V4AppMetadata', 'model/V4AppSpec', 'model/V4AppSpecUserConfigConfigMap', 'model/V4AppSpecUserConfigConfigMapConfigmap', 'model/V4AppStatus', 'model/V4AppStatusRelease', 'model/V4ClusterDetailsResponse', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseKvmPortMappings', 'model/V4ClusterDetailsResponseScaling', 'model/V4ClusterListItem', 'model/V4CreateAppConfigRequest', 'model/V4CreateAppRequest', 'model/V4CreateAppRequestSpec', 'model/V4CreateAuthTokenRequest', 'model/V4CreateAuthTokenResponse', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetClusterAppConfigResponse', 'model/V4GetClusterAppsResponse', 'model/V4GetClusterStatusResponse', 'model/V4GetCredentialResponse', 'model/V4GetCredentialResponseAws', 'model/V4GetCredentialResponseAwsRoles', 'model/V4GetCredentialResponseAzure', 'model/V4GetCredentialResponseAzureCredential', 'model/V4GetCredentialsResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseGeneralAvailabilityZones', 'model/V4InfoResponseStats', 'model/V4InfoResponseStatsClusterCreationDuration', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersVmSize', 'model/V4ModifyAppRequest', 'model/V4ModifyAppRequestSpec', 'model/V4ModifyClusterRequest', 'model/V4ModifyClusterRequestScaling', 'model/V4ModifyUserPasswordRequest', 'model/V4ModifyUserRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'api/AppConfigsApi', 'api/AppsApi', 'api/AuthTokensApi', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
+    define(['ApiClient', 'model/Body', 'model/V4AddClusterRequest', 'model/V4AddClusterRequestScaling', 'model/V4AddCredentialsRequest', 'model/V4AddCredentialsRequestAws', 'model/V4AddCredentialsRequestAwsRoles', 'model/V4AddCredentialsRequestAzure', 'model/V4AddCredentialsRequestAzureCredential', 'model/V4AddKeyPairRequest', 'model/V4AddKeyPairResponse', 'model/V4App', 'model/V4AppCatalogsResponse', 'model/V4AppCatalogsResponseInner', 'model/V4AppCatalogsResponseInnerMetadata', 'model/V4AppCatalogsResponseInnerMetadataLabels', 'model/V4AppCatalogsResponseInnerSpec', 'model/V4AppCatalogsResponseInnerSpecStorage', 'model/V4AppMetadata', 'model/V4AppSpec', 'model/V4AppSpecUserConfig', 'model/V4AppSpecUserConfigConfigmap', 'model/V4AppSpecUserConfigSecret', 'model/V4AppStatus', 'model/V4AppStatusRelease', 'model/V4ClusterDetailsResponse', 'model/V4ClusterDetailsResponseKvm', 'model/V4ClusterDetailsResponseKvmPortMappings', 'model/V4ClusterDetailsResponseScaling', 'model/V4ClusterListItem', 'model/V4CreateAppConfigRequest', 'model/V4CreateAppRequest', 'model/V4CreateAppRequestSpec', 'model/V4CreateAuthTokenRequest', 'model/V4CreateAuthTokenResponse', 'model/V4CreateClusterAppSecretRequest', 'model/V4CreateUserRequest', 'model/V4GenericResponse', 'model/V4GetClusterAppConfigResponse', 'model/V4GetClusterAppSecretResponse', 'model/V4GetClusterAppsResponse', 'model/V4GetClusterStatusResponse', 'model/V4GetCredentialResponse', 'model/V4GetCredentialResponseAws', 'model/V4GetCredentialResponseAwsRoles', 'model/V4GetCredentialResponseAzure', 'model/V4GetCredentialResponseAzureCredential', 'model/V4GetCredentialsResponse', 'model/V4GetKeyPairsResponse', 'model/V4GetKeyPairsResponseInner', 'model/V4InfoResponse', 'model/V4InfoResponseFeatures', 'model/V4InfoResponseFeaturesNodepools', 'model/V4InfoResponseGeneral', 'model/V4InfoResponseGeneralAvailabilityZones', 'model/V4InfoResponseStats', 'model/V4InfoResponseStatsClusterCreationDuration', 'model/V4InfoResponseWorkers', 'model/V4InfoResponseWorkersCountPerCluster', 'model/V4InfoResponseWorkersInstanceType', 'model/V4InfoResponseWorkersVmSize', 'model/V4ModifyAppRequest', 'model/V4ModifyAppRequestSpec', 'model/V4ModifyClusterRequest', 'model/V4ModifyClusterRequestScaling', 'model/V4ModifyUserPasswordRequest', 'model/V4ModifyUserRequest', 'model/V4NodeDefinition', 'model/V4NodeDefinitionAws', 'model/V4NodeDefinitionAzure', 'model/V4NodeDefinitionCpu', 'model/V4NodeDefinitionMemory', 'model/V4NodeDefinitionStorage', 'model/V4Organization', 'model/V4OrganizationListItem', 'model/V4OrganizationMember', 'model/V4ReleaseListItem', 'model/V4ReleaseListItemChangelog', 'model/V4ReleaseListItemComponents', 'model/V4UserListItem', 'model/V5AddClusterRequest', 'model/V5AddClusterRequestMaster', 'model/V5AddNodePoolRequest', 'model/V5AddNodePoolRequestAvailabilityZones', 'model/V5AddNodePoolRequestNodeSpec', 'model/V5AddNodePoolRequestNodeSpecAws', 'model/V5AddNodePoolRequestScaling', 'model/V5ClusterDetailsResponse', 'model/V5ClusterDetailsResponseConditions', 'model/V5ClusterDetailsResponseMaster', 'model/V5ClusterDetailsResponseVersions', 'model/V5GetNodePoolResponse', 'model/V5GetNodePoolResponseNodeSpec', 'model/V5GetNodePoolResponseNodeSpecAws', 'model/V5GetNodePoolResponseNodeSpecVolumeSizesGb', 'model/V5GetNodePoolResponseScaling', 'model/V5GetNodePoolResponseStatus', 'model/V5GetNodePoolsResponse', 'model/V5ModifyClusterRequest', 'model/V5ModifyNodePoolRequest', 'model/V5ModifyNodePoolRequestScaling', 'api/AppConfigsApi', 'api/AppSecretsApi', 'api/AppsApi', 'api/AuthTokensApi', 'api/ClustersApi', 'api/InfoApi', 'api/KeyPairsApi', 'api/NodePoolsApi', 'api/OrganizationsApi', 'api/ReleasesApi', 'api/UsersApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddClusterRequestScaling'), require('./model/V4AddCredentialsRequest'), require('./model/V4AddCredentialsRequestAws'), require('./model/V4AddCredentialsRequestAwsRoles'), require('./model/V4AddCredentialsRequestAzure'), require('./model/V4AddCredentialsRequestAzureCredential'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4App'), require('./model/V4AppCatalogsResponse'), require('./model/V4AppCatalogsResponseInner'), require('./model/V4AppCatalogsResponseInnerMetadata'), require('./model/V4AppCatalogsResponseInnerSpec'), require('./model/V4AppCatalogsResponseInnerSpecStorage'), require('./model/V4AppMetadata'), require('./model/V4AppSpec'), require('./model/V4AppSpecUserConfigConfigMap'), require('./model/V4AppSpecUserConfigConfigMapConfigmap'), require('./model/V4AppStatus'), require('./model/V4AppStatusRelease'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterDetailsResponseKvm'), require('./model/V4ClusterDetailsResponseKvmPortMappings'), require('./model/V4ClusterDetailsResponseScaling'), require('./model/V4ClusterListItem'), require('./model/V4CreateAppConfigRequest'), require('./model/V4CreateAppRequest'), require('./model/V4CreateAppRequestSpec'), require('./model/V4CreateAuthTokenRequest'), require('./model/V4CreateAuthTokenResponse'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetClusterAppConfigResponse'), require('./model/V4GetClusterAppsResponse'), require('./model/V4GetClusterStatusResponse'), require('./model/V4GetCredentialResponse'), require('./model/V4GetCredentialResponseAws'), require('./model/V4GetCredentialResponseAwsRoles'), require('./model/V4GetCredentialResponseAzure'), require('./model/V4GetCredentialResponseAzureCredential'), require('./model/V4GetCredentialsResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseGeneralAvailabilityZones'), require('./model/V4InfoResponseStats'), require('./model/V4InfoResponseStatsClusterCreationDuration'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersVmSize'), require('./model/V4ModifyAppRequest'), require('./model/V4ModifyAppRequestSpec'), require('./model/V4ModifyClusterRequest'), require('./model/V4ModifyClusterRequestScaling'), require('./model/V4ModifyUserPasswordRequest'), require('./model/V4ModifyUserRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionAzure'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./api/AppConfigsApi'), require('./api/AppsApi'), require('./api/AuthTokensApi'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Body'), require('./model/V4AddClusterRequest'), require('./model/V4AddClusterRequestScaling'), require('./model/V4AddCredentialsRequest'), require('./model/V4AddCredentialsRequestAws'), require('./model/V4AddCredentialsRequestAwsRoles'), require('./model/V4AddCredentialsRequestAzure'), require('./model/V4AddCredentialsRequestAzureCredential'), require('./model/V4AddKeyPairRequest'), require('./model/V4AddKeyPairResponse'), require('./model/V4App'), require('./model/V4AppCatalogsResponse'), require('./model/V4AppCatalogsResponseInner'), require('./model/V4AppCatalogsResponseInnerMetadata'), require('./model/V4AppCatalogsResponseInnerMetadataLabels'), require('./model/V4AppCatalogsResponseInnerSpec'), require('./model/V4AppCatalogsResponseInnerSpecStorage'), require('./model/V4AppMetadata'), require('./model/V4AppSpec'), require('./model/V4AppSpecUserConfig'), require('./model/V4AppSpecUserConfigConfigmap'), require('./model/V4AppSpecUserConfigSecret'), require('./model/V4AppStatus'), require('./model/V4AppStatusRelease'), require('./model/V4ClusterDetailsResponse'), require('./model/V4ClusterDetailsResponseKvm'), require('./model/V4ClusterDetailsResponseKvmPortMappings'), require('./model/V4ClusterDetailsResponseScaling'), require('./model/V4ClusterListItem'), require('./model/V4CreateAppConfigRequest'), require('./model/V4CreateAppRequest'), require('./model/V4CreateAppRequestSpec'), require('./model/V4CreateAuthTokenRequest'), require('./model/V4CreateAuthTokenResponse'), require('./model/V4CreateClusterAppSecretRequest'), require('./model/V4CreateUserRequest'), require('./model/V4GenericResponse'), require('./model/V4GetClusterAppConfigResponse'), require('./model/V4GetClusterAppSecretResponse'), require('./model/V4GetClusterAppsResponse'), require('./model/V4GetClusterStatusResponse'), require('./model/V4GetCredentialResponse'), require('./model/V4GetCredentialResponseAws'), require('./model/V4GetCredentialResponseAwsRoles'), require('./model/V4GetCredentialResponseAzure'), require('./model/V4GetCredentialResponseAzureCredential'), require('./model/V4GetCredentialsResponse'), require('./model/V4GetKeyPairsResponse'), require('./model/V4GetKeyPairsResponseInner'), require('./model/V4InfoResponse'), require('./model/V4InfoResponseFeatures'), require('./model/V4InfoResponseFeaturesNodepools'), require('./model/V4InfoResponseGeneral'), require('./model/V4InfoResponseGeneralAvailabilityZones'), require('./model/V4InfoResponseStats'), require('./model/V4InfoResponseStatsClusterCreationDuration'), require('./model/V4InfoResponseWorkers'), require('./model/V4InfoResponseWorkersCountPerCluster'), require('./model/V4InfoResponseWorkersInstanceType'), require('./model/V4InfoResponseWorkersVmSize'), require('./model/V4ModifyAppRequest'), require('./model/V4ModifyAppRequestSpec'), require('./model/V4ModifyClusterRequest'), require('./model/V4ModifyClusterRequestScaling'), require('./model/V4ModifyUserPasswordRequest'), require('./model/V4ModifyUserRequest'), require('./model/V4NodeDefinition'), require('./model/V4NodeDefinitionAws'), require('./model/V4NodeDefinitionAzure'), require('./model/V4NodeDefinitionCpu'), require('./model/V4NodeDefinitionMemory'), require('./model/V4NodeDefinitionStorage'), require('./model/V4Organization'), require('./model/V4OrganizationListItem'), require('./model/V4OrganizationMember'), require('./model/V4ReleaseListItem'), require('./model/V4ReleaseListItemChangelog'), require('./model/V4ReleaseListItemComponents'), require('./model/V4UserListItem'), require('./model/V5AddClusterRequest'), require('./model/V5AddClusterRequestMaster'), require('./model/V5AddNodePoolRequest'), require('./model/V5AddNodePoolRequestAvailabilityZones'), require('./model/V5AddNodePoolRequestNodeSpec'), require('./model/V5AddNodePoolRequestNodeSpecAws'), require('./model/V5AddNodePoolRequestScaling'), require('./model/V5ClusterDetailsResponse'), require('./model/V5ClusterDetailsResponseConditions'), require('./model/V5ClusterDetailsResponseMaster'), require('./model/V5ClusterDetailsResponseVersions'), require('./model/V5GetNodePoolResponse'), require('./model/V5GetNodePoolResponseNodeSpec'), require('./model/V5GetNodePoolResponseNodeSpecAws'), require('./model/V5GetNodePoolResponseNodeSpecVolumeSizesGb'), require('./model/V5GetNodePoolResponseScaling'), require('./model/V5GetNodePoolResponseStatus'), require('./model/V5GetNodePoolsResponse'), require('./model/V5ModifyClusterRequest'), require('./model/V5ModifyNodePoolRequest'), require('./model/V5ModifyNodePoolRequestScaling'), require('./api/AppConfigsApi'), require('./api/AppSecretsApi'), require('./api/AppsApi'), require('./api/AuthTokensApi'), require('./api/ClustersApi'), require('./api/InfoApi'), require('./api/KeyPairsApi'), require('./api/NodePoolsApi'), require('./api/OrganizationsApi'), require('./api/ReleasesApi'), require('./api/UsersApi'));
   }
-}(function(ApiClient, Body, V4AddClusterRequest, V4AddClusterRequestScaling, V4AddCredentialsRequest, V4AddCredentialsRequestAws, V4AddCredentialsRequestAwsRoles, V4AddCredentialsRequestAzure, V4AddCredentialsRequestAzureCredential, V4AddKeyPairRequest, V4AddKeyPairResponse, V4App, V4AppCatalogsResponse, V4AppCatalogsResponseInner, V4AppCatalogsResponseInnerMetadata, V4AppCatalogsResponseInnerSpec, V4AppCatalogsResponseInnerSpecStorage, V4AppMetadata, V4AppSpec, V4AppSpecUserConfigConfigMap, V4AppSpecUserConfigConfigMapConfigmap, V4AppStatus, V4AppStatusRelease, V4ClusterDetailsResponse, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseKvmPortMappings, V4ClusterDetailsResponseScaling, V4ClusterListItem, V4CreateAppConfigRequest, V4CreateAppRequest, V4CreateAppRequestSpec, V4CreateAuthTokenRequest, V4CreateAuthTokenResponse, V4CreateUserRequest, V4GenericResponse, V4GetClusterAppConfigResponse, V4GetClusterAppsResponse, V4GetClusterStatusResponse, V4GetCredentialResponse, V4GetCredentialResponseAws, V4GetCredentialResponseAwsRoles, V4GetCredentialResponseAzure, V4GetCredentialResponseAzureCredential, V4GetCredentialsResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseGeneral, V4InfoResponseGeneralAvailabilityZones, V4InfoResponseStats, V4InfoResponseStatsClusterCreationDuration, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersVmSize, V4ModifyAppRequest, V4ModifyAppRequestSpec, V4ModifyClusterRequest, V4ModifyClusterRequestScaling, V4ModifyUserPasswordRequest, V4ModifyUserRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, AppConfigsApi, AppsApi, AuthTokensApi, ClustersApi, InfoApi, KeyPairsApi, OrganizationsApi, ReleasesApi, UsersApi) {
+}(function(ApiClient, Body, V4AddClusterRequest, V4AddClusterRequestScaling, V4AddCredentialsRequest, V4AddCredentialsRequestAws, V4AddCredentialsRequestAwsRoles, V4AddCredentialsRequestAzure, V4AddCredentialsRequestAzureCredential, V4AddKeyPairRequest, V4AddKeyPairResponse, V4App, V4AppCatalogsResponse, V4AppCatalogsResponseInner, V4AppCatalogsResponseInnerMetadata, V4AppCatalogsResponseInnerMetadataLabels, V4AppCatalogsResponseInnerSpec, V4AppCatalogsResponseInnerSpecStorage, V4AppMetadata, V4AppSpec, V4AppSpecUserConfig, V4AppSpecUserConfigConfigmap, V4AppSpecUserConfigSecret, V4AppStatus, V4AppStatusRelease, V4ClusterDetailsResponse, V4ClusterDetailsResponseKvm, V4ClusterDetailsResponseKvmPortMappings, V4ClusterDetailsResponseScaling, V4ClusterListItem, V4CreateAppConfigRequest, V4CreateAppRequest, V4CreateAppRequestSpec, V4CreateAuthTokenRequest, V4CreateAuthTokenResponse, V4CreateClusterAppSecretRequest, V4CreateUserRequest, V4GenericResponse, V4GetClusterAppConfigResponse, V4GetClusterAppSecretResponse, V4GetClusterAppsResponse, V4GetClusterStatusResponse, V4GetCredentialResponse, V4GetCredentialResponseAws, V4GetCredentialResponseAwsRoles, V4GetCredentialResponseAzure, V4GetCredentialResponseAzureCredential, V4GetCredentialsResponse, V4GetKeyPairsResponse, V4GetKeyPairsResponseInner, V4InfoResponse, V4InfoResponseFeatures, V4InfoResponseFeaturesNodepools, V4InfoResponseGeneral, V4InfoResponseGeneralAvailabilityZones, V4InfoResponseStats, V4InfoResponseStatsClusterCreationDuration, V4InfoResponseWorkers, V4InfoResponseWorkersCountPerCluster, V4InfoResponseWorkersInstanceType, V4InfoResponseWorkersVmSize, V4ModifyAppRequest, V4ModifyAppRequestSpec, V4ModifyClusterRequest, V4ModifyClusterRequestScaling, V4ModifyUserPasswordRequest, V4ModifyUserRequest, V4NodeDefinition, V4NodeDefinitionAws, V4NodeDefinitionAzure, V4NodeDefinitionCpu, V4NodeDefinitionMemory, V4NodeDefinitionStorage, V4Organization, V4OrganizationListItem, V4OrganizationMember, V4ReleaseListItem, V4ReleaseListItemChangelog, V4ReleaseListItemComponents, V4UserListItem, V5AddClusterRequest, V5AddClusterRequestMaster, V5AddNodePoolRequest, V5AddNodePoolRequestAvailabilityZones, V5AddNodePoolRequestNodeSpec, V5AddNodePoolRequestNodeSpecAws, V5AddNodePoolRequestScaling, V5ClusterDetailsResponse, V5ClusterDetailsResponseConditions, V5ClusterDetailsResponseMaster, V5ClusterDetailsResponseVersions, V5GetNodePoolResponse, V5GetNodePoolResponseNodeSpec, V5GetNodePoolResponseNodeSpecAws, V5GetNodePoolResponseNodeSpecVolumeSizesGb, V5GetNodePoolResponseScaling, V5GetNodePoolResponseStatus, V5GetNodePoolsResponse, V5ModifyClusterRequest, V5ModifyNodePoolRequest, V5ModifyNodePoolRequestScaling, AppConfigsApi, AppSecretsApi, AppsApi, AuthTokensApi, ClustersApi, InfoApi, KeyPairsApi, NodePoolsApi, OrganizationsApi, ReleasesApi, UsersApi) {
   'use strict';
 
   /**
@@ -132,6 +132,11 @@
      */
     V4AppCatalogsResponseInnerMetadata: V4AppCatalogsResponseInnerMetadata,
     /**
+     * The V4AppCatalogsResponseInnerMetadataLabels model constructor.
+     * @property {module:model/V4AppCatalogsResponseInnerMetadataLabels}
+     */
+    V4AppCatalogsResponseInnerMetadataLabels: V4AppCatalogsResponseInnerMetadataLabels,
+    /**
      * The V4AppCatalogsResponseInnerSpec model constructor.
      * @property {module:model/V4AppCatalogsResponseInnerSpec}
      */
@@ -152,15 +157,20 @@
      */
     V4AppSpec: V4AppSpec,
     /**
-     * The V4AppSpecUserConfigConfigMap model constructor.
-     * @property {module:model/V4AppSpecUserConfigConfigMap}
+     * The V4AppSpecUserConfig model constructor.
+     * @property {module:model/V4AppSpecUserConfig}
      */
-    V4AppSpecUserConfigConfigMap: V4AppSpecUserConfigConfigMap,
+    V4AppSpecUserConfig: V4AppSpecUserConfig,
     /**
-     * The V4AppSpecUserConfigConfigMapConfigmap model constructor.
-     * @property {module:model/V4AppSpecUserConfigConfigMapConfigmap}
+     * The V4AppSpecUserConfigConfigmap model constructor.
+     * @property {module:model/V4AppSpecUserConfigConfigmap}
      */
-    V4AppSpecUserConfigConfigMapConfigmap: V4AppSpecUserConfigConfigMapConfigmap,
+    V4AppSpecUserConfigConfigmap: V4AppSpecUserConfigConfigmap,
+    /**
+     * The V4AppSpecUserConfigSecret model constructor.
+     * @property {module:model/V4AppSpecUserConfigSecret}
+     */
+    V4AppSpecUserConfigSecret: V4AppSpecUserConfigSecret,
     /**
      * The V4AppStatus model constructor.
      * @property {module:model/V4AppStatus}
@@ -222,6 +232,11 @@
      */
     V4CreateAuthTokenResponse: V4CreateAuthTokenResponse,
     /**
+     * The V4CreateClusterAppSecretRequest model constructor.
+     * @property {module:model/V4CreateClusterAppSecretRequest}
+     */
+    V4CreateClusterAppSecretRequest: V4CreateClusterAppSecretRequest,
+    /**
      * The V4CreateUserRequest model constructor.
      * @property {module:model/V4CreateUserRequest}
      */
@@ -236,6 +251,11 @@
      * @property {module:model/V4GetClusterAppConfigResponse}
      */
     V4GetClusterAppConfigResponse: V4GetClusterAppConfigResponse,
+    /**
+     * The V4GetClusterAppSecretResponse model constructor.
+     * @property {module:model/V4GetClusterAppSecretResponse}
+     */
+    V4GetClusterAppSecretResponse: V4GetClusterAppSecretResponse,
     /**
      * The V4GetClusterAppsResponse model constructor.
      * @property {module:model/V4GetClusterAppsResponse}
@@ -291,6 +311,16 @@
      * @property {module:model/V4InfoResponse}
      */
     V4InfoResponse: V4InfoResponse,
+    /**
+     * The V4InfoResponseFeatures model constructor.
+     * @property {module:model/V4InfoResponseFeatures}
+     */
+    V4InfoResponseFeatures: V4InfoResponseFeatures,
+    /**
+     * The V4InfoResponseFeaturesNodepools model constructor.
+     * @property {module:model/V4InfoResponseFeaturesNodepools}
+     */
+    V4InfoResponseFeaturesNodepools: V4InfoResponseFeaturesNodepools,
     /**
      * The V4InfoResponseGeneral model constructor.
      * @property {module:model/V4InfoResponseGeneral}
@@ -427,10 +457,120 @@
      */
     V4UserListItem: V4UserListItem,
     /**
+     * The V5AddClusterRequest model constructor.
+     * @property {module:model/V5AddClusterRequest}
+     */
+    V5AddClusterRequest: V5AddClusterRequest,
+    /**
+     * The V5AddClusterRequestMaster model constructor.
+     * @property {module:model/V5AddClusterRequestMaster}
+     */
+    V5AddClusterRequestMaster: V5AddClusterRequestMaster,
+    /**
+     * The V5AddNodePoolRequest model constructor.
+     * @property {module:model/V5AddNodePoolRequest}
+     */
+    V5AddNodePoolRequest: V5AddNodePoolRequest,
+    /**
+     * The V5AddNodePoolRequestAvailabilityZones model constructor.
+     * @property {module:model/V5AddNodePoolRequestAvailabilityZones}
+     */
+    V5AddNodePoolRequestAvailabilityZones: V5AddNodePoolRequestAvailabilityZones,
+    /**
+     * The V5AddNodePoolRequestNodeSpec model constructor.
+     * @property {module:model/V5AddNodePoolRequestNodeSpec}
+     */
+    V5AddNodePoolRequestNodeSpec: V5AddNodePoolRequestNodeSpec,
+    /**
+     * The V5AddNodePoolRequestNodeSpecAws model constructor.
+     * @property {module:model/V5AddNodePoolRequestNodeSpecAws}
+     */
+    V5AddNodePoolRequestNodeSpecAws: V5AddNodePoolRequestNodeSpecAws,
+    /**
+     * The V5AddNodePoolRequestScaling model constructor.
+     * @property {module:model/V5AddNodePoolRequestScaling}
+     */
+    V5AddNodePoolRequestScaling: V5AddNodePoolRequestScaling,
+    /**
+     * The V5ClusterDetailsResponse model constructor.
+     * @property {module:model/V5ClusterDetailsResponse}
+     */
+    V5ClusterDetailsResponse: V5ClusterDetailsResponse,
+    /**
+     * The V5ClusterDetailsResponseConditions model constructor.
+     * @property {module:model/V5ClusterDetailsResponseConditions}
+     */
+    V5ClusterDetailsResponseConditions: V5ClusterDetailsResponseConditions,
+    /**
+     * The V5ClusterDetailsResponseMaster model constructor.
+     * @property {module:model/V5ClusterDetailsResponseMaster}
+     */
+    V5ClusterDetailsResponseMaster: V5ClusterDetailsResponseMaster,
+    /**
+     * The V5ClusterDetailsResponseVersions model constructor.
+     * @property {module:model/V5ClusterDetailsResponseVersions}
+     */
+    V5ClusterDetailsResponseVersions: V5ClusterDetailsResponseVersions,
+    /**
+     * The V5GetNodePoolResponse model constructor.
+     * @property {module:model/V5GetNodePoolResponse}
+     */
+    V5GetNodePoolResponse: V5GetNodePoolResponse,
+    /**
+     * The V5GetNodePoolResponseNodeSpec model constructor.
+     * @property {module:model/V5GetNodePoolResponseNodeSpec}
+     */
+    V5GetNodePoolResponseNodeSpec: V5GetNodePoolResponseNodeSpec,
+    /**
+     * The V5GetNodePoolResponseNodeSpecAws model constructor.
+     * @property {module:model/V5GetNodePoolResponseNodeSpecAws}
+     */
+    V5GetNodePoolResponseNodeSpecAws: V5GetNodePoolResponseNodeSpecAws,
+    /**
+     * The V5GetNodePoolResponseNodeSpecVolumeSizesGb model constructor.
+     * @property {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb}
+     */
+    V5GetNodePoolResponseNodeSpecVolumeSizesGb: V5GetNodePoolResponseNodeSpecVolumeSizesGb,
+    /**
+     * The V5GetNodePoolResponseScaling model constructor.
+     * @property {module:model/V5GetNodePoolResponseScaling}
+     */
+    V5GetNodePoolResponseScaling: V5GetNodePoolResponseScaling,
+    /**
+     * The V5GetNodePoolResponseStatus model constructor.
+     * @property {module:model/V5GetNodePoolResponseStatus}
+     */
+    V5GetNodePoolResponseStatus: V5GetNodePoolResponseStatus,
+    /**
+     * The V5GetNodePoolsResponse model constructor.
+     * @property {module:model/V5GetNodePoolsResponse}
+     */
+    V5GetNodePoolsResponse: V5GetNodePoolsResponse,
+    /**
+     * The V5ModifyClusterRequest model constructor.
+     * @property {module:model/V5ModifyClusterRequest}
+     */
+    V5ModifyClusterRequest: V5ModifyClusterRequest,
+    /**
+     * The V5ModifyNodePoolRequest model constructor.
+     * @property {module:model/V5ModifyNodePoolRequest}
+     */
+    V5ModifyNodePoolRequest: V5ModifyNodePoolRequest,
+    /**
+     * The V5ModifyNodePoolRequestScaling model constructor.
+     * @property {module:model/V5ModifyNodePoolRequestScaling}
+     */
+    V5ModifyNodePoolRequestScaling: V5ModifyNodePoolRequestScaling,
+    /**
      * The AppConfigsApi service constructor.
      * @property {module:api/AppConfigsApi}
      */
     AppConfigsApi: AppConfigsApi,
+    /**
+     * The AppSecretsApi service constructor.
+     * @property {module:api/AppSecretsApi}
+     */
+    AppSecretsApi: AppSecretsApi,
     /**
      * The AppsApi service constructor.
      * @property {module:api/AppsApi}
@@ -456,6 +596,11 @@
      * @property {module:api/KeyPairsApi}
      */
     KeyPairsApi: KeyPairsApi,
+    /**
+     * The NodePoolsApi service constructor.
+     * @property {module:api/NodePoolsApi}
+     */
+    NodePoolsApi: NodePoolsApi,
     /**
      * The OrganizationsApi service constructor.
      * @property {module:api/OrganizationsApi}
