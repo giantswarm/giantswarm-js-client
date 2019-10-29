@@ -157,11 +157,11 @@ Class | Method | HTTP request | Description
 *GiantSwarm.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
 *GiantSwarm.KeyPairsApi* | [**addKeyPair**](docs/KeyPairsApi.md#addKeyPair) | **POST** /v4/clusters/{cluster_id}/key-pairs/ | Create key pair
 *GiantSwarm.KeyPairsApi* | [**getKeyPairs**](docs/KeyPairsApi.md#getKeyPairs) | **GET** /v4/clusters/{cluster_id}/key-pairs/ | Get key pairs
-*GiantSwarm.NodepoolsApi* | [**addNodePool**](docs/NodepoolsApi.md#addNodePool) | **POST** /v5/clusters/{cluster_id}/nodepools/ | Create node pool
-*GiantSwarm.NodepoolsApi* | [**deleteNodePool**](docs/NodepoolsApi.md#deleteNodePool) | **DELETE** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
-*GiantSwarm.NodepoolsApi* | [**getNodePool**](docs/NodepoolsApi.md#getNodePool) | **GET** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
-*GiantSwarm.NodepoolsApi* | [**getNodePools**](docs/NodepoolsApi.md#getNodePools) | **GET** /v5/clusters/{cluster_id}/nodepools/ | Get node pools
-*GiantSwarm.NodepoolsApi* | [**modifyNodePool**](docs/NodepoolsApi.md#modifyNodePool) | **PATCH** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
+*GiantSwarm.NodePoolsApi* | [**addNodePool**](docs/NodePoolsApi.md#addNodePool) | **POST** /v5/clusters/{cluster_id}/nodepools/ | Create node pool
+*GiantSwarm.NodePoolsApi* | [**deleteNodePool**](docs/NodePoolsApi.md#deleteNodePool) | **DELETE** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
+*GiantSwarm.NodePoolsApi* | [**getNodePool**](docs/NodePoolsApi.md#getNodePool) | **GET** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
+*GiantSwarm.NodePoolsApi* | [**getNodePools**](docs/NodePoolsApi.md#getNodePools) | **GET** /v5/clusters/{cluster_id}/nodepools/ | Get node pools
+*GiantSwarm.NodePoolsApi* | [**modifyNodePool**](docs/NodePoolsApi.md#modifyNodePool) | **PATCH** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
 *GiantSwarm.OrganizationsApi* | [**addCredentials**](docs/OrganizationsApi.md#addCredentials) | **POST** /v4/organizations/{organization_id}/credentials/ | Set credentials
 *GiantSwarm.OrganizationsApi* | [**addOrganization**](docs/OrganizationsApi.md#addOrganization) | **PUT** /v4/organizations/{organization_id}/ | Create an organization
 *GiantSwarm.OrganizationsApi* | [**deleteOrganization**](docs/OrganizationsApi.md#deleteOrganization) | **DELETE** /v4/organizations/{organization_id}/ | Delete an organization

@@ -112,7 +112,7 @@
 
     /**
      * Create cluster (v5)
-     * Allows to create most recent clusters on AWS installations.  ### Node pools  In the Giant Swarm API v5, worker nodes are grouped into pools of worker nodes where all nodes share the same configuration.  When creating a cluster without submitting the &#x60;nodepools&#x60; attribute, or with its value being an empty array, one node pool with default configuration will be created.  Node pools can be created, deleted and modified during the entire lifetime of a cluster.  See [node pools](#tag/nodepools) and [Create node pool](#operation/addNodePool) for details. 
+     * Allows to create clusters supporting node pools on AWS installations.  The cluster will not have any worker nodes until you create a first node pool.  See [node pools](#tag/nodepools) and [create node pool](#operation/addNodePool) for details. 
      * @param {module:model/V5AddClusterRequest} body New cluster definition
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -156,7 +156,7 @@
 
     /**
      * Create cluster (v5)
-     * Allows to create most recent clusters on AWS installations.  ### Node pools  In the Giant Swarm API v5, worker nodes are grouped into pools of worker nodes where all nodes share the same configuration.  When creating a cluster without submitting the &#x60;nodepools&#x60; attribute, or with its value being an empty array, one node pool with default configuration will be created.  Node pools can be created, deleted and modified during the entire lifetime of a cluster.  See [node pools](#tag/nodepools) and [Create node pool](#operation/addNodePool) for details. 
+     * Allows to create clusters supporting node pools on AWS installations.  The cluster will not have any worker nodes until you create a first node pool.  See [node pools](#tag/nodepools) and [create node pool](#operation/addNodePool) for details. 
      * @param {module:model/V5AddClusterRequest} body New cluster definition
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -363,7 +363,7 @@
 
     /**
      * Get cluster details (v5)
-     * Allows to retrieve cluster details on AWS installations. 
+     * Allows to retrieve details of a cluster supporting node pools on AWS installations. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -408,7 +408,7 @@
 
     /**
      * Get cluster details (v5)
-     * Allows to retrieve cluster details on AWS installations. 
+     * Allows to retrieve details of a cluster supporting node pools on AWS installations. 
      * @param {String} clusterId Cluster ID
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -551,7 +551,7 @@
 
     /**
      * Modify cluster (v5)
-     * Allows to change cluster properties on AWS installations. 
+     * Allows to change properties of a cluster supporting node pools on AWS installations.  The following attributes allow to be modified:  - &#x60;name&#x60; - &#x60;release_version&#x60; 
      * @param {String} clusterId Cluster ID
      * @param {module:model/V5ModifyClusterRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
@@ -602,7 +602,7 @@
 
     /**
      * Modify cluster (v5)
-     * Allows to change cluster properties on AWS installations. 
+     * Allows to change properties of a cluster supporting node pools on AWS installations.  The following attributes allow to be modified:  - &#x60;name&#x60; - &#x60;release_version&#x60; 
      * @param {String} clusterId Cluster ID
      * @param {module:model/V5ModifyClusterRequest} body Merge-patch body
      * @param {Object} opts Optional parameters
