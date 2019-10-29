@@ -1,7 +1,7 @@
 {
-  "name": "giantswarm-v4",
+  "name": "giantswarm",
   "version": "4.0.0",
-  "description": "Generated JavaScript client for the Giant Swarm API v4.",
+  "description": "Generated JavaScript client for the Giant Swarm API.",
   "license": "Unlicense",
   "main": "src/index.js",
   "scripts": {
