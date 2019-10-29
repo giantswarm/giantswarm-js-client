@@ -1,14 +1,14 @@
-# GiantSwarm.NodepoolsApi
+# GiantSwarm.NodePoolsApi
 
 All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addNodePool**](NodepoolsApi.md#addNodePool) | **POST** /v5/clusters/{cluster_id}/nodepools/ | Create node pool
-[**deleteNodePool**](NodepoolsApi.md#deleteNodePool) | **DELETE** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
-[**getNodePool**](NodepoolsApi.md#getNodePool) | **GET** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
-[**getNodePools**](NodepoolsApi.md#getNodePools) | **GET** /v5/clusters/{cluster_id}/nodepools/ | Get node pools
-[**modifyNodePool**](NodepoolsApi.md#modifyNodePool) | **PATCH** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
+[**addNodePool**](NodePoolsApi.md#addNodePool) | **POST** /v5/clusters/{cluster_id}/nodepools/ | Create node pool
+[**deleteNodePool**](NodePoolsApi.md#deleteNodePool) | **DELETE** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Delete node pool
+[**getNodePool**](NodePoolsApi.md#getNodePool) | **GET** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Get node pool details
+[**getNodePools**](NodePoolsApi.md#getNodePools) | **GET** /v5/clusters/{cluster_id}/nodepools/ | Get node pools
+[**modifyNodePool**](NodePoolsApi.md#modifyNodePool) | **PATCH** /v5/clusters/{cluster_id}/nodepools/{nodepool_id}/ | Modify node pool
 
 
 <a name="addNodePool"></a>
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create node pool
 
-This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;instance_type&#x60; 
+This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;node_spec.aws.instance_type&#x60; 
 
 ### Example
 ```javascript
@@ -30,7 +30,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarm.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodePoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 Delete node pool
 
-Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.nodepool_id&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;  TODO: adapt the command for correct label syntax 
+Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.io/machine-deployment&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60; 
 
 ### Example
 ```javascript
@@ -91,7 +91,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarm.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodePoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -152,7 +152,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarm.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodePoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -213,7 +213,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarm.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodePoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
@@ -271,7 +271,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //AuthorizationHeaderToken.apiKeyPrefix = 'Token';
 
-var apiInstance = new GiantSwarm.NodepoolsApi();
+var apiInstance = new GiantSwarm.NodePoolsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 

@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new GiantSwarm.NodepoolsApi();
+    instance = new GiantSwarm.NodePoolsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,7 +49,7 @@
       object[property] = value;
   }
 
-  describe('NodepoolsApi', function() {
+  describe('NodePoolsApi', function() {
     describe('addNodePool', function() {
       it('should call addNodePool successfully', function(done) {
         //uncomment below and update the code to test addNodePool
