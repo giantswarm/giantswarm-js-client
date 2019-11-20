@@ -59,6 +59,7 @@
 
 
 
+
   };
 
   /**
@@ -80,6 +81,9 @@
       }
       if (data.hasOwnProperty('create_date')) {
         obj['create_date'] = ApiClient.convertToType(data['create_date'], 'String');
+      }
+      if (data.hasOwnProperty('delete_date')) {
+        obj['delete_date'] = ApiClient.convertToType(data['delete_date'], 'Date');
       }
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
@@ -124,6 +128,11 @@
    * @member {String} create_date
    */
   exports.prototype['create_date'] = undefined;
+  /**
+   * Date/time when cluster has been deleted
+   * @member {Date} delete_date
+   */
+  exports.prototype['delete_date'] = undefined;
   /**
    * Name of the organization owning the cluster
    * @member {String} owner
