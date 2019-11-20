@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property deleteDate (base name: "delete_date")', function() {
+      // uncomment below and update the code to test the property deleteDate
+      //var instane = new GiantSwarm.V5ClusterDetailsResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property owner (base name: "owner")', function() {
       // uncomment below and update the code to test the property owner
       //var instane = new GiantSwarm.V5ClusterDetailsResponse();

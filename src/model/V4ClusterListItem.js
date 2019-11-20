@@ -53,6 +53,7 @@
 
 
 
+
   };
 
   /**
@@ -71,6 +72,9 @@
       }
       if (data.hasOwnProperty('create_date')) {
         obj['create_date'] = ApiClient.convertToType(data['create_date'], 'String');
+      }
+      if (data.hasOwnProperty('delete_date')) {
+        obj['delete_date'] = ApiClient.convertToType(data['delete_date'], 'Date');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -98,6 +102,11 @@
    * @member {String} create_date
    */
   exports.prototype['create_date'] = undefined;
+  /**
+   * Date/time when cluster has been deleted
+   * @member {Date} delete_date
+   */
+  exports.prototype['delete_date'] = undefined;
   /**
    * Cluster name
    * @member {String} name

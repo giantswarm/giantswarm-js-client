@@ -1,5 +1,5 @@
 
-BRANCH := rename-nodepools-tag
+BRANCH := master
 
 .PHONY: test generate
 

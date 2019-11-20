@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property deleteDate (base name: "delete_date")', function() {
+      // uncomment below and update the code to test the property deleteDate
+      //var instane = new GiantSwarm.V4ClusterListItem();
+      //expect(instance).to.be();
+    });
+
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V4ClusterListItem();
