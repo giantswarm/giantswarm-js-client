@@ -1,5 +1,5 @@
 
-BRANCH := master
+BRANCH := add-app-labels
 
 .PHONY: test generate
 
