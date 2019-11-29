@@ -48,6 +48,7 @@
     var _this = this;
 
 
+
   };
 
   /**
@@ -64,6 +65,9 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
+      if (data.hasOwnProperty('labels')) {
+        obj['labels'] = ApiClient.convertToType(data['labels'], Object);
+      }
     }
     return obj;
   }
@@ -73,6 +77,11 @@
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
+  /**
+   * The labels that are set on this App
+   * @member {Object} labels
+   */
+  exports.prototype['labels'] = undefined;
 
 
 

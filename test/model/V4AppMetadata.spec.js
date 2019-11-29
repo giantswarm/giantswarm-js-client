@@ -62,6 +62,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property labels (base name: "labels")', function() {
+      // uncomment below and update the code to test the property labels
+      //var instane = new GiantSwarm.V4AppMetadata();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
