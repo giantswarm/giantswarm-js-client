@@ -115,7 +115,7 @@ var opts = {
   'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // {String} If activity has been issued by a CLI, this header can contain the command line 
   'body': new GiantSwarm.V4CreateAppConfigRequest() // {V4CreateAppConfigRequest} 
 };
-api.createClusterAppConfig(clusterId, appName, opts).then(function(data) {
+api.createClusterAppConfigV4(clusterId, appName, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -130,19 +130,31 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*GiantSwarm.AppConfigsApi* | [**createClusterAppConfig**](docs/AppConfigsApi.md#createClusterAppConfig) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config
-*GiantSwarm.AppConfigsApi* | [**deleteClusterAppConfig**](docs/AppConfigsApi.md#deleteClusterAppConfig) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config
-*GiantSwarm.AppConfigsApi* | [**getClusterAppConfig**](docs/AppConfigsApi.md#getClusterAppConfig) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config
-*GiantSwarm.AppConfigsApi* | [**modifyClusterAppConfig**](docs/AppConfigsApi.md#modifyClusterAppConfig) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Modify app config
-*GiantSwarm.AppSecretsApi* | [**createClusterAppSecret**](docs/AppSecretsApi.md#createClusterAppSecret) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Create Secret
-*GiantSwarm.AppSecretsApi* | [**deleteClusterAppSecret**](docs/AppSecretsApi.md#deleteClusterAppSecret) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Delete a Secret
-*GiantSwarm.AppSecretsApi* | [**getClusterAppSecret**](docs/AppSecretsApi.md#getClusterAppSecret) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Get Secret
-*GiantSwarm.AppSecretsApi* | [**modifyClusterAppSecret**](docs/AppSecretsApi.md#modifyClusterAppSecret) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Modify Secret
-*GiantSwarm.AppsApi* | [**createClusterApp**](docs/AppsApi.md#createClusterApp) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app
-*GiantSwarm.AppsApi* | [**deleteClusterApp**](docs/AppsApi.md#deleteClusterApp) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app
+*GiantSwarm.AppConfigsApi* | [**createClusterAppConfigV4**](docs/AppConfigsApi.md#createClusterAppConfigV4) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config (v4)
+*GiantSwarm.AppConfigsApi* | [**createClusterAppConfigV5**](docs/AppConfigsApi.md#createClusterAppConfigV5) | **PUT** /v5/clusters/{cluster_id}/apps/{app_name}/config/ | Create app config (v5)
+*GiantSwarm.AppConfigsApi* | [**deleteClusterAppConfigV4**](docs/AppConfigsApi.md#deleteClusterAppConfigV4) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config (v4)
+*GiantSwarm.AppConfigsApi* | [**deleteClusterAppConfigV5**](docs/AppConfigsApi.md#deleteClusterAppConfigV5) | **DELETE** /v5/clusters/{cluster_id}/apps/{app_name}/config/ | Delete an app config (v5)
+*GiantSwarm.AppConfigsApi* | [**getClusterAppConfigV4**](docs/AppConfigsApi.md#getClusterAppConfigV4) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config (v4)
+*GiantSwarm.AppConfigsApi* | [**getClusterAppConfigV5**](docs/AppConfigsApi.md#getClusterAppConfigV5) | **GET** /v5/clusters/{cluster_id}/apps/{app_name}/config/ | Get app config (v5)
+*GiantSwarm.AppConfigsApi* | [**modifyClusterAppConfigV4**](docs/AppConfigsApi.md#modifyClusterAppConfigV4) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/config/ | Modify app config (v4)
+*GiantSwarm.AppConfigsApi* | [**modifyClusterAppConfigV5**](docs/AppConfigsApi.md#modifyClusterAppConfigV5) | **PATCH** /v5/clusters/{cluster_id}/apps/{app_name}/config/ | Modify app config (v5)
+*GiantSwarm.AppSecretsApi* | [**createClusterAppSecretV4**](docs/AppSecretsApi.md#createClusterAppSecretV4) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Create Secret (v4)
+*GiantSwarm.AppSecretsApi* | [**createClusterAppSecretV5**](docs/AppSecretsApi.md#createClusterAppSecretV5) | **PUT** /v5/clusters/{cluster_id}/apps/{app_name}/secret/ | Create Secret (v5)
+*GiantSwarm.AppSecretsApi* | [**deleteClusterAppSecretV4**](docs/AppSecretsApi.md#deleteClusterAppSecretV4) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Delete a Secret (v4)
+*GiantSwarm.AppSecretsApi* | [**deleteClusterAppSecretV5**](docs/AppSecretsApi.md#deleteClusterAppSecretV5) | **DELETE** /v5/clusters/{cluster_id}/apps/{app_name}/secret/ | Delete a Secret (v5)
+*GiantSwarm.AppSecretsApi* | [**getClusterAppSecretV4**](docs/AppSecretsApi.md#getClusterAppSecretV4) | **GET** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Get Secret (v4)
+*GiantSwarm.AppSecretsApi* | [**getClusterAppSecretV5**](docs/AppSecretsApi.md#getClusterAppSecretV5) | **GET** /v5/clusters/{cluster_id}/apps/{app_name}/secret/ | Get Secret (v5)
+*GiantSwarm.AppSecretsApi* | [**modifyClusterAppSecretV4**](docs/AppSecretsApi.md#modifyClusterAppSecretV4) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/secret/ | Modify Secret (v4)
+*GiantSwarm.AppSecretsApi* | [**modifyClusterAppSecretV5**](docs/AppSecretsApi.md#modifyClusterAppSecretV5) | **PATCH** /v5/clusters/{cluster_id}/apps/{app_name}/secret/ | Modify Secret (v5)
+*GiantSwarm.AppsApi* | [**createClusterAppV4**](docs/AppsApi.md#createClusterAppV4) | **PUT** /v4/clusters/{cluster_id}/apps/{app_name}/ | Install an app (v4)
+*GiantSwarm.AppsApi* | [**createClusterAppV5**](docs/AppsApi.md#createClusterAppV5) | **PUT** /v5/clusters/{cluster_id}/apps/{app_name}/ | Install an app (v5)
+*GiantSwarm.AppsApi* | [**deleteClusterAppV4**](docs/AppsApi.md#deleteClusterAppV4) | **DELETE** /v4/clusters/{cluster_id}/apps/{app_name}/ | Delete an app (v4)
+*GiantSwarm.AppsApi* | [**deleteClusterAppV5**](docs/AppsApi.md#deleteClusterAppV5) | **DELETE** /v5/clusters/{cluster_id}/apps/{app_name}/ | Delete an app (v5)
 *GiantSwarm.AppsApi* | [**getAppCatalogs**](docs/AppsApi.md#getAppCatalogs) | **GET** /v4/appcatalogs/ | Get a list of app catalogs configured on your installation.
-*GiantSwarm.AppsApi* | [**getClusterApps**](docs/AppsApi.md#getClusterApps) | **GET** /v4/clusters/{cluster_id}/apps/ | Get cluster apps
-*GiantSwarm.AppsApi* | [**modifyClusterApp**](docs/AppsApi.md#modifyClusterApp) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/ | Modify an app
+*GiantSwarm.AppsApi* | [**getClusterAppsV4**](docs/AppsApi.md#getClusterAppsV4) | **GET** /v4/clusters/{cluster_id}/apps/ | Get a list of apps on a cluster (v4)
+*GiantSwarm.AppsApi* | [**getClusterAppsV5**](docs/AppsApi.md#getClusterAppsV5) | **GET** /v5/clusters/{cluster_id}/apps/ | Get a list of apps on a cluster (v5)
+*GiantSwarm.AppsApi* | [**modifyClusterAppV4**](docs/AppsApi.md#modifyClusterAppV4) | **PATCH** /v4/clusters/{cluster_id}/apps/{app_name}/ | Modify an app (v4)
+*GiantSwarm.AppsApi* | [**modifyClusterAppV5**](docs/AppsApi.md#modifyClusterAppV5) | **PATCH** /v5/clusters/{cluster_id}/apps/{app_name}/ | Modify an app (v5)
 *GiantSwarm.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarm.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
 *GiantSwarm.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster (v4)
@@ -154,6 +166,7 @@ Class | Method | HTTP request | Description
 *GiantSwarm.ClustersApi* | [**getClusters**](docs/ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
 *GiantSwarm.ClustersApi* | [**modifyCluster**](docs/ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster (v4)
 *GiantSwarm.ClustersApi* | [**modifyClusterV5**](docs/ClustersApi.md#modifyClusterV5) | **PATCH** /v5/clusters/{cluster_id}/ | Modify cluster (v5)
+*GiantSwarm.ExceptionNotificationsApi* | [**addExceptionNotification**](docs/ExceptionNotificationsApi.md#addExceptionNotification) | **POST** /v5/exception-notifications/ | Notifies Giant Swarm that an error has occured in one of our clients.
 *GiantSwarm.InfoApi* | [**getInfo**](docs/InfoApi.md#getInfo) | **GET** /v4/info/ | Get information on the installation
 *GiantSwarm.KeyPairsApi* | [**addKeyPair**](docs/KeyPairsApi.md#addKeyPair) | **POST** /v4/clusters/{cluster_id}/key-pairs/ | Create key pair
 *GiantSwarm.KeyPairsApi* | [**getKeyPairs**](docs/KeyPairsApi.md#getKeyPairs) | **GET** /v4/clusters/{cluster_id}/key-pairs/ | Get key pairs

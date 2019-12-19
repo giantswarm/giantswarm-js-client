@@ -49,8 +49,8 @@
 
 
     /**
-     * Create Secret
-     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
+     * Create Secret (v4)
+     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -60,18 +60,18 @@
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.createClusterAppSecretWithHttpInfo = function(clusterId, appName, opts) {
+    this.createClusterAppSecretV4WithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = opts['body'];
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling createClusterAppSecret");
+        throw new Error("Missing the required parameter 'clusterId' when calling createClusterAppSecretV4");
       }
 
       // verify the required parameter 'appName' is set
       if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling createClusterAppSecret");
+        throw new Error("Missing the required parameter 'appName' when calling createClusterAppSecretV4");
       }
 
 
@@ -102,8 +102,8 @@
     }
 
     /**
-     * Create Secret
-     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
+     * Create Secret (v4)
+     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -113,8 +113,8 @@
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.createClusterAppSecret = function(clusterId, appName, opts) {
-      return this.createClusterAppSecretWithHttpInfo(clusterId, appName, opts)
+    this.createClusterAppSecretV4 = function(clusterId, appName, opts) {
+      return this.createClusterAppSecretV4WithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -122,8 +122,81 @@
 
 
     /**
-     * Delete a Secret
-     * This operation allows a user to delete an app&#39;s Secret if it has been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  Calling this endpoint will delete the Secret, and also remove the reference to the Secret in the (spec.user_config.secret field) from the app. 
+     * Create Secret (v5)
+     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
+     */
+    this.createClusterAppSecretV5WithHttpInfo = function(clusterId, appName, opts) {
+      opts = opts || {};
+      var postBody = opts['body'];
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling createClusterAppSecretV5");
+      }
+
+      // verify the required parameter 'appName' is set
+      if (appName === undefined || appName === null) {
+        throw new Error("Missing the required parameter 'appName' when calling createClusterAppSecretV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'app_name': appName
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GenericResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/apps/{app_name}/secret/', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Create Secret (v5)
+     * This operation allows you to create a Secret for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s &#x60;spec.user_config.secret&#x60; field set correctly.  However, if the app exists and the &#x60;spec.user_config.secret&#x60; is already set to something, then this request will fail. You will in that case most likely want to update the Secret using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/secret/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;value\&quot;   } &#x60;&#x60;&#x60; 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
+     */
+    this.createClusterAppSecretV5 = function(clusterId, appName, opts) {
+      return this.createClusterAppSecretV5WithHttpInfo(clusterId, appName, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete a Secret (v4)
+     * This operation allows a user to delete an app&#39;s Secret if it has been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  Calling this endpoint will delete the Secret, and also remove the reference to the Secret in the (spec.user_config.secret field) from the app.  For apps on v5 clusters, please use the v5 version of this endpoint. 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -132,18 +205,18 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.deleteClusterAppSecretWithHttpInfo = function(clusterId, appName, opts) {
+    this.deleteClusterAppSecretV4WithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling deleteClusterAppSecret");
+        throw new Error("Missing the required parameter 'clusterId' when calling deleteClusterAppSecretV4");
       }
 
       // verify the required parameter 'appName' is set
       if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling deleteClusterAppSecret");
+        throw new Error("Missing the required parameter 'appName' when calling deleteClusterAppSecretV4");
       }
 
 
@@ -174,7 +247,78 @@
     }
 
     /**
-     * Delete a Secret
+     * Delete a Secret (v4)
+     * This operation allows a user to delete an app&#39;s Secret if it has been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  Calling this endpoint will delete the Secret, and also remove the reference to the Secret in the (spec.user_config.secret field) from the app.  For apps on v5 clusters, please use the v5 version of this endpoint. 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
+     */
+    this.deleteClusterAppSecretV4 = function(clusterId, appName, opts) {
+      return this.deleteClusterAppSecretV4WithHttpInfo(clusterId, appName, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete a Secret (v5)
+     * This operation allows a user to delete an app&#39;s Secret if it has been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  Calling this endpoint will delete the Secret, and also remove the reference to the Secret in the (spec.user_config.secret field) from the app. 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
+     */
+    this.deleteClusterAppSecretV5WithHttpInfo = function(clusterId, appName, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling deleteClusterAppSecretV5");
+      }
+
+      // verify the required parameter 'appName' is set
+      if (appName === undefined || appName === null) {
+        throw new Error("Missing the required parameter 'appName' when calling deleteClusterAppSecretV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'app_name': appName
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GenericResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/apps/{app_name}/secret/', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Delete a Secret (v5)
      * This operation allows a user to delete an app&#39;s Secret if it has been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  Calling this endpoint will delete the Secret, and also remove the reference to the Secret in the (spec.user_config.secret field) from the app. 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -184,8 +328,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.deleteClusterAppSecret = function(clusterId, appName, opts) {
-      return this.deleteClusterAppSecretWithHttpInfo(clusterId, appName, opts)
+    this.deleteClusterAppSecretV5 = function(clusterId, appName, opts) {
+      return this.deleteClusterAppSecretV5WithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -193,8 +337,8 @@
 
 
     /**
-     * Get Secret
-     * This operation allows you to fetch the Secret associated with an app. 
+     * Get Secret (v4)
+     * This operation allows you to fetch the Secret associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint. 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -203,18 +347,18 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppSecretResponse} and HTTP response
      */
-    this.getClusterAppSecretWithHttpInfo = function(clusterId, appName, opts) {
+    this.getClusterAppSecretV4WithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling getClusterAppSecret");
+        throw new Error("Missing the required parameter 'clusterId' when calling getClusterAppSecretV4");
       }
 
       // verify the required parameter 'appName' is set
       if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling getClusterAppSecret");
+        throw new Error("Missing the required parameter 'appName' when calling getClusterAppSecretV4");
       }
 
 
@@ -245,7 +389,78 @@
     }
 
     /**
-     * Get Secret
+     * Get Secret (v4)
+     * This operation allows you to fetch the Secret associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint. 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppSecretResponse}
+     */
+    this.getClusterAppSecretV4 = function(clusterId, appName, opts) {
+      return this.getClusterAppSecretV4WithHttpInfo(clusterId, appName, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Secret (v5)
+     * This operation allows you to fetch the Secret associated with an app. 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppSecretResponse} and HTTP response
+     */
+    this.getClusterAppSecretV5WithHttpInfo = function(clusterId, appName, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling getClusterAppSecretV5");
+      }
+
+      // verify the required parameter 'appName' is set
+      if (appName === undefined || appName === null) {
+        throw new Error("Missing the required parameter 'appName' when calling getClusterAppSecretV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'app_name': appName
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GetClusterAppSecretResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/apps/{app_name}/secret/', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get Secret (v5)
      * This operation allows you to fetch the Secret associated with an app. 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -255,8 +470,8 @@
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppSecretResponse}
      */
-    this.getClusterAppSecret = function(clusterId, appName, opts) {
-      return this.getClusterAppSecretWithHttpInfo(clusterId, appName, opts)
+    this.getClusterAppSecretV5 = function(clusterId, appName, opts) {
+      return this.getClusterAppSecretV5WithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -264,8 +479,8 @@
 
 
     /**
-     * Modify Secret
-     * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot; 
+     * Modify Secret (v4)
+     * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot; 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -275,18 +490,18 @@
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    this.modifyClusterAppSecretWithHttpInfo = function(clusterId, appName, opts) {
+    this.modifyClusterAppSecretV4WithHttpInfo = function(clusterId, appName, opts) {
       opts = opts || {};
       var postBody = opts['body'];
 
       // verify the required parameter 'clusterId' is set
       if (clusterId === undefined || clusterId === null) {
-        throw new Error("Missing the required parameter 'clusterId' when calling modifyClusterAppSecret");
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyClusterAppSecretV4");
       }
 
       // verify the required parameter 'appName' is set
       if (appName === undefined || appName === null) {
-        throw new Error("Missing the required parameter 'appName' when calling modifyClusterAppSecret");
+        throw new Error("Missing the required parameter 'appName' when calling modifyClusterAppSecretV4");
       }
 
 
@@ -317,7 +532,80 @@
     }
 
     /**
-     * Modify Secret
+     * Modify Secret (v4)
+     * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot; 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
+     */
+    this.modifyClusterAppSecretV4 = function(clusterId, appName, opts) {
+      return this.modifyClusterAppSecretV4WithHttpInfo(clusterId, appName, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Modify Secret (v5)
+     * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot; 
+     * @param {String} clusterId Cluster ID
+     * @param {String} appName App Name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
+     * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
+     */
+    this.modifyClusterAppSecretV5WithHttpInfo = function(clusterId, appName, opts) {
+      opts = opts || {};
+      var postBody = opts['body'];
+
+      // verify the required parameter 'clusterId' is set
+      if (clusterId === undefined || clusterId === null) {
+        throw new Error("Missing the required parameter 'clusterId' when calling modifyClusterAppSecretV5");
+      }
+
+      // verify the required parameter 'appName' is set
+      if (appName === undefined || appName === null) {
+        throw new Error("Missing the required parameter 'appName' when calling modifyClusterAppSecretV5");
+      }
+
+
+      var pathParams = {
+        'cluster_id': clusterId,
+        'app_name': appName
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['AuthorizationHeaderToken'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = V4GenericResponse;
+
+      return this.apiClient.callApi(
+        '/v5/clusters/{cluster_id}/apps/{app_name}/secret/', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Modify Secret (v5)
      * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot; 
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
@@ -328,8 +616,8 @@
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    this.modifyClusterAppSecret = function(clusterId, appName, opts) {
-      return this.modifyClusterAppSecretWithHttpInfo(clusterId, appName, opts)
+    this.modifyClusterAppSecretV5 = function(clusterId, appName, opts) {
+      return this.modifyClusterAppSecretV5WithHttpInfo(clusterId, appName, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
