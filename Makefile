@@ -1,5 +1,5 @@
 
-BRANCH := add-v5-app-endpoints
+BRANCH := master
 
 .PHONY: test generate
 
