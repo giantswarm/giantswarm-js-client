@@ -50,40 +50,80 @@
   }
 
   describe('AppConfigsApi', function() {
-    describe('createClusterAppConfig', function() {
-      it('should call createClusterAppConfig successfully', function(done) {
-        //uncomment below and update the code to test createClusterAppConfig
-        //instance.createClusterAppConfig(function(error) {
+    describe('createClusterAppConfigV4', function() {
+      it('should call createClusterAppConfigV4 successfully', function(done) {
+        //uncomment below and update the code to test createClusterAppConfigV4
+        //instance.createClusterAppConfigV4(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('deleteClusterAppConfig', function() {
-      it('should call deleteClusterAppConfig successfully', function(done) {
-        //uncomment below and update the code to test deleteClusterAppConfig
-        //instance.deleteClusterAppConfig(function(error) {
+    describe('createClusterAppConfigV5', function() {
+      it('should call createClusterAppConfigV5 successfully', function(done) {
+        //uncomment below and update the code to test createClusterAppConfigV5
+        //instance.createClusterAppConfigV5(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getClusterAppConfig', function() {
-      it('should call getClusterAppConfig successfully', function(done) {
-        //uncomment below and update the code to test getClusterAppConfig
-        //instance.getClusterAppConfig(function(error) {
+    describe('deleteClusterAppConfigV4', function() {
+      it('should call deleteClusterAppConfigV4 successfully', function(done) {
+        //uncomment below and update the code to test deleteClusterAppConfigV4
+        //instance.deleteClusterAppConfigV4(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('modifyClusterAppConfig', function() {
-      it('should call modifyClusterAppConfig successfully', function(done) {
-        //uncomment below and update the code to test modifyClusterAppConfig
-        //instance.modifyClusterAppConfig(function(error) {
+    describe('deleteClusterAppConfigV5', function() {
+      it('should call deleteClusterAppConfigV5 successfully', function(done) {
+        //uncomment below and update the code to test deleteClusterAppConfigV5
+        //instance.deleteClusterAppConfigV5(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getClusterAppConfigV4', function() {
+      it('should call getClusterAppConfigV4 successfully', function(done) {
+        //uncomment below and update the code to test getClusterAppConfigV4
+        //instance.getClusterAppConfigV4(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getClusterAppConfigV5', function() {
+      it('should call getClusterAppConfigV5 successfully', function(done) {
+        //uncomment below and update the code to test getClusterAppConfigV5
+        //instance.getClusterAppConfigV5(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('modifyClusterAppConfigV4', function() {
+      it('should call modifyClusterAppConfigV4 successfully', function(done) {
+        //uncomment below and update the code to test modifyClusterAppConfigV4
+        //instance.modifyClusterAppConfigV4(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('modifyClusterAppConfigV5', function() {
+      it('should call modifyClusterAppConfigV5 successfully', function(done) {
+        //uncomment below and update the code to test modifyClusterAppConfigV5
+        //instance.modifyClusterAppConfigV5(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -50,20 +50,40 @@
   }
 
   describe('AppsApi', function() {
-    describe('createClusterApp', function() {
-      it('should call createClusterApp successfully', function(done) {
-        //uncomment below and update the code to test createClusterApp
-        //instance.createClusterApp(function(error) {
+    describe('createClusterAppV4', function() {
+      it('should call createClusterAppV4 successfully', function(done) {
+        //uncomment below and update the code to test createClusterAppV4
+        //instance.createClusterAppV4(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('deleteClusterApp', function() {
-      it('should call deleteClusterApp successfully', function(done) {
-        //uncomment below and update the code to test deleteClusterApp
-        //instance.deleteClusterApp(function(error) {
+    describe('createClusterAppV5', function() {
+      it('should call createClusterAppV5 successfully', function(done) {
+        //uncomment below and update the code to test createClusterAppV5
+        //instance.createClusterAppV5(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteClusterAppV4', function() {
+      it('should call deleteClusterAppV4 successfully', function(done) {
+        //uncomment below and update the code to test deleteClusterAppV4
+        //instance.deleteClusterAppV4(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteClusterAppV5', function() {
+      it('should call deleteClusterAppV5 successfully', function(done) {
+        //uncomment below and update the code to test deleteClusterAppV5
+        //instance.deleteClusterAppV5(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -80,20 +100,40 @@
         done();
       });
     });
-    describe('getClusterApps', function() {
-      it('should call getClusterApps successfully', function(done) {
-        //uncomment below and update the code to test getClusterApps
-        //instance.getClusterApps(function(error) {
+    describe('getClusterAppsV4', function() {
+      it('should call getClusterAppsV4 successfully', function(done) {
+        //uncomment below and update the code to test getClusterAppsV4
+        //instance.getClusterAppsV4(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('modifyClusterApp', function() {
-      it('should call modifyClusterApp successfully', function(done) {
-        //uncomment below and update the code to test modifyClusterApp
-        //instance.modifyClusterApp(function(error) {
+    describe('getClusterAppsV5', function() {
+      it('should call getClusterAppsV5 successfully', function(done) {
+        //uncomment below and update the code to test getClusterAppsV5
+        //instance.getClusterAppsV5(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('modifyClusterAppV4', function() {
+      it('should call modifyClusterAppV4 successfully', function(done) {
+        //uncomment below and update the code to test modifyClusterAppV4
+        //instance.modifyClusterAppV4(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('modifyClusterAppV5', function() {
+      it('should call modifyClusterAppV5 successfully', function(done) {
+        //uncomment below and update the code to test modifyClusterAppV5
+        //instance.modifyClusterAppV5(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
