@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseFeatures();
   });
 
@@ -49,18 +46,21 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseFeatures', function() {
-    it('should create an instance of V4InfoResponseFeatures', function() {
+  describe('V4InfoResponseFeatures', () => {
+    test('should create an instance of V4InfoResponseFeatures', () => {
       // uncomment below and update the code to test V4InfoResponseFeatures
       //var instane = new GiantSwarm.V4InfoResponseFeatures();
       //expect(instance).to.be.a(GiantSwarm.V4InfoResponseFeatures);
     });
 
-    it('should have the property nodepools (base name: "nodepools")', function() {
-      // uncomment below and update the code to test the property nodepools
-      //var instane = new GiantSwarm.V4InfoResponseFeatures();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property nodepools (base name: "nodepools")',
+      () => {
+        // uncomment below and update the code to test the property nodepools
+        //var instane = new GiantSwarm.V4InfoResponseFeatures();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

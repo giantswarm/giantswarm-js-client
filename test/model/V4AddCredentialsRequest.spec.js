@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AddCredentialsRequest();
   });
 
@@ -49,26 +46,26 @@
       object[property] = value;
   }
 
-  describe('V4AddCredentialsRequest', function() {
-    it('should create an instance of V4AddCredentialsRequest', function() {
+  describe('V4AddCredentialsRequest', () => {
+    test('should create an instance of V4AddCredentialsRequest', () => {
       // uncomment below and update the code to test V4AddCredentialsRequest
       //var instane = new GiantSwarm.V4AddCredentialsRequest();
       //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequest);
     });
 
-    it('should have the property provider (base name: "provider")', function() {
+    test('should have the property provider (base name: "provider")', () => {
       // uncomment below and update the code to test the property provider
       //var instane = new GiantSwarm.V4AddCredentialsRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property aws (base name: "aws")', function() {
+    test('should have the property aws (base name: "aws")', () => {
       // uncomment below and update the code to test the property aws
       //var instane = new GiantSwarm.V4AddCredentialsRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property azure (base name: "azure")', function() {
+    test('should have the property azure (base name: "azure")', () => {
       // uncomment below and update the code to test the property azure
       //var instane = new GiantSwarm.V4AddCredentialsRequest();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AddKeyPairResponse();
   });
 
@@ -49,54 +46,69 @@
       object[property] = value;
   }
 
-  describe('V4AddKeyPairResponse', function() {
-    it('should create an instance of V4AddKeyPairResponse', function() {
+  describe('V4AddKeyPairResponse', () => {
+    test('should create an instance of V4AddKeyPairResponse', () => {
       // uncomment below and update the code to test V4AddKeyPairResponse
       //var instane = new GiantSwarm.V4AddKeyPairResponse();
       //expect(instance).to.be.a(GiantSwarm.V4AddKeyPairResponse);
     });
 
-    it('should have the property id (base name: "id")', function() {
+    test('should have the property id (base name: "id")', () => {
       // uncomment below and update the code to test the property id
       //var instane = new GiantSwarm.V4AddKeyPairResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarm.V4AddKeyPairResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property description (base name: "description")',
+      () => {
+        // uncomment below and update the code to test the property description
+        //var instane = new GiantSwarm.V4AddKeyPairResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property ttlHours (base name: "ttl_hours")', function() {
+    test('should have the property ttlHours (base name: "ttl_hours")', () => {
       // uncomment below and update the code to test the property ttlHours
       //var instane = new GiantSwarm.V4AddKeyPairResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property createDate (base name: "create_date")', function() {
-      // uncomment below and update the code to test the property createDate
-      //var instane = new GiantSwarm.V4AddKeyPairResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property createDate (base name: "create_date")',
+      () => {
+        // uncomment below and update the code to test the property createDate
+        //var instane = new GiantSwarm.V4AddKeyPairResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property certificateAuthorityData (base name: "certificate_authority_data")', function() {
-      // uncomment below and update the code to test the property certificateAuthorityData
-      //var instane = new GiantSwarm.V4AddKeyPairResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property certificateAuthorityData (base name: "certificate_authority_data")',
+      () => {
+        // uncomment below and update the code to test the property certificateAuthorityData
+        //var instane = new GiantSwarm.V4AddKeyPairResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property clientKeyData (base name: "client_key_data")', function() {
-      // uncomment below and update the code to test the property clientKeyData
-      //var instane = new GiantSwarm.V4AddKeyPairResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property clientKeyData (base name: "client_key_data")',
+      () => {
+        // uncomment below and update the code to test the property clientKeyData
+        //var instane = new GiantSwarm.V4AddKeyPairResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property clientCertificateData (base name: "client_certificate_data")', function() {
-      // uncomment below and update the code to test the property clientCertificateData
-      //var instane = new GiantSwarm.V4AddKeyPairResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property clientCertificateData (base name: "client_certificate_data")',
+      () => {
+        // uncomment below and update the code to test the property clientCertificateData
+        //var instane = new GiantSwarm.V4AddKeyPairResponse();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppSpecUserConfig();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V4AppSpecUserConfig', function() {
-    it('should create an instance of V4AppSpecUserConfig', function() {
+  describe('V4AppSpecUserConfig', () => {
+    test('should create an instance of V4AppSpecUserConfig', () => {
       // uncomment below and update the code to test V4AppSpecUserConfig
       //var instane = new GiantSwarm.V4AppSpecUserConfig();
       //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfig);
     });
 
-    it('should have the property configmap (base name: "configmap")', function() {
-      // uncomment below and update the code to test the property configmap
-      //var instane = new GiantSwarm.V4AppSpecUserConfig();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property configmap (base name: "configmap")',
+      () => {
+        // uncomment below and update the code to test the property configmap
+        //var instane = new GiantSwarm.V4AppSpecUserConfig();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property secret (base name: "secret")', function() {
+    test('should have the property secret (base name: "secret")', () => {
       // uncomment below and update the code to test the property secret
       //var instane = new GiantSwarm.V4AppSpecUserConfig();
       //expect(instance).to.be();

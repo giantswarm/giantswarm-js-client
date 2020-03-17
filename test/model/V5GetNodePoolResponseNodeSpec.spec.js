@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5GetNodePoolResponseNodeSpec();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseNodeSpec', function() {
-    it('should create an instance of V5GetNodePoolResponseNodeSpec', function() {
+  describe('V5GetNodePoolResponseNodeSpec', () => {
+    test('should create an instance of V5GetNodePoolResponseNodeSpec', () => {
       // uncomment below and update the code to test V5GetNodePoolResponseNodeSpec
       //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpec();
       //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpec);
     });
 
-    it('should have the property aws (base name: "aws")', function() {
+    test('should have the property aws (base name: "aws")', () => {
       // uncomment below and update the code to test the property aws
       //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property volumeSizesGb (base name: "volume_sizes_gb")', function() {
-      // uncomment below and update the code to test the property volumeSizesGb
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpec();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property volumeSizesGb (base name: "volume_sizes_gb")',
+      () => {
+        // uncomment below and update the code to test the property volumeSizesGb
+        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpec();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.AppsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('AppsApi', function() {
-    describe('createClusterAppV4', function() {
-      it('should call createClusterAppV4 successfully', function(done) {
+  describe('AppsApi', () => {
+    describe('createClusterAppV4', () => {
+      test('should call createClusterAppV4 successfully', done => {
         //uncomment below and update the code to test createClusterAppV4
         //instance.createClusterAppV4(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('createClusterAppV5', function() {
-      it('should call createClusterAppV5 successfully', function(done) {
+    describe('createClusterAppV5', () => {
+      test('should call createClusterAppV5 successfully', done => {
         //uncomment below and update the code to test createClusterAppV5
         //instance.createClusterAppV5(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('deleteClusterAppV4', function() {
-      it('should call deleteClusterAppV4 successfully', function(done) {
+    describe('deleteClusterAppV4', () => {
+      test('should call deleteClusterAppV4 successfully', done => {
         //uncomment below and update the code to test deleteClusterAppV4
         //instance.deleteClusterAppV4(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('deleteClusterAppV5', function() {
-      it('should call deleteClusterAppV5 successfully', function(done) {
+    describe('deleteClusterAppV5', () => {
+      test('should call deleteClusterAppV5 successfully', done => {
         //uncomment below and update the code to test deleteClusterAppV5
         //instance.deleteClusterAppV5(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('getAppCatalogs', function() {
-      it('should call getAppCatalogs successfully', function(done) {
+    describe('getAppCatalogs', () => {
+      test('should call getAppCatalogs successfully', done => {
         //uncomment below and update the code to test getAppCatalogs
         //instance.getAppCatalogs(function(error) {
         //  if (error) throw error;
@@ -100,8 +97,8 @@
         done();
       });
     });
-    describe('getClusterAppsV4', function() {
-      it('should call getClusterAppsV4 successfully', function(done) {
+    describe('getClusterAppsV4', () => {
+      test('should call getClusterAppsV4 successfully', done => {
         //uncomment below and update the code to test getClusterAppsV4
         //instance.getClusterAppsV4(function(error) {
         //  if (error) throw error;
@@ -110,8 +107,8 @@
         done();
       });
     });
-    describe('getClusterAppsV5', function() {
-      it('should call getClusterAppsV5 successfully', function(done) {
+    describe('getClusterAppsV5', () => {
+      test('should call getClusterAppsV5 successfully', done => {
         //uncomment below and update the code to test getClusterAppsV5
         //instance.getClusterAppsV5(function(error) {
         //  if (error) throw error;
@@ -120,8 +117,8 @@
         done();
       });
     });
-    describe('modifyClusterAppV4', function() {
-      it('should call modifyClusterAppV4 successfully', function(done) {
+    describe('modifyClusterAppV4', () => {
+      test('should call modifyClusterAppV4 successfully', done => {
         //uncomment below and update the code to test modifyClusterAppV4
         //instance.modifyClusterAppV4(function(error) {
         //  if (error) throw error;
@@ -130,8 +127,8 @@
         done();
       });
     });
-    describe('modifyClusterAppV5', function() {
-      it('should call modifyClusterAppV5 successfully', function(done) {
+    describe('modifyClusterAppV5', () => {
+      test('should call modifyClusterAppV5 successfully', done => {
         //uncomment below and update the code to test modifyClusterAppV5
         //instance.modifyClusterAppV5(function(error) {
         //  if (error) throw error;

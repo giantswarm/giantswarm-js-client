@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponse();
   });
 
@@ -49,32 +46,32 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponse', function() {
-    it('should create an instance of V4InfoResponse', function() {
+  describe('V4InfoResponse', () => {
+    test('should create an instance of V4InfoResponse', () => {
       // uncomment below and update the code to test V4InfoResponse
       //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be.a(GiantSwarm.V4InfoResponse);
     });
 
-    it('should have the property general (base name: "general")', function() {
+    test('should have the property general (base name: "general")', () => {
       // uncomment below and update the code to test the property general
       //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property features (base name: "features")', function() {
+    test('should have the property features (base name: "features")', () => {
       // uncomment below and update the code to test the property features
       //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property stats (base name: "stats")', function() {
+    test('should have the property stats (base name: "stats")', () => {
       // uncomment below and update the code to test the property stats
       //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property workers (base name: "workers")', function() {
+    test('should have the property workers (base name: "workers")', () => {
       // uncomment below and update the code to test the property workers
       //var instane = new GiantSwarm.V4InfoResponse();
       //expect(instance).to.be();

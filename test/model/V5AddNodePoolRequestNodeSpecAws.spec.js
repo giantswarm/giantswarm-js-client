@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5AddNodePoolRequestNodeSpecAws();
   });
 
@@ -49,18 +46,24 @@
       object[property] = value;
   }
 
-  describe('V5AddNodePoolRequestNodeSpecAws', function() {
-    it('should create an instance of V5AddNodePoolRequestNodeSpecAws', function() {
-      // uncomment below and update the code to test V5AddNodePoolRequestNodeSpecAws
-      //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAws();
-      //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestNodeSpecAws);
-    });
+  describe('V5AddNodePoolRequestNodeSpecAws', () => {
+    test(
+      'should create an instance of V5AddNodePoolRequestNodeSpecAws',
+      () => {
+        // uncomment below and update the code to test V5AddNodePoolRequestNodeSpecAws
+        //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAws();
+        //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestNodeSpecAws);
+      }
+    );
 
-    it('should have the property instanceType (base name: "instance_type")', function() {
-      // uncomment below and update the code to test the property instanceType
-      //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAws();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property instanceType (base name: "instance_type")',
+      () => {
+        // uncomment below and update the code to test the property instanceType
+        //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAws();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

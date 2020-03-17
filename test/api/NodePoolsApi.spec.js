@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.NodePoolsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('NodePoolsApi', function() {
-    describe('addNodePool', function() {
-      it('should call addNodePool successfully', function(done) {
+  describe('NodePoolsApi', () => {
+    describe('addNodePool', () => {
+      test('should call addNodePool successfully', done => {
         //uncomment below and update the code to test addNodePool
         //instance.addNodePool(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('deleteNodePool', function() {
-      it('should call deleteNodePool successfully', function(done) {
+    describe('deleteNodePool', () => {
+      test('should call deleteNodePool successfully', done => {
         //uncomment below and update the code to test deleteNodePool
         //instance.deleteNodePool(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('getNodePool', function() {
-      it('should call getNodePool successfully', function(done) {
+    describe('getNodePool', () => {
+      test('should call getNodePool successfully', done => {
         //uncomment below and update the code to test getNodePool
         //instance.getNodePool(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('getNodePools', function() {
-      it('should call getNodePools successfully', function(done) {
+    describe('getNodePools', () => {
+      test('should call getNodePools successfully', done => {
         //uncomment below and update the code to test getNodePools
         //instance.getNodePools(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('modifyNodePool', function() {
-      it('should call modifyNodePool successfully', function(done) {
+    describe('modifyNodePool', () => {
+      test('should call modifyNodePool successfully', done => {
         //uncomment below and update the code to test modifyNodePool
         //instance.modifyNodePool(function(error) {
         //  if (error) throw error;

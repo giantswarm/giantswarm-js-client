@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseNodeSpecVolumeSizesGb', function() {
-    it('should create an instance of V5GetNodePoolResponseNodeSpecVolumeSizesGb', function() {
-      // uncomment below and update the code to test V5GetNodePoolResponseNodeSpecVolumeSizesGb
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb();
-      //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb);
-    });
+  describe('V5GetNodePoolResponseNodeSpecVolumeSizesGb', () => {
+    test(
+      'should create an instance of V5GetNodePoolResponseNodeSpecVolumeSizesGb',
+      () => {
+        // uncomment below and update the code to test V5GetNodePoolResponseNodeSpecVolumeSizesGb
+        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb();
+        //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb);
+      }
+    );
 
-    it('should have the property docker (base name: "docker")', function() {
+    test('should have the property docker (base name: "docker")', () => {
       // uncomment below and update the code to test the property docker
       //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb();
       //expect(instance).to.be();
     });
 
-    it('should have the property kubelet (base name: "kubelet")', function() {
+    test('should have the property kubelet (base name: "kubelet")', () => {
       // uncomment below and update the code to test the property kubelet
       //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
   });
 
@@ -49,32 +46,38 @@
       object[property] = value;
   }
 
-  describe('V4AppCatalogsResponseInnerSpec', function() {
-    it('should create an instance of V4AppCatalogsResponseInnerSpec', function() {
-      // uncomment below and update the code to test V4AppCatalogsResponseInnerSpec
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
-      //expect(instance).to.be.a(GiantSwarm.V4AppCatalogsResponseInnerSpec);
-    });
+  describe('V4AppCatalogsResponseInnerSpec', () => {
+    test(
+      'should create an instance of V4AppCatalogsResponseInnerSpec',
+      () => {
+        // uncomment below and update the code to test V4AppCatalogsResponseInnerSpec
+        //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
+        //expect(instance).to.be.a(GiantSwarm.V4AppCatalogsResponseInnerSpec);
+      }
+    );
 
-    it('should have the property title (base name: "title")', function() {
+    test('should have the property title (base name: "title")', () => {
       // uncomment below and update the code to test the property title
       //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property description (base name: "description")',
+      () => {
+        // uncomment below and update the code to test the property description
+        //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property logoURL (base name: "logoURL")', function() {
+    test('should have the property logoURL (base name: "logoURL")', () => {
       // uncomment below and update the code to test the property logoURL
       //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property storage (base name: "storage")', function() {
+    test('should have the property storage (base name: "storage")', () => {
       // uncomment below and update the code to test the property storage
       //var instane = new GiantSwarm.V4AppCatalogsResponseInnerSpec();
       //expect(instance).to.be();

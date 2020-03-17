@@ -1,10 +1,10 @@
-version: 2
+# version: 2
 jobs:
   build:
     machine: true
     steps:
       - checkout
 
-      - run:
-          name: Tests
-          command: make test
+#       - run:
+#           name: Tests
+#           command: make test

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ReleaseListItemChangelog();
   });
 
@@ -49,24 +46,30 @@
       object[property] = value;
   }
 
-  describe('V4ReleaseListItemChangelog', function() {
-    it('should create an instance of V4ReleaseListItemChangelog', function() {
+  describe('V4ReleaseListItemChangelog', () => {
+    test('should create an instance of V4ReleaseListItemChangelog', () => {
       // uncomment below and update the code to test V4ReleaseListItemChangelog
       //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
       //expect(instance).to.be.a(GiantSwarm.V4ReleaseListItemChangelog);
     });
 
-    it('should have the property component (base name: "component")', function() {
-      // uncomment below and update the code to test the property component
-      //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property component (base name: "component")',
+      () => {
+        // uncomment below and update the code to test the property component
+        //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property description (base name: "description")',
+      () => {
+        // uncomment below and update the code to test the property description
+        //var instane = new GiantSwarm.V4ReleaseListItemChangelog();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

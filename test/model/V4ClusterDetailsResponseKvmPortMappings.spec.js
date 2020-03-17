@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ClusterDetailsResponseKvmPortMappings();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V4ClusterDetailsResponseKvmPortMappings', function() {
-    it('should create an instance of V4ClusterDetailsResponseKvmPortMappings', function() {
-      // uncomment below and update the code to test V4ClusterDetailsResponseKvmPortMappings
-      //var instane = new GiantSwarm.V4ClusterDetailsResponseKvmPortMappings();
-      //expect(instance).to.be.a(GiantSwarm.V4ClusterDetailsResponseKvmPortMappings);
-    });
+  describe('V4ClusterDetailsResponseKvmPortMappings', () => {
+    test(
+      'should create an instance of V4ClusterDetailsResponseKvmPortMappings',
+      () => {
+        // uncomment below and update the code to test V4ClusterDetailsResponseKvmPortMappings
+        //var instane = new GiantSwarm.V4ClusterDetailsResponseKvmPortMappings();
+        //expect(instance).to.be.a(GiantSwarm.V4ClusterDetailsResponseKvmPortMappings);
+      }
+    );
 
-    it('should have the property port (base name: "port")', function() {
+    test('should have the property port (base name: "port")', () => {
       // uncomment below and update the code to test the property port
       //var instane = new GiantSwarm.V4ClusterDetailsResponseKvmPortMappings();
       //expect(instance).to.be();
     });
 
-    it('should have the property protocol (base name: "protocol")', function() {
+    test('should have the property protocol (base name: "protocol")', () => {
       // uncomment below and update the code to test the property protocol
       //var instane = new GiantSwarm.V4ClusterDetailsResponseKvmPortMappings();
       //expect(instance).to.be();

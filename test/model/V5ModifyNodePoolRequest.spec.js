@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5ModifyNodePoolRequest();
   });
 
@@ -49,20 +46,20 @@
       object[property] = value;
   }
 
-  describe('V5ModifyNodePoolRequest', function() {
-    it('should create an instance of V5ModifyNodePoolRequest', function() {
+  describe('V5ModifyNodePoolRequest', () => {
+    test('should create an instance of V5ModifyNodePoolRequest', () => {
       // uncomment below and update the code to test V5ModifyNodePoolRequest
       //var instane = new GiantSwarm.V5ModifyNodePoolRequest();
       //expect(instance).to.be.a(GiantSwarm.V5ModifyNodePoolRequest);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V5ModifyNodePoolRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property scaling (base name: "scaling")', function() {
+    test('should have the property scaling (base name: "scaling")', () => {
       // uncomment below and update the code to test the property scaling
       //var instane = new GiantSwarm.V5ModifyNodePoolRequest();
       //expect(instance).to.be();

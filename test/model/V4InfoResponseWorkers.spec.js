@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseWorkers();
   });
 
@@ -49,26 +46,32 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseWorkers', function() {
-    it('should create an instance of V4InfoResponseWorkers', function() {
+  describe('V4InfoResponseWorkers', () => {
+    test('should create an instance of V4InfoResponseWorkers', () => {
       // uncomment below and update the code to test V4InfoResponseWorkers
       //var instane = new GiantSwarm.V4InfoResponseWorkers();
       //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkers);
     });
 
-    it('should have the property countPerCluster (base name: "count_per_cluster")', function() {
-      // uncomment below and update the code to test the property countPerCluster
-      //var instane = new GiantSwarm.V4InfoResponseWorkers();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property countPerCluster (base name: "count_per_cluster")',
+      () => {
+        // uncomment below and update the code to test the property countPerCluster
+        //var instane = new GiantSwarm.V4InfoResponseWorkers();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property instanceType (base name: "instance_type")', function() {
-      // uncomment below and update the code to test the property instanceType
-      //var instane = new GiantSwarm.V4InfoResponseWorkers();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property instanceType (base name: "instance_type")',
+      () => {
+        // uncomment below and update the code to test the property instanceType
+        //var instane = new GiantSwarm.V4InfoResponseWorkers();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property vmSize (base name: "vm_size")', function() {
+    test('should have the property vmSize (base name: "vm_size")', () => {
       // uncomment below and update the code to test the property vmSize
       //var instane = new GiantSwarm.V4InfoResponseWorkers();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5ModifyNodePoolRequestScaling();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V5ModifyNodePoolRequestScaling', function() {
-    it('should create an instance of V5ModifyNodePoolRequestScaling', function() {
-      // uncomment below and update the code to test V5ModifyNodePoolRequestScaling
-      //var instane = new GiantSwarm.V5ModifyNodePoolRequestScaling();
-      //expect(instance).to.be.a(GiantSwarm.V5ModifyNodePoolRequestScaling);
-    });
+  describe('V5ModifyNodePoolRequestScaling', () => {
+    test(
+      'should create an instance of V5ModifyNodePoolRequestScaling',
+      () => {
+        // uncomment below and update the code to test V5ModifyNodePoolRequestScaling
+        //var instane = new GiantSwarm.V5ModifyNodePoolRequestScaling();
+        //expect(instance).to.be.a(GiantSwarm.V5ModifyNodePoolRequestScaling);
+      }
+    );
 
-    it('should have the property min (base name: "min")', function() {
+    test('should have the property min (base name: "min")', () => {
       // uncomment below and update the code to test the property min
       //var instane = new GiantSwarm.V5ModifyNodePoolRequestScaling();
       //expect(instance).to.be();
     });
 
-    it('should have the property max (base name: "max")', function() {
+    test('should have the property max (base name: "max")', () => {
       // uncomment below and update the code to test the property max
       //var instane = new GiantSwarm.V5ModifyNodePoolRequestScaling();
       //expect(instance).to.be();

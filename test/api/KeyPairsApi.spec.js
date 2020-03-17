@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.KeyPairsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('KeyPairsApi', function() {
-    describe('addKeyPair', function() {
-      it('should call addKeyPair successfully', function(done) {
+  describe('KeyPairsApi', () => {
+    describe('addKeyPair', () => {
+      test('should call addKeyPair successfully', done => {
         //uncomment below and update the code to test addKeyPair
         //instance.addKeyPair(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('getKeyPairs', function() {
-      it('should call getKeyPairs successfully', function(done) {
+    describe('getKeyPairs', () => {
+      test('should call getKeyPairs successfully', done => {
         //uncomment below and update the code to test getKeyPairs
         //instance.getKeyPairs(function(error) {
         //  if (error) throw error;

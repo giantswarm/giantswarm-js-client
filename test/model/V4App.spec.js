@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4App();
   });
 
@@ -49,26 +46,26 @@
       object[property] = value;
   }
 
-  describe('V4App', function() {
-    it('should create an instance of V4App', function() {
+  describe('V4App', () => {
+    test('should create an instance of V4App', () => {
       // uncomment below and update the code to test V4App
       //var instane = new GiantSwarm.V4App();
       //expect(instance).to.be.a(GiantSwarm.V4App);
     });
 
-    it('should have the property metadata (base name: "metadata")', function() {
+    test('should have the property metadata (base name: "metadata")', () => {
       // uncomment below and update the code to test the property metadata
       //var instane = new GiantSwarm.V4App();
       //expect(instance).to.be();
     });
 
-    it('should have the property spec (base name: "spec")', function() {
+    test('should have the property spec (base name: "spec")', () => {
       // uncomment below and update the code to test the property spec
       //var instane = new GiantSwarm.V4App();
       //expect(instance).to.be();
     });
 
-    it('should have the property status (base name: "status")', function() {
+    test('should have the property status (base name: "status")', () => {
       // uncomment below and update the code to test the property status
       //var instane = new GiantSwarm.V4App();
       //expect(instance).to.be();

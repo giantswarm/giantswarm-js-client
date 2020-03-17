@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.AuthTokensApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('AuthTokensApi', function() {
-    describe('createAuthToken', function() {
-      it('should call createAuthToken successfully', function(done) {
+  describe('AuthTokensApi', () => {
+    describe('createAuthToken', () => {
+      test('should call createAuthToken successfully', done => {
         //uncomment below and update the code to test createAuthToken
         //instance.createAuthToken(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('deleteAuthToken', function() {
-      it('should call deleteAuthToken successfully', function(done) {
+    describe('deleteAuthToken', () => {
+      test('should call deleteAuthToken successfully', done => {
         //uncomment below and update the code to test deleteAuthToken
         //instance.deleteAuthToken(function(error) {
         //  if (error) throw error;

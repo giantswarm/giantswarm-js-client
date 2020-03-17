@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5ClusterDetailsResponseMaster();
   });
 
@@ -49,18 +46,24 @@
       object[property] = value;
   }
 
-  describe('V5ClusterDetailsResponseMaster', function() {
-    it('should create an instance of V5ClusterDetailsResponseMaster', function() {
-      // uncomment below and update the code to test V5ClusterDetailsResponseMaster
-      //var instane = new GiantSwarm.V5ClusterDetailsResponseMaster();
-      //expect(instance).to.be.a(GiantSwarm.V5ClusterDetailsResponseMaster);
-    });
+  describe('V5ClusterDetailsResponseMaster', () => {
+    test(
+      'should create an instance of V5ClusterDetailsResponseMaster',
+      () => {
+        // uncomment below and update the code to test V5ClusterDetailsResponseMaster
+        //var instane = new GiantSwarm.V5ClusterDetailsResponseMaster();
+        //expect(instance).to.be.a(GiantSwarm.V5ClusterDetailsResponseMaster);
+      }
+    );
 
-    it('should have the property availabilityZone (base name: "availability_zone")', function() {
-      // uncomment below and update the code to test the property availabilityZone
-      //var instane = new GiantSwarm.V5ClusterDetailsResponseMaster();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property availabilityZone (base name: "availability_zone")',
+      () => {
+        // uncomment below and update the code to test the property availabilityZone
+        //var instane = new GiantSwarm.V5ClusterDetailsResponseMaster();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

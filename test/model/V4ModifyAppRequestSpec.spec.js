@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ModifyAppRequestSpec();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('V4ModifyAppRequestSpec', function() {
-    it('should create an instance of V4ModifyAppRequestSpec', function() {
+  describe('V4ModifyAppRequestSpec', () => {
+    test('should create an instance of V4ModifyAppRequestSpec', () => {
       // uncomment below and update the code to test V4ModifyAppRequestSpec
       //var instane = new GiantSwarm.V4ModifyAppRequestSpec();
       //expect(instance).to.be.a(GiantSwarm.V4ModifyAppRequestSpec);
     });
 
-    it('should have the property version (base name: "version")', function() {
+    test('should have the property version (base name: "version")', () => {
       // uncomment below and update the code to test the property version
       //var instane = new GiantSwarm.V4ModifyAppRequestSpec();
       //expect(instance).to.be();
