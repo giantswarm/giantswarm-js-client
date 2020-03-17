@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V5AddNodePoolRequestAvailabilityZones', function() {
-    it('should create an instance of V5AddNodePoolRequestAvailabilityZones', function() {
-      // uncomment below and update the code to test V5AddNodePoolRequestAvailabilityZones
-      //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
-      //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestAvailabilityZones);
-    });
+  describe('V5AddNodePoolRequestAvailabilityZones', () => {
+    test(
+      'should create an instance of V5AddNodePoolRequestAvailabilityZones',
+      () => {
+        // uncomment below and update the code to test V5AddNodePoolRequestAvailabilityZones
+        //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
+        //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestAvailabilityZones);
+      }
+    );
 
-    it('should have the property _number (base name: "number")', function() {
+    test('should have the property _number (base name: "number")', () => {
       // uncomment below and update the code to test the property _number
       //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
       //expect(instance).to.be();
     });
 
-    it('should have the property zones (base name: "zones")', function() {
+    test('should have the property zones (base name: "zones")', () => {
       // uncomment below and update the code to test the property zones
       //var instane = new GiantSwarm.V5AddNodePoolRequestAvailabilityZones();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
   });
 
@@ -49,26 +46,29 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseStatsClusterCreationDuration', function() {
-    it('should create an instance of V4InfoResponseStatsClusterCreationDuration', function() {
-      // uncomment below and update the code to test V4InfoResponseStatsClusterCreationDuration
-      //var instane = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
-      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseStatsClusterCreationDuration);
-    });
+  describe('V4InfoResponseStatsClusterCreationDuration', () => {
+    test(
+      'should create an instance of V4InfoResponseStatsClusterCreationDuration',
+      () => {
+        // uncomment below and update the code to test V4InfoResponseStatsClusterCreationDuration
+        //var instane = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
+        //expect(instance).to.be.a(GiantSwarm.V4InfoResponseStatsClusterCreationDuration);
+      }
+    );
 
-    it('should have the property median (base name: "median")', function() {
+    test('should have the property median (base name: "median")', () => {
       // uncomment below and update the code to test the property median
       //var instane = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
       //expect(instance).to.be();
     });
 
-    it('should have the property p25 (base name: "p25")', function() {
+    test('should have the property p25 (base name: "p25")', () => {
       // uncomment below and update the code to test the property p25
       //var instane = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
       //expect(instance).to.be();
     });
 
-    it('should have the property p75 (base name: "p75")', function() {
+    test('should have the property p75 (base name: "p75")', () => {
       // uncomment below and update the code to test the property p75
       //var instane = new GiantSwarm.V4InfoResponseStatsClusterCreationDuration();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5AddClusterRequestMaster();
   });
 
@@ -49,18 +46,21 @@
       object[property] = value;
   }
 
-  describe('V5AddClusterRequestMaster', function() {
-    it('should create an instance of V5AddClusterRequestMaster', function() {
+  describe('V5AddClusterRequestMaster', () => {
+    test('should create an instance of V5AddClusterRequestMaster', () => {
       // uncomment below and update the code to test V5AddClusterRequestMaster
       //var instane = new GiantSwarm.V5AddClusterRequestMaster();
       //expect(instance).to.be.a(GiantSwarm.V5AddClusterRequestMaster);
     });
 
-    it('should have the property availabilityZone (base name: "availability_zone")', function() {
-      // uncomment below and update the code to test the property availabilityZone
-      //var instane = new GiantSwarm.V5AddClusterRequestMaster();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property availabilityZone (base name: "availability_zone")',
+      () => {
+        // uncomment below and update the code to test the property availabilityZone
+        //var instane = new GiantSwarm.V5AddClusterRequestMaster();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

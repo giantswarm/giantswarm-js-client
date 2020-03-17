@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AddKeyPairRequest();
   });
 
@@ -49,36 +46,42 @@
       object[property] = value;
   }
 
-  describe('V4AddKeyPairRequest', function() {
-    it('should create an instance of V4AddKeyPairRequest', function() {
+  describe('V4AddKeyPairRequest', () => {
+    test('should create an instance of V4AddKeyPairRequest', () => {
       // uncomment below and update the code to test V4AddKeyPairRequest
       //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be.a(GiantSwarm.V4AddKeyPairRequest);
     });
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instane = new GiantSwarm.V4AddKeyPairRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property description (base name: "description")',
+      () => {
+        // uncomment below and update the code to test the property description
+        //var instane = new GiantSwarm.V4AddKeyPairRequest();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property ttlHours (base name: "ttl_hours")', function() {
+    test('should have the property ttlHours (base name: "ttl_hours")', () => {
       // uncomment below and update the code to test the property ttlHours
       //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property cnPrefix (base name: "cn_prefix")', function() {
+    test('should have the property cnPrefix (base name: "cn_prefix")', () => {
       // uncomment below and update the code to test the property cnPrefix
       //var instane = new GiantSwarm.V4AddKeyPairRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property certificateOrganizations (base name: "certificate_organizations")', function() {
-      // uncomment below and update the code to test the property certificateOrganizations
-      //var instane = new GiantSwarm.V4AddKeyPairRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property certificateOrganizations (base name: "certificate_organizations")',
+      () => {
+        // uncomment below and update the code to test the property certificateOrganizations
+        //var instane = new GiantSwarm.V4AddKeyPairRequest();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

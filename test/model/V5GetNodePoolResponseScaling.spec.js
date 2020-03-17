@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5GetNodePoolResponseScaling();
   });
 
@@ -49,20 +46,20 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseScaling', function() {
-    it('should create an instance of V5GetNodePoolResponseScaling', function() {
+  describe('V5GetNodePoolResponseScaling', () => {
+    test('should create an instance of V5GetNodePoolResponseScaling', () => {
       // uncomment below and update the code to test V5GetNodePoolResponseScaling
       //var instane = new GiantSwarm.V5GetNodePoolResponseScaling();
       //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseScaling);
     });
 
-    it('should have the property min (base name: "min")', function() {
+    test('should have the property min (base name: "min")', () => {
       // uncomment below and update the code to test the property min
       //var instane = new GiantSwarm.V5GetNodePoolResponseScaling();
       //expect(instance).to.be();
     });
 
-    it('should have the property max (base name: "max")', function() {
+    test('should have the property max (base name: "max")', () => {
       // uncomment below and update the code to test the property max
       //var instane = new GiantSwarm.V5GetNodePoolResponseScaling();
       //expect(instance).to.be();

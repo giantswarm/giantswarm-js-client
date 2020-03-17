@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5ModifyClusterRequest();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V5ModifyClusterRequest', function() {
-    it('should create an instance of V5ModifyClusterRequest', function() {
+  describe('V5ModifyClusterRequest', () => {
+    test('should create an instance of V5ModifyClusterRequest', () => {
       // uncomment below and update the code to test V5ModifyClusterRequest
       //var instane = new GiantSwarm.V5ModifyClusterRequest();
       //expect(instance).to.be.a(GiantSwarm.V5ModifyClusterRequest);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V5ModifyClusterRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property releaseVersion (base name: "release_version")', function() {
-      // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarm.V5ModifyClusterRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property releaseVersion (base name: "release_version")',
+      () => {
+        // uncomment below and update the code to test the property releaseVersion
+        //var instane = new GiantSwarm.V5ModifyClusterRequest();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

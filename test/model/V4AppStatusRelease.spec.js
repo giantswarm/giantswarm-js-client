@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppStatusRelease();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V4AppStatusRelease', function() {
-    it('should create an instance of V4AppStatusRelease', function() {
+  describe('V4AppStatusRelease', () => {
+    test('should create an instance of V4AppStatusRelease', () => {
       // uncomment below and update the code to test V4AppStatusRelease
       //var instane = new GiantSwarm.V4AppStatusRelease();
       //expect(instance).to.be.a(GiantSwarm.V4AppStatusRelease);
     });
 
-    it('should have the property lastDeployed (base name: "last_deployed")', function() {
-      // uncomment below and update the code to test the property lastDeployed
-      //var instane = new GiantSwarm.V4AppStatusRelease();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property lastDeployed (base name: "last_deployed")',
+      () => {
+        // uncomment below and update the code to test the property lastDeployed
+        //var instane = new GiantSwarm.V4AppStatusRelease();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property status (base name: "status")', function() {
+    test('should have the property status (base name: "status")', () => {
       // uncomment below and update the code to test the property status
       //var instane = new GiantSwarm.V4AppStatusRelease();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ClusterDetailsResponseKvm();
   });
 
@@ -49,18 +46,21 @@
       object[property] = value;
   }
 
-  describe('V4ClusterDetailsResponseKvm', function() {
-    it('should create an instance of V4ClusterDetailsResponseKvm', function() {
+  describe('V4ClusterDetailsResponseKvm', () => {
+    test('should create an instance of V4ClusterDetailsResponseKvm', () => {
       // uncomment below and update the code to test V4ClusterDetailsResponseKvm
       //var instane = new GiantSwarm.V4ClusterDetailsResponseKvm();
       //expect(instance).to.be.a(GiantSwarm.V4ClusterDetailsResponseKvm);
     });
 
-    it('should have the property portMappings (base name: "port_mappings")', function() {
-      // uncomment below and update the code to test the property portMappings
-      //var instane = new GiantSwarm.V4ClusterDetailsResponseKvm();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property portMappings (base name: "port_mappings")',
+      () => {
+        // uncomment below and update the code to test the property portMappings
+        //var instane = new GiantSwarm.V4ClusterDetailsResponseKvm();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

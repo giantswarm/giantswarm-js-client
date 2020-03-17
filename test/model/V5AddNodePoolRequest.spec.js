@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5AddNodePoolRequest();
   });
 
@@ -49,32 +46,35 @@
       object[property] = value;
   }
 
-  describe('V5AddNodePoolRequest', function() {
-    it('should create an instance of V5AddNodePoolRequest', function() {
+  describe('V5AddNodePoolRequest', () => {
+    test('should create an instance of V5AddNodePoolRequest', () => {
       // uncomment below and update the code to test V5AddNodePoolRequest
       //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequest);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property availabilityZones (base name: "availability_zones")', function() {
-      // uncomment below and update the code to test the property availabilityZones
-      //var instane = new GiantSwarm.V5AddNodePoolRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property availabilityZones (base name: "availability_zones")',
+      () => {
+        // uncomment below and update the code to test the property availabilityZones
+        //var instane = new GiantSwarm.V5AddNodePoolRequest();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property scaling (base name: "scaling")', function() {
+    test('should have the property scaling (base name: "scaling")', () => {
       // uncomment below and update the code to test the property scaling
       //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property nodeSpec (base name: "node_spec")', function() {
+    test('should have the property nodeSpec (base name: "node_spec")', () => {
       // uncomment below and update the code to test the property nodeSpec
       //var instane = new GiantSwarm.V5AddNodePoolRequest();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.ReleasesApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('ReleasesApi', function() {
-    describe('getReleases', function() {
-      it('should call getReleases successfully', function(done) {
+  describe('ReleasesApi', () => {
+    describe('getReleases', () => {
+      test('should call getReleases successfully', done => {
         //uncomment below and update the code to test getReleases
         //instance.getReleases(function(error) {
         //  if (error) throw error;

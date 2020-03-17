@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5ClusterDetailsResponseConditions();
   });
 
@@ -49,24 +46,33 @@
       object[property] = value;
   }
 
-  describe('V5ClusterDetailsResponseConditions', function() {
-    it('should create an instance of V5ClusterDetailsResponseConditions', function() {
-      // uncomment below and update the code to test V5ClusterDetailsResponseConditions
-      //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
-      //expect(instance).to.be.a(GiantSwarm.V5ClusterDetailsResponseConditions);
-    });
+  describe('V5ClusterDetailsResponseConditions', () => {
+    test(
+      'should create an instance of V5ClusterDetailsResponseConditions',
+      () => {
+        // uncomment below and update the code to test V5ClusterDetailsResponseConditions
+        //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
+        //expect(instance).to.be.a(GiantSwarm.V5ClusterDetailsResponseConditions);
+      }
+    );
 
-    it('should have the property lastTransitionTime (base name: "last_transition_time")', function() {
-      // uncomment below and update the code to test the property lastTransitionTime
-      //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property lastTransitionTime (base name: "last_transition_time")',
+      () => {
+        // uncomment below and update the code to test the property lastTransitionTime
+        //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property condition (base name: "condition")', function() {
-      // uncomment below and update the code to test the property condition
-      //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property condition (base name: "condition")',
+      () => {
+        // uncomment below and update the code to test the property condition
+        //var instane = new GiantSwarm.V5ClusterDetailsResponseConditions();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4OrganizationListItem();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('V4OrganizationListItem', function() {
-    it('should create an instance of V4OrganizationListItem', function() {
+  describe('V4OrganizationListItem', () => {
+    test('should create an instance of V4OrganizationListItem', () => {
       // uncomment below and update the code to test V4OrganizationListItem
       //var instane = new GiantSwarm.V4OrganizationListItem();
       //expect(instance).to.be.a(GiantSwarm.V4OrganizationListItem);
     });
 
-    it('should have the property id (base name: "id")', function() {
+    test('should have the property id (base name: "id")', () => {
       // uncomment below and update the code to test the property id
       //var instane = new GiantSwarm.V4OrganizationListItem();
       //expect(instance).to.be();

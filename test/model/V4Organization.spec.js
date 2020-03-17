@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4Organization();
   });
 
@@ -49,20 +46,20 @@
       object[property] = value;
   }
 
-  describe('V4Organization', function() {
-    it('should create an instance of V4Organization', function() {
+  describe('V4Organization', () => {
+    test('should create an instance of V4Organization', () => {
       // uncomment below and update the code to test V4Organization
       //var instane = new GiantSwarm.V4Organization();
       //expect(instance).to.be.a(GiantSwarm.V4Organization);
     });
 
-    it('should have the property id (base name: "id")', function() {
+    test('should have the property id (base name: "id")', () => {
       // uncomment below and update the code to test the property id
       //var instane = new GiantSwarm.V4Organization();
       //expect(instance).to.be();
     });
 
-    it('should have the property members (base name: "members")', function() {
+    test('should have the property members (base name: "members")', () => {
       // uncomment below and update the code to test the property members
       //var instane = new GiantSwarm.V4Organization();
       //expect(instance).to.be();

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4NodeDefinitionAzure();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('V4NodeDefinitionAzure', function() {
-    it('should create an instance of V4NodeDefinitionAzure', function() {
+  describe('V4NodeDefinitionAzure', () => {
+    test('should create an instance of V4NodeDefinitionAzure', () => {
       // uncomment below and update the code to test V4NodeDefinitionAzure
       //var instane = new GiantSwarm.V4NodeDefinitionAzure();
       //expect(instance).to.be.a(GiantSwarm.V4NodeDefinitionAzure);
     });
 
-    it('should have the property vmSize (base name: "vm_size")', function() {
+    test('should have the property vmSize (base name: "vm_size")', () => {
       // uncomment below and update the code to test the property vmSize
       //var instane = new GiantSwarm.V4NodeDefinitionAzure();
       //expect(instance).to.be();

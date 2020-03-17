@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ReleaseListItem();
   });
 
@@ -49,42 +46,51 @@
       object[property] = value;
   }
 
-  describe('V4ReleaseListItem', function() {
-    it('should create an instance of V4ReleaseListItem', function() {
+  describe('V4ReleaseListItem', () => {
+    test('should create an instance of V4ReleaseListItem', () => {
       // uncomment below and update the code to test V4ReleaseListItem
       //var instane = new GiantSwarm.V4ReleaseListItem();
       //expect(instance).to.be.a(GiantSwarm.V4ReleaseListItem);
     });
 
-    it('should have the property version (base name: "version")', function() {
+    test('should have the property version (base name: "version")', () => {
       // uncomment below and update the code to test the property version
       //var instane = new GiantSwarm.V4ReleaseListItem();
       //expect(instance).to.be();
     });
 
-    it('should have the property timestamp (base name: "timestamp")', function() {
-      // uncomment below and update the code to test the property timestamp
-      //var instane = new GiantSwarm.V4ReleaseListItem();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property timestamp (base name: "timestamp")',
+      () => {
+        // uncomment below and update the code to test the property timestamp
+        //var instane = new GiantSwarm.V4ReleaseListItem();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property active (base name: "active")', function() {
+    test('should have the property active (base name: "active")', () => {
       // uncomment below and update the code to test the property active
       //var instane = new GiantSwarm.V4ReleaseListItem();
       //expect(instance).to.be();
     });
 
-    it('should have the property changelog (base name: "changelog")', function() {
-      // uncomment below and update the code to test the property changelog
-      //var instane = new GiantSwarm.V4ReleaseListItem();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property changelog (base name: "changelog")',
+      () => {
+        // uncomment below and update the code to test the property changelog
+        //var instane = new GiantSwarm.V4ReleaseListItem();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property components (base name: "components")', function() {
-      // uncomment below and update the code to test the property components
-      //var instane = new GiantSwarm.V4ReleaseListItem();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property components (base name: "components")',
+      () => {
+        // uncomment below and update the code to test the property components
+        //var instane = new GiantSwarm.V4ReleaseListItem();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

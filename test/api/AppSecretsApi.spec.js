@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.AppSecretsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('AppSecretsApi', function() {
-    describe('createClusterAppSecretV4', function() {
-      it('should call createClusterAppSecretV4 successfully', function(done) {
+  describe('AppSecretsApi', () => {
+    describe('createClusterAppSecretV4', () => {
+      test('should call createClusterAppSecretV4 successfully', done => {
         //uncomment below and update the code to test createClusterAppSecretV4
         //instance.createClusterAppSecretV4(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('createClusterAppSecretV5', function() {
-      it('should call createClusterAppSecretV5 successfully', function(done) {
+    describe('createClusterAppSecretV5', () => {
+      test('should call createClusterAppSecretV5 successfully', done => {
         //uncomment below and update the code to test createClusterAppSecretV5
         //instance.createClusterAppSecretV5(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('deleteClusterAppSecretV4', function() {
-      it('should call deleteClusterAppSecretV4 successfully', function(done) {
+    describe('deleteClusterAppSecretV4', () => {
+      test('should call deleteClusterAppSecretV4 successfully', done => {
         //uncomment below and update the code to test deleteClusterAppSecretV4
         //instance.deleteClusterAppSecretV4(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('deleteClusterAppSecretV5', function() {
-      it('should call deleteClusterAppSecretV5 successfully', function(done) {
+    describe('deleteClusterAppSecretV5', () => {
+      test('should call deleteClusterAppSecretV5 successfully', done => {
         //uncomment below and update the code to test deleteClusterAppSecretV5
         //instance.deleteClusterAppSecretV5(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('getClusterAppSecretV4', function() {
-      it('should call getClusterAppSecretV4 successfully', function(done) {
+    describe('getClusterAppSecretV4', () => {
+      test('should call getClusterAppSecretV4 successfully', done => {
         //uncomment below and update the code to test getClusterAppSecretV4
         //instance.getClusterAppSecretV4(function(error) {
         //  if (error) throw error;
@@ -100,8 +97,8 @@
         done();
       });
     });
-    describe('getClusterAppSecretV5', function() {
-      it('should call getClusterAppSecretV5 successfully', function(done) {
+    describe('getClusterAppSecretV5', () => {
+      test('should call getClusterAppSecretV5 successfully', done => {
         //uncomment below and update the code to test getClusterAppSecretV5
         //instance.getClusterAppSecretV5(function(error) {
         //  if (error) throw error;
@@ -110,8 +107,8 @@
         done();
       });
     });
-    describe('modifyClusterAppSecretV4', function() {
-      it('should call modifyClusterAppSecretV4 successfully', function(done) {
+    describe('modifyClusterAppSecretV4', () => {
+      test('should call modifyClusterAppSecretV4 successfully', done => {
         //uncomment below and update the code to test modifyClusterAppSecretV4
         //instance.modifyClusterAppSecretV4(function(error) {
         //  if (error) throw error;
@@ -120,8 +117,8 @@
         done();
       });
     });
-    describe('modifyClusterAppSecretV5', function() {
-      it('should call modifyClusterAppSecretV5 successfully', function(done) {
+    describe('modifyClusterAppSecretV5', () => {
+      test('should call modifyClusterAppSecretV5 successfully', done => {
         //uncomment below and update the code to test modifyClusterAppSecretV5
         //instance.modifyClusterAppSecretV5(function(error) {
         //  if (error) throw error;

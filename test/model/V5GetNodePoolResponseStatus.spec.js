@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V5GetNodePoolResponseStatus();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseStatus', function() {
-    it('should create an instance of V5GetNodePoolResponseStatus', function() {
+  describe('V5GetNodePoolResponseStatus', () => {
+    test('should create an instance of V5GetNodePoolResponseStatus', () => {
       // uncomment below and update the code to test V5GetNodePoolResponseStatus
       //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
       //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseStatus);
     });
 
-    it('should have the property nodes (base name: "nodes")', function() {
+    test('should have the property nodes (base name: "nodes")', () => {
       // uncomment below and update the code to test the property nodes
       //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
       //expect(instance).to.be();
     });
 
-    it('should have the property nodesReady (base name: "nodes_ready")', function() {
-      // uncomment below and update the code to test the property nodesReady
-      //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property nodesReady (base name: "nodes_ready")',
+      () => {
+        // uncomment below and update the code to test the property nodesReady
+        //var instane = new GiantSwarm.V5GetNodePoolResponseStatus();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

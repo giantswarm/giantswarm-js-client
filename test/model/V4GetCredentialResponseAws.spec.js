@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4GetCredentialResponseAws();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('V4GetCredentialResponseAws', function() {
-    it('should create an instance of V4GetCredentialResponseAws', function() {
+  describe('V4GetCredentialResponseAws', () => {
+    test('should create an instance of V4GetCredentialResponseAws', () => {
       // uncomment below and update the code to test V4GetCredentialResponseAws
       //var instane = new GiantSwarm.V4GetCredentialResponseAws();
       //expect(instance).to.be.a(GiantSwarm.V4GetCredentialResponseAws);
     });
 
-    it('should have the property roles (base name: "roles")', function() {
+    test('should have the property roles (base name: "roles")', () => {
       // uncomment below and update the code to test the property roles
       //var instane = new GiantSwarm.V4GetCredentialResponseAws();
       //expect(instance).to.be();

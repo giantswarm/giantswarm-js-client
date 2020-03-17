@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ModifyUserRequest();
   });
 
@@ -49,20 +46,20 @@
       object[property] = value;
   }
 
-  describe('V4ModifyUserRequest', function() {
-    it('should create an instance of V4ModifyUserRequest', function() {
+  describe('V4ModifyUserRequest', () => {
+    test('should create an instance of V4ModifyUserRequest', () => {
       // uncomment below and update the code to test V4ModifyUserRequest
       //var instane = new GiantSwarm.V4ModifyUserRequest();
       //expect(instance).to.be.a(GiantSwarm.V4ModifyUserRequest);
     });
 
-    it('should have the property email (base name: "email")', function() {
+    test('should have the property email (base name: "email")', () => {
       // uncomment below and update the code to test the property email
       //var instane = new GiantSwarm.V4ModifyUserRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property expiry (base name: "expiry")', function() {
+    test('should have the property expiry (base name: "expiry")', () => {
       // uncomment below and update the code to test the property expiry
       //var instane = new GiantSwarm.V4ModifyUserRequest();
       //expect(instance).to.be();

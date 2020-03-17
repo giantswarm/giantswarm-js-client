@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.UsersApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('UsersApi', function() {
-    describe('createUser', function() {
-      it('should call createUser successfully', function(done) {
+  describe('UsersApi', () => {
+    describe('createUser', () => {
+      test('should call createUser successfully', done => {
         //uncomment below and update the code to test createUser
         //instance.createUser(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('deleteUser', function() {
-      it('should call deleteUser successfully', function(done) {
+    describe('deleteUser', () => {
+      test('should call deleteUser successfully', done => {
         //uncomment below and update the code to test deleteUser
         //instance.deleteUser(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('getCurrentUser', function() {
-      it('should call getCurrentUser successfully', function(done) {
+    describe('getCurrentUser', () => {
+      test('should call getCurrentUser successfully', done => {
         //uncomment below and update the code to test getCurrentUser
         //instance.getCurrentUser(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('getUser', function() {
-      it('should call getUser successfully', function(done) {
+    describe('getUser', () => {
+      test('should call getUser successfully', done => {
         //uncomment below and update the code to test getUser
         //instance.getUser(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('getUsers', function() {
-      it('should call getUsers successfully', function(done) {
+    describe('getUsers', () => {
+      test('should call getUsers successfully', done => {
         //uncomment below and update the code to test getUsers
         //instance.getUsers(function(error) {
         //  if (error) throw error;
@@ -100,8 +97,8 @@
         done();
       });
     });
-    describe('modifyPassword', function() {
-      it('should call modifyPassword successfully', function(done) {
+    describe('modifyPassword', () => {
+      test('should call modifyPassword successfully', done => {
         //uncomment below and update the code to test modifyPassword
         //instance.modifyPassword(function(error) {
         //  if (error) throw error;
@@ -110,8 +107,8 @@
         done();
       });
     });
-    describe('modifyUser', function() {
-      it('should call modifyUser successfully', function(done) {
+    describe('modifyUser', () => {
+      test('should call modifyUser successfully', done => {
         //uncomment below and update the code to test modifyUser
         //instance.modifyUser(function(error) {
         //  if (error) throw error;
