@@ -4,6 +4,7 @@
   "description": "Generated JavaScript client for the Giant Swarm API.",
   "license": "Unlicense",
   "main": "src/index.js",
+  "types": "@types/index.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "build-types": "./node_modules/.bin/tsc"

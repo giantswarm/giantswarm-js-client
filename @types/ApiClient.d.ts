@@ -168,7 +168,7 @@ declare namespace ApiClient {
     * @param obj {Object|Array} The target object or array.
     */
     export function constructFromObject(data: any, obj: any, itemType: any): void;
-    export const instance: ;
+    export const instance: ApiClient;
 }
 export default ApiClient;
 //# sourceMappingURL=ApiClient.d.ts.map
