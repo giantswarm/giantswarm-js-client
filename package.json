@@ -1,21 +1,21 @@
 {
-  "name": "typescript-fetch-api",
-  "version": "0.0.0",
+  "name": "giantswarm-v4",
+  "version": "4.0.1",
+  "description": "Generated JavaScript client for the Giant Swarm API.",
   "license": "Unlicense",
-  "main": "./dist/api.js",
-  "browser": "./dist/api.js",
-  "typings": "./dist/api.d.ts",
-  "dependencies": {
-    "core-js": "^2.4.0",
-    "isomorphic-fetch": "^2.2.1"
-  },
+  "main": "src/index.js",
   "scripts": {
-    "prepublish": "typings install && tsc",
-    "test": "tslint api.ts"
+    "test": "./node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "superagent": "3.8.3"
   },
   "devDependencies": {
-    "tslint": "^3.15.1",
-    "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "jest": "^25.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
