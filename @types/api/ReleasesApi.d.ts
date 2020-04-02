@@ -13,7 +13,7 @@ export default class ReleasesApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: ApiClient);
+    constructor(apiClient?: ApiClient);
     apiClient: ApiClient;
     /**
      * Get releases
