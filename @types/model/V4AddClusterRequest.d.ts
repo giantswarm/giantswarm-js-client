@@ -24,17 +24,17 @@ export default class V4AddClusterRequest {
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * Cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * Number of availability zones a cluster should be spread across. The default is provided via the [info](#operation/getInfo) endpoint.
     * @member {Number} availability_zones

@@ -23,7 +23,7 @@ export default class V4AddCredentialsRequest {
     /**
     * @member {String} provider
     */
-    provider: any;
+    provider: string;
     /**
     * @member {module:model/V4AddCredentialsRequestAws} aws
     */

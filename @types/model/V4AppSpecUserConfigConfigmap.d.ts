@@ -16,11 +16,11 @@ export default class V4AppSpecUserConfigConfigmap {
     * Name of the config map containing values to apply, e.g. prometheus-user-values
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Namespace of the values config map on the control plane, e.g. 123ab
     * @member {String} namespace
     */
-    namespace: any;
+    namespace: string;
 }
 //# sourceMappingURL=V4AppSpecUserConfigConfigmap.d.ts.map

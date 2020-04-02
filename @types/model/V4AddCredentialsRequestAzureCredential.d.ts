@@ -27,21 +27,21 @@ export default class V4AddCredentialsRequestAzureCredential {
     * Client ID of the service principal
     * @member {String} client_id
     */
-    client_id: any;
+    client_id: string;
     /**
     * Secret key of the service principal
     * @member {String} secret_key
     */
-    secret_key: any;
+    secret_key: string;
     /**
     * Azure subscription ID
     * @member {String} subscription_id
     */
-    subscription_id: any;
+    subscription_id: string;
     /**
     * Tenant ID of the Azure subscription
     * @member {String} tenant_id
     */
-    tenant_id: any;
+    tenant_id: string;
 }
 //# sourceMappingURL=V4AddCredentialsRequestAzureCredential.d.ts.map

@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * NodePools service.
 * @module api/NodePoolsApi
@@ -11,8 +13,8 @@ export default class NodePoolsApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;node_spec.aws.instance_type&#x60;

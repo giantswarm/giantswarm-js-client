@@ -16,11 +16,11 @@ export default class V4AddClusterRequestScaling {
     * Minimum number of cluster nodes
     * @member {Number} min
     */
-    min: any;
+    min: number;
     /**
     * Maximum number of cluster nodes
     * @member {Number} max
     */
-    max: any;
+    max: number;
 }
 //# sourceMappingURL=V4AddClusterRequestScaling.d.ts.map

@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * ExceptionNotifications service.
 * @module api/ExceptionNotificationsApi
@@ -11,8 +13,8 @@ export default class ExceptionNotificationsApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Notifies Giant Swarm that an error has occured in one of our clients.
      * This endpoint is used to notify Giant Swarm that an error has occured in one of our clients (like our Web UI or gsctl). It is not intended to be called manually, our clients are configured to report errors when they occur.  Find us in your Slack support channel if you want to contact us about any immediate issues.

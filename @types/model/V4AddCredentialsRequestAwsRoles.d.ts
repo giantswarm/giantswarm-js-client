@@ -25,11 +25,11 @@ export default class V4AddCredentialsRequestAwsRoles {
     * ARN of the IAM role to assume by Giant Swarm support staff
     * @member {String} admin
     */
-    admin: any;
+    admin: string;
     /**
     * ARN of the IAM role to assume by the software operating clusters
     * @member {String} awsoperator
     */
-    awsoperator: any;
+    awsoperator: string;
 }
 //# sourceMappingURL=V4AddCredentialsRequestAwsRoles.d.ts.map

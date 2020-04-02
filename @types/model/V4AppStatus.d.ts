@@ -16,12 +16,12 @@ export default class V4AppStatus {
     * Version of the installed app
     * @member {String} app_version
     */
-    app_version: any;
+    app_version: string;
     /**
     * Version of the chart that was used to install this app
     * @member {String} version
     */
-    version: any;
+    version: string;
     /**
     * @member {module:model/V4AppStatusRelease} release
     */

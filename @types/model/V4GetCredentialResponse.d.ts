@@ -16,7 +16,7 @@ export default class V4GetCredentialResponse {
     * Unique ID of the credentials
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * Either 'aws' or 'azure'
     * @member {String} provider

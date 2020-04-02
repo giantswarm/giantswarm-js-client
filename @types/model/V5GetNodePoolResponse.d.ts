@@ -16,7 +16,7 @@ export default class V5GetNodePoolResponse {
     * Node pool identifier. Unique within a tenant cluster.
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * Node pool name
     * @member {String} name

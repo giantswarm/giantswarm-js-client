@@ -16,7 +16,7 @@ export default class V4GetKeyPairsResponseInner {
     * Unique identifier of the key pair
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * Free text information about the key pair
     * @member {String} description

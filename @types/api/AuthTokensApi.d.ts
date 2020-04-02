@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * AuthTokens service.
 * @module api/AuthTokensApi
@@ -11,8 +13,8 @@ export default class AuthTokensApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Create Auth Token (Login)
      * Creates a Auth Token for a given user. Must authenticate with email and password.

@@ -16,7 +16,7 @@ export default class V4AppCatalogsResponseInnerMetadata {
     * A URL friendly identifier for the catalog.
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * @member {module:model/V4AppCatalogsResponseInnerMetadataLabels} labels
     */

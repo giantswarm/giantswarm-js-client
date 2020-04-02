@@ -23,21 +23,21 @@ export default class V4AddKeyPairRequest {
     * Free text information about the key pair
     * @member {String} description
     */
-    description: any;
+    description: string;
     /**
     * Expiration time (from creation) in hours
     * @member {Number} ttl_hours
     */
-    ttl_hours: any;
+    ttl_hours: number;
     /**
     * The common name prefix of the certificate subject. This only allows characters that are usable in domain names (`a-z`, `0-9`, and `.-`, where `.-` must not occur at either the start or the end).
     * @member {String} cn_prefix
     */
-    cn_prefix: any;
+    cn_prefix: string;
     /**
     * This will set the certificate subject's `organization` fields. Use a comma seperated list of values.
     * @member {String} certificate_organizations
     */
-    certificate_organizations: any;
+    certificate_organizations: string;
 }
 //# sourceMappingURL=V4AddKeyPairRequest.d.ts.map

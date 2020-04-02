@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * Info service.
 * @module api/InfoApi
@@ -11,8 +13,8 @@ export default class InfoApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Get information on the installation
      * Returns a set of details on the installation. The output varies based on the provider used in the installation.  This information is useful for example when creating new cluster, to prevent creating clusters with more worker nodes than possible.  ### Example for an AWS-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;shire\&quot;,     \&quot;provider\&quot;: \&quot;aws\&quot;,     \&quot;datacenter\&quot;: \&quot;eu-central-1\&quot;,     \&quot;availability_zones\&quot;: {       \&quot;max\&quot;: 3,       \&quot;default\&quot;: 1,       \&quot;zones\&quot;: [         \&quot;eu-central-1a\&quot;, \&quot;eu-central-1b\&quot;, \&quot;eu-central-1c\&quot;       ]     }   },   \&quot;stats\&quot;: {     \&quot;cluster_creation_duration\&quot;: {       \&quot;median\&quot;: 750,       \&quot;p25\&quot;: 700,       \&quot;p75\&quot;: 800     }   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: null,       \&quot;default\&quot;: 3     },     \&quot;instance_type\&quot;: {       \&quot;options\&quot;: [         \&quot;m3.medium\&quot;, \&quot;m3.large\&quot;, \&quot;m3.xlarge\&quot;       ],       \&quot;default\&quot;: \&quot;m3.large\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example for a KVM-based installation  &#x60;&#x60;&#x60;json {   \&quot;general\&quot;: {     \&quot;installation_name\&quot;: \&quot;isengard\&quot;,     \&quot;provider\&quot;: \&quot;kvm\&quot;,     \&quot;datacenter\&quot;: \&quot;string\&quot;,     \&quot;availability_zones\&quot;: {       \&quot;max\&quot;: 1,       \&quot;default\&quot;: 1,     }   },   \&quot;stats\&quot;: {     \&quot;cluster_creation_duration\&quot;: {       \&quot;median\&quot;: 750,       \&quot;p25\&quot;: 700,       \&quot;p75\&quot;: 800     }   },   \&quot;workers\&quot;: {     \&quot;count_per_cluster\&quot;: {       \&quot;max\&quot;: 8,       \&quot;default\&quot;: 3     },   } } &#x60;&#x60;&#x60;

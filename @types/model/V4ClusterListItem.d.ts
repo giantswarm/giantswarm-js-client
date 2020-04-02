@@ -16,7 +16,7 @@ export default class V4ClusterListItem {
     * Unique cluster identifier
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * Date/time of cluster creation
     * @member {String} create_date

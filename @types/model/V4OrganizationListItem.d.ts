@@ -16,6 +16,6 @@ export default class V4OrganizationListItem {
     * Unique name/identifier of the organization
     * @member {String} id
     */
-    id: any;
+    id: string;
 }
 //# sourceMappingURL=V4OrganizationListItem.d.ts.map

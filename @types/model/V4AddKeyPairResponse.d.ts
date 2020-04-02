@@ -16,36 +16,36 @@ export default class V4AddKeyPairResponse {
     * Unique identifier of the key pair
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * Free text information about the key pair
     * @member {String} description
     */
-    description: any;
+    description: string;
     /**
     * Expiration time (from creation) in hours
     * @member {Number} ttl_hours
     */
-    ttl_hours: any;
+    ttl_hours: number;
     /**
     * Date/time of creation
     * @member {String} create_date
     */
-    create_date: any;
+    create_date: string;
     /**
     * PEM-encoded CA certificate of the cluster
     * @member {String} certificate_authority_data
     */
-    certificate_authority_data: any;
+    certificate_authority_data: string;
     /**
     * PEM-encoded RSA private key
     * @member {String} client_key_data
     */
-    client_key_data: any;
+    client_key_data: string;
     /**
     * PEM-encoded certificate
     * @member {String} client_certificate_data
     */
-    client_certificate_data: any;
+    client_certificate_data: string;
 }
 //# sourceMappingURL=V4AddKeyPairResponse.d.ts.map

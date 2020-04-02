@@ -16,17 +16,17 @@ export default class V4AppCatalogsResponseInnerSpec {
     * A display friendly title for this catalog.
     * @member {String} title
     */
-    title: any;
+    title: string;
     /**
     * A description of the catalog.
     * @member {String} description
     */
-    description: any;
+    description: string;
     /**
     * A URL to a logo representing this catalog.
     * @member {String} logoURL
     */
-    logoURL: any;
+    logoURL: string;
     /**
     * @member {module:model/V4AppCatalogsResponseInnerSpecStorage} storage
     */

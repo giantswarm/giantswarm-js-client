@@ -16,22 +16,22 @@ export default class V4AppSpec {
     * Name of the chart that was used to install this app
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Namespace that this app is installed to
     * @member {String} namespace
     */
-    namespace: any;
+    namespace: string;
     /**
     * Version of the chart that was used to install this app
     * @member {String} version
     */
-    version: any;
+    version: string;
     /**
     * The catalog that this app came from
     * @member {String} catalog
     */
-    catalog: any;
+    catalog: string;
     /**
     * @member {module:model/V4AppSpecUserConfig} user_config
     */

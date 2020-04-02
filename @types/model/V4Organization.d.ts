@@ -16,7 +16,7 @@ export default class V4Organization {
     * Unique name/identifier of the organization
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * List of members that belong to this organization
     * @member {Array.<module:model/V4OrganizationMember>} members

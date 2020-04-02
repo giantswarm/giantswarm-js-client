@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * Releases service.
 * @module api/ReleasesApi
@@ -11,8 +13,8 @@ export default class ReleasesApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Get releases
      * Lists all releases available for new clusters or for upgrading existing clusters. Might also serve as an archive to obtain details on older releases.

@@ -15,10 +15,10 @@ export default class V4AppCatalogsResponseInnerMetadataLabels {
     /**
     * @member {String} application.giantswarm.io/catalog-type
     */
-    "application.giantswarm.io/catalog-type": any;
+    "application.giantswarm.io/catalog-type": string;
     /**
     * @member {String} app-operator.giantswarm.io/version
     */
-    "app-operator.giantswarm.io/version": any;
+    "app-operator.giantswarm.io/version": string;
 }
 //# sourceMappingURL=V4AppCatalogsResponseInnerMetadataLabels.d.ts.map

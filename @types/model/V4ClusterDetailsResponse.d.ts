@@ -16,12 +16,12 @@ export default class V4ClusterDetailsResponse {
     * Unique cluster identifier
     * @member {String} id
     */
-    id: any;
+    id: string;
     /**
     * URI of the Kubernetes API endpoint
     * @member {String} api_endpoint
     */
-    api_endpoint: any;
+    api_endpoint: string;
     /**
     * Date/time of cluster creation
     * @member {String} create_date

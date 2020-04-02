@@ -16,7 +16,7 @@ export default class V4AppMetadata {
     * The identifier you set when creating this app
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * The labels that are set on this App
     * @member {Object} labels

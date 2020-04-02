@@ -16,11 +16,11 @@ export default class V4AppCatalogsResponseInnerSpecStorage {
     * A URL where clients can download the full catalog.
     * @member {String} URL
     */
-    URL: any;
+    URL: string;
     /**
     * The format of this catalog. (Currently only helm is supported.)
     * @member {String} type
     */
-    type: any;
+    type: string;
 }
 //# sourceMappingURL=V4AppCatalogsResponseInnerSpecStorage.d.ts.map

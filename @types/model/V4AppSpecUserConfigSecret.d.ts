@@ -16,11 +16,11 @@ export default class V4AppSpecUserConfigSecret {
     * Name of the Secret on the control plane, which will become available wherever the app is installed
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Namespace of the Secret on the control plane, e.g. 123ab
     * @member {String} namespace
     */
-    namespace: any;
+    namespace: string;
 }
 //# sourceMappingURL=V4AppSpecUserConfigSecret.d.ts.map

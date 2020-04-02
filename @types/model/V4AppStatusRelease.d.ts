@@ -16,11 +16,11 @@ export default class V4AppStatusRelease {
     * Date and time that the app was last last deployed
     * @member {String} last_deployed
     */
-    last_deployed: any;
+    last_deployed: string;
     /**
     * A string representing the status of the app. (Can be: empty, DEPLOYED or FAILED)
     * @member {String} status
     */
-    status: any;
+    status: string;
 }
 //# sourceMappingURL=V4AppStatusRelease.d.ts.map

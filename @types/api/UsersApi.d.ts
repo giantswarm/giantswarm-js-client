@@ -1,3 +1,5 @@
+import ApiClient from "../ApiClient";
+
 /**
 * Users service.
 * @module api/UsersApi
@@ -11,8 +13,8 @@ export default class UsersApi {
     * @param {module:ApiClient} apiClient Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
     */
-    constructor(apiClient: any);
-    apiClient: any;
+    constructor(apiClient: ApiClient);
+    apiClient: ApiClient;
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions.
