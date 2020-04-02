@@ -1,0 +1,19 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "lib": ["es5", "es2015", "dom"],
+    "module": "amd",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "target": "es5",
+    "baseUrl": ".",
+    "outDir": "./@types",
+    "declarationMap": true,
+    "declarationDir": "./@types",
+    "declaration": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true
+  }
+}
