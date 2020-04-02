@@ -22,4 +22,3 @@ export default class V5ModifyNodePoolRequest {
     */
     scaling: any;
 }
-//# sourceMappingURL=V5ModifyNodePoolRequest.d.ts.map

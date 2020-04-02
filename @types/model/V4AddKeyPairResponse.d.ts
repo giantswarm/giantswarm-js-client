@@ -48,4 +48,3 @@ export default class V4AddKeyPairResponse {
     */
     client_certificate_data: string;
 }
-//# sourceMappingURL=V4AddKeyPairResponse.d.ts.map

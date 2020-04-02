@@ -39,4 +39,3 @@ export default class V5AddClusterRequest {
     */
     master: any;
 }
-//# sourceMappingURL=V5AddClusterRequest.d.ts.map

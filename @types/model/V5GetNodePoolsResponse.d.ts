@@ -13,4 +13,3 @@ export default class V5GetNodePoolsResponse extends Array<any> {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V5GetNodePoolsResponse.d.ts.map

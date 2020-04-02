@@ -22,4 +22,3 @@ export default class V4AppCatalogsResponseInnerMetadata {
     */
     labels: any;
 }
-//# sourceMappingURL=V4AppCatalogsResponseInnerMetadata.d.ts.map

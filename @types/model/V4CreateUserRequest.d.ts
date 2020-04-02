@@ -31,4 +31,3 @@ export default class V4CreateUserRequest {
     */
     expiry: any;
 }
-//# sourceMappingURL=V4CreateUserRequest.d.ts.map

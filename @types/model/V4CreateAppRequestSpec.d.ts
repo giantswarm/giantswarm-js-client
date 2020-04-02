@@ -43,4 +43,3 @@ export default class V4CreateAppRequestSpec {
     */
     catalog: any;
 }
-//# sourceMappingURL=V4CreateAppRequestSpec.d.ts.map

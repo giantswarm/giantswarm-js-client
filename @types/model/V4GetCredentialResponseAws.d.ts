@@ -17,4 +17,3 @@ export default class V4GetCredentialResponseAws {
     */
     roles: any;
 }
-//# sourceMappingURL=V4GetCredentialResponseAws.d.ts.map

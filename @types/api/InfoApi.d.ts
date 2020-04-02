@@ -44,4 +44,3 @@ export default class InfoApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=InfoApi.d.ts.map

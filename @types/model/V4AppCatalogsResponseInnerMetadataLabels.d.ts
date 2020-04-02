@@ -21,4 +21,3 @@ export default class V4AppCatalogsResponseInnerMetadataLabels {
     */
     "app-operator.giantswarm.io/version": string;
 }
-//# sourceMappingURL=V4AppCatalogsResponseInnerMetadataLabels.d.ts.map

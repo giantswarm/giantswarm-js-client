@@ -13,4 +13,3 @@ export default class V4GetClusterAppSecretResponse {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4GetClusterAppSecretResponse.d.ts.map

@@ -66,4 +66,3 @@ export default class V5ClusterDetailsResponse {
     */
     versions: any;
 }
-//# sourceMappingURL=V5ClusterDetailsResponse.d.ts.map

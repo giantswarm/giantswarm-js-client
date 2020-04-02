@@ -17,4 +17,3 @@ export default class V4InfoResponseStats {
     */
     cluster_creation_duration: any;
 }
-//# sourceMappingURL=V4InfoResponseStats.d.ts.map

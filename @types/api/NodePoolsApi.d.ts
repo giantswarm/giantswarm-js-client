@@ -176,4 +176,3 @@ export default class NodePoolsApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=NodePoolsApi.d.ts.map

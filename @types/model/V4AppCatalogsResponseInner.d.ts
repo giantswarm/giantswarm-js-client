@@ -21,4 +21,3 @@ export default class V4AppCatalogsResponseInner {
     */
     spec: any;
 }
-//# sourceMappingURL=V4AppCatalogsResponseInner.d.ts.map

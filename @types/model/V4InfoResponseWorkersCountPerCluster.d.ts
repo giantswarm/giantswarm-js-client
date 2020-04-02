@@ -16,11 +16,10 @@ export default class V4InfoResponseWorkersCountPerCluster {
     * Maximum number of worker a cluster can have. Might be null when unknown.
     * @member {Number} max
     */
-    max: any;
+    max: number;
     /**
     * Default number of workers in a new cluster will have, if not specifiec otherwise
     * @member {Number} default
     */
-    default: any;
+    default: number;
 }
-//# sourceMappingURL=V4InfoResponseWorkersCountPerCluster.d.ts.map

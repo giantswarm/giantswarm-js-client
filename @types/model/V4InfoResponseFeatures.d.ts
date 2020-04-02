@@ -17,4 +17,3 @@ export default class V4InfoResponseFeatures {
     */
     nodepools: any;
 }
-//# sourceMappingURL=V4InfoResponseFeatures.d.ts.map

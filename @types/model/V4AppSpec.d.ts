@@ -37,4 +37,3 @@ export default class V4AppSpec {
     */
     user_config: any;
 }
-//# sourceMappingURL=V4AppSpec.d.ts.map

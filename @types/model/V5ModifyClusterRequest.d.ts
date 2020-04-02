@@ -23,4 +23,3 @@ export default class V5ModifyClusterRequest {
     */
     release_version: any;
 }
-//# sourceMappingURL=V5ModifyClusterRequest.d.ts.map

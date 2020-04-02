@@ -18,4 +18,3 @@ export default class V4NodeDefinitionCpu {
     */
     cores: any;
 }
-//# sourceMappingURL=V4NodeDefinitionCpu.d.ts.map

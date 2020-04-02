@@ -37,4 +37,3 @@ export default class V4NodeDefinition {
     */
     labels: any;
 }
-//# sourceMappingURL=V4NodeDefinition.d.ts.map

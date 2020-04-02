@@ -23,4 +23,3 @@ export default class V4AppCatalogsResponseInnerSpecStorage {
     */
     type: string;
 }
-//# sourceMappingURL=V4AppCatalogsResponseInnerSpecStorage.d.ts.map

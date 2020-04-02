@@ -23,4 +23,3 @@ export default class V4ModifyClusterRequestScaling {
     */
     max: any;
 }
-//# sourceMappingURL=V4ModifyClusterRequestScaling.d.ts.map

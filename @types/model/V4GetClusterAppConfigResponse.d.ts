@@ -13,4 +13,3 @@ export default class V4GetClusterAppConfigResponse {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4GetClusterAppConfigResponse.d.ts.map

@@ -16,11 +16,10 @@ export default class V4InfoResponseWorkersVmSize {
     * List of available instance types
     * @member {Array.<String>} options
     */
-    options: any;
+    options: string[];
     /**
     * The instance type used in new cluster, if not specified
     * @member {String} default
     */
-    default: any;
+    default: string;
 }
-//# sourceMappingURL=V4InfoResponseWorkersVmSize.d.ts.map

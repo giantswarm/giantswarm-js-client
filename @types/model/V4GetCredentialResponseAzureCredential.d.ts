@@ -28,4 +28,3 @@ export default class V4GetCredentialResponseAzureCredential {
     */
     tenant_id: any;
 }
-//# sourceMappingURL=V4GetCredentialResponseAzureCredential.d.ts.map

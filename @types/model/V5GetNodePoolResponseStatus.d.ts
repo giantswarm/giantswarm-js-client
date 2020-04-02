@@ -23,4 +23,3 @@ export default class V5GetNodePoolResponseStatus {
     */
     nodes_ready: any;
 }
-//# sourceMappingURL=V5GetNodePoolResponseStatus.d.ts.map

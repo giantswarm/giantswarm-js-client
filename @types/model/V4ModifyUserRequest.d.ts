@@ -23,4 +23,3 @@ export default class V4ModifyUserRequest {
     */
     expiry: any;
 }
-//# sourceMappingURL=V4ModifyUserRequest.d.ts.map

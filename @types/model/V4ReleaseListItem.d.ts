@@ -48,4 +48,3 @@ export default class V4ReleaseListItem {
     */
     active: any;
 }
-//# sourceMappingURL=V4ReleaseListItem.d.ts.map

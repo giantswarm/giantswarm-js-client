@@ -23,4 +23,3 @@ export default class V5GetNodePoolResponseScaling {
     */
     max: any;
 }
-//# sourceMappingURL=V5GetNodePoolResponseScaling.d.ts.map

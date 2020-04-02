@@ -71,4 +71,3 @@ export default class V4ClusterDetailsResponse {
     */
     kvm: any;
 }
-//# sourceMappingURL=V4ClusterDetailsResponse.d.ts.map

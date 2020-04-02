@@ -18,4 +18,3 @@ export default class Body {
     */
     members: any;
 }
-//# sourceMappingURL=Body.d.ts.map

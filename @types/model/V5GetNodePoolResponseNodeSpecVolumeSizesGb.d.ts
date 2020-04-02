@@ -23,4 +23,3 @@ export default class V5GetNodePoolResponseNodeSpecVolumeSizesGb {
     */
     kubelet: any;
 }
-//# sourceMappingURL=V5GetNodePoolResponseNodeSpecVolumeSizesGb.d.ts.map

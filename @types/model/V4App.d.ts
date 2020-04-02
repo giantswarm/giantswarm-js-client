@@ -25,4 +25,3 @@ export default class V4App {
     */
     status: any;
 }
-//# sourceMappingURL=V4App.d.ts.map

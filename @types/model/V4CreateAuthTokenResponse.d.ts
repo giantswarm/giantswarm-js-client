@@ -18,4 +18,3 @@ export default class V4CreateAuthTokenResponse {
     */
     auth_token: any;
 }
-//# sourceMappingURL=V4CreateAuthTokenResponse.d.ts.map

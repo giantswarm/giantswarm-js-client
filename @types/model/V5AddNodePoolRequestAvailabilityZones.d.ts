@@ -23,4 +23,3 @@ export default class V5AddNodePoolRequestAvailabilityZones {
     */
     zones: any;
 }
-//# sourceMappingURL=V5AddNodePoolRequestAvailabilityZones.d.ts.map

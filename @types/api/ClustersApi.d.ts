@@ -288,4 +288,3 @@ export default class ClustersApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=ClustersApi.d.ts.map

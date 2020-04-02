@@ -25,16 +25,15 @@ export default class V4InfoResponseGeneralAvailabilityZones {
     * Number of availability zones in the region of this installation.
     * @member {Number} max
     */
-    max: any;
+    max: number;
     /**
     * Default number of availability zones for a cluster.
     * @member {Number} default
     */
-    default: any;
+    default: number;
     /**
     * The availability zones available in the installation's region for use with tenant clusters.
     * @member {Array.<String>} zones
     */
-    zones: any;
+    zones: string[];
 }
-//# sourceMappingURL=V4InfoResponseGeneralAvailabilityZones.d.ts.map

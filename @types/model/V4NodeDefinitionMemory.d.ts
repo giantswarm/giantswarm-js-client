@@ -18,4 +18,3 @@ export default class V4NodeDefinitionMemory {
     */
     size_gb: any;
 }
-//# sourceMappingURL=V4NodeDefinitionMemory.d.ts.map

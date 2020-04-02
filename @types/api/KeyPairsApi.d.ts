@@ -78,4 +78,3 @@ export default class KeyPairsApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=KeyPairsApi.d.ts.map

@@ -171,4 +171,3 @@ declare namespace ApiClient {
     export const instance: ApiClient;
 }
 export default ApiClient;
-//# sourceMappingURL=ApiClient.d.ts.map

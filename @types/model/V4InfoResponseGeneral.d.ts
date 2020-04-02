@@ -32,4 +32,3 @@ export default class V4InfoResponseGeneral {
     */
     availability_zones: any;
 }
-//# sourceMappingURL=V4InfoResponseGeneral.d.ts.map

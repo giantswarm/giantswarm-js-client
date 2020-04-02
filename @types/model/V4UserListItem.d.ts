@@ -28,4 +28,3 @@ export default class V4UserListItem {
     */
     expiry: any;
 }
-//# sourceMappingURL=V4UserListItem.d.ts.map

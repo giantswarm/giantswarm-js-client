@@ -23,4 +23,3 @@ export default class V4AppMetadata {
     */
     labels: any;
 }
-//# sourceMappingURL=V4AppMetadata.d.ts.map

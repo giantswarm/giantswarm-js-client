@@ -18,4 +18,3 @@ export default class V4OrganizationListItem {
     */
     id: string;
 }
-//# sourceMappingURL=V4OrganizationListItem.d.ts.map

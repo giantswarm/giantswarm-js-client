@@ -18,4 +18,3 @@ export default class V5AddNodePoolRequestNodeSpecAws {
     */
     instance_type: any;
 }
-//# sourceMappingURL=V5AddNodePoolRequestNodeSpecAws.d.ts.map

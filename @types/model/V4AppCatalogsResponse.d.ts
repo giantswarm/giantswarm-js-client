@@ -13,4 +13,3 @@ export default class V4AppCatalogsResponse extends Array<any> {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4AppCatalogsResponse.d.ts.map

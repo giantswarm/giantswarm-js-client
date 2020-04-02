@@ -44,4 +44,3 @@ export default class V4AddCredentialsRequestAzureCredential {
     */
     tenant_id: string;
 }
-//# sourceMappingURL=V4AddCredentialsRequestAzureCredential.d.ts.map

@@ -13,4 +13,3 @@ export default class V4GetClusterAppsResponse extends Array<any> {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4GetClusterAppsResponse.d.ts.map

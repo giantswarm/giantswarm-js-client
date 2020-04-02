@@ -288,4 +288,3 @@ export default class AppConfigsApi {
         body: any;
     }): Promise<any>;
 }
-//# sourceMappingURL=AppConfigsApi.d.ts.map

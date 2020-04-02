@@ -31,4 +31,3 @@ export default class V4ReleaseListItemComponents {
     */
     version: any;
 }
-//# sourceMappingURL=V4ReleaseListItemComponents.d.ts.map

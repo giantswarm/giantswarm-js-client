@@ -23,4 +23,3 @@ export default class V4GenericResponse {
     */
     code: any;
 }
-//# sourceMappingURL=V4GenericResponse.d.ts.map

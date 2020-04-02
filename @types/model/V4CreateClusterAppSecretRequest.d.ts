@@ -13,4 +13,3 @@ export default class V4CreateClusterAppSecretRequest {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4CreateClusterAppSecretRequest.d.ts.map

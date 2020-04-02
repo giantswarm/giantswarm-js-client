@@ -32,4 +32,3 @@ export default class V4AddCredentialsRequestAwsRoles {
     */
     awsoperator: string;
 }
-//# sourceMappingURL=V4AddCredentialsRequestAwsRoles.d.ts.map

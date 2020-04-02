@@ -18,4 +18,3 @@ export default class V4OrganizationMember {
     */
     email: any;
 }
-//# sourceMappingURL=V4OrganizationMember.d.ts.map

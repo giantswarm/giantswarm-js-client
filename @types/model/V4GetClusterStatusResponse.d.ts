@@ -13,4 +13,3 @@ export default class V4GetClusterStatusResponse {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4GetClusterStatusResponse.d.ts.map

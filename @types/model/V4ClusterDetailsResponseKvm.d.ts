@@ -18,4 +18,3 @@ export default class V4ClusterDetailsResponseKvm {
     */
     port_mappings: any;
 }
-//# sourceMappingURL=V4ClusterDetailsResponseKvm.d.ts.map

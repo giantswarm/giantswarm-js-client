@@ -46,4 +46,3 @@ export default class V5GetNodePoolResponse {
     */
     status: any;
 }
-//# sourceMappingURL=V5GetNodePoolResponse.d.ts.map

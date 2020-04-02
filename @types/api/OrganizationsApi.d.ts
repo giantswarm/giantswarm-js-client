@@ -262,4 +262,3 @@ export default class OrganizationsApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=OrganizationsApi.d.ts.map

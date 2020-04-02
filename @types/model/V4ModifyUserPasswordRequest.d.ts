@@ -31,4 +31,3 @@ export default class V4ModifyUserPasswordRequest {
     */
     current_password_base64: any;
 }
-//# sourceMappingURL=V4ModifyUserPasswordRequest.d.ts.map

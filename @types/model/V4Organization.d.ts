@@ -23,4 +23,3 @@ export default class V4Organization {
     */
     members: any;
 }
-//# sourceMappingURL=V4Organization.d.ts.map

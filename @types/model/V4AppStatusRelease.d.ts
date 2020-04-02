@@ -23,4 +23,3 @@ export default class V4AppStatusRelease {
     */
     status: string;
 }
-//# sourceMappingURL=V4AppStatusRelease.d.ts.map

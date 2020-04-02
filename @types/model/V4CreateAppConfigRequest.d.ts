@@ -13,4 +13,3 @@ export default class V4CreateAppConfigRequest {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4CreateAppConfigRequest.d.ts.map

@@ -21,4 +21,3 @@ export default class V5GetNodePoolResponseNodeSpec {
     */
     volume_sizes_gb: any;
 }
-//# sourceMappingURL=V5GetNodePoolResponseNodeSpec.d.ts.map

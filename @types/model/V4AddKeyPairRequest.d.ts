@@ -40,4 +40,3 @@ export default class V4AddKeyPairRequest {
     */
     certificate_organizations: string;
 }
-//# sourceMappingURL=V4AddKeyPairRequest.d.ts.map

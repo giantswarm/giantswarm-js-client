@@ -23,4 +23,3 @@ export default class V4ClusterDetailsResponseScaling {
     */
     max: any;
 }
-//# sourceMappingURL=V4ClusterDetailsResponseScaling.d.ts.map

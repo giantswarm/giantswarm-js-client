@@ -18,4 +18,3 @@ export default class V5ClusterDetailsResponseMaster {
     */
     availability_zone: any;
 }
-//# sourceMappingURL=V5ClusterDetailsResponseMaster.d.ts.map

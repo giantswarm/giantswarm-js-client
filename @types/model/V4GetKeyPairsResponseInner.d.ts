@@ -43,4 +43,3 @@ export default class V4GetKeyPairsResponseInner {
     */
     certificate_organizations: any;
 }
-//# sourceMappingURL=V4GetKeyPairsResponseInner.d.ts.map

@@ -31,4 +31,3 @@ export default class V4GetCredentialResponse {
     */
     azure: any;
 }
-//# sourceMappingURL=V4GetCredentialResponse.d.ts.map

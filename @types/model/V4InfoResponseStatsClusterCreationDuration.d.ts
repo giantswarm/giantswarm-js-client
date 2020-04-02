@@ -28,4 +28,3 @@ export default class V4InfoResponseStatsClusterCreationDuration {
     */
     p75: any;
 }
-//# sourceMappingURL=V4InfoResponseStatsClusterCreationDuration.d.ts.map

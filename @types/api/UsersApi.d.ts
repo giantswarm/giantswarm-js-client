@@ -228,4 +228,3 @@ export default class UsersApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=UsersApi.d.ts.map

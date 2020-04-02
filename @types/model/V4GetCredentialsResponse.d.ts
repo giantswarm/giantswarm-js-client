@@ -13,4 +13,3 @@ export default class V4GetCredentialsResponse extends Array<any> {
     */
     static constructFromObject(data: any, obj: any): any;
 }
-//# sourceMappingURL=V4GetCredentialsResponse.d.ts.map

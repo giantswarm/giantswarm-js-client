@@ -23,4 +23,3 @@ export default class V4ClusterDetailsResponseKvmPortMappings {
     */
     protocol: any;
 }
-//# sourceMappingURL=V4ClusterDetailsResponseKvmPortMappings.d.ts.map

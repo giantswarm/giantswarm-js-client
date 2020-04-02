@@ -18,4 +18,3 @@ export default class V4NodeDefinitionAws {
     */
     instance_type: any;
 }
-//# sourceMappingURL=V4NodeDefinitionAws.d.ts.map

@@ -50,4 +50,3 @@ export default class V4AddClusterRequest {
     */
     workers: any;
 }
-//# sourceMappingURL=V4AddClusterRequest.d.ts.map

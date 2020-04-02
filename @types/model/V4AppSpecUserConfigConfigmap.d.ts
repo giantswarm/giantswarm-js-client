@@ -23,4 +23,3 @@ export default class V4AppSpecUserConfigConfigmap {
     */
     namespace: string;
 }
-//# sourceMappingURL=V4AppSpecUserConfigConfigmap.d.ts.map

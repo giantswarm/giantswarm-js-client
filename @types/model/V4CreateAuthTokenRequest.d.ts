@@ -23,4 +23,3 @@ export default class V4CreateAuthTokenRequest {
     */
     password_base64: any;
 }
-//# sourceMappingURL=V4CreateAuthTokenRequest.d.ts.map

@@ -29,4 +29,3 @@ export default class V4InfoResponse {
     */
     workers: any;
 }
-//# sourceMappingURL=V4InfoResponse.d.ts.map

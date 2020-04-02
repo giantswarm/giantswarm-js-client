@@ -18,4 +18,3 @@ export default class V4NodeDefinitionAzure {
     */
     vm_size: any;
 }
-//# sourceMappingURL=V4NodeDefinitionAzure.d.ts.map

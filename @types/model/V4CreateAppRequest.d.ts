@@ -17,4 +17,3 @@ export default class V4CreateAppRequest {
     */
     spec: any;
 }
-//# sourceMappingURL=V4CreateAppRequest.d.ts.map

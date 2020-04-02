@@ -31,4 +31,3 @@ export default class V5AddNodePoolRequest {
     */
     node_spec: any;
 }
-//# sourceMappingURL=V5AddNodePoolRequest.d.ts.map

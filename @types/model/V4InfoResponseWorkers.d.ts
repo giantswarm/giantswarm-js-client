@@ -25,4 +25,3 @@ export default class V4InfoResponseWorkers {
     */
     vm_size: any;
 }
-//# sourceMappingURL=V4InfoResponseWorkers.d.ts.map

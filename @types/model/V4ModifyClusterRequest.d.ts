@@ -37,4 +37,3 @@ export default class V4ModifyClusterRequest {
     */
     workers: any;
 }
-//# sourceMappingURL=V4ModifyClusterRequest.d.ts.map

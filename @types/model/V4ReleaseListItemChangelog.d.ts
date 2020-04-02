@@ -23,4 +23,3 @@ export default class V4ReleaseListItemChangelog {
     */
     description: any;
 }
-//# sourceMappingURL=V4ReleaseListItemChangelog.d.ts.map

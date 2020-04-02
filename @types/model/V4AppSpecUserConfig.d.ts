@@ -21,4 +21,3 @@ export default class V4AppSpecUserConfig {
     */
     secret: any;
 }
-//# sourceMappingURL=V4AppSpecUserConfig.d.ts.map

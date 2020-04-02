@@ -18,4 +18,3 @@ export default class V4ModifyAppRequestSpec {
     */
     version: any;
 }
-//# sourceMappingURL=V4ModifyAppRequestSpec.d.ts.map

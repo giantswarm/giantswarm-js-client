@@ -48,4 +48,3 @@ export default class V4ClusterListItem {
     */
     path: any;
 }
-//# sourceMappingURL=V4ClusterListItem.d.ts.map

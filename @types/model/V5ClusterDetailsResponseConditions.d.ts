@@ -23,4 +23,3 @@ export default class V5ClusterDetailsResponseConditions {
     */
     condition: any;
 }
-//# sourceMappingURL=V5ClusterDetailsResponseConditions.d.ts.map

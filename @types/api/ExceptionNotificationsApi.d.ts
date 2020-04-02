@@ -46,4 +46,3 @@ export default class ExceptionNotificationsApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=ExceptionNotificationsApi.d.ts.map

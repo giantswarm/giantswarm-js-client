@@ -312,4 +312,3 @@ export default class AppsApi {
         body: any;
     }): Promise<any>;
 }
-//# sourceMappingURL=AppsApi.d.ts.map

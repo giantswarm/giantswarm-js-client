@@ -44,4 +44,3 @@ export default class ReleasesApi {
         xGiantSwarmCmdLine: string;
     }): Promise<any>;
 }
-//# sourceMappingURL=ReleasesApi.d.ts.map

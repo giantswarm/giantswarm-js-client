@@ -17,4 +17,3 @@ export default class V4AddCredentialsRequestAzure {
     */
     credential: any;
 }
-//# sourceMappingURL=V4AddCredentialsRequestAzure.d.ts.map

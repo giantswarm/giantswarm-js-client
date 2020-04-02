@@ -17,4 +17,3 @@ export default class V4AddCredentialsRequestAws {
     */
     roles: any;
 }
-//# sourceMappingURL=V4AddCredentialsRequestAws.d.ts.map
