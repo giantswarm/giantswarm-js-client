@@ -1,3 +1,6 @@
+import V4AppCatalogsResponseInnerMetadata from "./V4AppCatalogsResponseInnerMetadata";
+import V4AppCatalogsResponseInnerSpec from "./V4AppCatalogsResponseInnerSpec";
+
 /**
 * The V4AppCatalogsResponseInner model module.
 * @module model/V4AppCatalogsResponseInner
@@ -15,9 +18,9 @@ export default class V4AppCatalogsResponseInner {
     /**
     * @member {module:model/V4AppCatalogsResponseInnerMetadata} metadata
     */
-    metadata: any;
+    metadata: V4AppCatalogsResponseInnerMetadata;
     /**
     * @member {module:model/V4AppCatalogsResponseInnerSpec} spec
     */
-    spec: any;
+    spec: V4AppCatalogsResponseInnerSpec;
 }

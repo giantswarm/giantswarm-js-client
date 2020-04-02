@@ -16,10 +16,10 @@ export default class V5ModifyClusterRequest {
     * New cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Release version to upgrade to
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
 }

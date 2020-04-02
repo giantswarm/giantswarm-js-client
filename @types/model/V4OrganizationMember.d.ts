@@ -16,5 +16,5 @@ export default class V4OrganizationMember {
     * Email address of the user
     * @member {String} email
     */
-    email: any;
+    email: string;
 }

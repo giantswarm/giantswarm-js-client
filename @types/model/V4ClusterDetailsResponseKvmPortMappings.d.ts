@@ -16,10 +16,10 @@ export default class V4ClusterDetailsResponseKvmPortMappings {
     * The port on the control plane that will forward traffic to the tenant cluster
     * @member {Number} port
     */
-    port: any;
+    port: number;
     /**
     * The protocol this port mapping is made for.
     * @member {String} protocol
     */
-    protocol: any;
+    protocol: string;
 }

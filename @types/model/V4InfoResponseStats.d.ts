@@ -1,3 +1,5 @@
+import V4InfoResponseStatsClusterCreationDuration from "./V4InfoResponseStatsClusterCreationDuration";
+
 /**
 * The V4InfoResponseStats model module.
 * @module model/V4InfoResponseStats
@@ -15,5 +17,5 @@ export default class V4InfoResponseStats {
     /**
     * @member {module:model/V4InfoResponseStatsClusterCreationDuration} cluster_creation_duration
     */
-    cluster_creation_duration: any;
+    cluster_creation_duration: V4InfoResponseStatsClusterCreationDuration;
 }

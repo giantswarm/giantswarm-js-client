@@ -16,15 +16,15 @@ export default class V4InfoResponseStatsClusterCreationDuration {
     * Median of the value distribution
     * @member {Number} median
     */
-    median: any;
+    median: number;
     /**
     * 25th percentile of the value distribution
     * @member {Number} p25
     */
-    p25: any;
+    p25: number;
     /**
     * 75th percentile of the value distribution
     * @member {Number} p75
     */
-    p75: any;
+    p75: number;
 }

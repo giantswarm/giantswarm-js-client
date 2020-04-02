@@ -1,3 +1,5 @@
+import V4ModifyAppRequestSpec from "./V4ModifyAppRequestSpec";
+
 /**
 * The V4ModifyAppRequest model module.
 * @module model/V4ModifyAppRequest
@@ -15,5 +17,5 @@ export default class V4ModifyAppRequest {
     /**
     * @member {module:model/V4ModifyAppRequestSpec} spec
     */
-    spec: any;
+    spec: V4ModifyAppRequestSpec;
 }

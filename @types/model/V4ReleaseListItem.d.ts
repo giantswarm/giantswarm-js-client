@@ -1,3 +1,6 @@
+import V4ReleaseListItemChangelog from "./V4ReleaseListItemChangelog";
+import V4ReleaseListItemComponents from "./V4ReleaseListItemComponents";
+
 /**
 * The V4ReleaseListItem model module.
 * @module model/V4ReleaseListItem
@@ -26,25 +29,25 @@ export default class V4ReleaseListItem {
     * The semantic version number
     * @member {String} version
     */
-    version: any;
+    version: string;
     /**
     * Date and time of the release creation
     * @member {String} timestamp
     */
-    timestamp: any;
+    timestamp: string;
     /**
     * Structured list of changes in this release, in comparison to the previous version, with respect to the contained components.
     * @member {Array.<module:model/V4ReleaseListItemChangelog>} changelog
     */
-    changelog: any;
+    changelog: V4ReleaseListItemChangelog[];
     /**
     * List of components and their version contained in the release
     * @member {Array.<module:model/V4ReleaseListItemComponents>} components
     */
-    components: any;
+    components: V4ReleaseListItemComponents[];
     /**
     * If true, the version is available for new clusters and cluster upgrades. Older versions become unavailable and thus have the value `false` here.
     * @member {Boolean} active
     */
-    active: any;
+    active: boolean;
 }

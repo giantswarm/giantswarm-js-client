@@ -16,10 +16,10 @@ export default class V5GetNodePoolResponseNodeSpecVolumeSizesGb {
     * Size of the Docker volume, used to store docker images and overlay file system data, in GB.
     * @member {Number} docker
     */
-    docker: any;
+    docker: number;
     /**
     * Size of the kubelet volume of the worker, used e. g. for volumes of type EmptyDir, in GB.
     * @member {Number} kubelet
     */
-    kubelet: any;
+    kubelet: number;
 }

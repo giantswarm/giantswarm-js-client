@@ -16,5 +16,5 @@ export default class V4CreateAuthTokenResponse {
     * The newly created API token
     * @member {String} auth_token
     */
-    auth_token: any;
+    auth_token: string;
 }

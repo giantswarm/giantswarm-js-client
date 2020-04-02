@@ -1,3 +1,5 @@
+import V4GetCredentialResponseAwsRoles from "./V4GetCredentialResponseAwsRoles";
+
 /**
 * The V4GetCredentialResponseAws model module.
 * @module model/V4GetCredentialResponseAws
@@ -15,5 +17,5 @@ export default class V4GetCredentialResponseAws {
     /**
     * @member {module:model/V4GetCredentialResponseAwsRoles} roles
     */
-    roles: any;
+    roles: V4GetCredentialResponseAwsRoles;
 }

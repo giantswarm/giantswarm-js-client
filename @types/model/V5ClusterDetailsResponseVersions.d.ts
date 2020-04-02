@@ -16,10 +16,10 @@ export default class V5ClusterDetailsResponseVersions {
     * Date and time when the cluster got created with or upgraded to this version
     * @member {String} last_transition_time
     */
-    last_transition_time: any;
+    last_transition_time: string;
     /**
     * Semantic version number
     * @member {String} version
     */
-    version: any;
+    version: string;
 }

@@ -1,3 +1,6 @@
+import V4AddClusterRequestScaling from "./V4AddClusterRequestScaling";
+import V4NodeDefinition from "./V4NodeDefinition";
+
 /**
 * The V4AddClusterRequest model module.
 * @module model/V4AddClusterRequest
@@ -39,14 +42,14 @@ export default class V4AddClusterRequest {
     * Number of availability zones a cluster should be spread across. The default is provided via the [info](#operation/getInfo) endpoint.
     * @member {Number} availability_zones
     */
-    availability_zones: any;
+    availability_zones: number;
     /**
     * @member {module:model/V4AddClusterRequestScaling} scaling
     */
-    scaling: any;
+    scaling: V4AddClusterRequestScaling;
     /**
     * Worker node definition on KVM and Azure. If present, the first item of the array is expected to contain the specification for all worker nodes. Not available on AWS.
     * @member {Array.<module:model/V4NodeDefinition>} workers
     */
-    workers: any;
+    workers: V4NodeDefinition[];
 }

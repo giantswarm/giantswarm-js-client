@@ -1,4 +1,7 @@
 import ApiClient from "../ApiClient";
+import V4AddCredentialsRequest from "../model/V4AddCredentialsRequest";
+import V4Organization from "../model/V4Organization";
+import Body from "../model/Body";
 
 /**
 * Organizations service.
@@ -26,7 +29,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    addCredentialsWithHttpInfo(organizationId: string, body: any, opts: {
+    addCredentialsWithHttpInfo(organizationId: string, body: V4AddCredentialsRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -42,7 +45,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    addCredentials(organizationId: string, body: any, opts: {
+    addCredentials(organizationId: string, body: V4AddCredentialsRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -58,7 +61,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    addOrganizationWithHttpInfo(organizationId: string, body: any, opts: {
+    addOrganizationWithHttpInfo(organizationId: string, body: V4Organization, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -74,7 +77,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    addOrganization(organizationId: string, body: any, opts: {
+    addOrganization(organizationId: string, body: V4Organization, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -240,7 +243,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    modifyOrganizationWithHttpInfo(organizationId: string, body: any, opts: {
+    modifyOrganizationWithHttpInfo(organizationId: string, body: Body, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -256,7 +259,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    modifyOrganization(organizationId: string, body: any, opts: {
+    modifyOrganization(organizationId: string, body: Body, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;

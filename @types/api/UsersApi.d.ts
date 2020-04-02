@@ -1,4 +1,7 @@
 import ApiClient from "../ApiClient";
+import V4CreateUserRequest from "../model/V4CreateUserRequest";
+import V4ModifyUserPasswordRequest from "../model/V4ModifyUserPasswordRequest";
+import V4ModifyUserRequest from "../model/V4ModifyUserRequest";
 
 /**
 * Users service.
@@ -26,7 +29,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    createUserWithHttpInfo(email: string, body: any, opts: {
+    createUserWithHttpInfo(email: string, body: V4CreateUserRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -42,7 +45,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    createUser(email: string, body: any, opts: {
+    createUser(email: string, body: V4CreateUserRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -174,7 +177,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    modifyPasswordWithHttpInfo(email: string, body: any, opts: {
+    modifyPasswordWithHttpInfo(email: string, body: V4ModifyUserPasswordRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -190,7 +193,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    modifyPassword(email: string, body: any, opts: {
+    modifyPassword(email: string, body: V4ModifyUserPasswordRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -206,7 +209,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4UserListItem} and HTTP response
      */
-    modifyUserWithHttpInfo(email: string, body: any, opts: {
+    modifyUserWithHttpInfo(email: string, body: V4ModifyUserRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -222,7 +225,7 @@ export default class UsersApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4UserListItem}
      */
-    modifyUser(email: string, body: any, opts: {
+    modifyUser(email: string, body: V4ModifyUserRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;

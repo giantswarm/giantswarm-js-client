@@ -20,13 +20,13 @@ declare class ApiClient {
      * The authentication methods to be included for all API calls.
      * @type {Array.<String>}
      */
-    authentications: Array<string>;
+    authentications: string[];
     /**
      * The default HTTP headers to be included for all API calls.
      * @type {Array.<String>}
      * @default {}
      */
-    defaultHeaders: Array<string>;
+    defaultHeaders: string[];
     /**
      * The default HTTP timeout for all API calls.
      * @type {Number}
@@ -95,7 +95,7 @@ declare class ApiClient {
     * @param {Object.<String, Object>} params The parameters as object properties.
     * @returns {Object.<String, Object>} normalized parameters.
     */
-    normalizeParams(params: any): any;
+    normalizeParams(params: Record<string, Record<string, string>>): Record<string, Record<string, string>>;
     /**
     * Builds a string representation of an array-type actual parameter, according to the given collection format.
     * @param {Array} param An array parameter.
@@ -119,7 +119,7 @@ declare class ApiClient {
     * all properties on <code>data<code> will be converted to this type.
     * @returns A value of the specified type.
     */
-    deserialize(response: any, returnType: any): any;
+    deserialize<T>(response: any, returnType: T): T;
     /**
     * Invokes the REST service using the supplied settings and parameters.
     * @param {String} path The base URL to invoke.
@@ -136,7 +136,7 @@ declare class ApiClient {
     * constructor for a complex type.
     * @returns {Promise} A {@link https://www.promisejs.org/|Promise} object.
     */
-    callApi(path: string, httpMethod: string, pathParams: any, queryParams: any, headerParams: any, formParams: any, bodyParam: any, authNames: string[], contentTypes: string[], accepts: string[], returnType: any): Promise<any>;
+    callApi<T>(path: string, httpMethod: string, pathParams: Record<string, string>, queryParams: Record<string, string>, headerParams: Record<string, string>, formParams: Record<string, string>, bodyParam: Record<string, any>, authNames: string[], contentTypes: string[], accepts: string[], returnType: T): Promise<T>;
 }
 declare namespace ApiClient {
     export namespace CollectionFormatEnum {
@@ -161,13 +161,13 @@ declare namespace ApiClient {
     * all properties on <code>data<code> will be converted to this type.
     * @returns An instance of the specified type or null or undefined if data is null or undefined.
     */
-    export function convertToType(data: any, type: any): any;
+    export function convertToType<T>(data: string | Record<string, any>, type: T): T;
     /**
     * Constructs a new map or array model from REST data.
     * @param data {Object|Array} The REST data.
     * @param obj {Object|Array} The target object or array.
     */
-    export function constructFromObject(data: any, obj: any, itemType: any): void;
+    export function constructFromObject<T>(data: Partial<T>, obj: T, itemType: T): void;
     export const instance: ApiClient;
 }
 export default ApiClient;

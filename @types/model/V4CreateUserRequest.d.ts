@@ -24,10 +24,10 @@ export default class V4CreateUserRequest {
     * A Base64 encoded password
     * @member {String} password
     */
-    password: any;
+    password: string;
     /**
     * The date and time when this account will expire
     * @member {String} expiry
     */
-    expiry: any;
+    expiry: string;
 }

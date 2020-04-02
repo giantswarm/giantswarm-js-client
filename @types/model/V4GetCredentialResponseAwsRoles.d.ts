@@ -16,10 +16,10 @@ export default class V4GetCredentialResponseAwsRoles {
     * ARN of the IAM role Giant Swarm support staff will use
     * @member {String} admin
     */
-    admin: any;
+    admin: string;
     /**
     * ARN of the IAM role assumed by the software operating the clusters
     * @member {String} awsoperator
     */
-    awsoperator: any;
+    awsoperator: string;
 }

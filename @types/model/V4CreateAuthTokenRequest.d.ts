@@ -16,10 +16,10 @@ export default class V4CreateAuthTokenRequest {
     * Your email address
     * @member {String} email
     */
-    email: any;
+    email: string;
     /**
     * Your password as a base64 encoded string
     * @member {String} password_base64
     */
-    password_base64: any;
+    password_base64: string;
 }

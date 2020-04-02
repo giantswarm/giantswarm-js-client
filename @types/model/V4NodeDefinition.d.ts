@@ -1,3 +1,9 @@
+import V4NodeDefinitionAws from "./V4NodeDefinitionAws";
+import V4NodeDefinitionAzure from "./V4NodeDefinitionAzure";
+import V4NodeDefinitionMemory from "./V4NodeDefinitionMemory";
+import V4NodeDefinitionStorage from "./V4NodeDefinitionStorage";
+import V4NodeDefinitionCpu from "./V4NodeDefinitionCpu";
+
 /**
 * The V4NodeDefinition model module.
 * @module model/V4NodeDefinition
@@ -15,25 +21,25 @@ export default class V4NodeDefinition {
     /**
     * @member {module:model/V4NodeDefinitionAws} aws
     */
-    aws: any;
+    aws: V4NodeDefinitionAws;
     /**
     * @member {module:model/V4NodeDefinitionAzure} azure
     */
-    azure: any;
+    azure: V4NodeDefinitionAzure;
     /**
     * @member {module:model/V4NodeDefinitionMemory} memory
     */
-    memory: any;
+    memory: V4NodeDefinitionMemory;
     /**
     * @member {module:model/V4NodeDefinitionStorage} storage
     */
-    storage: any;
+    storage: V4NodeDefinitionStorage;
     /**
     * @member {module:model/V4NodeDefinitionCpu} cpu
     */
-    cpu: any;
+    cpu: V4NodeDefinitionCpu;
     /**
     * @member {Object} labels
     */
-    labels: any;
+    labels: Record<string, string>;
 }

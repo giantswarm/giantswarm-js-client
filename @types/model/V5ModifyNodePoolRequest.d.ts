@@ -1,3 +1,5 @@
+import V5ModifyNodePoolRequestScaling from "./V5ModifyNodePoolRequestScaling";
+
 /**
 * The V5ModifyNodePoolRequest model module.
 * @module model/V5ModifyNodePoolRequest
@@ -20,5 +22,5 @@ export default class V5ModifyNodePoolRequest {
     /**
     * @member {module:model/V5ModifyNodePoolRequestScaling} scaling
     */
-    scaling: any;
+    scaling: V5ModifyNodePoolRequestScaling;
 }

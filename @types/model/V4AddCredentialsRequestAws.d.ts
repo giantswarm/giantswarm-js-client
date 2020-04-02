@@ -1,3 +1,5 @@
+import V4AddCredentialsRequestAwsRoles from "./V4AddCredentialsRequestAwsRoles";
+
 /**
 * The V4AddCredentialsRequestAws model module.
 * @module model/V4AddCredentialsRequestAws
@@ -15,5 +17,5 @@ export default class V4AddCredentialsRequestAws {
     /**
     * @member {module:model/V4AddCredentialsRequestAwsRoles} roles
     */
-    roles: any;
+    roles: V4AddCredentialsRequestAwsRoles;
 }

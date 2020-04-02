@@ -1,3 +1,7 @@
+import V5ClusterDetailsResponseMaster from "./V5ClusterDetailsResponseMaster";
+import V5ClusterDetailsResponseConditions from "./V5ClusterDetailsResponseConditions";
+import V5ClusterDetailsResponseVersions from "./V5ClusterDetailsResponseVersions";
+
 /**
 * The V5ClusterDetailsResponse model module.
 * @module model/V5ClusterDetailsResponse
@@ -26,43 +30,43 @@ export default class V5ClusterDetailsResponse {
     * Date/time of cluster creation
     * @member {String} create_date
     */
-    create_date: any;
+    create_date: string;
     /**
     * Date/time when cluster has been deleted
     * @member {Date} delete_date
     */
-    delete_date: any;
+    delete_date: Date;
     /**
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * Cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * ID of the credentials used to operate the cluster. See [Set credentials](#operation/addCredentials) for details.
     * @member {String} credential_id
     */
-    credential_id: any;
+    credential_id: string;
     /**
     * The [release](https://docs.giantswarm.io/api/#tag/releases) version used by the cluster
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * @member {module:model/V5ClusterDetailsResponseMaster} master
     */
-    master: any;
+    master: V5ClusterDetailsResponseMaster;
     /**
     * List of conditions the cluster has gone through
     * @member {Array.<module:model/V5ClusterDetailsResponseConditions>} conditions
     */
-    conditions: any;
+    conditions: V5ClusterDetailsResponseConditions[];
     /**
     * @member {Array.<module:model/V5ClusterDetailsResponseVersions>} versions
     */
-    versions: any;
+    versions: V5ClusterDetailsResponseVersions[];
 }

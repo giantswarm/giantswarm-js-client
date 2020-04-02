@@ -1,3 +1,6 @@
+import V4AppSpecUserConfigConfigmap from "./V4AppSpecUserConfigConfigmap";
+import V4AppSpecUserConfigSecret from "./V4AppSpecUserConfigSecret";
+
 /**
 * The V4AppSpecUserConfig model module.
 * @module model/V4AppSpecUserConfig
@@ -15,9 +18,9 @@ export default class V4AppSpecUserConfig {
     /**
     * @member {module:model/V4AppSpecUserConfigConfigmap} configmap
     */
-    configmap: any;
+    configmap: V4AppSpecUserConfigConfigmap;
     /**
     * @member {module:model/V4AppSpecUserConfigSecret} secret
     */
-    secret: any;
+    secret: V4AppSpecUserConfigSecret;
 }

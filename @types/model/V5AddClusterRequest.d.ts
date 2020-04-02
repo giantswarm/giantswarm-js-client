@@ -1,3 +1,5 @@
+import V5AddClusterRequestMaster from "./V5AddClusterRequestMaster";
+
 /**
 * The V5AddClusterRequest model module.
 * @module model/V5AddClusterRequest
@@ -23,19 +25,19 @@ export default class V5AddClusterRequest {
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * Cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * The [release](https://docs.giantswarm.io/api/#tag/releases) version to use in the new cluster. If not given, the latest release will be used.
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * @member {module:model/V5AddClusterRequestMaster} master
     */
-    master: any;
+    master: V5AddClusterRequestMaster;
 }

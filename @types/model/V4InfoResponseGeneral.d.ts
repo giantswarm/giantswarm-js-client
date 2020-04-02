@@ -1,3 +1,5 @@
+import V4InfoResponseGeneralAvailabilityZones from "./V4InfoResponseGeneralAvailabilityZones";
+
 /**
 * The V4InfoResponseGeneral model module.
 * @module model/V4InfoResponseGeneral
@@ -16,19 +18,19 @@ export default class V4InfoResponseGeneral {
     * Unique name of the installation
     * @member {String} installation_name
     */
-    installation_name: any;
+    installation_name: string;
     /**
     * The technical provider used in this installation. Either \"kvm\", \"aws\", or \"azure\".
     * @member {String} provider
     */
-    provider: any;
+    provider: string;
     /**
     * Identifier of the datacenter or cloud provider region, e. g. \"eu-west-1\"
     * @member {String} datacenter
     */
-    datacenter: any;
+    datacenter: string;
     /**
     * @member {module:model/V4InfoResponseGeneralAvailabilityZones} availability_zones
     */
-    availability_zones: any;
+    availability_zones: V4InfoResponseGeneralAvailabilityZones;
 }

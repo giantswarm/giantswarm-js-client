@@ -16,5 +16,5 @@ export default class V4NodeDefinitionCpu {
     * Number of CPU cores
     * @member {Number} cores
     */
-    cores: any;
+    cores: number;
 }

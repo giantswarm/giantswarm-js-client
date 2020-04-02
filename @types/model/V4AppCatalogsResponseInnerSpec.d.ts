@@ -1,3 +1,5 @@
+import V4AppCatalogsResponseInnerSpecStorage from "./V4AppCatalogsResponseInnerSpecStorage";
+
 /**
 * The V4AppCatalogsResponseInnerSpec model module.
 * @module model/V4AppCatalogsResponseInnerSpec
@@ -30,5 +32,5 @@ export default class V4AppCatalogsResponseInnerSpec {
     /**
     * @member {module:model/V4AppCatalogsResponseInnerSpecStorage} storage
     */
-    storage: any;
+    storage: V4AppCatalogsResponseInnerSpecStorage;
 }

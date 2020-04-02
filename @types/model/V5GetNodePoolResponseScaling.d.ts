@@ -16,10 +16,10 @@ export default class V5GetNodePoolResponseScaling {
     * Minimum number of nodes in the pool
     * @member {Number} min
     */
-    min: any;
+    min: number;
     /**
     * Maximum number of nodes in the pool
     * @member {Number} max
     */
-    max: any;
+    max: number;
 }

@@ -16,5 +16,5 @@ export default class V5GetNodePoolResponseNodeSpecAws {
     * EC2 instance type used by all nodes in this pool
     * @member {String} instance_type
     */
-    instance_type: any;
+    instance_type: string;
 }

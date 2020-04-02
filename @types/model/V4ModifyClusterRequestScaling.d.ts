@@ -16,10 +16,10 @@ export default class V4ModifyClusterRequestScaling {
     * Minimum number of cluster nodes
     * @member {Number} min
     */
-    min: any;
+    min: number;
     /**
     * Maximum number of cluster nodes
     * @member {Number} max
     */
-    max: any;
+    max: number;
 }

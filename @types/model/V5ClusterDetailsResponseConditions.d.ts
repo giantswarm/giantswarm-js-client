@@ -16,10 +16,10 @@ export default class V5ClusterDetailsResponseConditions {
     * Date and time when the cluster transitioned into this condition
     * @member {String} last_transition_time
     */
-    last_transition_time: any;
+    last_transition_time: string;
     /**
     * A string describing the condition, e. g. 'Created'
     * @member {String} condition
     */
-    condition: any;
+    condition: string;
 }

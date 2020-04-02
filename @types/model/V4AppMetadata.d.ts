@@ -21,5 +21,5 @@ export default class V4AppMetadata {
     * The labels that are set on this App
     * @member {Object} labels
     */
-    labels: any;
+    labels: Record<string, string>;
 }

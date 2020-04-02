@@ -1,3 +1,5 @@
+import V4GetCredentialResponseAzureCredential from "./V4GetCredentialResponseAzureCredential";
+
 /**
 * The V4GetCredentialResponseAzure model module.
 * @module model/V4GetCredentialResponseAzure
@@ -15,5 +17,5 @@ export default class V4GetCredentialResponseAzure {
     /**
     * @member {module:model/V4GetCredentialResponseAzureCredential} credential
     */
-    credential: any;
+    credential: V4GetCredentialResponseAzureCredential;
 }

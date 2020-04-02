@@ -16,10 +16,10 @@ export default class V4ModifyUserRequest {
     * New email address
     * @member {String} email
     */
-    email: any;
+    email: string;
     /**
     * New expiry date. (Only editable by admins)
     * @member {String} expiry
     */
-    expiry: any;
+    expiry: string;
 }

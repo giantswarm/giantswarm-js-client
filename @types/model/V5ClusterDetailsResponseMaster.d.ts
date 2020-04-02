@@ -16,5 +16,5 @@ export default class V5ClusterDetailsResponseMaster {
     * Name of the availability zone the master node is placed in
     * @member {String} availability_zone
     */
-    availability_zone: any;
+    availability_zone: string;
 }

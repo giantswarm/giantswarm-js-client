@@ -16,10 +16,10 @@ export default class V4ReleaseListItemChangelog {
     * If the changed item was a component, this attribute is the name of the component.
     * @member {String} component
     */
-    component: any;
+    component: string;
     /**
     * Human-friendly description of the change
     * @member {String} description
     */
-    description: any;
+    description: string;
 }

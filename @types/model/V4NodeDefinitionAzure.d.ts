@@ -16,5 +16,5 @@ export default class V4NodeDefinitionAzure {
     * Azure Virtual Machine size. Must be the same for all worker nodes of a cluster.
     * @member {String} vm_size
     */
-    vm_size: any;
+    vm_size: string;
 }

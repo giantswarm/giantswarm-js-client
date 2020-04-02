@@ -16,10 +16,10 @@ export default class V4ClusterDetailsResponseScaling {
     * Minimum number of cluster nodes as configured
     * @member {Number} min
     */
-    min: any;
+    min: number;
     /**
     * Maximum number of cluster nodes as configured
     * @member {Number} max
     */
-    max: any;
+    max: number;
 }

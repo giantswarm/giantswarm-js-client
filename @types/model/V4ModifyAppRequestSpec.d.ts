@@ -16,5 +16,5 @@ export default class V4ModifyAppRequestSpec {
     * Version of the chart that should be used to install this app
     * @member {String} version
     */
-    version: any;
+    version: string;
 }

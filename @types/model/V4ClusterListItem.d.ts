@@ -21,30 +21,30 @@ export default class V4ClusterListItem {
     * Date/time of cluster creation
     * @member {String} create_date
     */
-    create_date: any;
+    create_date: string;
     /**
     * Date/time when cluster has been deleted
     * @member {Date} delete_date
     */
-    delete_date: any;
+    delete_date: Date;
     /**
     * Cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * The semantic version number of this cluster
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * API path of the cluster resource
     * @member {String} path
     */
-    path: any;
+    path: string;
 }

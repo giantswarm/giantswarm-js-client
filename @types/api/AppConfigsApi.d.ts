@@ -1,4 +1,5 @@
 import ApiClient from "../ApiClient";
+import V4GenericResponse from "../model/V4GenericResponse";
 
 /**
 * AppConfigs service.
@@ -31,8 +32,8 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
-    }): Promise<any>;
+        body: Record<string, any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Create app config (v4)
      * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
@@ -49,7 +50,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Create app config (v5)
@@ -67,7 +68,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Create app config (v5)
@@ -85,7 +86,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Delete an app config (v4)
@@ -231,7 +232,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify app config (v4)
@@ -249,7 +250,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify app config (v5)
@@ -267,7 +268,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify app config (v5)
@@ -285,6 +286,6 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
 }

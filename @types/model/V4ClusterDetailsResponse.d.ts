@@ -1,3 +1,7 @@
+import V4ClusterDetailsResponseScaling from "./V4ClusterDetailsResponseScaling";
+import V4NodeDefinition from "./V4NodeDefinition";
+import V4ClusterDetailsResponseKvm from "./V4ClusterDetailsResponseKvm";
+
 /**
 * The V4ClusterDetailsResponse model module.
 * @module model/V4ClusterDetailsResponse
@@ -26,48 +30,48 @@ export default class V4ClusterDetailsResponse {
     * Date/time of cluster creation
     * @member {String} create_date
     */
-    create_date: any;
+    create_date: string;
     /**
     * Date/time when cluster has been deleted
     * @member {Date} delete_date
     */
-    delete_date: any;
+    delete_date: Date;
     /**
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * Cluster name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * ID of the credentials used to operate the cluster (only on AWS and Azure). See [Set credentials](#operation/addCredentials) for details.
     * @member {String} credential_id
     */
-    credential_id: any;
+    credential_id: string;
     /**
     * The [release](https://docs.giantswarm.io/api/#tag/releases) version currently running this cluster.
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * @member {module:model/V4ClusterDetailsResponseScaling} scaling
     */
-    scaling: any;
+    scaling: V4ClusterDetailsResponseScaling;
     /**
     * List of availability zones a cluster is spread across.
     * @member {Array.<String>} availability_zones
     */
-    availability_zones: any;
+    availability_zones: string[];
     /**
     * Information about worker nodes in the cluster (deprecated)
     * @member {Array.<module:model/V4NodeDefinition>} workers
     */
-    workers: any;
+    workers: V4NodeDefinition[];
     /**
     * @member {module:model/V4ClusterDetailsResponseKvm} kvm
     */
-    kvm: any;
+    kvm: V4ClusterDetailsResponseKvm;
 }

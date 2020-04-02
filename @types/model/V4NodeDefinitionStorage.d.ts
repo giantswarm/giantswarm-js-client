@@ -16,5 +16,5 @@ export default class V4NodeDefinitionStorage {
     * Node storage size in GB. Can be an integer or float.
     * @member {Number} size_gb
     */
-    size_gb: any;
+    size_gb: number;
 }

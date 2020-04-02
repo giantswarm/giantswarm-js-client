@@ -1,3 +1,5 @@
+import V4AddCredentialsRequestAzureCredential from "./V4AddCredentialsRequestAzureCredential";
+
 /**
 * The V4AddCredentialsRequestAzure model module.
 * @module model/V4AddCredentialsRequestAzure
@@ -15,5 +17,5 @@ export default class V4AddCredentialsRequestAzure {
     /**
     * @member {module:model/V4AddCredentialsRequestAzureCredential} credential
     */
-    credential: any;
+    credential: V4AddCredentialsRequestAzureCredential;
 }

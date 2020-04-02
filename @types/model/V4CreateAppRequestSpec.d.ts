@@ -26,20 +26,20 @@ export default class V4CreateAppRequestSpec {
     * Name of the chart that should be used to install this app
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Namespace that this app will be installed to
     * @member {String} namespace
     */
-    namespace: any;
+    namespace: string;
     /**
     * Version of the chart that should be used to install this app
     * @member {String} version
     */
-    version: any;
+    version: string;
     /**
     * The catalog where the chart for this app can be found
     * @member {String} catalog
     */
-    catalog: any;
+    catalog: string;
 }

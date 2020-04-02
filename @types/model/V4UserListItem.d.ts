@@ -16,15 +16,15 @@ export default class V4UserListItem {
     * Email address of the user
     * @member {String} email
     */
-    email: any;
+    email: string;
     /**
     * The date and time that this account was created
     * @member {String} created
     */
-    created: any;
+    created: string;
     /**
     * The date and time when this account will expire
     * @member {String} expiry
     */
-    expiry: any;
+    expiry: string;
 }

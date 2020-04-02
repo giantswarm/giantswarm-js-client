@@ -1,3 +1,5 @@
+import V4ClusterDetailsResponseKvmPortMappings from "./V4ClusterDetailsResponseKvmPortMappings";
+
 /**
 * The V4ClusterDetailsResponseKvm model module.
 * @module model/V4ClusterDetailsResponseKvm
@@ -16,5 +18,5 @@ export default class V4ClusterDetailsResponseKvm {
     * Reveals the ports on the control plane that are mapped to this tenant cluster's ingress and which protocol that port supports. Only shown and relevant on our on-prem KVM clusters.
     * @member {Array.<module:model/V4ClusterDetailsResponseKvmPortMappings>} port_mappings
     */
-    port_mappings: any;
+    port_mappings: V4ClusterDetailsResponseKvmPortMappings[];
 }

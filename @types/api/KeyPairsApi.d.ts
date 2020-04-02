@@ -1,4 +1,5 @@
 import ApiClient from "../ApiClient";
+import V4AddKeyPairRequest from "../model/V4AddKeyPairRequest";
 
 /**
 * KeyPairs service.
@@ -26,7 +27,7 @@ export default class KeyPairsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4AddKeyPairResponse} and HTTP response
      */
-    addKeyPairWithHttpInfo(clusterId: string, body: any, opts: {
+    addKeyPairWithHttpInfo(clusterId: string, body: V4AddKeyPairRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -42,7 +43,7 @@ export default class KeyPairsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4AddKeyPairResponse}
      */
-    addKeyPair(clusterId: string, body: any, opts: {
+    addKeyPair(clusterId: string, body: V4AddKeyPairRequest, opts: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;

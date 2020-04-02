@@ -16,10 +16,10 @@ export default class V4GenericResponse {
     * A human readable message
     * @member {String} message
     */
-    message: any;
+    message: string;
     /**
     * A machine readable [response code](https://github.com/giantswarm/api-spec/blob/master/details/RESPONSE_CODES.md) like e. g. `INVALID_CREDENTIALS`
     * @member {String} code
     */
-    code: any;
+    code: string;
 }

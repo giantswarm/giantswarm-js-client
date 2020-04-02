@@ -1,3 +1,5 @@
+import V4AppCatalogsResponseInnerMetadataLabels from "./V4AppCatalogsResponseInnerMetadataLabels";
+
 /**
 * The V4AppCatalogsResponseInnerMetadata model module.
 * @module model/V4AppCatalogsResponseInnerMetadata
@@ -20,5 +22,5 @@ export default class V4AppCatalogsResponseInnerMetadata {
     /**
     * @member {module:model/V4AppCatalogsResponseInnerMetadataLabels} labels
     */
-    labels: any;
+    labels: V4AppCatalogsResponseInnerMetadataLabels;
 }

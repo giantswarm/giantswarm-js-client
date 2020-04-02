@@ -1,3 +1,6 @@
+import V4GetCredentialResponseAws from "./V4GetCredentialResponseAws";
+import V4GetCredentialResponseAzure from "./V4GetCredentialResponseAzure";
+
 /**
 * The V4GetCredentialResponse model module.
 * @module model/V4GetCredentialResponse
@@ -21,13 +24,13 @@ export default class V4GetCredentialResponse {
     * Either 'aws' or 'azure'
     * @member {String} provider
     */
-    provider: any;
+    provider: string;
     /**
     * @member {module:model/V4GetCredentialResponseAws} aws
     */
-    aws: any;
+    aws: V4GetCredentialResponseAws;
     /**
     * @member {module:model/V4GetCredentialResponseAzure} azure
     */
-    azure: any;
+    azure: V4GetCredentialResponseAzure;
 }

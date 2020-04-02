@@ -1,3 +1,5 @@
+import V4AppSpecUserConfig from "./V4AppSpecUserConfig";
+
 /**
 * The V4AppSpec model module.
 * @module model/V4AppSpec
@@ -35,5 +37,5 @@ export default class V4AppSpec {
     /**
     * @member {module:model/V4AppSpecUserConfig} user_config
     */
-    user_config: any;
+    user_config: V4AppSpecUserConfig;
 }

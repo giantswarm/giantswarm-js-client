@@ -24,10 +24,10 @@ export default class V4ModifyUserPasswordRequest {
     * New password encoded in Base64
     * @member {String} new_password_base64
     */
-    new_password_base64: any;
+    new_password_base64: string;
     /**
     * Current password encoded in Base64. Not required for admins
     * @member {String} current_password_base64
     */
-    current_password_base64: any;
+    current_password_base64: string;
 }

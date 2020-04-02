@@ -31,7 +31,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Create Secret (v4)
@@ -49,7 +49,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Create Secret (v5)
@@ -67,7 +67,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Create Secret (v5)
@@ -85,7 +85,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Delete a Secret (v4)
@@ -231,7 +231,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify Secret (v4)
@@ -249,7 +249,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify Secret (v5)
@@ -267,7 +267,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify Secret (v5)
@@ -285,6 +285,6 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
 }

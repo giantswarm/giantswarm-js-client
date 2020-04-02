@@ -31,7 +31,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Install an app (v4)
@@ -49,7 +49,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Install an app (v5)
@@ -67,7 +67,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Install an app (v5)
@@ -85,7 +85,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Delete an app (v4)
@@ -255,7 +255,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify an app (v4)
@@ -273,7 +273,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify an app (v5)
@@ -291,7 +291,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
     /**
      * Modify an app (v5)
@@ -309,6 +309,6 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: any;
+        body: Record<string, any>;
     }): Promise<any>;
 }

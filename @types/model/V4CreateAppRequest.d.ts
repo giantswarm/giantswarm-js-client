@@ -1,3 +1,5 @@
+import V4CreateAppRequestSpec from "./V4CreateAppRequestSpec";
+
 /**
 * The V4CreateAppRequest model module.
 * @module model/V4CreateAppRequest
@@ -15,5 +17,5 @@ export default class V4CreateAppRequest {
     /**
     * @member {module:model/V4CreateAppRequestSpec} spec
     */
-    spec: any;
+    spec: V4CreateAppRequestSpec;
 }

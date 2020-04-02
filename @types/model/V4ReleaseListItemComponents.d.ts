@@ -24,10 +24,10 @@ export default class V4ReleaseListItemComponents {
     * Name of the component
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Version number of the component
     * @member {String} version
     */
-    version: any;
+    version: string;
 }

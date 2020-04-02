@@ -1,3 +1,6 @@
+import V5GetNodePoolResponseNodeSpecAws from "./V5GetNodePoolResponseNodeSpecAws";
+import V5GetNodePoolResponseNodeSpecVolumeSizesGb from "./V5GetNodePoolResponseNodeSpecVolumeSizesGb";
+
 /**
 * The V5GetNodePoolResponseNodeSpec model module.
 * @module model/V5GetNodePoolResponseNodeSpec
@@ -15,9 +18,9 @@ export default class V5GetNodePoolResponseNodeSpec {
     /**
     * @member {module:model/V5GetNodePoolResponseNodeSpecAws} aws
     */
-    aws: any;
+    aws: V5GetNodePoolResponseNodeSpecAws;
     /**
     * @member {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb} volume_sizes_gb
     */
-    volume_sizes_gb: any;
+    volume_sizes_gb: V5GetNodePoolResponseNodeSpecVolumeSizesGb;
 }

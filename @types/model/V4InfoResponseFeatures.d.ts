@@ -1,3 +1,5 @@
+import V4InfoResponseFeaturesNodepools from "./V4InfoResponseFeaturesNodepools";
+
 /**
 * The V4InfoResponseFeatures model module.
 * @module model/V4InfoResponseFeatures
@@ -15,5 +17,5 @@ export default class V4InfoResponseFeatures {
     /**
     * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
     */
-    nodepools: any;
+    nodepools: V4InfoResponseFeaturesNodepools;
 }

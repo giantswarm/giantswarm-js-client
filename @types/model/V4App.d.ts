@@ -1,3 +1,7 @@
+import V4AppMetadata from "./V4AppMetadata";
+import V4AppSpec from "./V4AppSpec";
+import V4AppStatus from "./V4AppStatus";
+
 /**
 * The V4App model module.
 * @module model/V4App
@@ -15,13 +19,13 @@ export default class V4App {
     /**
     * @member {module:model/V4AppMetadata} metadata
     */
-    metadata: any;
+    metadata: V4AppMetadata;
     /**
     * @member {module:model/V4AppSpec} spec
     */
-    spec: any;
+    spec: V4AppSpec;
     /**
     * @member {module:model/V4AppStatus} status
     */
-    status: any;
+    status: V4AppStatus;
 }

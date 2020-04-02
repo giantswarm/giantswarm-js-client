@@ -16,5 +16,5 @@ export default class V4InfoResponseFeaturesNodepools {
     * The minimum release version number required to have support for node pools.
     * @member {String} release_version_minimum
     */
-    release_version_minimum: any;
+    release_version_minimum: string;
 }

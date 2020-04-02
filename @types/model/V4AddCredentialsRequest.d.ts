@@ -1,3 +1,6 @@
+import V4AddCredentialsRequestAws from "./V4AddCredentialsRequestAws";
+import V4AddCredentialsRequestAzure from "./V4AddCredentialsRequestAzure";
+
 /**
 * The V4AddCredentialsRequest model module.
 * @module model/V4AddCredentialsRequest
@@ -27,9 +30,9 @@ export default class V4AddCredentialsRequest {
     /**
     * @member {module:model/V4AddCredentialsRequestAws} aws
     */
-    aws: any;
+    aws: V4AddCredentialsRequestAws;
     /**
     * @member {module:model/V4AddCredentialsRequestAzure} azure
     */
-    azure: any;
+    azure: V4AddCredentialsRequestAzure;
 }

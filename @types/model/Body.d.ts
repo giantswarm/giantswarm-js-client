@@ -1,3 +1,5 @@
+import V4OrganizationMember from "./V4OrganizationMember";
+
 /**
 * The Body model module.
 * @module model/Body
@@ -16,5 +18,5 @@ export default class Body {
     * List of members that belong to this organization
     * @member {Array.<module:model/V4OrganizationMember>} members
     */
-    members: any;
+    members: V4OrganizationMember[];
 }

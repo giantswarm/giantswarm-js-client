@@ -1,3 +1,7 @@
+import V5GetNodePoolResponseScaling from "./V5GetNodePoolResponseScaling";
+import V5GetNodePoolResponseNodeSpec from "./V5GetNodePoolResponseNodeSpec";
+import V5GetNodePoolResponseStatus from "./V5GetNodePoolResponseStatus";
+
 /**
 * The V5GetNodePoolResponse model module.
 * @module model/V5GetNodePoolResponse
@@ -21,28 +25,28 @@ export default class V5GetNodePoolResponse {
     * Node pool name
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Names of the availability zones used by the nodes of this pool.
     * @member {Array.<String>} availability_zones
     */
-    availability_zones: any;
+    availability_zones: string[];
     /**
     * @member {module:model/V5GetNodePoolResponseScaling} scaling
     */
-    scaling: any;
+    scaling: V5GetNodePoolResponseScaling;
     /**
     * IP address block used by the node pool
     * @member {String} subnet
     */
-    subnet: any;
+    subnet: string;
     /**
     * Worker node specification
     * @member {module:model/V5GetNodePoolResponseNodeSpec} node_spec
     */
-    node_spec: any;
+    node_spec: V5GetNodePoolResponseNodeSpec;
     /**
     * @member {module:model/V5GetNodePoolResponseStatus} status
     */
-    status: any;
+    status: V5GetNodePoolResponseStatus;
 }

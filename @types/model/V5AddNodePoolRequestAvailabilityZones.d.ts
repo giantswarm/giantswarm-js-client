@@ -16,10 +16,10 @@ export default class V5AddNodePoolRequestAvailabilityZones {
     * Number of zones to use. If given, the zones are picked automatically. _(Maximum limit of 4 supported.)_
     * @member {Number} number
     */
-    number: any;
+    number: string;
     /**
     * Names of the availability zones to use. _(Must be same region as the cluster.)_
     * @member {Array.<String>} zones
     */
-    zones: any;
+    zones: string[];
 }

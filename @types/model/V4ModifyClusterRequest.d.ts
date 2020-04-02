@@ -1,3 +1,6 @@
+import V4ModifyClusterRequestScaling from "./V4ModifyClusterRequestScaling";
+import V4NodeDefinition from "./V4NodeDefinition";
+
 /**
 * The V4ModifyClusterRequest model module.
 * @module model/V4ModifyClusterRequest
@@ -16,24 +19,24 @@ export default class V4ModifyClusterRequest {
     * Name for the cluster
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * Name of the organization owning the cluster
     * @member {String} owner
     */
-    owner: any;
+    owner: string;
     /**
     * Release version to use after an upgrade
     * @member {String} release_version
     */
-    release_version: any;
+    release_version: string;
     /**
     * @member {module:model/V4ModifyClusterRequestScaling} scaling
     */
-    scaling: any;
+    scaling: V4ModifyClusterRequestScaling;
     /**
     * Worker node array (deprecated)
     * @member {Array.<module:model/V4NodeDefinition>} workers
     */
-    workers: any;
+    workers: V4NodeDefinition[];
 }

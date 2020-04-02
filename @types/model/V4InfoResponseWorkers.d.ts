@@ -1,3 +1,7 @@
+import V4InfoResponseWorkersCountPerCluster from "./V4InfoResponseWorkersCountPerCluster";
+import V4InfoResponseWorkersInstanceType from "./V4InfoResponseWorkersInstanceType";
+import V4InfoResponseWorkersVmSize from "./V4InfoResponseWorkersVmSize";
+
 /**
 * The V4InfoResponseWorkers model module.
 * @module model/V4InfoResponseWorkers
@@ -15,13 +19,13 @@ export default class V4InfoResponseWorkers {
     /**
     * @member {module:model/V4InfoResponseWorkersCountPerCluster} count_per_cluster
     */
-    count_per_cluster: any;
+    count_per_cluster: V4InfoResponseWorkersCountPerCluster;
     /**
     * @member {module:model/V4InfoResponseWorkersInstanceType} instance_type
     */
-    instance_type: any;
+    instance_type: V4InfoResponseWorkersInstanceType;
     /**
     * @member {module:model/V4InfoResponseWorkersVmSize} vm_size
     */
-    vm_size: any;
+    vm_size: V4InfoResponseWorkersVmSize;
 }
