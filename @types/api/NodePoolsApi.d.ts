@@ -1,6 +1,9 @@
 import ApiClient from "../ApiClient";
 import V5AddNodePoolRequest from "../model/V5AddNodePoolRequest";
 import V5ModifyNodePoolRequest from "../model/V5ModifyNodePoolRequest";
+import V5GetNodePoolResponse from "../model/V5GetNodePoolResponse";
+import V4GenericResponse from "../model/V4GenericResponse";
+import V5GetNodePoolsResponse from "../model/V5GetNodePoolsResponse";
 
 /**
 * NodePools service.
@@ -32,7 +35,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
     /**
      * Create node pool
      * This allows to add a node pool to a cluster.  Some, but not all, node pool configuration can be changed after creation. The following settings will have a permanent effect:  - &#x60;availability_zones&#x60; - &#x60;node_spec.aws.instance_type&#x60;
@@ -48,7 +51,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
     /**
      * Delete node pool
      * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.io/machine-deployment&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;
@@ -64,7 +67,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Delete node pool
      * Triggers the deletion of a node pool.  Nodes in the pool will first be cordoned and drained. Note that it is your responsibililty to make sure that workloads using the node pool can be scheduled elsewhere. We recommend to double-check the available capacity of remaining node pools, as well as any node selectors and taints. Also you can do the draining yourself before issuing the delete request, to observe the outcome. Use  &#x60;&#x60;&#x60; kubectl drain nodes -l giantswarm.io/machine-deployment&#x3D;&lt;nodepool_id&gt; ... &#x60;&#x60;&#x60;
@@ -80,7 +83,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get node pool details
      * Returns all available details on a specific node pool.
@@ -96,7 +99,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
     /**
      * Get node pool details
      * Returns all available details on a specific node pool.
@@ -112,7 +115,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
     /**
      * Get node pools
      * Returns a list of node pools from a given cluster.
@@ -127,7 +130,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolsResponse>;
     /**
      * Get node pools
      * Returns a list of node pools from a given cluster.
@@ -142,7 +145,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolsResponse>;
     /**
      * Modify node pool
      * Allows to rename a node pool or change its scaling settings.
@@ -159,7 +162,7 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
     /**
      * Modify node pool
      * Allows to rename a node pool or change its scaling settings.
@@ -176,5 +179,5 @@ export default class NodePoolsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V5GetNodePoolResponse>;
 }

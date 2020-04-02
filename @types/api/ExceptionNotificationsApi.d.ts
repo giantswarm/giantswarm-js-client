@@ -1,4 +1,5 @@
 import ApiClient from "../ApiClient";
+import V4GenericResponse from "../model/V4GenericResponse";
 
 /**
 * ExceptionNotifications service.
@@ -29,7 +30,7 @@ export default class ExceptionNotificationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Notifies Giant Swarm that an error has occured in one of our clients.
      * This endpoint is used to notify Giant Swarm that an error has occured in one of our clients (like our Web UI or gsctl). It is not intended to be called manually, our clients are configured to report errors when they occur.  Find us in your Slack support channel if you want to contact us about any immediate issues.
@@ -44,5 +45,5 @@ export default class ExceptionNotificationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
 }

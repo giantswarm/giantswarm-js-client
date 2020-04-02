@@ -1,5 +1,7 @@
 import ApiClient from "../ApiClient";
 import V4CreateAuthTokenRequest from "../model/V4CreateAuthTokenRequest";
+import V4CreateAuthTokenResponse from "../model/V4CreateAuthTokenResponse";
+import V4GenericResponse from "../model/V4GenericResponse";
 
 /**
 * AuthTokens service.
@@ -30,7 +32,7 @@ export default class AuthTokensApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4CreateAuthTokenResponse>;
     /**
      * Create Auth Token (Login)
      * Creates a Auth Token for a given user. Must authenticate with email and password.
@@ -45,7 +47,7 @@ export default class AuthTokensApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4CreateAuthTokenResponse>;
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out.
@@ -59,7 +61,7 @@ export default class AuthTokensApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Delete Auth Token (Logout)
      * Deletes the authentication token provided in the Authorization header. This effectively logs you out.
@@ -73,5 +75,5 @@ export default class AuthTokensApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
 }

@@ -2,6 +2,10 @@ import ApiClient from "../ApiClient";
 import V4AddCredentialsRequest from "../model/V4AddCredentialsRequest";
 import V4Organization from "../model/V4Organization";
 import Body from "../model/Body";
+import V4GenericResponse from "../model/V4GenericResponse";
+import V4GetCredentialResponse from "../model/V4GetCredentialResponse";
+import V4GetCredentialsResponse from "../model/V4GetCredentialsResponse";
+import V4OrganizationListItem from "../model/V4OrganizationListItem";
 
 /**
 * Organizations service.
@@ -33,7 +37,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Set credentials
      * Add a set of credentials to the organization allowing the creation and operation of clusters within a cloud provider account/subscription.  The actual type of these credentials depends on the cloud provider the installation is running on. AWS and Azure are currently supported.  Credentials in an organization are immutable. Each organization can only have one set of credentials.  Once credentials have been set for an organization, they are used for every new cluster that will be created for the organization.  ### Example request body for AWS  &#x60;&#x60;&#x60;json {   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example request body for Azure  &#x60;&#x60;&#x60;json {   \&quot;provider\&quot;: \&quot;azure\&quot;,   \&quot;azure\&quot;: {     \&quot;credential\&quot;: {       \&quot;client_id\&quot;: \&quot;c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\&quot;,       \&quot;secret_key\&quot;: \&quot;720e38f7-3af4-463c-9313-abcdf2ead612\&quot;,       \&quot;subscription_id\&quot;: \&quot;b388b7c7-4479-4040-9ac5-1e13edd6b1cd\&quot;,       \&quot;tenant_id\&quot;: \&quot;3dd2e94a-92ba-434c-99be-32bb65864a99\&quot;     }   } } &#x60;&#x60;&#x60;
@@ -49,7 +53,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Create an organization
      * This operation allows a user to create an organization.
@@ -65,7 +69,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
     /**
      * Create an organization
      * This operation allows a user to create an organization.
@@ -81,7 +85,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
     /**
      * Delete an organization
      * This operation allows a user to delete an organization that they are a member of. Admin users can delete any organization.
@@ -96,7 +100,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Delete an organization
      * This operation allows a user to delete an organization that they are a member of. Admin users can delete any organization.
@@ -111,7 +115,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get credential details
      * Returns details for a particular set of credentials, identified by its ID. The returned data does not contain any secrets (i. e. passphrase, secret key). For more information on credentials, see [Set credentials](#operation/addCredentials).  ### Example response body for AWS  &#x60;&#x60;&#x60;json {   \&quot;id\&quot;: \&quot;a1b2c3\&quot;,   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example response body for Azure  &#x60;&#x60;&#x60;json {   \&quot;id\&quot;: \&quot;a1b2c3\&quot;,   \&quot;provider\&quot;: \&quot;azure\&quot;,   \&quot;azure\&quot;: {     \&quot;credential\&quot;: {       \&quot;client_id\&quot;: \&quot;c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\&quot;,       \&quot;subscription_id\&quot;: \&quot;b388b7c7-4479-4040-9ac5-1e13edd6b1cd\&quot;,       \&quot;tenant_id\&quot;: \&quot;3dd2e94a-92ba-434c-99be-32bb65864a99\&quot;     }   } } &#x60;&#x60;&#x60;
@@ -127,7 +131,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GetCredentialResponse>;
     /**
      * Get credential details
      * Returns details for a particular set of credentials, identified by its ID. The returned data does not contain any secrets (i. e. passphrase, secret key). For more information on credentials, see [Set credentials](#operation/addCredentials).  ### Example response body for AWS  &#x60;&#x60;&#x60;json {   \&quot;id\&quot;: \&quot;a1b2c3\&quot;,   \&quot;provider\&quot;: \&quot;aws\&quot;,   \&quot;aws\&quot;: {     \&quot;roles\&quot;: {       \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,       \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;     }   } } &#x60;&#x60;&#x60;  ### Example response body for Azure  &#x60;&#x60;&#x60;json {   \&quot;id\&quot;: \&quot;a1b2c3\&quot;,   \&quot;provider\&quot;: \&quot;azure\&quot;,   \&quot;azure\&quot;: {     \&quot;credential\&quot;: {       \&quot;client_id\&quot;: \&quot;c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\&quot;,       \&quot;subscription_id\&quot;: \&quot;b388b7c7-4479-4040-9ac5-1e13edd6b1cd\&quot;,       \&quot;tenant_id\&quot;: \&quot;3dd2e94a-92ba-434c-99be-32bb65864a99\&quot;     }   } } &#x60;&#x60;&#x60;
@@ -143,7 +147,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GetCredentialResponse>;
     /**
      * Get credentials
      * Returns credentials for an organization, if available. For more information on credentials, see [Set credentials](#operation/addCredentials).  Here is another paragraph.  ### Example response body for AWS  &#x60;&#x60;&#x60;json [   {     \&quot;id\&quot;: \&quot;a1b2c3\&quot;,     \&quot;provider\&quot;: \&quot;aws\&quot;,     \&quot;aws\&quot;: {       \&quot;roles\&quot;: {         \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,         \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;       }     }   } ] &#x60;&#x60;&#x60;  ### Example response body for Azure  &#x60;&#x60;&#x60;json [   {     \&quot;id\&quot;: \&quot;a1b2c3\&quot;,     \&quot;provider\&quot;: \&quot;azure\&quot;,     \&quot;azure\&quot;: {       \&quot;credential\&quot;: {         \&quot;client_id\&quot;: \&quot;c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\&quot;,         \&quot;subscription_id\&quot;: \&quot;b388b7c7-4479-4040-9ac5-1e13edd6b1cd\&quot;,         \&quot;tenant_id\&quot;: \&quot;3dd2e94a-92ba-434c-99be-32bb65864a99\&quot;       }     }   } ] &#x60;&#x60;&#x60;
@@ -158,7 +162,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GetCredentialsResponse>;
     /**
      * Get credentials
      * Returns credentials for an organization, if available. For more information on credentials, see [Set credentials](#operation/addCredentials).  Here is another paragraph.  ### Example response body for AWS  &#x60;&#x60;&#x60;json [   {     \&quot;id\&quot;: \&quot;a1b2c3\&quot;,     \&quot;provider\&quot;: \&quot;aws\&quot;,     \&quot;aws\&quot;: {       \&quot;roles\&quot;: {         \&quot;admin\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAdmin\&quot;,         \&quot;awsoperator\&quot;: \&quot;arn:aws:iam::123456789012:role/GiantSwarmAWSOperator\&quot;       }     }   } ] &#x60;&#x60;&#x60;  ### Example response body for Azure  &#x60;&#x60;&#x60;json [   {     \&quot;id\&quot;: \&quot;a1b2c3\&quot;,     \&quot;provider\&quot;: \&quot;azure\&quot;,     \&quot;azure\&quot;: {       \&quot;credential\&quot;: {         \&quot;client_id\&quot;: \&quot;c93bf55e-5bf7-4966-ad2b-e6f6e7721d50\&quot;,         \&quot;subscription_id\&quot;: \&quot;b388b7c7-4479-4040-9ac5-1e13edd6b1cd\&quot;,         \&quot;tenant_id\&quot;: \&quot;3dd2e94a-92ba-434c-99be-32bb65864a99\&quot;       }     }   } ] &#x60;&#x60;&#x60;
@@ -173,7 +177,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GetCredentialsResponse>;
     /**
      * Get organization details
      * This operation fetches organization details.
@@ -188,7 +192,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
     /**
      * Get organization details
      * This operation fetches organization details.
@@ -203,7 +207,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
     /**
      * Get organizations
      * This operation allows to fetch a list of organizations the user is a member of. In the case of an admin user, the result includes all existing organizations.
@@ -217,7 +221,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4OrganizationListItem>;
     /**
      * Get organizations
      * This operation allows to fetch a list of organizations the user is a member of. In the case of an admin user, the result includes all existing organizations.
@@ -231,7 +235,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4OrganizationListItem>;
     /**
      * Modify organization
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - &#x60;members&#x60;: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid.
@@ -247,7 +251,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
     /**
      * Modify organization
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - &#x60;members&#x60;: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid.
@@ -263,5 +267,5 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4Organization>;
 }

@@ -2,6 +2,8 @@ import ApiClient from "../ApiClient";
 import V4CreateUserRequest from "../model/V4CreateUserRequest";
 import V4ModifyUserPasswordRequest from "../model/V4ModifyUserPasswordRequest";
 import V4ModifyUserRequest from "../model/V4ModifyUserRequest";
+import V4GenericResponse from "../model/V4GenericResponse";
+import V4UserListItem from "../model/V4UserListItem";
 
 /**
 * Users service.
@@ -33,7 +35,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Create user
      * Creates a users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -49,7 +51,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -64,7 +66,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Delete user
      * Deletes a users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -79,7 +81,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get current user
      * Returns details about the currently authenticated user
@@ -93,7 +95,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4UserListItem>;
     /**
      * Get current user
      * Returns details about the currently authenticated user
@@ -107,7 +109,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get user
      * Returns details about a specific user
@@ -122,7 +124,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get user
      * Returns details about a specific user
@@ -137,7 +139,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -151,7 +153,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -165,7 +167,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users.
@@ -181,7 +183,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users.
@@ -197,7 +199,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users.
@@ -213,7 +215,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users.
@@ -229,5 +231,5 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<any>;
+    }): Promise<V4GenericResponse>;
 }
