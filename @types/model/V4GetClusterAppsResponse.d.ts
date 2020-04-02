@@ -11,5 +11,5 @@ export default class V4GetClusterAppsResponse extends Array<any> {
     * @param {module:model/V4GetClusterAppsResponse} obj Optional instance to populate.
     * @return {module:model/V4GetClusterAppsResponse} The populated <code>V4GetClusterAppsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetClusterAppsResponse>, obj: V4GetClusterAppsResponse): V4GetClusterAppsResponse;
 }

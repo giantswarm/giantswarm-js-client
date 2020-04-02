@@ -11,7 +11,7 @@ export default class V4ModifyClusterRequest {
     * @param {module:model/V4ModifyClusterRequest} obj Optional instance to populate.
     * @return {module:model/V4ModifyClusterRequest} The populated <code>V4ModifyClusterRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ModifyClusterRequest>, obj: V4ModifyClusterRequest): V4ModifyClusterRequest;
     /**
     * Name for the cluster
     * @member {String} name

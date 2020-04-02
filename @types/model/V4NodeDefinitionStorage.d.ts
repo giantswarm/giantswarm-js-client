@@ -11,7 +11,7 @@ export default class V4NodeDefinitionStorage {
     * @param {module:model/V4NodeDefinitionStorage} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinitionStorage} The populated <code>V4NodeDefinitionStorage</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4NodeDefinitionStorage>, obj: V4NodeDefinitionStorage): V4NodeDefinitionStorage;
     /**
     * Node storage size in GB. Can be an integer or float.
     * @member {Number} size_gb

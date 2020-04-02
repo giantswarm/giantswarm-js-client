@@ -11,7 +11,7 @@ export default class V4InfoResponseGeneralAvailabilityZones {
     * @param {module:model/V4InfoResponseGeneralAvailabilityZones} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseGeneralAvailabilityZones} The populated <code>V4InfoResponseGeneralAvailabilityZones</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseGeneralAvailabilityZones>, obj: V4InfoResponseGeneralAvailabilityZones): V4InfoResponseGeneralAvailabilityZones;
     /**
     * Constructs a new <code>V4InfoResponseGeneralAvailabilityZones</code>.
     * Number of availability zones which a cluster can be spread across.

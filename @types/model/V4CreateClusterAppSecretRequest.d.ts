@@ -11,5 +11,5 @@ export default class V4CreateClusterAppSecretRequest {
     * @param {module:model/V4CreateClusterAppSecretRequest} obj Optional instance to populate.
     * @return {module:model/V4CreateClusterAppSecretRequest} The populated <code>V4CreateClusterAppSecretRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateClusterAppSecretRequest>, obj: V4CreateClusterAppSecretRequest): V4CreateClusterAppSecretRequest;
 }

@@ -11,7 +11,7 @@ export default class V4ReleaseListItemChangelog {
     * @param {module:model/V4ReleaseListItemChangelog} obj Optional instance to populate.
     * @return {module:model/V4ReleaseListItemChangelog} The populated <code>V4ReleaseListItemChangelog</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ReleaseListItemChangelog>, obj: V4ReleaseListItemChangelog): V4ReleaseListItemChangelog;
     /**
     * If the changed item was a component, this attribute is the name of the component.
     * @member {String} component

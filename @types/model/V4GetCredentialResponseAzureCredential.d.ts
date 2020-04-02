@@ -11,7 +11,7 @@ export default class V4GetCredentialResponseAzureCredential {
     * @param {module:model/V4GetCredentialResponseAzureCredential} obj Optional instance to populate.
     * @return {module:model/V4GetCredentialResponseAzureCredential} The populated <code>V4GetCredentialResponseAzureCredential</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetCredentialResponseAzureCredential>, obj: V4GetCredentialResponseAzureCredential): V4GetCredentialResponseAzureCredential;
     /**
     * Client ID of the service principal
     * @member {String} client_id

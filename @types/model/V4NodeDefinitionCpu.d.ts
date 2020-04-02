@@ -11,7 +11,7 @@ export default class V4NodeDefinitionCpu {
     * @param {module:model/V4NodeDefinitionCpu} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinitionCpu} The populated <code>V4NodeDefinitionCpu</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4NodeDefinitionCpu>, obj: V4NodeDefinitionCpu): V4NodeDefinitionCpu;
     /**
     * Number of CPU cores
     * @member {Number} cores

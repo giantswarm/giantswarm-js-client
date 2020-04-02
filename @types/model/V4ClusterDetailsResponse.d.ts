@@ -11,7 +11,7 @@ export default class V4ClusterDetailsResponse {
     * @param {module:model/V4ClusterDetailsResponse} obj Optional instance to populate.
     * @return {module:model/V4ClusterDetailsResponse} The populated <code>V4ClusterDetailsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ClusterDetailsResponse>, obj: V4ClusterDetailsResponse): V4ClusterDetailsResponse;
     /**
     * Unique cluster identifier
     * @member {String} id

@@ -11,7 +11,7 @@ export default class V5ClusterDetailsResponseConditions {
     * @param {module:model/V5ClusterDetailsResponseConditions} obj Optional instance to populate.
     * @return {module:model/V5ClusterDetailsResponseConditions} The populated <code>V5ClusterDetailsResponseConditions</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ClusterDetailsResponseConditions>, obj: V5ClusterDetailsResponseConditions): V5ClusterDetailsResponseConditions;
     /**
     * Date and time when the cluster transitioned into this condition
     * @member {String} last_transition_time

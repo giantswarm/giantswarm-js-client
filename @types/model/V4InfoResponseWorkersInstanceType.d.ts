@@ -11,7 +11,7 @@ export default class V4InfoResponseWorkersInstanceType {
     * @param {module:model/V4InfoResponseWorkersInstanceType} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseWorkersInstanceType} The populated <code>V4InfoResponseWorkersInstanceType</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseWorkersInstanceType>, obj: V4InfoResponseWorkersInstanceType): V4InfoResponseWorkersInstanceType;
     /**
     * List of available instance types
     * @member {Array.<String>} options

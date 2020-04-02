@@ -11,7 +11,7 @@ export default class V4InfoResponseGeneral {
     * @param {module:model/V4InfoResponseGeneral} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseGeneral} The populated <code>V4InfoResponseGeneral</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseGeneral>, obj: V4InfoResponseGeneral): V4InfoResponseGeneral;
     /**
     * Unique name of the installation
     * @member {String} installation_name

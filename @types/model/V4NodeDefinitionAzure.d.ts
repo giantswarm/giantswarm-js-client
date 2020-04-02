@@ -11,7 +11,7 @@ export default class V4NodeDefinitionAzure {
     * @param {module:model/V4NodeDefinitionAzure} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinitionAzure} The populated <code>V4NodeDefinitionAzure</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4NodeDefinitionAzure>, obj: V4NodeDefinitionAzure): V4NodeDefinitionAzure;
     /**
     * Azure Virtual Machine size. Must be the same for all worker nodes of a cluster.
     * @member {String} vm_size

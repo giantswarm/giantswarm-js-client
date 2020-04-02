@@ -11,7 +11,7 @@ export default class V5ClusterDetailsResponse {
     * @param {module:model/V5ClusterDetailsResponse} obj Optional instance to populate.
     * @return {module:model/V5ClusterDetailsResponse} The populated <code>V5ClusterDetailsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ClusterDetailsResponse>, obj: V5ClusterDetailsResponse): V5ClusterDetailsResponse;
     /**
     * Unique cluster identifier
     * @member {String} id

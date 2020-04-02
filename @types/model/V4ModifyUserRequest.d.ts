@@ -11,7 +11,7 @@ export default class V4ModifyUserRequest {
     * @param {module:model/V4ModifyUserRequest} obj Optional instance to populate.
     * @return {module:model/V4ModifyUserRequest} The populated <code>V4ModifyUserRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ModifyUserRequest>, obj: V4ModifyUserRequest): V4ModifyUserRequest;
     /**
     * New email address
     * @member {String} email

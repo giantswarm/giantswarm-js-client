@@ -11,7 +11,7 @@ export default class V5GetNodePoolResponseScaling {
     * @param {module:model/V5GetNodePoolResponseScaling} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolResponseScaling} The populated <code>V5GetNodePoolResponseScaling</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5GetNodePoolResponseScaling>, obj: V5GetNodePoolResponseScaling): V5GetNodePoolResponseScaling;
     /**
     * Minimum number of nodes in the pool
     * @member {Number} min

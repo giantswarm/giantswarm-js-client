@@ -11,7 +11,7 @@ export default class V4ClusterDetailsResponseKvmPortMappings {
     * @param {module:model/V4ClusterDetailsResponseKvmPortMappings} obj Optional instance to populate.
     * @return {module:model/V4ClusterDetailsResponseKvmPortMappings} The populated <code>V4ClusterDetailsResponseKvmPortMappings</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ClusterDetailsResponseKvmPortMappings>, obj: V4ClusterDetailsResponseKvmPortMappings): V4ClusterDetailsResponseKvmPortMappings;
     /**
     * The port on the control plane that will forward traffic to the tenant cluster
     * @member {Number} port

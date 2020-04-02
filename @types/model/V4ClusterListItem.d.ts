@@ -11,7 +11,7 @@ export default class V4ClusterListItem {
     * @param {module:model/V4ClusterListItem} obj Optional instance to populate.
     * @return {module:model/V4ClusterListItem} The populated <code>V4ClusterListItem</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ClusterListItem>, obj: V4ClusterListItem): V4ClusterListItem;
     /**
     * Unique cluster identifier
     * @member {String} id

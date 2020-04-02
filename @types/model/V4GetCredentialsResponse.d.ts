@@ -11,5 +11,5 @@ export default class V4GetCredentialsResponse extends Array<any> {
     * @param {module:model/V4GetCredentialsResponse} obj Optional instance to populate.
     * @return {module:model/V4GetCredentialsResponse} The populated <code>V4GetCredentialsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetCredentialsResponse>, obj: V4GetCredentialsResponse): V4GetCredentialsResponse;
 }

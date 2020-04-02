@@ -11,7 +11,7 @@ export default class V4GenericResponse {
     * @param {module:model/V4GenericResponse} obj Optional instance to populate.
     * @return {module:model/V4GenericResponse} The populated <code>V4GenericResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GenericResponse>, obj: V4GenericResponse): V4GenericResponse;
     /**
     * A human readable message
     * @member {String} message

@@ -11,7 +11,7 @@ export default class V4Organization {
     * @param {module:model/V4Organization} obj Optional instance to populate.
     * @return {module:model/V4Organization} The populated <code>V4Organization</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4Organization>, obj: V4Organization): V4Organization;
     /**
     * Unique name/identifier of the organization
     * @member {String} id

@@ -11,7 +11,7 @@ export default class V4InfoResponseWorkers {
     * @param {module:model/V4InfoResponseWorkers} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseWorkers} The populated <code>V4InfoResponseWorkers</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseWorkers>, obj: V4InfoResponseWorkers): V4InfoResponseWorkers;
     /**
     * @member {module:model/V4InfoResponseWorkersCountPerCluster} count_per_cluster
     */

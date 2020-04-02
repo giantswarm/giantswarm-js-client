@@ -11,7 +11,7 @@ export default class V4GetCredentialResponseAwsRoles {
     * @param {module:model/V4GetCredentialResponseAwsRoles} obj Optional instance to populate.
     * @return {module:model/V4GetCredentialResponseAwsRoles} The populated <code>V4GetCredentialResponseAwsRoles</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetCredentialResponseAwsRoles>, obj: V4GetCredentialResponseAwsRoles): V4GetCredentialResponseAwsRoles;
     /**
     * ARN of the IAM role Giant Swarm support staff will use
     * @member {String} admin

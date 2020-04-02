@@ -11,7 +11,7 @@ export default class V4NodeDefinitionMemory {
     * @param {module:model/V4NodeDefinitionMemory} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinitionMemory} The populated <code>V4NodeDefinitionMemory</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4NodeDefinitionMemory>, obj: V4NodeDefinitionMemory): V4NodeDefinitionMemory;
     /**
     * RAM size in GB. Can be an integer or float.
     * @member {Number} size_gb

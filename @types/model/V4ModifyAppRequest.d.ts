@@ -11,7 +11,7 @@ export default class V4ModifyAppRequest {
     * @param {module:model/V4ModifyAppRequest} obj Optional instance to populate.
     * @return {module:model/V4ModifyAppRequest} The populated <code>V4ModifyAppRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ModifyAppRequest>, obj: V4ModifyAppRequest): V4ModifyAppRequest;
     /**
     * @member {module:model/V4ModifyAppRequestSpec} spec
     */

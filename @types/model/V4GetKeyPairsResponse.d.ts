@@ -11,5 +11,5 @@ export default class V4GetKeyPairsResponse extends Array<any> {
     * @param {module:model/V4GetKeyPairsResponse} obj Optional instance to populate.
     * @return {module:model/V4GetKeyPairsResponse} The populated <code>V4GetKeyPairsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetKeyPairsResponse>, obj: V4GetKeyPairsResponse): V4GetKeyPairsResponse;
 }

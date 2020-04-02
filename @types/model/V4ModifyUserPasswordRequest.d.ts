@@ -11,7 +11,7 @@ export default class V4ModifyUserPasswordRequest {
     * @param {module:model/V4ModifyUserPasswordRequest} obj Optional instance to populate.
     * @return {module:model/V4ModifyUserPasswordRequest} The populated <code>V4ModifyUserPasswordRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ModifyUserPasswordRequest>, obj: V4ModifyUserPasswordRequest): V4ModifyUserPasswordRequest;
     /**
     * Constructs a new <code>V4ModifyUserPasswordRequest</code>.
     * Request model for modifying a user&#39;s password

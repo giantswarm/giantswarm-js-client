@@ -11,7 +11,7 @@ export default class V4UserListItem {
     * @param {module:model/V4UserListItem} obj Optional instance to populate.
     * @return {module:model/V4UserListItem} The populated <code>V4UserListItem</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4UserListItem>, obj: V4UserListItem): V4UserListItem;
     /**
     * Email address of the user
     * @member {String} email

@@ -11,7 +11,7 @@ export default class V4InfoResponseFeaturesNodepools {
     * @param {module:model/V4InfoResponseFeaturesNodepools} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseFeaturesNodepools} The populated <code>V4InfoResponseFeaturesNodepools</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseFeaturesNodepools>, obj: V4InfoResponseFeaturesNodepools): V4InfoResponseFeaturesNodepools;
     /**
     * The minimum release version number required to have support for node pools.
     * @member {String} release_version_minimum

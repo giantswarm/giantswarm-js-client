@@ -11,7 +11,7 @@ export default class V5ClusterDetailsResponseVersions {
     * @param {module:model/V5ClusterDetailsResponseVersions} obj Optional instance to populate.
     * @return {module:model/V5ClusterDetailsResponseVersions} The populated <code>V5ClusterDetailsResponseVersions</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ClusterDetailsResponseVersions>, obj: V5ClusterDetailsResponseVersions): V5ClusterDetailsResponseVersions;
     /**
     * Date and time when the cluster got created with or upgraded to this version
     * @member {String} last_transition_time

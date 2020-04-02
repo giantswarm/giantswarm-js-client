@@ -11,7 +11,7 @@ export default class V4InfoResponseFeatures {
     * @param {module:model/V4InfoResponseFeatures} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseFeatures} The populated <code>V4InfoResponseFeatures</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseFeatures>, obj: V4InfoResponseFeatures): V4InfoResponseFeatures;
     /**
     * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
     */

@@ -11,7 +11,7 @@ export default class V4ClusterDetailsResponseScaling {
     * @param {module:model/V4ClusterDetailsResponseScaling} obj Optional instance to populate.
     * @return {module:model/V4ClusterDetailsResponseScaling} The populated <code>V4ClusterDetailsResponseScaling</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ClusterDetailsResponseScaling>, obj: V4ClusterDetailsResponseScaling): V4ClusterDetailsResponseScaling;
     /**
     * Minimum number of cluster nodes as configured
     * @member {Number} min

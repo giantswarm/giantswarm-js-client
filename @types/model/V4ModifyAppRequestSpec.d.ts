@@ -11,7 +11,7 @@ export default class V4ModifyAppRequestSpec {
     * @param {module:model/V4ModifyAppRequestSpec} obj Optional instance to populate.
     * @return {module:model/V4ModifyAppRequestSpec} The populated <code>V4ModifyAppRequestSpec</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ModifyAppRequestSpec>, obj: V4ModifyAppRequestSpec): V4ModifyAppRequestSpec;
     /**
     * Version of the chart that should be used to install this app
     * @member {String} version

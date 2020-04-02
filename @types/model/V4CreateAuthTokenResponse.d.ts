@@ -11,7 +11,7 @@ export default class V4CreateAuthTokenResponse {
     * @param {module:model/V4CreateAuthTokenResponse} obj Optional instance to populate.
     * @return {module:model/V4CreateAuthTokenResponse} The populated <code>V4CreateAuthTokenResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateAuthTokenResponse>, obj: V4CreateAuthTokenResponse): V4CreateAuthTokenResponse;
     /**
     * The newly created API token
     * @member {String} auth_token

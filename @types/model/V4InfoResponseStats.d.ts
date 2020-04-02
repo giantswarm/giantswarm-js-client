@@ -11,7 +11,7 @@ export default class V4InfoResponseStats {
     * @param {module:model/V4InfoResponseStats} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseStats} The populated <code>V4InfoResponseStats</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseStats>, obj: V4InfoResponseStats): V4InfoResponseStats;
     /**
     * @member {module:model/V4InfoResponseStatsClusterCreationDuration} cluster_creation_duration
     */

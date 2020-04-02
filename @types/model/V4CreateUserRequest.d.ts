@@ -11,7 +11,7 @@ export default class V4CreateUserRequest {
     * @param {module:model/V4CreateUserRequest} obj Optional instance to populate.
     * @return {module:model/V4CreateUserRequest} The populated <code>V4CreateUserRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateUserRequest>, obj: V4CreateUserRequest): V4CreateUserRequest;
     /**
     * Constructs a new <code>V4CreateUserRequest</code>.
     * Request model for creating a new user

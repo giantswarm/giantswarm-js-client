@@ -11,7 +11,7 @@ export default class V4CreateAuthTokenRequest {
     * @param {module:model/V4CreateAuthTokenRequest} obj Optional instance to populate.
     * @return {module:model/V4CreateAuthTokenRequest} The populated <code>V4CreateAuthTokenRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateAuthTokenRequest>, obj: V4CreateAuthTokenRequest): V4CreateAuthTokenRequest;
     /**
     * Your email address
     * @member {String} email

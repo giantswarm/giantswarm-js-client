@@ -11,7 +11,7 @@ export default class V4NodeDefinition {
     * @param {module:model/V4NodeDefinition} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinition} The populated <code>V4NodeDefinition</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4NodeDefinition>, obj: V4NodeDefinition): V4NodeDefinition;
     /**
     * @member {module:model/V4NodeDefinitionAws} aws
     */

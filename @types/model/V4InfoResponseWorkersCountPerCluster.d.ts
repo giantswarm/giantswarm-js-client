@@ -11,7 +11,7 @@ export default class V4InfoResponseWorkersCountPerCluster {
     * @param {module:model/V4InfoResponseWorkersCountPerCluster} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseWorkersCountPerCluster} The populated <code>V4InfoResponseWorkersCountPerCluster</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseWorkersCountPerCluster>, obj: V4InfoResponseWorkersCountPerCluster): V4InfoResponseWorkersCountPerCluster;
     /**
     * Maximum number of worker a cluster can have. Might be null when unknown.
     * @member {Number} max

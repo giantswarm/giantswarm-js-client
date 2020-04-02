@@ -11,7 +11,7 @@ export default class V5GetNodePoolResponse {
     * @param {module:model/V5GetNodePoolResponse} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolResponse} The populated <code>V5GetNodePoolResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5GetNodePoolResponse>, obj: V5GetNodePoolResponse): V5GetNodePoolResponse;
     /**
     * Node pool identifier. Unique within a tenant cluster.
     * @member {String} id

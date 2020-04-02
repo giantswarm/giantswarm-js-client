@@ -11,5 +11,5 @@ export default class V4GetClusterStatusResponse {
     * @param {module:model/V4GetClusterStatusResponse} obj Optional instance to populate.
     * @return {module:model/V4GetClusterStatusResponse} The populated <code>V4GetClusterStatusResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4GetClusterStatusResponse>, obj: V4GetClusterStatusResponse): V4GetClusterStatusResponse;
 }

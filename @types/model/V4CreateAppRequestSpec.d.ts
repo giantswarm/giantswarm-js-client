@@ -11,7 +11,7 @@ export default class V4CreateAppRequestSpec {
     * @param {module:model/V4CreateAppRequestSpec} obj Optional instance to populate.
     * @return {module:model/V4CreateAppRequestSpec} The populated <code>V4CreateAppRequestSpec</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateAppRequestSpec>, obj: V4CreateAppRequestSpec): V4CreateAppRequestSpec;
     /**
     * Constructs a new <code>V4CreateAppRequestSpec</code>.
     * @alias module:model/V4CreateAppRequestSpec

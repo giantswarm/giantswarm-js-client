@@ -11,7 +11,7 @@ export default class V4OrganizationMember {
     * @param {module:model/V4OrganizationMember} obj Optional instance to populate.
     * @return {module:model/V4OrganizationMember} The populated <code>V4OrganizationMember</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4OrganizationMember>, obj: V4OrganizationMember): V4OrganizationMember;
     /**
     * Email address of the user
     * @member {String} email

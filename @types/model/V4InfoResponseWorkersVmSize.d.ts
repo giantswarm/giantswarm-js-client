@@ -11,7 +11,7 @@ export default class V4InfoResponseWorkersVmSize {
     * @param {module:model/V4InfoResponseWorkersVmSize} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseWorkersVmSize} The populated <code>V4InfoResponseWorkersVmSize</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseWorkersVmSize>, obj: V4InfoResponseWorkersVmSize): V4InfoResponseWorkersVmSize;
     /**
     * List of available instance types
     * @member {Array.<String>} options

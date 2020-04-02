@@ -11,7 +11,7 @@ export default class V5ClusterDetailsResponseMaster {
     * @param {module:model/V5ClusterDetailsResponseMaster} obj Optional instance to populate.
     * @return {module:model/V5ClusterDetailsResponseMaster} The populated <code>V5ClusterDetailsResponseMaster</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ClusterDetailsResponseMaster>, obj: V5ClusterDetailsResponseMaster): V5ClusterDetailsResponseMaster;
     /**
     * Name of the availability zone the master node is placed in
     * @member {String} availability_zone

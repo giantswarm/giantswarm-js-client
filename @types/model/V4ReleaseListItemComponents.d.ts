@@ -11,7 +11,7 @@ export default class V4ReleaseListItemComponents {
     * @param {module:model/V4ReleaseListItemComponents} obj Optional instance to populate.
     * @return {module:model/V4ReleaseListItemComponents} The populated <code>V4ReleaseListItemComponents</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4ReleaseListItemComponents>, obj: V4ReleaseListItemComponents): V4ReleaseListItemComponents;
     /**
     * Constructs a new <code>V4ReleaseListItemComponents</code>.
     * @alias module:model/V4ReleaseListItemComponents

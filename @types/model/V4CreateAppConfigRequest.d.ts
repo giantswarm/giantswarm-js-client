@@ -11,5 +11,5 @@ export default class V4CreateAppConfigRequest {
     * @param {module:model/V4CreateAppConfigRequest} obj Optional instance to populate.
     * @return {module:model/V4CreateAppConfigRequest} The populated <code>V4CreateAppConfigRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4CreateAppConfigRequest>, obj: V4CreateAppConfigRequest): V4CreateAppConfigRequest;
 }

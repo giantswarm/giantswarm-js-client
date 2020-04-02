@@ -11,5 +11,5 @@ export default class V5GetNodePoolsResponse extends Array<any> {
     * @param {module:model/V5GetNodePoolsResponse} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolsResponse} The populated <code>V5GetNodePoolsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5GetNodePoolsResponse>, obj: V5GetNodePoolsResponse): V5GetNodePoolsResponse;
 }

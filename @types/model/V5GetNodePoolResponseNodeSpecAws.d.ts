@@ -11,7 +11,7 @@ export default class V5GetNodePoolResponseNodeSpecAws {
     * @param {module:model/V5GetNodePoolResponseNodeSpecAws} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolResponseNodeSpecAws} The populated <code>V5GetNodePoolResponseNodeSpecAws</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5GetNodePoolResponseNodeSpecAws>, obj: V5GetNodePoolResponseNodeSpecAws): V5GetNodePoolResponseNodeSpecAws;
     /**
     * EC2 instance type used by all nodes in this pool
     * @member {String} instance_type

@@ -11,7 +11,7 @@ export default class V5ModifyClusterRequest {
     * @param {module:model/V5ModifyClusterRequest} obj Optional instance to populate.
     * @return {module:model/V5ModifyClusterRequest} The populated <code>V5ModifyClusterRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ModifyClusterRequest>, obj: V5ModifyClusterRequest): V5ModifyClusterRequest;
     /**
     * New cluster name
     * @member {String} name

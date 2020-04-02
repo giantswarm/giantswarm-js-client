@@ -11,7 +11,7 @@ export default class V4InfoResponseStatsClusterCreationDuration {
     * @param {module:model/V4InfoResponseStatsClusterCreationDuration} obj Optional instance to populate.
     * @return {module:model/V4InfoResponseStatsClusterCreationDuration} The populated <code>V4InfoResponseStatsClusterCreationDuration</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4InfoResponseStatsClusterCreationDuration>, obj: V4InfoResponseStatsClusterCreationDuration): V4InfoResponseStatsClusterCreationDuration;
     /**
     * Median of the value distribution
     * @member {Number} median
