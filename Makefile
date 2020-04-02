@@ -16,7 +16,7 @@ generate: api-spec
 		jimschubert/swagger-codegen-cli:2.2.3 generate \
 		--config /repo/swagger-codegen-conf.json \
 		--input-spec /repo/api-spec/spec.yaml \
-		--lang javascript \
+		--lang typescript-fetch \
 		--output /repo
 	mv README.md DOCS.md
 	# fix superagent dependency due to security issue
