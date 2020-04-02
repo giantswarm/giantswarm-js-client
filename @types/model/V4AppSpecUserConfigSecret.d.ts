@@ -11,7 +11,7 @@ export default class V4AppSpecUserConfigSecret {
     * @param {module:model/V4AppSpecUserConfigSecret} obj Optional instance to populate.
     * @return {module:model/V4AppSpecUserConfigSecret} The populated <code>V4AppSpecUserConfigSecret</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppSpecUserConfigSecret>, obj: V4AppSpecUserConfigSecret): V4AppSpecUserConfigSecret;
     /**
     * Name of the Secret on the control plane, which will become available wherever the app is installed
     * @member {String} name

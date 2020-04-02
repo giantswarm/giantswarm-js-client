@@ -11,7 +11,7 @@ export default class V5AddNodePoolRequestAvailabilityZones {
     * @param {module:model/V5AddNodePoolRequestAvailabilityZones} obj Optional instance to populate.
     * @return {module:model/V5AddNodePoolRequestAvailabilityZones} The populated <code>V5AddNodePoolRequestAvailabilityZones</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5AddNodePoolRequestAvailabilityZones>, obj: V5AddNodePoolRequestAvailabilityZones): V5AddNodePoolRequestAvailabilityZones;
     /**
     * Number of zones to use. If given, the zones are picked automatically. _(Maximum limit of 4 supported.)_
     * @member {Number} number

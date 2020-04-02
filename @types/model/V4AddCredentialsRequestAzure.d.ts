@@ -11,7 +11,7 @@ export default class V4AddCredentialsRequestAzure {
     * @param {module:model/V4AddCredentialsRequestAzure} obj Optional instance to populate.
     * @return {module:model/V4AddCredentialsRequestAzure} The populated <code>V4AddCredentialsRequestAzure</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AddCredentialsRequestAzure>, obj: V4AddCredentialsRequestAzure): V4AddCredentialsRequestAzure;
     /**
     * @member {module:model/V4AddCredentialsRequestAzureCredential} credential
     */

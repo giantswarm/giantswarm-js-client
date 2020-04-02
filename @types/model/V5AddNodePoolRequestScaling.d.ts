@@ -11,15 +11,15 @@ export default class V5AddNodePoolRequestScaling {
     * @param {module:model/V5AddNodePoolRequestScaling} obj Optional instance to populate.
     * @return {module:model/V5AddNodePoolRequestScaling} The populated <code>V5AddNodePoolRequestScaling</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5AddNodePoolRequestScaling>, obj: V5AddNodePoolRequestScaling): V5AddNodePoolRequestScaling;
     /**
     * Minimum number of nodes in the pool.
     * @member {Number} min
     */
-    min: any;
+    min: number;
     /**
     * Maximum number of nodes in the pool.
     * @member {Number} max
     */
-    max: any;
+    max: number;
 }

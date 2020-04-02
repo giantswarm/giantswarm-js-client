@@ -11,7 +11,7 @@ export default class V4GetKeyPairsResponseInner {
     * @param {module:model/V4GetKeyPairsResponseInner} obj Optional instance to populate.
     * @return {module:model/V4GetKeyPairsResponseInner} The populated <code>V4GetKeyPairsResponseInner</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4GetKeyPairsResponseInner>, obj: V4GetKeyPairsResponseInner): V4GetKeyPairsResponseInner;
     /**
     * Unique identifier of the key pair
     * @member {String} id
@@ -21,25 +21,25 @@ export default class V4GetKeyPairsResponseInner {
     * Free text information about the key pair
     * @member {String} description
     */
-    description: any;
+    description: string;
     /**
     * Expiration time (from creation) in hours
     * @member {Number} ttl_hours
     */
-    ttl_hours: any;
+    ttl_hours: string;
     /**
     * Date/time of creation
     * @member {String} create_date
     */
-    create_date: any;
+    create_date: string;
     /**
     * The common name of the certificate subject.
     * @member {String} common_name
     */
-    common_name: any;
+    common_name: string;
     /**
     * The certificate subject's `organization` fields.
     * @member {String} certificate_organizations
     */
-    certificate_organizations: any;
+    certificate_organizations: string;
 }

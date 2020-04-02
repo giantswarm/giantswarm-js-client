@@ -11,7 +11,7 @@ export default class V4AppSpec {
     * @param {module:model/V4AppSpec} obj Optional instance to populate.
     * @return {module:model/V4AppSpec} The populated <code>V4AppSpec</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppSpec>, obj: V4AppSpec): V4AppSpec;
     /**
     * Name of the chart that was used to install this app
     * @member {String} name

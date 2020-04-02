@@ -11,10 +11,10 @@ export default class V4NodeDefinitionAws {
     * @param {module:model/V4NodeDefinitionAws} obj Optional instance to populate.
     * @return {module:model/V4NodeDefinitionAws} The populated <code>V4NodeDefinitionAws</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4NodeDefinitionAws>, obj: V4NodeDefinitionAws): V4NodeDefinitionAws;
     /**
     * EC2 instance type name. Must be the same for all worker nodes of a cluster.
     * @member {String} instance_type
     */
-    instance_type: any;
+    instance_type: string;
 }

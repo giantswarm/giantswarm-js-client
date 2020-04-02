@@ -11,7 +11,7 @@ export default class V4AppSpecUserConfigConfigmap {
     * @param {module:model/V4AppSpecUserConfigConfigmap} obj Optional instance to populate.
     * @return {module:model/V4AppSpecUserConfigConfigmap} The populated <code>V4AppSpecUserConfigConfigmap</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppSpecUserConfigConfigmap>, obj: V4AppSpecUserConfigConfigmap): V4AppSpecUserConfigConfigmap;
     /**
     * Name of the config map containing values to apply, e.g. prometheus-user-values
     * @member {String} name

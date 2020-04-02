@@ -11,7 +11,7 @@ export default class V4AppCatalogsResponseInner {
     * @param {module:model/V4AppCatalogsResponseInner} obj Optional instance to populate.
     * @return {module:model/V4AppCatalogsResponseInner} The populated <code>V4AppCatalogsResponseInner</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppCatalogsResponseInner>, obj: V4AppCatalogsResponseInner): V4AppCatalogsResponseInner;
     /**
     * @member {module:model/V4AppCatalogsResponseInnerMetadata} metadata
     */

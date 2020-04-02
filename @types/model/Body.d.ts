@@ -11,7 +11,7 @@ export default class Body {
     * @param {module:model/Body} obj Optional instance to populate.
     * @return {module:model/Body} The populated <code>Body</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<Body>, obj: Body): Body;
     /**
     * List of members that belong to this organization
     * @member {Array.<module:model/V4OrganizationMember>} members

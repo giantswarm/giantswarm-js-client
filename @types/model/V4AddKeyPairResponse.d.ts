@@ -11,7 +11,7 @@ export default class V4AddKeyPairResponse {
     * @param {module:model/V4AddKeyPairResponse} obj Optional instance to populate.
     * @return {module:model/V4AddKeyPairResponse} The populated <code>V4AddKeyPairResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AddKeyPairResponse>, obj: V4AddKeyPairResponse): V4AddKeyPairResponse;
     /**
     * Unique identifier of the key pair
     * @member {String} id

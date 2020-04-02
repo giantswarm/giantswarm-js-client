@@ -11,7 +11,7 @@ export default class V4AppSpecUserConfig {
     * @param {module:model/V4AppSpecUserConfig} obj Optional instance to populate.
     * @return {module:model/V4AppSpecUserConfig} The populated <code>V4AppSpecUserConfig</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppSpecUserConfig>, obj: V4AddClusterRequest): V4AddClusterRequest;
     /**
     * @member {module:model/V4AppSpecUserConfigConfigmap} configmap
     */

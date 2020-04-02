@@ -11,7 +11,7 @@ export default class V4AddCredentialsRequestAwsRoles {
     * @param {module:model/V4AddCredentialsRequestAwsRoles} obj Optional instance to populate.
     * @return {module:model/V4AddCredentialsRequestAwsRoles} The populated <code>V4AddCredentialsRequestAwsRoles</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AddCredentialsRequestAwsRoles>, obj: V4AddCredentialsRequestAwsRoles): V4AddCredentialsRequestAwsRoles;
     /**
     * Constructs a new <code>V4AddCredentialsRequestAwsRoles</code>.
     * IAM roles to assume by certain entities

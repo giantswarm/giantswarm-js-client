@@ -11,12 +11,12 @@ export default class V5ModifyNodePoolRequest {
     * @param {module:model/V5ModifyNodePoolRequest} obj Optional instance to populate.
     * @return {module:model/V5ModifyNodePoolRequest} The populated <code>V5ModifyNodePoolRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5ModifyNodePoolRequest>, obj: V5ModifyNodePoolRequest): V5ModifyNodePoolRequest;
     /**
     * New name of the node pool
     * @member {String} name
     */
-    name: any;
+    name: string;
     /**
     * @member {module:model/V5ModifyNodePoolRequestScaling} scaling
     */

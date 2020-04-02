@@ -11,7 +11,7 @@ export default class V4AddKeyPairRequest {
     * @param {module:model/V4AddKeyPairRequest} obj Optional instance to populate.
     * @return {module:model/V4AddKeyPairRequest} The populated <code>V4AddKeyPairRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AddKeyPairRequest>, obj: V4AddKeyPairRequest): V4AddKeyPairRequest;
     /**
     * Constructs a new <code>V4AddKeyPairRequest</code>.
     * @alias module:model/V4AddKeyPairRequest

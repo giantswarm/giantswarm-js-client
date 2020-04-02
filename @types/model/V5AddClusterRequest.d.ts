@@ -11,7 +11,7 @@ export default class V5AddClusterRequest {
     * @param {module:model/V5AddClusterRequest} obj Optional instance to populate.
     * @return {module:model/V5AddClusterRequest} The populated <code>V5AddClusterRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5AddClusterRequest>, obj: V5AddClusterRequest): V5AddClusterRequest;
     /**
     * Constructs a new <code>V5AddClusterRequest</code>.
     * @alias module:model/V5AddClusterRequest

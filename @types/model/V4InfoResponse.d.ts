@@ -1,3 +1,8 @@
+import V4InfoResponseGeneral from "./V4InfoResponseGeneral";
+import V4InfoResponseFeatures from "./V4InfoResponseFeatures";
+import V4InfoResponseStats from "./V4InfoResponseStats";
+import V4InfoResponseWorkers from "./V4InfoResponseWorkers";
+
 /**
 * The V4InfoResponse model module.
 * @module model/V4InfoResponse
@@ -11,21 +16,21 @@ export default class V4InfoResponse {
     * @param {module:model/V4InfoResponse} obj Optional instance to populate.
     * @return {module:model/V4InfoResponse} The populated <code>V4InfoResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4InfoResponse>, obj: V4InfoResponse): V4InfoResponse;
     /**
     * @member {module:model/V4InfoResponseGeneral} general
     */
-    general: any;
+    general: V4InfoResponseGeneral;
     /**
     * @member {module:model/V4InfoResponseFeatures} features
     */
-    features: any;
+    features: V4InfoResponseFeatures;
     /**
     * @member {module:model/V4InfoResponseStats} stats
     */
-    stats: any;
+    stats: V4InfoResponseStats;
     /**
     * @member {module:model/V4InfoResponseWorkers} workers
     */
-    workers: any;
+    workers: V4InfoResponseWorkers;
 }

@@ -11,15 +11,15 @@ export default class V5GetNodePoolResponseStatus {
     * @param {module:model/V5GetNodePoolResponseStatus} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolResponseStatus} The populated <code>V5GetNodePoolResponseStatus</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5GetNodePoolResponseStatus>, obj: V5GetNodePoolResponseStatus): V5GetNodePoolResponseStatus;
     /**
     * Desired number of nodes in the pool
     * @member {Number} nodes
     */
-    nodes: any;
+    nodes: number;
     /**
     * Number of nodes in state NodeReady
     * @member {Number} nodes_ready
     */
-    nodes_ready: any;
+    nodes_ready: number;
 }

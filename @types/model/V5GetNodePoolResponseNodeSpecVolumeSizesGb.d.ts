@@ -11,7 +11,7 @@ export default class V5GetNodePoolResponseNodeSpecVolumeSizesGb {
     * @param {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb} obj Optional instance to populate.
     * @return {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb} The populated <code>V5GetNodePoolResponseNodeSpecVolumeSizesGb</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5GetNodePoolResponseNodeSpecVolumeSizesGb>, obj: V5GetNodePoolResponseNodeSpecVolumeSizesGb): V5GetNodePoolResponseNodeSpecVolumeSizesGb;
     /**
     * Size of the Docker volume, used to store docker images and overlay file system data, in GB.
     * @member {Number} docker

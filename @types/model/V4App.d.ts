@@ -11,7 +11,7 @@ export default class V4App {
     * @param {module:model/V4App} obj Optional instance to populate.
     * @return {module:model/V4App} The populated <code>V4App</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4App>, obj: V4App): V4App;
     /**
     * @member {module:model/V4AppMetadata} metadata
     */

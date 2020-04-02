@@ -11,5 +11,5 @@ export default class V4AppCatalogsResponse extends Array<any> {
     * @param {module:model/V4AppCatalogsResponse} obj Optional instance to populate.
     * @return {module:model/V4AppCatalogsResponse} The populated <code>V4AppCatalogsResponse</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppCatalogsResponse>, obj: V4AppCatalogsResponse): V4AppCatalogsResponse;
 }

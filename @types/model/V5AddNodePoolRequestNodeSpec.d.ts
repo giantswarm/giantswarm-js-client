@@ -11,7 +11,7 @@ export default class V5AddNodePoolRequestNodeSpec {
     * @param {module:model/V5AddNodePoolRequestNodeSpec} obj Optional instance to populate.
     * @return {module:model/V5AddNodePoolRequestNodeSpec} The populated <code>V5AddNodePoolRequestNodeSpec</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5AddNodePoolRequestNodeSpec>, obj: V5AddNodePoolRequestNodeSpec): V5AddNodePoolRequestNodeSpec;
     /**
     * @member {module:model/V5AddNodePoolRequestNodeSpecAws} aws
     */

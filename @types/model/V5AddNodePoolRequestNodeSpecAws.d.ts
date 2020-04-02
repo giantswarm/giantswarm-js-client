@@ -11,10 +11,10 @@ export default class V5AddNodePoolRequestNodeSpecAws {
     * @param {module:model/V5AddNodePoolRequestNodeSpecAws} obj Optional instance to populate.
     * @return {module:model/V5AddNodePoolRequestNodeSpecAws} The populated <code>V5AddNodePoolRequestNodeSpecAws</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V5AddNodePoolRequestNodeSpecAws>, obj: V5AddNodePoolRequestNodeSpecAws): V5AddNodePoolRequestNodeSpecAws;
     /**
     * EC2 instance type to use for all nodes in the node pool. _(Validated against available instance types.)_
     * @member {String} instance_type
     */
-    instance_type: any;
+    instance_type: string;
 }

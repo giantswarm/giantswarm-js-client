@@ -11,7 +11,7 @@ export default class V4AppCatalogsResponseInnerSpecStorage {
     * @param {module:model/V4AppCatalogsResponseInnerSpecStorage} obj Optional instance to populate.
     * @return {module:model/V4AppCatalogsResponseInnerSpecStorage} The populated <code>V4AppCatalogsResponseInnerSpecStorage</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppCatalogsResponseInnerSpecStorage>, obj: V4AppCatalogsResponseInnerSpecStorage): V4AppCatalogsResponseInnerSpecStorage;
     /**
     * A URL where clients can download the full catalog.
     * @member {String} URL

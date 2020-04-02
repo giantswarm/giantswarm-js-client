@@ -11,7 +11,7 @@ export default class V4AppCatalogsResponseInnerSpec {
     * @param {module:model/V4AppCatalogsResponseInnerSpec} obj Optional instance to populate.
     * @return {module:model/V4AppCatalogsResponseInnerSpec} The populated <code>V4AppCatalogsResponseInnerSpec</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppCatalogsResponseInnerSpec>, obj: V4AppCatalogsResponseInnerSpec): V4AppCatalogsResponseInnerSpec;
     /**
     * A display friendly title for this catalog.
     * @member {String} title

@@ -11,7 +11,7 @@ export default class V4AddClusterRequestScaling {
     * @param {module:model/V4AddClusterRequestScaling} obj Optional instance to populate.
     * @return {module:model/V4AddClusterRequestScaling} The populated <code>V4AddClusterRequestScaling</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AddClusterRequestScaling>, obj: V4AddClusterRequestScaling): V4AddClusterRequestScaling;
     /**
     * Minimum number of cluster nodes
     * @member {Number} min

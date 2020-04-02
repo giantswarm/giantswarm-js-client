@@ -1,3 +1,5 @@
+import V4AppStatusRelease from "./V4AppStatusRelease";
+
 /**
 * The V4AppStatus model module.
 * @module model/V4AppStatus
@@ -11,7 +13,7 @@ export default class V4AppStatus {
     * @param {module:model/V4AppStatus} obj Optional instance to populate.
     * @return {module:model/V4AppStatus} The populated <code>V4AppStatus</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppStatus>, obj: V4AppStatus): V4AppStatus;
     /**
     * Version of the installed app
     * @member {String} app_version
@@ -25,5 +27,5 @@ export default class V4AppStatus {
     /**
     * @member {module:model/V4AppStatusRelease} release
     */
-    release: any;
+    release: V4AppStatusRelease;
 }

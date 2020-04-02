@@ -11,7 +11,7 @@ export default class V4AppCatalogsResponseInnerMetadataLabels {
     * @param {module:model/V4AppCatalogsResponseInnerMetadataLabels} obj Optional instance to populate.
     * @return {module:model/V4AppCatalogsResponseInnerMetadataLabels} The populated <code>V4AppCatalogsResponseInnerMetadataLabels</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppCatalogsResponseInnerMetadataLabels>, obj: V4AppCatalogsResponseInnerMetadataLabels): V4AppCatalogsResponseInnerMetadataLabels;
     /**
     * @member {String} application.giantswarm.io/catalog-type
     */

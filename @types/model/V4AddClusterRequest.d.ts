@@ -11,7 +11,7 @@ export default class V4AddClusterRequest {
     * @param {module:model/V4AddClusterRequest} obj Optional instance to populate.
     * @return {module:model/V4AddClusterRequest} The populated <code>V4AddClusterRequest</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V4AddClusterRequest>, obj: V4AddClusterRequest): V4AddClusterRequest;
     /**
     * Constructs a new <code>V4AddClusterRequest</code>.
     * Request model for creating a new cluster

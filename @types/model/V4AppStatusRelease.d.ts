@@ -11,7 +11,7 @@ export default class V4AppStatusRelease {
     * @param {module:model/V4AppStatusRelease} obj Optional instance to populate.
     * @return {module:model/V4AppStatusRelease} The populated <code>V4AppStatusRelease</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+   static constructFromObject(data: Partial<V4AppStatusRelease>, obj: V4AppStatusRelease): V4AppStatusRelease;
     /**
     * Date and time that the app was last last deployed
     * @member {String} last_deployed
