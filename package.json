@@ -10,7 +10,7 @@
     "build-types": "./node_modules/.bin/tsc"
   },
   "dependencies": {
-    "superagent": "3.8.3"
+    "superagent": "5.2.2"
   },
   "devDependencies": {
     "jest": "^25.1.0",
