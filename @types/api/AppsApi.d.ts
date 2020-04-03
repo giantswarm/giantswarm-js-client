@@ -3,6 +3,8 @@ import V4App from "../model/V4App";
 import V4GenericResponse from "../model/V4GenericResponse";
 import V4AppCatalogsResponse from "../model/V4AppCatalogsResponse";
 import V4GetClusterAppsResponse from "../model/V4GetClusterAppsResponse";
+import V4ModifyAppRequest from "../model/V4ModifyAppRequest";
+import V4CreateAppRequest from "../model/V4CreateAppRequest";
 
 /**
 * Apps service.
@@ -35,7 +37,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
      * Install an app (v4)
@@ -53,7 +55,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
      * Install an app (v5)
@@ -71,7 +73,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
      * Install an app (v5)
@@ -89,7 +91,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
      * Delete an app (v4)
@@ -259,7 +261,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
      * Modify an app (v4)
@@ -277,7 +279,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
      * Modify an app (v5)
@@ -295,7 +297,7 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
      * Modify an app (v5)
@@ -313,6 +315,6 @@ export default class AppsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4ModifyAppRequest;
     }): Promise<V4App>;
 }
