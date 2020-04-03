@@ -1,6 +1,7 @@
 import ApiClient from "../ApiClient";
 import V4GenericResponse from "../model/V4GenericResponse";
 import V4GetClusterAppSecretResponse from "../model/V4GetClusterAppSecretResponse";
+import V4CreateClusterAppSecretRequest from "../model/V4CreateClusterAppSecretRequest";
 
 /**
 * AppSecrets service.
@@ -33,7 +34,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create Secret (v4)
@@ -51,7 +52,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create Secret (v5)
@@ -69,7 +70,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create Secret (v5)
@@ -87,7 +88,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Delete a Secret (v4)
@@ -233,7 +234,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify Secret (v4)
@@ -251,7 +252,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify Secret (v5)
@@ -269,7 +270,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify Secret (v5)
@@ -287,6 +288,6 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateClusterAppSecretRequest;
     }): Promise<V4GenericResponse>;
 }

@@ -1,6 +1,7 @@
 import ApiClient from "../ApiClient";
 import V4GenericResponse from "../model/V4GenericResponse";
 import V4GetClusterAppConfigResponse from "../model/V4GetClusterAppConfigResponse";
+import V4CreateAppConfigRequest from "../model/V4CreateAppConfigRequest";
 
 /**
 * AppConfigs service.
@@ -33,7 +34,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v4)
@@ -51,7 +52,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v5)
@@ -69,7 +70,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v5)
@@ -87,7 +88,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v4)
@@ -233,7 +234,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v4)
@@ -251,7 +252,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v5)
@@ -269,7 +270,7 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v5)
@@ -287,6 +288,6 @@ export default class AppConfigsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-        body: Record<string, any>;
+        body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
 }
