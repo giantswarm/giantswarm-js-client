@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4ClusterListItem = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterLabels);
+    root.GiantSwarm.V5ClusterLabelsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterLabels);
   }
 }(this, function(ApiClient, V5ClusterLabels) {
   'use strict';
@@ -34,61 +34,34 @@
 
 
   /**
-   * The V4ClusterListItem model module.
-   * @module model/V4ClusterListItem
+   * The V5ClusterLabelsResponse model module.
+   * @module model/V5ClusterLabelsResponse
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ClusterListItem</code>.
-   * @alias module:model/V4ClusterListItem
+   * Constructs a new <code>V5ClusterLabelsResponse</code>.
+   * Cluster labels
+   * @alias module:model/V5ClusterLabelsResponse
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
-
-
-
-
   };
 
   /**
-   * Constructs a <code>V4ClusterListItem</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5ClusterLabelsResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ClusterListItem} obj Optional instance to populate.
-   * @return {module:model/V4ClusterListItem} The populated <code>V4ClusterListItem</code> instance.
+   * @param {module:model/V5ClusterLabelsResponse} obj Optional instance to populate.
+   * @return {module:model/V5ClusterLabelsResponse} The populated <code>V5ClusterLabelsResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('create_date')) {
-        obj['create_date'] = ApiClient.convertToType(data['create_date'], 'String');
-      }
-      if (data.hasOwnProperty('delete_date')) {
-        obj['delete_date'] = ApiClient.convertToType(data['delete_date'], 'Date');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('path')) {
-        obj['path'] = ApiClient.convertToType(data['path'], 'String');
-      }
       if (data.hasOwnProperty('labels')) {
         obj['labels'] = V5ClusterLabels.constructFromObject(data['labels']);
       }
@@ -96,41 +69,6 @@
     return obj;
   }
 
-  /**
-   * Unique cluster identifier
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * Date/time of cluster creation
-   * @member {String} create_date
-   */
-  exports.prototype['create_date'] = undefined;
-  /**
-   * Date/time when cluster has been deleted
-   * @member {Date} delete_date
-   */
-  exports.prototype['delete_date'] = undefined;
-  /**
-   * Cluster name
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * The semantic version number of this cluster
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * API path of the cluster resource
-   * @member {String} path
-   */
-  exports.prototype['path'] = undefined;
   /**
    * @member {module:model/V5ClusterLabels} labels
    */

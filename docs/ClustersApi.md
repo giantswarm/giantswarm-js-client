@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getClusterStatus**](ClustersApi.md#getClusterStatus) | **GET** /v4/clusters/{cluster_id}/status/ | Get cluster status
 [**getClusterV5**](ClustersApi.md#getClusterV5) | **GET** /v5/clusters/{cluster_id}/ | Get cluster details (v5)
 [**getClusters**](ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
+[**getV5ClustersByLabel**](ClustersApi.md#getV5ClustersByLabel) | **POST** /v5/clusters/by_label/ | Get clusters by labels (v5)
 [**modifyCluster**](ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster (v4)
 [**modifyClusterV5**](ClustersApi.md#modifyClusterV5) | **PATCH** /v5/clusters/{cluster_id}/ | Modify cluster (v5)
 
@@ -401,6 +402,64 @@ apiInstance.getClusters(opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
+
+### Return type
+
+[**[V4ClusterListItem]**](V4ClusterListItem.md)
+
+### Authorization
+
+[AuthorizationHeaderToken](../README.md#AuthorizationHeaderToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getV5ClustersByLabel"></a>
+# **getV5ClustersByLabel**
+> [V4ClusterListItem] getV5ClustersByLabel(body, opts)
+
+Get clusters by labels (v5)
+
+This operation fetches a list of node pool clusters based on a label selector.  The operation accepts label selectors in the same way that &#x60;kubectl get -l&#x60; does ([kubernetes label selectors description](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)) for listing clusters based on their labels.  The result depends on the permissions of the user. A normal user can search over all the clusters that they have access to, based on their organization memberships. Admin users however, will search over all existing clusters.  The resulting array contains a sparse representation of the cluster objects. To fetch more details on a cluster, use the [getClusterV5](#operation/getClusterV5) operation. 
+
+### Example
+```javascript
+var GiantSwarm = require('giantswarm-');
+var defaultClient = GiantSwarm.ApiClient.instance;
+
+// Configure API key authorization: AuthorizationHeaderToken
+var AuthorizationHeaderToken = defaultClient.authentications['AuthorizationHeaderToken'];
+AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//AuthorizationHeaderToken.apiKeyPrefix = 'Token';
+
+var apiInstance = new GiantSwarm.ClustersApi();
+
+var body = new GiantSwarm.V5ListClustersByLabel(); // V5ListClustersByLabel | Label selector
+
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.getV5ClustersByLabel(body, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**V5ListClustersByLabel**](V5ListClustersByLabel.md)| Label selector | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 

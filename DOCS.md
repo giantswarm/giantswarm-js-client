@@ -157,6 +157,8 @@ Class | Method | HTTP request | Description
 *GiantSwarm.AppsApi* | [**modifyClusterAppV5**](docs/AppsApi.md#modifyClusterAppV5) | **PATCH** /v5/clusters/{cluster_id}/apps/{app_name}/ | Modify an app (v5)
 *GiantSwarm.AuthTokensApi* | [**createAuthToken**](docs/AuthTokensApi.md#createAuthToken) | **POST** /v4/auth-tokens/ | Create Auth Token (Login)
 *GiantSwarm.AuthTokensApi* | [**deleteAuthToken**](docs/AuthTokensApi.md#deleteAuthToken) | **DELETE** /v4/auth-tokens/ | Delete Auth Token (Logout)
+*GiantSwarm.ClusterLabelsApi* | [**getClusterLabels**](docs/ClusterLabelsApi.md#getClusterLabels) | **GET** /v5/clusters/{cluster_id}/labels/ | Get cluster labels
+*GiantSwarm.ClusterLabelsApi* | [**setClusterLabels**](docs/ClusterLabelsApi.md#setClusterLabels) | **PUT** /v5/clusters/{cluster_id}/labels/ | Set cluster labels
 *GiantSwarm.ClustersApi* | [**addCluster**](docs/ClustersApi.md#addCluster) | **POST** /v4/clusters/ | Create cluster (v4)
 *GiantSwarm.ClustersApi* | [**addClusterV5**](docs/ClustersApi.md#addClusterV5) | **POST** /v5/clusters/ | Create cluster (v5)
 *GiantSwarm.ClustersApi* | [**deleteCluster**](docs/ClustersApi.md#deleteCluster) | **DELETE** /v4/clusters/{cluster_id}/ | Delete cluster
@@ -164,6 +166,7 @@ Class | Method | HTTP request | Description
 *GiantSwarm.ClustersApi* | [**getClusterStatus**](docs/ClustersApi.md#getClusterStatus) | **GET** /v4/clusters/{cluster_id}/status/ | Get cluster status
 *GiantSwarm.ClustersApi* | [**getClusterV5**](docs/ClustersApi.md#getClusterV5) | **GET** /v5/clusters/{cluster_id}/ | Get cluster details (v5)
 *GiantSwarm.ClustersApi* | [**getClusters**](docs/ClustersApi.md#getClusters) | **GET** /v4/clusters/ | Get clusters
+*GiantSwarm.ClustersApi* | [**getV5ClustersByLabel**](docs/ClustersApi.md#getV5ClustersByLabel) | **POST** /v5/clusters/by_label/ | Get clusters by labels (v5)
 *GiantSwarm.ClustersApi* | [**modifyCluster**](docs/ClustersApi.md#modifyCluster) | **PATCH** /v4/clusters/{cluster_id}/ | Modify cluster (v4)
 *GiantSwarm.ClustersApi* | [**modifyClusterV5**](docs/ClustersApi.md#modifyClusterV5) | **PATCH** /v5/clusters/{cluster_id}/ | Modify cluster (v5)
 *GiantSwarm.ExceptionNotificationsApi* | [**addExceptionNotification**](docs/ExceptionNotificationsApi.md#addExceptionNotification) | **POST** /v5/exception-notifications/ | Notifies Giant Swarm that an error has occured in one of our clients.
@@ -285,6 +288,8 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V5ClusterDetailsResponseConditions](docs/V5ClusterDetailsResponseConditions.md)
  - [GiantSwarm.V5ClusterDetailsResponseMaster](docs/V5ClusterDetailsResponseMaster.md)
  - [GiantSwarm.V5ClusterDetailsResponseVersions](docs/V5ClusterDetailsResponseVersions.md)
+ - [GiantSwarm.V5ClusterLabels](docs/V5ClusterLabels.md)
+ - [GiantSwarm.V5ClusterLabelsResponse](docs/V5ClusterLabelsResponse.md)
  - [GiantSwarm.V5GetNodePoolResponse](docs/V5GetNodePoolResponse.md)
  - [GiantSwarm.V5GetNodePoolResponseNodeSpec](docs/V5GetNodePoolResponseNodeSpec.md)
  - [GiantSwarm.V5GetNodePoolResponseNodeSpecAws](docs/V5GetNodePoolResponseNodeSpecAws.md)
@@ -292,6 +297,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V5GetNodePoolResponseScaling](docs/V5GetNodePoolResponseScaling.md)
  - [GiantSwarm.V5GetNodePoolResponseStatus](docs/V5GetNodePoolResponseStatus.md)
  - [GiantSwarm.V5GetNodePoolsResponse](docs/V5GetNodePoolsResponse.md)
+ - [GiantSwarm.V5ListClustersByLabel](docs/V5ListClustersByLabel.md)
  - [GiantSwarm.V5ModifyClusterRequest](docs/V5ModifyClusterRequest.md)
  - [GiantSwarm.V5ModifyNodePoolRequest](docs/V5ModifyNodePoolRequest.md)
  - [GiantSwarm.V5ModifyNodePoolRequestScaling](docs/V5ModifyNodePoolRequestScaling.md)

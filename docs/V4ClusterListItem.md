@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **owner** | **String** | Name of the organization owning the cluster | [optional] 
 **releaseVersion** | **String** | The semantic version number of this cluster | [optional] 
 **path** | **String** | API path of the cluster resource | [optional] 
+**labels** | [**V5ClusterLabels**](V5ClusterLabels.md) |  | [optional] 
 
 

@@ -16,123 +16,62 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5ClusterLabels'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5ClusterLabels'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4ClusterListItem = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterLabels);
+    root.GiantSwarm.V5ListClustersByLabel = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V5ClusterLabels) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4ClusterListItem model module.
-   * @module model/V4ClusterListItem
+   * The V5ListClustersByLabel model module.
+   * @module model/V5ListClustersByLabel
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4ClusterListItem</code>.
-   * @alias module:model/V4ClusterListItem
+   * Constructs a new <code>V5ListClustersByLabel</code>.
+   * @alias module:model/V5ListClustersByLabel
    * @class
+   * @param labels {String} The label selector string for filtering the clusters
    */
-  var exports = function() {
+  var exports = function(labels) {
     var _this = this;
 
-
-
-
-
-
-
-
-
+    _this['labels'] = labels;
   };
 
   /**
-   * Constructs a <code>V4ClusterListItem</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5ListClustersByLabel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4ClusterListItem} obj Optional instance to populate.
-   * @return {module:model/V4ClusterListItem} The populated <code>V4ClusterListItem</code> instance.
+   * @param {module:model/V5ListClustersByLabel} obj Optional instance to populate.
+   * @return {module:model/V5ListClustersByLabel} The populated <code>V5ListClustersByLabel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('create_date')) {
-        obj['create_date'] = ApiClient.convertToType(data['create_date'], 'String');
-      }
-      if (data.hasOwnProperty('delete_date')) {
-        obj['delete_date'] = ApiClient.convertToType(data['delete_date'], 'Date');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release_version')) {
-        obj['release_version'] = ApiClient.convertToType(data['release_version'], 'String');
-      }
-      if (data.hasOwnProperty('path')) {
-        obj['path'] = ApiClient.convertToType(data['path'], 'String');
-      }
       if (data.hasOwnProperty('labels')) {
-        obj['labels'] = V5ClusterLabels.constructFromObject(data['labels']);
+        obj['labels'] = ApiClient.convertToType(data['labels'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Unique cluster identifier
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * Date/time of cluster creation
-   * @member {String} create_date
-   */
-  exports.prototype['create_date'] = undefined;
-  /**
-   * Date/time when cluster has been deleted
-   * @member {Date} delete_date
-   */
-  exports.prototype['delete_date'] = undefined;
-  /**
-   * Cluster name
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * Name of the organization owning the cluster
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
-   * The semantic version number of this cluster
-   * @member {String} release_version
-   */
-  exports.prototype['release_version'] = undefined;
-  /**
-   * API path of the cluster resource
-   * @member {String} path
-   */
-  exports.prototype['path'] = undefined;
-  /**
-   * @member {module:model/V5ClusterLabels} labels
+   * The label selector string for filtering the clusters
+   * @member {String} labels
    */
   exports.prototype['labels'] = undefined;
 
