@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.ClustersApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('ClustersApi', function() {
-    describe('addCluster', function() {
-      it('should call addCluster successfully', function(done) {
+  describe('ClustersApi', () => {
+    describe('addCluster', () => {
+      test('should call addCluster successfully', done => {
         //uncomment below and update the code to test addCluster
         //instance.addCluster(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('addClusterV5', function() {
-      it('should call addClusterV5 successfully', function(done) {
+    describe('addClusterV5', () => {
+      test('should call addClusterV5 successfully', done => {
         //uncomment below and update the code to test addClusterV5
         //instance.addClusterV5(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('deleteCluster', function() {
-      it('should call deleteCluster successfully', function(done) {
+    describe('deleteCluster', () => {
+      test('should call deleteCluster successfully', done => {
         //uncomment below and update the code to test deleteCluster
         //instance.deleteCluster(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('getCluster', function() {
-      it('should call getCluster successfully', function(done) {
+    describe('getCluster', () => {
+      test('should call getCluster successfully', done => {
         //uncomment below and update the code to test getCluster
         //instance.getCluster(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('getClusterStatus', function() {
-      it('should call getClusterStatus successfully', function(done) {
+    describe('getClusterStatus', () => {
+      test('should call getClusterStatus successfully', done => {
         //uncomment below and update the code to test getClusterStatus
         //instance.getClusterStatus(function(error) {
         //  if (error) throw error;
@@ -100,8 +97,8 @@
         done();
       });
     });
-    describe('getClusterV5', function() {
-      it('should call getClusterV5 successfully', function(done) {
+    describe('getClusterV5', () => {
+      test('should call getClusterV5 successfully', done => {
         //uncomment below and update the code to test getClusterV5
         //instance.getClusterV5(function(error) {
         //  if (error) throw error;
@@ -110,8 +107,8 @@
         done();
       });
     });
-    describe('getClusters', function() {
-      it('should call getClusters successfully', function(done) {
+    describe('getClusters', () => {
+      test('should call getClusters successfully', done => {
         //uncomment below and update the code to test getClusters
         //instance.getClusters(function(error) {
         //  if (error) throw error;
@@ -120,8 +117,8 @@
         done();
       });
     });
-    describe('modifyCluster', function() {
-      it('should call modifyCluster successfully', function(done) {
+    describe('modifyCluster', () => {
+      test('should call modifyCluster successfully', done => {
         //uncomment below and update the code to test modifyCluster
         //instance.modifyCluster(function(error) {
         //  if (error) throw error;
@@ -130,8 +127,8 @@
         done();
       });
     });
-    describe('modifyClusterV5', function() {
-      it('should call modifyClusterV5 successfully', function(done) {
+    describe('modifyClusterV5', () => {
+      test('should call modifyClusterV5 successfully', done => {
         //uncomment below and update the code to test modifyClusterV5
         //instance.modifyClusterV5(function(error) {
         //  if (error) throw error;

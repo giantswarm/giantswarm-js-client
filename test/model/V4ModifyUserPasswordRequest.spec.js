@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ModifyUserPasswordRequest();
   });
 
@@ -49,24 +46,30 @@
       object[property] = value;
   }
 
-  describe('V4ModifyUserPasswordRequest', function() {
-    it('should create an instance of V4ModifyUserPasswordRequest', function() {
+  describe('V4ModifyUserPasswordRequest', () => {
+    test('should create an instance of V4ModifyUserPasswordRequest', () => {
       // uncomment below and update the code to test V4ModifyUserPasswordRequest
       //var instane = new GiantSwarm.V4ModifyUserPasswordRequest();
       //expect(instance).to.be.a(GiantSwarm.V4ModifyUserPasswordRequest);
     });
 
-    it('should have the property currentPasswordBase64 (base name: "current_password_base64")', function() {
-      // uncomment below and update the code to test the property currentPasswordBase64
-      //var instane = new GiantSwarm.V4ModifyUserPasswordRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property currentPasswordBase64 (base name: "current_password_base64")',
+      () => {
+        // uncomment below and update the code to test the property currentPasswordBase64
+        //var instane = new GiantSwarm.V4ModifyUserPasswordRequest();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property newPasswordBase64 (base name: "new_password_base64")', function() {
-      // uncomment below and update the code to test the property newPasswordBase64
-      //var instane = new GiantSwarm.V4ModifyUserPasswordRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property newPasswordBase64 (base name: "new_password_base64")',
+      () => {
+        // uncomment below and update the code to test the property newPasswordBase64
+        //var instane = new GiantSwarm.V4ModifyUserPasswordRequest();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

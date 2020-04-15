@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
   });
 
@@ -49,24 +46,30 @@
       object[property] = value;
   }
 
-  describe('V4AddCredentialsRequestAwsRoles', function() {
-    it('should create an instance of V4AddCredentialsRequestAwsRoles', function() {
-      // uncomment below and update the code to test V4AddCredentialsRequestAwsRoles
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
-      //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAwsRoles);
-    });
+  describe('V4AddCredentialsRequestAwsRoles', () => {
+    test(
+      'should create an instance of V4AddCredentialsRequestAwsRoles',
+      () => {
+        // uncomment below and update the code to test V4AddCredentialsRequestAwsRoles
+        //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
+        //expect(instance).to.be.a(GiantSwarm.V4AddCredentialsRequestAwsRoles);
+      }
+    );
 
-    it('should have the property admin (base name: "admin")', function() {
+    test('should have the property admin (base name: "admin")', () => {
       // uncomment below and update the code to test the property admin
       //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
       //expect(instance).to.be();
     });
 
-    it('should have the property awsoperator (base name: "awsoperator")', function() {
-      // uncomment below and update the code to test the property awsoperator
-      //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property awsoperator (base name: "awsoperator")',
+      () => {
+        // uncomment below and update the code to test the property awsoperator
+        //var instane = new GiantSwarm.V4AddCredentialsRequestAwsRoles();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

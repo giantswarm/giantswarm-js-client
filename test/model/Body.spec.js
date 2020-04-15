@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.Body();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('Body', function() {
-    it('should create an instance of Body', function() {
+  describe('Body', () => {
+    test('should create an instance of Body', () => {
       // uncomment below and update the code to test Body
       //var instane = new GiantSwarm.Body();
       //expect(instance).to.be.a(GiantSwarm.Body);
     });
 
-    it('should have the property members (base name: "members")', function() {
+    test('should have the property members (base name: "members")', () => {
       // uncomment below and update the code to test the property members
       //var instane = new GiantSwarm.Body();
       //expect(instance).to.be();

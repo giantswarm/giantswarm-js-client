@@ -1,21 +1,27 @@
 {
-  "name": "giantswarm-",
-  "version": "4.0.0",
+  "name": "giantswarm-v4",
+  "version": "4.0.1",
   "description": "Generated JavaScript client for the Giant Swarm API.",
   "license": "Unlicense",
   "main": "src/index.js",
+  "types": "@types/index.d.ts",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive"
-  },
-  "browser": {
-    "fs": false
+    "test": "./node_modules/.bin/jest",
+    "build-types": "./node_modules/.bin/tsc"
   },
   "dependencies": {
     "superagent": "3.7.0"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "sinon": "1.17.3",
-    "expect.js": "~0.3.1"
+    "jest": "^25.2.7",
+    "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "minimist": "^1.2.5"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

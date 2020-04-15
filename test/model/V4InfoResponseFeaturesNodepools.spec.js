@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseFeaturesNodepools();
   });
 
@@ -49,18 +46,24 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseFeaturesNodepools', function() {
-    it('should create an instance of V4InfoResponseFeaturesNodepools', function() {
-      // uncomment below and update the code to test V4InfoResponseFeaturesNodepools
-      //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
-      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseFeaturesNodepools);
-    });
+  describe('V4InfoResponseFeaturesNodepools', () => {
+    test(
+      'should create an instance of V4InfoResponseFeaturesNodepools',
+      () => {
+        // uncomment below and update the code to test V4InfoResponseFeaturesNodepools
+        //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
+        //expect(instance).to.be.a(GiantSwarm.V4InfoResponseFeaturesNodepools);
+      }
+    );
 
-    it('should have the property releaseVersionMinimum (base name: "release_version_minimum")', function() {
-      // uncomment below and update the code to test the property releaseVersionMinimum
-      //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property releaseVersionMinimum (base name: "release_version_minimum")',
+      () => {
+        // uncomment below and update the code to test the property releaseVersionMinimum
+        //var instane = new GiantSwarm.V4InfoResponseFeaturesNodepools();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

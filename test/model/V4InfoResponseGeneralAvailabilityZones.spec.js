@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
   });
 
@@ -49,26 +46,29 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseGeneralAvailabilityZones', function() {
-    it('should create an instance of V4InfoResponseGeneralAvailabilityZones', function() {
-      // uncomment below and update the code to test V4InfoResponseGeneralAvailabilityZones
-      //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
-      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseGeneralAvailabilityZones);
-    });
+  describe('V4InfoResponseGeneralAvailabilityZones', () => {
+    test(
+      'should create an instance of V4InfoResponseGeneralAvailabilityZones',
+      () => {
+        // uncomment below and update the code to test V4InfoResponseGeneralAvailabilityZones
+        //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
+        //expect(instance).to.be.a(GiantSwarm.V4InfoResponseGeneralAvailabilityZones);
+      }
+    );
 
-    it('should have the property max (base name: "max")', function() {
+    test('should have the property max (base name: "max")', () => {
       // uncomment below and update the code to test the property max
       //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
       //expect(instance).to.be();
     });
 
-    it('should have the property _default (base name: "default")', function() {
+    test('should have the property _default (base name: "default")', () => {
       // uncomment below and update the code to test the property _default
       //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
       //expect(instance).to.be();
     });
 
-    it('should have the property zones (base name: "zones")', function() {
+    test('should have the property zones (base name: "zones")', () => {
       // uncomment below and update the code to test the property zones
       //var instane = new GiantSwarm.V4InfoResponseGeneralAvailabilityZones();
       //expect(instance).to.be();

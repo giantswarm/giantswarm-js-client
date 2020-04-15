@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppStatus();
   });
 
@@ -49,26 +46,29 @@
       object[property] = value;
   }
 
-  describe('V4AppStatus', function() {
-    it('should create an instance of V4AppStatus', function() {
+  describe('V4AppStatus', () => {
+    test('should create an instance of V4AppStatus', () => {
       // uncomment below and update the code to test V4AppStatus
       //var instane = new GiantSwarm.V4AppStatus();
       //expect(instance).to.be.a(GiantSwarm.V4AppStatus);
     });
 
-    it('should have the property appVersion (base name: "app_version")', function() {
-      // uncomment below and update the code to test the property appVersion
-      //var instane = new GiantSwarm.V4AppStatus();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property appVersion (base name: "app_version")',
+      () => {
+        // uncomment below and update the code to test the property appVersion
+        //var instane = new GiantSwarm.V4AppStatus();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property version (base name: "version")', function() {
+    test('should have the property version (base name: "version")', () => {
       // uncomment below and update the code to test the property version
       //var instane = new GiantSwarm.V4AppStatus();
       //expect(instance).to.be();
     });
 
-    it('should have the property release (base name: "release")', function() {
+    test('should have the property release (base name: "release")', () => {
       // uncomment below and update the code to test the property release
       //var instane = new GiantSwarm.V4AppStatus();
       //expect(instance).to.be();

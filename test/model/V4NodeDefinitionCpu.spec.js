@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4NodeDefinitionCpu();
   });
 
@@ -49,14 +46,14 @@
       object[property] = value;
   }
 
-  describe('V4NodeDefinitionCpu', function() {
-    it('should create an instance of V4NodeDefinitionCpu', function() {
+  describe('V4NodeDefinitionCpu', () => {
+    test('should create an instance of V4NodeDefinitionCpu', () => {
       // uncomment below and update the code to test V4NodeDefinitionCpu
       //var instane = new GiantSwarm.V4NodeDefinitionCpu();
       //expect(instance).to.be.a(GiantSwarm.V4NodeDefinitionCpu);
     });
 
-    it('should have the property cores (base name: "cores")', function() {
+    test('should have the property cores (base name: "cores")', () => {
       // uncomment below and update the code to test the property cores
       //var instane = new GiantSwarm.V4NodeDefinitionCpu();
       //expect(instance).to.be();

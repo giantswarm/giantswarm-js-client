@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4GetClusterAppsResponse();
   });
 
@@ -49,8 +46,8 @@
       object[property] = value;
   }
 
-  describe('V4GetClusterAppsResponse', function() {
-    it('should create an instance of V4GetClusterAppsResponse', function() {
+  describe('V4GetClusterAppsResponse', () => {
+    test('should create an instance of V4GetClusterAppsResponse', () => {
       // uncomment below and update the code to test V4GetClusterAppsResponse
       //var instane = new GiantSwarm.V4GetClusterAppsResponse();
       //expect(instance).to.be.a(GiantSwarm.V4GetClusterAppsResponse);

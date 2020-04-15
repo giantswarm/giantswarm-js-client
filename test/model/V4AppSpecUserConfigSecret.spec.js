@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppSpecUserConfigSecret();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V4AppSpecUserConfigSecret', function() {
-    it('should create an instance of V4AppSpecUserConfigSecret', function() {
+  describe('V4AppSpecUserConfigSecret', () => {
+    test('should create an instance of V4AppSpecUserConfigSecret', () => {
       // uncomment below and update the code to test V4AppSpecUserConfigSecret
       //var instane = new GiantSwarm.V4AppSpecUserConfigSecret();
       //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfigSecret);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V4AppSpecUserConfigSecret();
       //expect(instance).to.be();
     });
 
-    it('should have the property namespace (base name: "namespace")', function() {
-      // uncomment below and update the code to test the property namespace
-      //var instane = new GiantSwarm.V4AppSpecUserConfigSecret();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property namespace (base name: "namespace")',
+      () => {
+        // uncomment below and update the code to test the property namespace
+        //var instane = new GiantSwarm.V4AppSpecUserConfigSecret();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

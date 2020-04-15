@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppSpecUserConfigConfigmap();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V4AppSpecUserConfigConfigmap', function() {
-    it('should create an instance of V4AppSpecUserConfigConfigmap', function() {
+  describe('V4AppSpecUserConfigConfigmap', () => {
+    test('should create an instance of V4AppSpecUserConfigConfigmap', () => {
       // uncomment below and update the code to test V4AppSpecUserConfigConfigmap
       //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
       //expect(instance).to.be.a(GiantSwarm.V4AppSpecUserConfigConfigmap);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
       //expect(instance).to.be();
     });
 
-    it('should have the property namespace (base name: "namespace")', function() {
-      // uncomment below and update the code to test the property namespace
-      //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property namespace (base name: "namespace")',
+      () => {
+        // uncomment below and update the code to test the property namespace
+        //var instane = new GiantSwarm.V4AppSpecUserConfigConfigmap();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

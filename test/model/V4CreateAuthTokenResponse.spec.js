@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4CreateAuthTokenResponse();
   });
 
@@ -49,18 +46,21 @@
       object[property] = value;
   }
 
-  describe('V4CreateAuthTokenResponse', function() {
-    it('should create an instance of V4CreateAuthTokenResponse', function() {
+  describe('V4CreateAuthTokenResponse', () => {
+    test('should create an instance of V4CreateAuthTokenResponse', () => {
       // uncomment below and update the code to test V4CreateAuthTokenResponse
       //var instane = new GiantSwarm.V4CreateAuthTokenResponse();
       //expect(instance).to.be.a(GiantSwarm.V4CreateAuthTokenResponse);
     });
 
-    it('should have the property authToken (base name: "auth_token")', function() {
-      // uncomment below and update the code to test the property authToken
-      //var instane = new GiantSwarm.V4CreateAuthTokenResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property authToken (base name: "auth_token")',
+      () => {
+        // uncomment below and update the code to test the property authToken
+        //var instane = new GiantSwarm.V4CreateAuthTokenResponse();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

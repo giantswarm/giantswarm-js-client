@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4CreateAuthTokenRequest();
   });
 
@@ -49,24 +46,27 @@
       object[property] = value;
   }
 
-  describe('V4CreateAuthTokenRequest', function() {
-    it('should create an instance of V4CreateAuthTokenRequest', function() {
+  describe('V4CreateAuthTokenRequest', () => {
+    test('should create an instance of V4CreateAuthTokenRequest', () => {
       // uncomment below and update the code to test V4CreateAuthTokenRequest
       //var instane = new GiantSwarm.V4CreateAuthTokenRequest();
       //expect(instance).to.be.a(GiantSwarm.V4CreateAuthTokenRequest);
     });
 
-    it('should have the property email (base name: "email")', function() {
+    test('should have the property email (base name: "email")', () => {
       // uncomment below and update the code to test the property email
       //var instane = new GiantSwarm.V4CreateAuthTokenRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property passwordBase64 (base name: "password_base64")', function() {
-      // uncomment below and update the code to test the property passwordBase64
-      //var instane = new GiantSwarm.V4CreateAuthTokenRequest();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property passwordBase64 (base name: "password_base64")',
+      () => {
+        // uncomment below and update the code to test the property passwordBase64
+        //var instane = new GiantSwarm.V4CreateAuthTokenRequest();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseWorkersInstanceType();
   });
 
@@ -49,20 +46,23 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseWorkersInstanceType', function() {
-    it('should create an instance of V4InfoResponseWorkersInstanceType', function() {
-      // uncomment below and update the code to test V4InfoResponseWorkersInstanceType
-      //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
-      //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkersInstanceType);
-    });
+  describe('V4InfoResponseWorkersInstanceType', () => {
+    test(
+      'should create an instance of V4InfoResponseWorkersInstanceType',
+      () => {
+        // uncomment below and update the code to test V4InfoResponseWorkersInstanceType
+        //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
+        //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkersInstanceType);
+      }
+    );
 
-    it('should have the property options (base name: "options")', function() {
+    test('should have the property options (base name: "options")', () => {
       // uncomment below and update the code to test the property options
       //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
       //expect(instance).to.be();
     });
 
-    it('should have the property _default (base name: "default")', function() {
+    test('should have the property _default (base name: "default")', () => {
       // uncomment below and update the code to test the property _default
       //var instane = new GiantSwarm.V4InfoResponseWorkersInstanceType();
       //expect(instance).to.be();

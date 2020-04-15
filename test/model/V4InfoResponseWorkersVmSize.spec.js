@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4InfoResponseWorkersVmSize();
   });
 
@@ -49,20 +46,20 @@
       object[property] = value;
   }
 
-  describe('V4InfoResponseWorkersVmSize', function() {
-    it('should create an instance of V4InfoResponseWorkersVmSize', function() {
+  describe('V4InfoResponseWorkersVmSize', () => {
+    test('should create an instance of V4InfoResponseWorkersVmSize', () => {
       // uncomment below and update the code to test V4InfoResponseWorkersVmSize
       //var instane = new GiantSwarm.V4InfoResponseWorkersVmSize();
       //expect(instance).to.be.a(GiantSwarm.V4InfoResponseWorkersVmSize);
     });
 
-    it('should have the property options (base name: "options")', function() {
+    test('should have the property options (base name: "options")', () => {
       // uncomment below and update the code to test the property options
       //var instane = new GiantSwarm.V4InfoResponseWorkersVmSize();
       //expect(instance).to.be();
     });
 
-    it('should have the property _default (base name: "default")', function() {
+    test('should have the property _default (base name: "default")', () => {
       // uncomment below and update the code to test the property _default
       //var instane = new GiantSwarm.V4InfoResponseWorkersVmSize();
       //expect(instance).to.be();

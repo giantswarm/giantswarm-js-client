@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4AppSpec();
   });
 
@@ -49,42 +46,48 @@
       object[property] = value;
   }
 
-  describe('V4AppSpec', function() {
-    it('should create an instance of V4AppSpec', function() {
+  describe('V4AppSpec', () => {
+    test('should create an instance of V4AppSpec', () => {
       // uncomment below and update the code to test V4AppSpec
       //var instane = new GiantSwarm.V4AppSpec();
       //expect(instance).to.be.a(GiantSwarm.V4AppSpec);
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V4AppSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property namespace (base name: "namespace")', function() {
-      // uncomment below and update the code to test the property namespace
-      //var instane = new GiantSwarm.V4AppSpec();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property namespace (base name: "namespace")',
+      () => {
+        // uncomment below and update the code to test the property namespace
+        //var instane = new GiantSwarm.V4AppSpec();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property version (base name: "version")', function() {
+    test('should have the property version (base name: "version")', () => {
       // uncomment below and update the code to test the property version
       //var instane = new GiantSwarm.V4AppSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property catalog (base name: "catalog")', function() {
+    test('should have the property catalog (base name: "catalog")', () => {
       // uncomment below and update the code to test the property catalog
       //var instane = new GiantSwarm.V4AppSpec();
       //expect(instance).to.be();
     });
 
-    it('should have the property userConfig (base name: "user_config")', function() {
-      // uncomment below and update the code to test the property userConfig
-      //var instane = new GiantSwarm.V4AppSpec();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property userConfig (base name: "user_config")',
+      () => {
+        // uncomment below and update the code to test the property userConfig
+        //var instane = new GiantSwarm.V4AppSpec();
+        //expect(instance).to.be();
+      }
+    );
 
   });
 

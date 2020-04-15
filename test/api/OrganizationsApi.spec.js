@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.OrganizationsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('OrganizationsApi', function() {
-    describe('addCredentials', function() {
-      it('should call addCredentials successfully', function(done) {
+  describe('OrganizationsApi', () => {
+    describe('addCredentials', () => {
+      test('should call addCredentials successfully', done => {
         //uncomment below and update the code to test addCredentials
         //instance.addCredentials(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('addOrganization', function() {
-      it('should call addOrganization successfully', function(done) {
+    describe('addOrganization', () => {
+      test('should call addOrganization successfully', done => {
         //uncomment below and update the code to test addOrganization
         //instance.addOrganization(function(error) {
         //  if (error) throw error;
@@ -70,8 +67,8 @@
         done();
       });
     });
-    describe('deleteOrganization', function() {
-      it('should call deleteOrganization successfully', function(done) {
+    describe('deleteOrganization', () => {
+      test('should call deleteOrganization successfully', done => {
         //uncomment below and update the code to test deleteOrganization
         //instance.deleteOrganization(function(error) {
         //  if (error) throw error;
@@ -80,8 +77,8 @@
         done();
       });
     });
-    describe('getCredential', function() {
-      it('should call getCredential successfully', function(done) {
+    describe('getCredential', () => {
+      test('should call getCredential successfully', done => {
         //uncomment below and update the code to test getCredential
         //instance.getCredential(function(error) {
         //  if (error) throw error;
@@ -90,8 +87,8 @@
         done();
       });
     });
-    describe('getCredentials', function() {
-      it('should call getCredentials successfully', function(done) {
+    describe('getCredentials', () => {
+      test('should call getCredentials successfully', done => {
         //uncomment below and update the code to test getCredentials
         //instance.getCredentials(function(error) {
         //  if (error) throw error;
@@ -100,8 +97,8 @@
         done();
       });
     });
-    describe('getOrganization', function() {
-      it('should call getOrganization successfully', function(done) {
+    describe('getOrganization', () => {
+      test('should call getOrganization successfully', done => {
         //uncomment below and update the code to test getOrganization
         //instance.getOrganization(function(error) {
         //  if (error) throw error;
@@ -110,8 +107,8 @@
         done();
       });
     });
-    describe('getOrganizations', function() {
-      it('should call getOrganizations successfully', function(done) {
+    describe('getOrganizations', () => {
+      test('should call getOrganizations successfully', done => {
         //uncomment below and update the code to test getOrganizations
         //instance.getOrganizations(function(error) {
         //  if (error) throw error;
@@ -120,8 +117,8 @@
         done();
       });
     });
-    describe('modifyOrganization', function() {
-      it('should call modifyOrganization successfully', function(done) {
+    describe('modifyOrganization', () => {
+      test('should call modifyOrganization successfully', done => {
         //uncomment below and update the code to test modifyOrganization
         //instance.modifyOrganization(function(error) {
         //  if (error) throw error;

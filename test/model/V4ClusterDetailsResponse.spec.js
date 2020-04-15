@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.V4ClusterDetailsResponse();
   });
 
@@ -49,80 +46,98 @@
       object[property] = value;
   }
 
-  describe('V4ClusterDetailsResponse', function() {
-    it('should create an instance of V4ClusterDetailsResponse', function() {
+  describe('V4ClusterDetailsResponse', () => {
+    test('should create an instance of V4ClusterDetailsResponse', () => {
       // uncomment below and update the code to test V4ClusterDetailsResponse
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be.a(GiantSwarm.V4ClusterDetailsResponse);
     });
 
-    it('should have the property id (base name: "id")', function() {
+    test('should have the property id (base name: "id")', () => {
       // uncomment below and update the code to test the property id
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property apiEndpoint (base name: "api_endpoint")', function() {
-      // uncomment below and update the code to test the property apiEndpoint
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property apiEndpoint (base name: "api_endpoint")',
+      () => {
+        // uncomment below and update the code to test the property apiEndpoint
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property createDate (base name: "create_date")', function() {
-      // uncomment below and update the code to test the property createDate
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property createDate (base name: "create_date")',
+      () => {
+        // uncomment below and update the code to test the property createDate
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property deleteDate (base name: "delete_date")', function() {
-      // uncomment below and update the code to test the property deleteDate
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property deleteDate (base name: "delete_date")',
+      () => {
+        // uncomment below and update the code to test the property deleteDate
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property owner (base name: "owner")', function() {
+    test('should have the property owner (base name: "owner")', () => {
       // uncomment below and update the code to test the property owner
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
+    test('should have the property name (base name: "name")', () => {
       // uncomment below and update the code to test the property name
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property credentialId (base name: "credential_id")', function() {
-      // uncomment below and update the code to test the property credentialId
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property credentialId (base name: "credential_id")',
+      () => {
+        // uncomment below and update the code to test the property credentialId
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property releaseVersion (base name: "release_version")', function() {
-      // uncomment below and update the code to test the property releaseVersion
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property releaseVersion (base name: "release_version")',
+      () => {
+        // uncomment below and update the code to test the property releaseVersion
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property scaling (base name: "scaling")', function() {
+    test('should have the property scaling (base name: "scaling")', () => {
       // uncomment below and update the code to test the property scaling
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property availabilityZones (base name: "availability_zones")', function() {
-      // uncomment below and update the code to test the property availabilityZones
-      //var instane = new GiantSwarm.V4ClusterDetailsResponse();
-      //expect(instance).to.be();
-    });
+    test(
+      'should have the property availabilityZones (base name: "availability_zones")',
+      () => {
+        // uncomment below and update the code to test the property availabilityZones
+        //var instane = new GiantSwarm.V4ClusterDetailsResponse();
+        //expect(instance).to.be();
+      }
+    );
 
-    it('should have the property workers (base name: "workers")', function() {
+    test('should have the property workers (base name: "workers")', () => {
       // uncomment below and update the code to test the property workers
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property kvm (base name: "kvm")', function() {
+    test('should have the property kvm (base name: "kvm")', () => {
       // uncomment below and update the code to test the property kvm
       //var instane = new GiantSwarm.V4ClusterDetailsResponse();
       //expect(instance).to.be();
