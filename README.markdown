@@ -41,6 +41,16 @@ apiInstance.getClusters().then(function(data) {
 
 See the generated [DOCS](DOCS.md) file for API documentation.
 
+## Generating code & applying changes from master
+
+Make sure your master branch is up to date (`git pull origin master`)
+
+1. git checkout -b my-feature-branch
+2. git reset --hard 98fd000 # last generated commit
+3. Do steps outlined in ...
+4. Commit your changes
+5. git merge master # Re-apply master commits. Use chown when encountering permission errors
+
 ## Generating Code and a new version
 
 The `Makefile` provides all the tooling required to generate new code, docs
