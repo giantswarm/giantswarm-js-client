@@ -57,6 +57,8 @@ Make sure your master branch is up to date (`git pull origin master`)
 - `rm -rf @types` # Delete existing types `@types` folder
 - `yarn tsc -p tsconfig.json` # Generate @types folder
 - `git checkout $(git ls-files -m @types)` # Only keep added files
+- `git add -A @types` # Stage only types
+- `git checkout -- . && git clean -f` # Revert all unstaged changes
 - work from here to fix types
 
 
