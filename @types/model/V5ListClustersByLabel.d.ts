@@ -11,7 +11,7 @@ export default class V5ListClustersByLabel {
     * @param {module:model/V5ListClustersByLabel} obj Optional instance to populate.
     * @return {module:model/V5ListClustersByLabel} The populated <code>V5ListClustersByLabel</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ListClustersByLabel>, obj: V5ListClustersByLabel): V5ListClustersByLabel;
     /**
     * Constructs a new <code>V5ListClustersByLabel</code>.
     * @alias module:model/V5ListClustersByLabel
@@ -23,5 +23,5 @@ export default class V5ListClustersByLabel {
     * The label selector string for filtering the clusters
     * @member {String} labels
     */
-    labels: any;
+    labels: string;
 }

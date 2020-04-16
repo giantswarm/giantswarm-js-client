@@ -11,5 +11,5 @@ export default class V5ClusterLabels {
     * @param {module:model/V5ClusterLabels} obj Optional instance to populate.
     * @return {module:model/V5ClusterLabels} The populated <code>V5ClusterLabels</code> instance.
     */
-    static constructFromObject(data: any, obj: any): any;
+    static constructFromObject(data: Partial<V5ClusterLabels>, obj: V5ClusterLabels): V5ClusterLabels;
 }
