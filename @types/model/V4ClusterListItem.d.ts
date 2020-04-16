@@ -47,4 +47,8 @@ export default class V4ClusterListItem {
     * @member {String} path
     */
     path: string;
+    /**
+    * @member {module:model/V5ClusterLabels} labels
+    */
+    labels: {[labelKey: string]: string};
 }

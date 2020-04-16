@@ -69,4 +69,8 @@ export default class V5ClusterDetailsResponse {
     * @member {Array.<module:model/V5ClusterDetailsResponseVersions>} versions
     */
     versions: V5ClusterDetailsResponseVersions[];
+    /**
+    * @member {module:model/V5ClusterLabels} labels
+    */
+    labels: {[labelKey: string]: string};
 }
