@@ -41,15 +41,24 @@ apiInstance.getClusters().then(function(data) {
 
 See the generated [DOCS](DOCS.md) file for API documentation.
 
-## Generating code & applying changes from master
+## Generating code with types
 
 Make sure your master branch is up to date (`git pull origin master`)
 
-1. git checkout -b my-feature-branch
-2. git reset --hard 98fd000 # last generated commit
-3. Do steps outlined in ...
-4. Commit your changes
-5. git merge master # Re-apply master commits. Use chown when encountering permission errors
+- `git checkout -b my-feature-branch`
+- `git reset --hard 98fd000` # last generated commit
+- Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version)
+- `sudo chown -R $(id -u):$(id -g) .`
+- Commit your generated changes
+- `git merge -X theirs master` # Re-apply master commits. Use chown when encountering permission errors
+- `yarn install` # do this here
+- Change `"useES6": false` to `"useES6": true` in `swagger-codegen-conf.json`
+- Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version) again
+- `rm -rf @types` # Delete existing types `@types` folder
+- `yarn tsc -p tsconfig.json` # Generate @types folder
+- `git checkout $(git ls-files -m @types)` # Only keep added files
+- work from here to fix types
+
 
 ## Generating Code and a new version
 
