@@ -56,11 +56,9 @@ Make sure your master branch is up to date (`git pull origin master`)
 - Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version) again
 - `rm -rf @types` # Delete existing types `@types` folder
 - `yarn tsc -p tsconfig.json` # Generate @types folder
-- `git checkout $(git ls-files -m @types)` # Only keep added files
-- `git add -A @types` # Stage only types
-- `git checkout -- . && git clean -f` # Revert all unstaged changes
-- work from here to fix types
-
+- `git add $(git ls-files -o --exclude-standard @types)` # Add new type files
+- work from here to fix types & `git add` files you have worked on
+- commit only your staged changes
 
 ## Generating Code and a new version
 
