@@ -1,3 +1,6 @@
+import ApiClient from "../ApiClient";
+import V5ClusterLabelsResponse from "../model/V5ClusterLabelsResponse";
+
 /**
 * ClusterLabels service.
 * @module api/ClusterLabelsApi

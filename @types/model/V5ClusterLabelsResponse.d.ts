@@ -1,3 +1,5 @@
+import V5ClusterLabels from "./V5ClusterLabels";
+
 /**
 * The V5ClusterLabelsResponse model module.
 * @module model/V5ClusterLabelsResponse
