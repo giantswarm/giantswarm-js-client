@@ -1,6 +1,8 @@
 import V5ClusterDetailsResponseMaster from "./V5ClusterDetailsResponseMaster";
 import V5ClusterDetailsResponseConditions from "./V5ClusterDetailsResponseConditions";
 import V5ClusterDetailsResponseVersions from "./V5ClusterDetailsResponseVersions";
+import V5ClusterLabels from './V5ClusterLabels';
+
 
 /**
 * The V5ClusterDetailsResponse model module.
@@ -72,5 +74,5 @@ export default class V5ClusterDetailsResponse {
     /**
     * @member {module:model/V5ClusterLabels} labels
     */
-    labels: {[labelKey: string]: string};
+    labels: V5ClusterLabels;
 }

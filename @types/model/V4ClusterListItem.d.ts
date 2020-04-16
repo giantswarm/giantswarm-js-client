@@ -1,3 +1,5 @@
+import V5ClusterLabels from './V5ClusterLabels';
+
 /**
 * The V4ClusterListItem model module.
 * @module model/V4ClusterListItem
@@ -50,5 +52,5 @@ export default class V4ClusterListItem {
     /**
     * @member {module:model/V5ClusterLabels} labels
     */
-    labels: {[labelKey: string]: string};
+    labels: V5ClusterLabels;
 }
