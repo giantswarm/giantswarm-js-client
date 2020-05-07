@@ -201,7 +201,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4GetClusterAppSecretResponse>;
     /**
      * Get Secret (v5)
      * This operation allows you to fetch the Secret associated with an app.
@@ -217,7 +217,7 @@ export default class AppSecretsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4GetClusterAppSecretResponse>;
     /**
      * Modify Secret (v4)
      * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot;
