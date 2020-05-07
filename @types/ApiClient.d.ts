@@ -60,7 +60,7 @@ declare class ApiClient {
     * @param {Object} pathParams The parameter values to append.
     * @returns {String} The encoded path with parameter values substituted.
     */
-    buildUrl(path: string, pathParams: any): string;
+    buildUrl(path: string, pathParams: PathParams): string;
     /**
     * Checks whether the given content type represents JSON.<br>
     * JSON content type examples:<br>
@@ -84,7 +84,7 @@ declare class ApiClient {
     * @param param The parameter to check.
     * @returns {Boolean} <code>true</code> if <code>param</code> represents a file.
     */
-    isFileParam(param: any): boolean;
+    isFileParam(param: Blob | File): boolean;
     /**
     * Normalizes parameter values:
     * <ul>
@@ -95,7 +95,7 @@ declare class ApiClient {
     * @param {Object.<String, Object>} params The parameters as object properties.
     * @returns {Object.<String, Object>} normalized parameters.
     */
-    normalizeParams(params: Record<string, Record<string, string>>): Record<string, Record<string, string>>;
+    normalizeParams(params: Record<string, any>): Record<string, any>;
     /**
     * Builds a string representation of an array-type actual parameter, according to the given collection format.
     * @param {Array} param An array parameter.
@@ -136,9 +136,11 @@ declare class ApiClient {
     * constructor for a complex type.
     * @returns {Promise} A {@link https://www.promisejs.org/|Promise} object.
     */
-    callApi<T>(path: string, httpMethod: string, pathParams: Record<string, string>, queryParams: Record<string, string>, headerParams: Record<string, string>, formParams: Record<string, string>, bodyParam: Record<string, any>, authNames: string[], contentTypes: string[], accepts: string[], returnType: T): Promise<T>;
+    callApi<T>(path: string, httpMethod: string, pathParams: PathParams, queryParams: PathParams, headerParams: PathParams, formParams: PathParams, bodyParam: Record<string, any>, authNames: string[], contentTypes: string[], accepts: string[], returnType: T): Promise<T>;
 }
 declare namespace ApiClient {
+    export type PathParams = Record<string, string | number | boolean>;
+
     export namespace CollectionFormatEnum {
         export const CSV: string;
         export const SSV: string;
