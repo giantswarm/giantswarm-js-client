@@ -26,7 +26,7 @@ export default class ExceptionNotificationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    addExceptionNotificationWithHttpInfo(body: Record<string, any>, opts: {
+    addExceptionNotificationWithHttpInfo(body: Record<string, any>, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -41,7 +41,7 @@ export default class ExceptionNotificationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    addExceptionNotification(body: Record<string, any>, opts: {
+    addExceptionNotification(body: Record<string, any>, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
