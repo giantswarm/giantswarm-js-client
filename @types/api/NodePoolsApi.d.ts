@@ -31,7 +31,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    addNodePoolWithHttpInfo(clusterId: string, body: V5AddNodePoolRequest, opts: {
+    addNodePoolWithHttpInfo(clusterId: string, body: V5AddNodePoolRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -47,7 +47,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    addNodePool(clusterId: string, body: V5AddNodePoolRequest, opts: {
+    addNodePool(clusterId: string, body: V5AddNodePoolRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -63,7 +63,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts: {
+    deleteNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -79,7 +79,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    deleteNodePool(clusterId: string, nodepoolId: string, opts: {
+    deleteNodePool(clusterId: string, nodepoolId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -95,7 +95,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    getNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts: {
+    getNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -111,7 +111,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    getNodePool(clusterId: string, nodepoolId: string, opts: {
+    getNodePool(clusterId: string, nodepoolId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -126,7 +126,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolsResponse} and HTTP response
      */
-    getNodePoolsWithHttpInfo(clusterId: string, opts: {
+    getNodePoolsWithHttpInfo(clusterId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -141,7 +141,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolsResponse}
      */
-    getNodePools(clusterId: string, opts: {
+    getNodePools(clusterId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -158,7 +158,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
-    modifyNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts: {
+    modifyNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -175,7 +175,7 @@ export default class NodePoolsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
-    modifyNodePool(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts: {
+    modifyNodePool(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;

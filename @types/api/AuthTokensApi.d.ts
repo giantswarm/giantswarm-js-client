@@ -28,7 +28,7 @@ export default class AuthTokensApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4CreateAuthTokenResponse} and HTTP response
      */
-    createAuthTokenWithHttpInfo(body: V4CreateAuthTokenRequest, opts: {
+    createAuthTokenWithHttpInfo(body: V4CreateAuthTokenRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -43,7 +43,7 @@ export default class AuthTokensApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4CreateAuthTokenResponse}
      */
-    createAuthToken(body: V4CreateAuthTokenRequest, opts: {
+    createAuthToken(body: V4CreateAuthTokenRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -57,7 +57,7 @@ export default class AuthTokensApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteAuthTokenWithHttpInfo(opts: {
+    deleteAuthTokenWithHttpInfo(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -71,7 +71,7 @@ export default class AuthTokensApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    deleteAuthToken(opts: {
+    deleteAuthToken(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;

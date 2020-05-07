@@ -25,7 +25,7 @@ export default class ReleasesApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ReleaseListItem>} and HTTP response
      */
-    getReleasesWithHttpInfo(opts: {
+    getReleasesWithHttpInfo(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -39,7 +39,7 @@ export default class ReleasesApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ReleaseListItem>}
      */
-    getReleases(opts: {
+    getReleases(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
