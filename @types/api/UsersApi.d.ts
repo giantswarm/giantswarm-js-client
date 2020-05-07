@@ -109,7 +109,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Get user
      * Returns details about a specific user
@@ -124,7 +124,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Get user
      * Returns details about a specific user
@@ -139,7 +139,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -153,7 +153,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -167,7 +167,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users.
@@ -215,7 +215,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
     /**
      * Modify user
      * This operation allows you to change details of a given user. Only administrators can edit accounts of other users.
@@ -231,5 +231,5 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4UserListItem>;
 }
