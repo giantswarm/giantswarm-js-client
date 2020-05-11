@@ -30,7 +30,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    createClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts: {
+    createClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -48,7 +48,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    createClusterAppSecretV4(clusterId: string, appName: string, opts: {
+    createClusterAppSecretV4(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -66,7 +66,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    createClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts: {
+    createClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -84,7 +84,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    createClusterAppSecretV5(clusterId: string, appName: string, opts: {
+    createClusterAppSecretV5(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -101,7 +101,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts: {
+    deleteClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -117,7 +117,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    deleteClusterAppSecretV4(clusterId: string, appName: string, opts: {
+    deleteClusterAppSecretV4(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -133,7 +133,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts: {
+    deleteClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -149,7 +149,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    deleteClusterAppSecretV5(clusterId: string, appName: string, opts: {
+    deleteClusterAppSecretV5(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -165,7 +165,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppSecretResponse} and HTTP response
      */
-    getClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts: {
+    getClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -181,7 +181,7 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppSecretResponse}
      */
-    getClusterAppSecretV4(clusterId: string, appName: string, opts: {
+    getClusterAppSecretV4(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -197,11 +197,11 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppSecretResponse} and HTTP response
      */
-    getClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts: {
+    getClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4GetClusterAppSecretResponse>;
     /**
      * Get Secret (v5)
      * This operation allows you to fetch the Secret associated with an app.
@@ -213,11 +213,11 @@ export default class AppSecretsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppSecretResponse}
      */
-    getClusterAppSecretV5(clusterId: string, appName: string, opts: {
+    getClusterAppSecretV5(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4GenericResponse>;
+    }): Promise<V4GetClusterAppSecretResponse>;
     /**
      * Modify Secret (v4)
      * This operation allows you to modify the Secret for a specific app. It&#39;s only possible to modify Secrets that have been named according to the convention of {app-name}-user-secrets and stored in the cluster ID namespace.  The full values key of the Secret will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;new-value\&quot;   } &#x60;&#x60;&#x60;  If the Secret contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;secret\&quot;: \&quot;old-value\&quot;,     \&quot;secret2\&quot;: \&quot;another-old-value\&quot;   } &#x60;&#x60;&#x60;  Then the \&quot;secret2\&quot; will be removed, and \&quot;secret\&quot; will be set to \&quot;new-value\&quot;
@@ -230,7 +230,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    modifyClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts: {
+    modifyClusterAppSecretV4WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -248,7 +248,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    modifyClusterAppSecretV4(clusterId: string, appName: string, opts: {
+    modifyClusterAppSecretV4(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -266,7 +266,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    modifyClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts: {
+    modifyClusterAppSecretV5WithHttpInfo(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -284,7 +284,7 @@ export default class AppSecretsApi {
      * @param {module:model/V4CreateClusterAppSecretRequest} opts.body
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    modifyClusterAppSecretV5(clusterId: string, appName: string, opts: {
+    modifyClusterAppSecretV5(clusterId: string, appName: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
