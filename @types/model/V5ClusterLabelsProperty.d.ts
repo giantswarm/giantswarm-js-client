@@ -12,4 +12,5 @@ export default class V5ClusterLabelsProperty {
     * @return {module:model/V5ClusterLabelsProperty} The populated <code>V5ClusterLabelsProperty</code> instance.
     */
     static constructFromObject(data: Partial<V5ClusterLabelsProperty>, obj: V5ClusterLabelsProperty): V5ClusterLabelsProperty;
+    [key: string]: string
 }
