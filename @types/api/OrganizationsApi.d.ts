@@ -33,7 +33,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    addCredentialsWithHttpInfo(organizationId: string, body: V4AddCredentialsRequest, opts: {
+    addCredentialsWithHttpInfo(organizationId: string, body: V4AddCredentialsRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -49,7 +49,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    addCredentials(organizationId: string, body: V4AddCredentialsRequest, opts: {
+    addCredentials(organizationId: string, body: V4AddCredentialsRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -65,7 +65,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    addOrganizationWithHttpInfo(organizationId: string, body: V4Organization, opts: {
+    addOrganizationWithHttpInfo(organizationId: string, body: V4Organization, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -81,7 +81,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    addOrganization(organizationId: string, body: V4Organization, opts: {
+    addOrganization(organizationId: string, body: V4Organization, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -96,7 +96,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
-    deleteOrganizationWithHttpInfo(organizationId: string, opts: {
+    deleteOrganizationWithHttpInfo(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -111,7 +111,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
-    deleteOrganization(organizationId: string, opts: {
+    deleteOrganization(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -127,7 +127,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetCredentialResponse} and HTTP response
      */
-    getCredentialWithHttpInfo(organizationId: string, credentialId: string, opts: {
+    getCredentialWithHttpInfo(organizationId: string, credentialId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -143,7 +143,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetCredentialResponse}
      */
-    getCredential(organizationId: string, credentialId: string, opts: {
+    getCredential(organizationId: string, credentialId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -158,7 +158,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetCredentialsResponse} and HTTP response
      */
-    getCredentialsWithHttpInfo(organizationId: string, opts: {
+    getCredentialsWithHttpInfo(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -173,7 +173,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetCredentialsResponse}
      */
-    getCredentials(organizationId: string, opts: {
+    getCredentials(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -188,7 +188,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    getOrganizationWithHttpInfo(organizationId: string, opts: {
+    getOrganizationWithHttpInfo(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -203,7 +203,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    getOrganization(organizationId: string, opts: {
+    getOrganization(organizationId: string, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -217,7 +217,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4OrganizationListItem>} and HTTP response
      */
-    getOrganizationsWithHttpInfo(opts: {
+    getOrganizationsWithHttpInfo(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -231,7 +231,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4OrganizationListItem>}
      */
-    getOrganizations(opts: {
+    getOrganizations(opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -247,7 +247,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
-    modifyOrganizationWithHttpInfo(organizationId: string, body: Body, opts: {
+    modifyOrganizationWithHttpInfo(organizationId: string, body: Body, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -263,7 +263,7 @@ export default class OrganizationsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
-    modifyOrganization(organizationId: string, body: Body, opts: {
+    modifyOrganization(organizationId: string, body: Body, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
