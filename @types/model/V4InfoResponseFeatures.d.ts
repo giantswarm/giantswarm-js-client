@@ -1,4 +1,5 @@
 import V4InfoResponseFeaturesNodepools from "./V4InfoResponseFeaturesNodepools";
+import V4InfoResponseFeaturesSpotInstances from "./V4InfoResponseFeaturesSpotInstances";
 
 /**
 * The V4InfoResponseFeatures model module.
@@ -18,4 +19,8 @@ export default class V4InfoResponseFeatures {
     * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
     */
     nodepools: V4InfoResponseFeaturesNodepools;
+    /**
+    * @member {module:model/V4InfoResponseFeaturesSpotInstances} spot_instances
+    */
+    spot_instances: V4InfoResponseFeaturesSpotInstances;
 }
