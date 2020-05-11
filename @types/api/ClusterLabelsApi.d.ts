@@ -57,7 +57,7 @@ export default class ClusterLabelsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterLabelsResponse} and HTTP response
      */
-    setClusterLabelsWithHttpInfo(clusterId: string, body: any, opts?: {
+    setClusterLabelsWithHttpInfo(clusterId: string, body: V5SetClusterLabelsRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
@@ -73,7 +73,7 @@ export default class ClusterLabelsApi {
      * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterLabelsResponse}
      */
-    setClusterLabels(clusterId: string, body: any, opts?: {
+    setClusterLabels(clusterId: string, body: V5SetClusterLabelsRequest, opts?: {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
