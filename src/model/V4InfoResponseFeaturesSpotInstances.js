@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ListClustersByLabel = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V4InfoResponseFeaturesSpotInstances = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,46 +34,46 @@
 
 
   /**
-   * The V5ListClustersByLabel model module.
-   * @module model/V5ListClustersByLabel
+   * The V4InfoResponseFeaturesSpotInstances model module.
+   * @module model/V4InfoResponseFeaturesSpotInstances
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5ListClustersByLabel</code>.
-   * @alias module:model/V5ListClustersByLabel
+   * Constructs a new <code>V4InfoResponseFeaturesSpotInstances</code>.
+   * Allows to use cheaper spot instances instead of on-demand EC2 instances.
+   * @alias module:model/V4InfoResponseFeaturesSpotInstances
    * @class
-   * @param labels {String} The label selector string for filtering the clusters
    */
-  var exports = function(labels) {
+  var exports = function() {
     var _this = this;
 
-    _this['labels'] = labels;
+
   };
 
   /**
-   * Constructs a <code>V5ListClustersByLabel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4InfoResponseFeaturesSpotInstances</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ListClustersByLabel} obj Optional instance to populate.
-   * @return {module:model/V5ListClustersByLabel} The populated <code>V5ListClustersByLabel</code> instance.
+   * @param {module:model/V4InfoResponseFeaturesSpotInstances} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseFeaturesSpotInstances} The populated <code>V4InfoResponseFeaturesSpotInstances</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('labels')) {
-        obj['labels'] = ApiClient.convertToType(data['labels'], 'String');
+      if (data.hasOwnProperty('release_version_minimum')) {
+        obj['release_version_minimum'] = ApiClient.convertToType(data['release_version_minimum'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The label selector string for filtering the clusters
-   * @member {String} labels
+   * The minimum release version number required to have support for spot instances.
+   * @member {String} release_version_minimum
    */
-  exports.prototype['labels'] = undefined;
+  exports.prototype['release_version_minimum'] = undefined;
 
 
 

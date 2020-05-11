@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4InfoResponseFeaturesNodepools', 'model/V4InfoResponseFeaturesSpotInstances'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesNodepools'), require('./V4InfoResponseFeaturesSpotInstances'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesNodepools, root.GiantSwarm.V4InfoResponseFeaturesSpotInstances);
+    root.GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V4InfoResponseFeaturesNodepools, V4InfoResponseFeaturesSpotInstances) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4InfoResponseFeatures model module.
-   * @module model/V4InfoResponseFeatures
+   * The V5AddNodePoolRequestNodeSpecAwsInstanceDistribution model module.
+   * @module model/V5AddNodePoolRequestNodeSpecAwsInstanceDistribution
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4InfoResponseFeatures</code>.
-   * Information on particular capabilities of the installation.
-   * @alias module:model/V4InfoResponseFeatures
+   * Constructs a new <code>V5AddNodePoolRequestNodeSpecAwsInstanceDistribution</code>.
+   * Attributes defining the instance distribution in the node pool being created. Added with AWS release v11.2.0. 
+   * @alias module:model/V5AddNodePoolRequestNodeSpecAwsInstanceDistribution
    * @class
    */
   var exports = function() {
@@ -53,34 +53,36 @@
   };
 
   /**
-   * Constructs a <code>V4InfoResponseFeatures</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5AddNodePoolRequestNodeSpecAwsInstanceDistribution</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4InfoResponseFeatures} obj Optional instance to populate.
-   * @return {module:model/V4InfoResponseFeatures} The populated <code>V4InfoResponseFeatures</code> instance.
+   * @param {module:model/V5AddNodePoolRequestNodeSpecAwsInstanceDistribution} obj Optional instance to populate.
+   * @return {module:model/V5AddNodePoolRequestNodeSpecAwsInstanceDistribution} The populated <code>V5AddNodePoolRequestNodeSpecAwsInstanceDistribution</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('nodepools')) {
-        obj['nodepools'] = V4InfoResponseFeaturesNodepools.constructFromObject(data['nodepools']);
+      if (data.hasOwnProperty('on_demand_base_capacity')) {
+        obj['on_demand_base_capacity'] = ApiClient.convertToType(data['on_demand_base_capacity'], 'Number');
       }
-      if (data.hasOwnProperty('spot_instances')) {
-        obj['spot_instances'] = V4InfoResponseFeaturesSpotInstances.constructFromObject(data['spot_instances']);
+      if (data.hasOwnProperty('on_demand_percentage_above_base_capacity')) {
+        obj['on_demand_percentage_above_base_capacity'] = ApiClient.convertToType(data['on_demand_percentage_above_base_capacity'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
+   * Base capacity of on-demand EC2 instances to use for worker nodes in this pools. When this is larger than 0, this value defines a number of worker nodes that will be created using on-demand EC2 instances, regardless of the value configured as `on_demand_percentage_above_base_capacity`. 
+   * @member {Number} on_demand_base_capacity
    */
-  exports.prototype['nodepools'] = undefined;
+  exports.prototype['on_demand_base_capacity'] = undefined;
   /**
-   * @member {module:model/V4InfoResponseFeaturesSpotInstances} spot_instances
+   * Percentage of on-demand EC2 instances to use for worker nodes, instead of spot instances, for instances exceeding `on_demand_base_capacity`. For example, to have half of the worker nodes use spot instances and half use on-demand, set this value to 50. 
+   * @member {Number} on_demand_percentage_above_base_capacity
    */
-  exports.prototype['spot_instances'] = undefined;
+  exports.prototype['on_demand_percentage_above_base_capacity'] = undefined;
 
 
 

@@ -1,4 +1,4 @@
-# GiantSwarm.V5ListClustersByLabel
+# GiantSwarm.V5ListClustersByLabelRequest
 
 ## Properties
 Name | Type | Description | Notes

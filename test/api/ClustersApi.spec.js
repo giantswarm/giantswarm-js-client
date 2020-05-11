@@ -117,6 +117,16 @@
         done();
       });
     });
+    describe('getV5ClustersByLabel', () => {
+      test('should call getV5ClustersByLabel successfully', done => {
+        //uncomment below and update the code to test getV5ClustersByLabel
+        //instance.getV5ClustersByLabel(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('modifyCluster', () => {
       test('should call modifyCluster successfully', done => {
         //uncomment below and update the code to test modifyCluster

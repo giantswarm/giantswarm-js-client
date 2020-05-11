@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterLabels = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V5GetNodePoolResponseNodeSpecAwsInstanceDistribution = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,40 +34,55 @@
 
 
   /**
-   * The V5ClusterLabels model module.
-   * @module model/V5ClusterLabels
+   * The V5GetNodePoolResponseNodeSpecAwsInstanceDistribution model module.
+   * @module model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5ClusterLabels</code>.
-   * Object containing keys with string values representing the labels attached to the cluster
-   * @alias module:model/V5ClusterLabels
+   * Constructs a new <code>V5GetNodePoolResponseNodeSpecAwsInstanceDistribution</code>.
+   * Attributes defining the instance distribution in a node pool. 
+   * @alias module:model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution
    * @class
-   * @extends Object
    */
   var exports = function() {
     var _this = this;
 
-    return _this;
+
+
   };
 
   /**
-   * Constructs a <code>V5ClusterLabels</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5GetNodePoolResponseNodeSpecAwsInstanceDistribution</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ClusterLabels} obj Optional instance to populate.
-   * @return {module:model/V5ClusterLabels} The populated <code>V5ClusterLabels</code> instance.
+   * @param {module:model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution} obj Optional instance to populate.
+   * @return {module:model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution} The populated <code>V5GetNodePoolResponseNodeSpecAwsInstanceDistribution</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'String');
 
+      if (data.hasOwnProperty('on_demand_base_capacity')) {
+        obj['on_demand_base_capacity'] = ApiClient.convertToType(data['on_demand_base_capacity'], 'Number');
+      }
+      if (data.hasOwnProperty('on_demand_percentage_above_base_capacity')) {
+        obj['on_demand_percentage_above_base_capacity'] = ApiClient.convertToType(data['on_demand_percentage_above_base_capacity'], 'Number');
+      }
     }
     return obj;
   }
 
+  /**
+   * Base capacity of on-demand EC2 instances to use for worker nodes in this pools. Find details on this attribute in the [addNodePool](#operation/addNodePool) operation. 
+   * @member {Number} on_demand_base_capacity
+   */
+  exports.prototype['on_demand_base_capacity'] = undefined;
+  /**
+   * Percentage of on-demand EC2 instances to use for worker nodes, instead of spot instances, for instances exceeding `on_demand_base_capacity`. Find details on this attribute in the [addNodePool](#operation/addNodePool) operation. 
+   * @member {Number} on_demand_percentage_above_base_capacity
+   */
+  exports.prototype['on_demand_percentage_above_base_capacity'] = undefined;
 
 
 

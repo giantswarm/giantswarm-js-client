@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4GenericResponse', 'model/V5ClusterLabelsResponse'], factory);
+    define(['ApiClient', 'model/V4GenericResponse', 'model/V5ClusterLabelsResponse', 'model/V5SetClusterLabelsRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4GenericResponse'), require('../model/V5ClusterLabelsResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4GenericResponse'), require('../model/V5ClusterLabelsResponse'), require('../model/V5SetClusterLabelsRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.ClusterLabelsApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V5ClusterLabelsResponse);
+    root.GiantSwarm.ClusterLabelsApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V5ClusterLabelsResponse, root.GiantSwarm.V5SetClusterLabelsRequest);
   }
-}(this, function(ApiClient, V4GenericResponse, V5ClusterLabelsResponse) {
+}(this, function(ApiClient, V4GenericResponse, V5ClusterLabelsResponse, V5SetClusterLabelsRequest) {
   'use strict';
 
   /**
@@ -52,9 +52,14 @@
      * Get cluster labels
      * Returns the labels that this cluster is labelled with 
      * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterLabelsResponse} and HTTP response
      */
-    this.getClusterLabelsWithHttpInfo = function(clusterId) {
+    this.getClusterLabelsWithHttpInfo = function(clusterId, opts) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'clusterId' is set
@@ -69,6 +74,9 @@
       var queryParams = {
       };
       var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
       };
       var formParams = {
       };
@@ -89,10 +97,14 @@
      * Get cluster labels
      * Returns the labels that this cluster is labelled with 
      * @param {String} clusterId Cluster ID
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterLabelsResponse}
      */
-    this.getClusterLabels = function(clusterId) {
-      return this.getClusterLabelsWithHttpInfo(clusterId)
+    this.getClusterLabels = function(clusterId, opts) {
+      return this.getClusterLabelsWithHttpInfo(clusterId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -103,10 +115,15 @@
      * Set cluster labels
      * Set cluster labels. Keys and labels should adhere to [Kubernetes labels syntax and character set](https://v1-16.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  Label changes should be written as a [JSON Merge Patch, RFC 7386](https://tools.ietf.org/html/rfc7386).  Changes to labels containing &#x60;giantswarm.io&#x60; is forbidden, changes to label &#x60;release.giantswarm.io/version&#x60; will be validated against available Giant Swarm releases. 
      * @param {String} clusterId Cluster ID
-     * @param {module:model/V5ClusterLabelsResponse} body Labels to attach to this cluster.
+     * @param {module:model/V5SetClusterLabelsRequest} body Labels to attach to this cluster.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterLabelsResponse} and HTTP response
      */
-    this.setClusterLabelsWithHttpInfo = function(clusterId, body) {
+    this.setClusterLabelsWithHttpInfo = function(clusterId, body, opts) {
+      opts = opts || {};
       var postBody = body;
 
       // verify the required parameter 'clusterId' is set
@@ -126,6 +143,9 @@
       var queryParams = {
       };
       var headerParams = {
+        'X-Request-ID': opts['xRequestID'],
+        'X-Giant-Swarm-Activity': opts['xGiantSwarmActivity'],
+        'X-Giant-Swarm-CmdLine': opts['xGiantSwarmCmdLine']
       };
       var formParams = {
       };
@@ -146,11 +166,15 @@
      * Set cluster labels
      * Set cluster labels. Keys and labels should adhere to [Kubernetes labels syntax and character set](https://v1-16.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  Label changes should be written as a [JSON Merge Patch, RFC 7386](https://tools.ietf.org/html/rfc7386).  Changes to labels containing &#x60;giantswarm.io&#x60; is forbidden, changes to label &#x60;release.giantswarm.io/version&#x60; will be validated against available Giant Swarm releases. 
      * @param {String} clusterId Cluster ID
-     * @param {module:model/V5ClusterLabelsResponse} body Labels to attach to this cluster.
+     * @param {module:model/V5SetClusterLabelsRequest} body Labels to attach to this cluster.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+     * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+     * @param {String} opts.xGiantSwarmCmdLine If activity has been issued by a CLI, this header can contain the command line 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterLabelsResponse}
      */
-    this.setClusterLabels = function(clusterId, body) {
-      return this.setClusterLabelsWithHttpInfo(clusterId, body)
+    this.setClusterLabels = function(clusterId, body, opts) {
+      return this.setClusterLabelsWithHttpInfo(clusterId, body, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

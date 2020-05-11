@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpecAwsInstanceDistribution'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5GetNodePoolResponseNodeSpecAws = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V5GetNodePoolResponseNodeSpecAws = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5GetNodePoolResponseNodeSpecAwsInstanceDistribution);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, V5GetNodePoolResponseNodeSpecAwsInstanceDistribution) {
   'use strict';
 
 
@@ -49,6 +49,8 @@
     var _this = this;
 
 
+
+
   };
 
   /**
@@ -62,18 +64,33 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('instance_distribution')) {
+        obj['instance_distribution'] = V5GetNodePoolResponseNodeSpecAwsInstanceDistribution.constructFromObject(data['instance_distribution']);
+      }
       if (data.hasOwnProperty('instance_type')) {
         obj['instance_type'] = ApiClient.convertToType(data['instance_type'], 'String');
+      }
+      if (data.hasOwnProperty('use_alike_instance_types')) {
+        obj['use_alike_instance_types'] = ApiClient.convertToType(data['use_alike_instance_types'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * EC2 instance type used by all nodes in this pool 
+   * @member {module:model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution} instance_distribution
+   */
+  exports.prototype['instance_distribution'] = undefined;
+  /**
+   * EC2 instance type used by all nodes in this pool. 
    * @member {String} instance_type
    */
   exports.prototype['instance_type'] = undefined;
+  /**
+   * Whether this node pool can use different instance types alike the configured one. Find details on this attribute in the [addNodePool](#operation/addNodePool) operation. 
+   * @member {Boolean} use_alike_instance_types
+   */
+  exports.prototype['use_alike_instance_types'] = undefined;
 
 
 

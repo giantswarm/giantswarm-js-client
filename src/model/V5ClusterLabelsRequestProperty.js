@@ -15,50 +15,63 @@
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {} else {
+    // AMD. Register as an anonymous module.
+    define(['ApiClient'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    module.exports = factory(require('../ApiClient'));
+  } else {
     // Browser globals (root is window)
-    factory(root.expect, root.GiantSwarm);
+    if (!root.GiantSwarm) {
+      root.GiantSwarm = {};
+    }
+    root.GiantSwarm.V5ClusterLabelsRequestProperty = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(expect, GiantSwarm) {
+}(this, function(ApiClient) {
   'use strict';
 
-  var instance;
 
-  beforeEach(() => {
-    instance = new GiantSwarm.V5ClusterLabelsResponse();
-  });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
+
+  /**
+   * The V5ClusterLabelsRequestProperty model module.
+   * @module model/V5ClusterLabelsRequestProperty
+   * @version 4.0.0
+   */
+
+  /**
+   * Constructs a new <code>V5ClusterLabelsRequestProperty</code>.
+   * Object containing keys with string values representing label changes
+   * @alias module:model/V5ClusterLabelsRequestProperty
+   * @class
+   * @extends Object
+   */
+  var exports = function() {
+    var _this = this;
+
+    return _this;
+  };
+
+  /**
+   * Constructs a <code>V5ClusterLabelsRequestProperty</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/V5ClusterLabelsRequestProperty} obj Optional instance to populate.
+   * @return {module:model/V5ClusterLabelsRequestProperty} The populated <code>V5ClusterLabelsRequestProperty</code> instance.
+   */
+  exports.constructFromObject = function(data, obj) {
+    if (data) {
+      obj = obj || new exports();
+      ApiClient.constructFromObject(data, obj, 'String');
+
+    }
+    return obj;
   }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
 
-  describe('V5ClusterLabelsResponse', () => {
-    test('should create an instance of V5ClusterLabelsResponse', () => {
-      // uncomment below and update the code to test V5ClusterLabelsResponse
-      //var instane = new GiantSwarm.V5ClusterLabelsResponse();
-      //expect(instance).to.be.a(GiantSwarm.V5ClusterLabelsResponse);
-    });
 
-    test('should have the property labels (base name: "labels")', () => {
-      // uncomment below and update the code to test the property labels
-      //var instane = new GiantSwarm.V5ClusterLabelsResponse();
-      //expect(instance).to.be();
-    });
 
-  });
-
+  return exports;
 }));
+
+

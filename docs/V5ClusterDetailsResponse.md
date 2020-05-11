@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **master** | [**V5ClusterDetailsResponseMaster**](V5ClusterDetailsResponseMaster.md) |  | [optional] 
 **conditions** | [**[V5ClusterDetailsResponseConditions]**](V5ClusterDetailsResponseConditions.md) | List of conditions the cluster has gone through | [optional] 
 **versions** | [**[V5ClusterDetailsResponseVersions]**](V5ClusterDetailsResponseVersions.md) |  | [optional] 
-**labels** | [**V5ClusterLabels**](V5ClusterLabels.md) |  | [optional] 
+**labels** | [**V5ClusterLabelsProperty**](V5ClusterLabelsProperty.md) |  | [optional] 
 
 

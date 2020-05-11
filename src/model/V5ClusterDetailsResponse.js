@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5ClusterDetailsResponseConditions', 'model/V5ClusterDetailsResponseMaster', 'model/V5ClusterDetailsResponseVersions', 'model/V5ClusterLabels'], factory);
+    define(['ApiClient', 'model/V5ClusterDetailsResponseConditions', 'model/V5ClusterDetailsResponseMaster', 'model/V5ClusterDetailsResponseVersions', 'model/V5ClusterLabelsProperty'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5ClusterDetailsResponseConditions'), require('./V5ClusterDetailsResponseMaster'), require('./V5ClusterDetailsResponseVersions'), require('./V5ClusterLabels'));
+    module.exports = factory(require('../ApiClient'), require('./V5ClusterDetailsResponseConditions'), require('./V5ClusterDetailsResponseMaster'), require('./V5ClusterDetailsResponseVersions'), require('./V5ClusterLabelsProperty'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterDetailsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterDetailsResponseConditions, root.GiantSwarm.V5ClusterDetailsResponseMaster, root.GiantSwarm.V5ClusterDetailsResponseVersions, root.GiantSwarm.V5ClusterLabels);
+    root.GiantSwarm.V5ClusterDetailsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterDetailsResponseConditions, root.GiantSwarm.V5ClusterDetailsResponseMaster, root.GiantSwarm.V5ClusterDetailsResponseVersions, root.GiantSwarm.V5ClusterLabelsProperty);
   }
-}(this, function(ApiClient, V5ClusterDetailsResponseConditions, V5ClusterDetailsResponseMaster, V5ClusterDetailsResponseVersions, V5ClusterLabels) {
+}(this, function(ApiClient, V5ClusterDetailsResponseConditions, V5ClusterDetailsResponseMaster, V5ClusterDetailsResponseVersions, V5ClusterLabelsProperty) {
   'use strict';
 
 
@@ -106,7 +106,7 @@
         obj['versions'] = ApiClient.convertToType(data['versions'], [V5ClusterDetailsResponseVersions]);
       }
       if (data.hasOwnProperty('labels')) {
-        obj['labels'] = V5ClusterLabels.constructFromObject(data['labels']);
+        obj['labels'] = V5ClusterLabelsProperty.constructFromObject(data['labels']);
       }
     }
     return obj;
@@ -166,7 +166,7 @@
    */
   exports.prototype['versions'] = undefined;
   /**
-   * @member {module:model/V5ClusterLabels} labels
+   * @member {module:model/V5ClusterLabelsProperty} labels
    */
   exports.prototype['labels'] = undefined;
 

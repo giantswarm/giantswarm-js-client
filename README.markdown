@@ -46,7 +46,7 @@ See the generated [DOCS](DOCS.md) file for API documentation.
 Make sure your master branch is up to date (`git pull origin master`)
 
 - `git checkout -b my-feature-branch`
-- `git reset --hard 98fd000` # last generated commit
+- `git reset --hard 98fd000` # last generated commit, modify this. look for commits which look generated
 - Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version)
 - `sudo chown -R $(id -u):$(id -g) .`
 - Commit your generated changes
