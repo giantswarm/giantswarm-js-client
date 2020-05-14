@@ -50,6 +50,8 @@
 
 
 
+
+
   };
 
   /**
@@ -63,18 +65,29 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('instance_types')) {
+        obj['instance_types'] = ApiClient.convertToType(data['instance_types'], ['String']);
+      }
       if (data.hasOwnProperty('nodes')) {
         obj['nodes'] = ApiClient.convertToType(data['nodes'], 'Number');
       }
       if (data.hasOwnProperty('nodes_ready')) {
         obj['nodes_ready'] = ApiClient.convertToType(data['nodes_ready'], 'Number');
       }
+      if (data.hasOwnProperty('spot_instances')) {
+        obj['spot_instances'] = ApiClient.convertToType(data['spot_instances'], 'Number');
+      }
     }
     return obj;
   }
 
   /**
-   * Desired number of nodes in the pool
+   * Instance types currently in use in this node pool.
+   * @member {Array.<String>} instance_types
+   */
+  exports.prototype['instance_types'] = undefined;
+  /**
+   * Desired number of nodes in the pool according to the cluster-autoscaler
    * @member {Number} nodes
    */
   exports.prototype['nodes'] = undefined;
@@ -83,6 +96,11 @@
    * @member {Number} nodes_ready
    */
   exports.prototype['nodes_ready'] = undefined;
+  /**
+   * Number of instances with lifecycle spot
+   * @member {Number} spot_instances
+   */
+  exports.prototype['spot_instances'] = undefined;
 
 
 

@@ -27,7 +27,7 @@
   var instance;
 
   beforeEach(() => {
-    instance = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+    instance = new GiantSwarm.V5SetClusterLabelsRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -46,34 +46,16 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseNodeSpecAws', () => {
-    test(
-      'should create an instance of V5GetNodePoolResponseNodeSpecAws',
-      () => {
-        // uncomment below and update the code to test V5GetNodePoolResponseNodeSpecAws
-        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
-        //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpecAws);
-      }
-    );
-
-    test('should have the property instanceDistribution (base name: "instance_distribution")', () => {
-      // uncomment below and update the code to test the property instanceDistribution
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
-      //expect(instance).to.be();
+  describe('V5SetClusterLabelsRequest', () => {
+    test('should create an instance of V5SetClusterLabelsRequest', () => {
+      // uncomment below and update the code to test V5SetClusterLabelsRequest
+      //var instane = new GiantSwarm.V5SetClusterLabelsRequest();
+      //expect(instance).to.be.a(GiantSwarm.V5SetClusterLabelsRequest);
     });
 
-    test(
-      'should have the property instanceType (base name: "instance_type")',
-      () => {
-        // uncomment below and update the code to test the property instanceType
-        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
-        //expect(instance).to.be();
-      }
-    );
-
-    test('should have the property useAlikeInstanceTypes (base name: "use_alike_instance_types")', () => {
-      // uncomment below and update the code to test the property useAlikeInstanceTypes
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+    test('should have the property labels (base name: "labels")', () => {
+      // uncomment below and update the code to test the property labels
+      //var instane = new GiantSwarm.V5SetClusterLabelsRequest();
       //expect(instance).to.be();
     });
 

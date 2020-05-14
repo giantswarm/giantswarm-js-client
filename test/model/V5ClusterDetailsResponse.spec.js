@@ -137,6 +137,12 @@
       //expect(instance).to.be();
     });
 
+    test('should have the property labels (base name: "labels")', () => {
+      // uncomment below and update the code to test the property labels
+      //var instane = new GiantSwarm.V5ClusterDetailsResponse();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

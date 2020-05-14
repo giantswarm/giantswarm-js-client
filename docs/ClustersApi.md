@@ -440,7 +440,7 @@ AuthorizationHeaderToken.apiKey = 'YOUR API KEY';
 
 var apiInstance = new GiantSwarm.ClustersApi();
 
-var body = new GiantSwarm.V5ListClustersByLabel(); // V5ListClustersByLabel | Label selector
+var body = new GiantSwarm.V5ListClustersByLabelRequest(); // V5ListClustersByLabelRequest | Label selector
 
 var opts = { 
   'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
@@ -459,7 +459,7 @@ apiInstance.getV5ClustersByLabel(body, opts).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**V5ListClustersByLabel**](V5ListClustersByLabel.md)| Label selector | 
+ **body** | [**V5ListClustersByLabelRequest**](V5ListClustersByLabelRequest.md)| Label selector | 
  **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
  **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
  **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 

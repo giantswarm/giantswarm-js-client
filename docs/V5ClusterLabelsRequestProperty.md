@@ -1,4 +1,4 @@
-# GiantSwarm.V5ClusterLabels
+# GiantSwarm.V5ClusterLabelsRequestProperty
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-import V5ClusterLabels from './V5ClusterLabels';
+import V5ClusterLabelsProperty from './V5ClusterLabelsProperty';
 
 /**
 * The V4ClusterListItem model module.
@@ -50,7 +50,7 @@ export default class V4ClusterListItem {
     */
     path: string;
     /**
-    * @member {module:model/V5ClusterLabels} labels
+    * @member {module:model/V5ClusterLabelsProperty} labels
     */
-    labels: V5ClusterLabels;
+    labels: V5ClusterLabelsProperty;
 }

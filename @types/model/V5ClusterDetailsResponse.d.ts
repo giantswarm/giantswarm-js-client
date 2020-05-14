@@ -1,7 +1,7 @@
 import V5ClusterDetailsResponseMaster from "./V5ClusterDetailsResponseMaster";
 import V5ClusterDetailsResponseConditions from "./V5ClusterDetailsResponseConditions";
 import V5ClusterDetailsResponseVersions from "./V5ClusterDetailsResponseVersions";
-import V5ClusterLabels from './V5ClusterLabels';
+import V5ClusterLabelsProperty from './V5ClusterLabelsProperty';
 
 
 /**
@@ -72,7 +72,7 @@ export default class V5ClusterDetailsResponse {
     */
     versions: V5ClusterDetailsResponseVersions[];
     /**
-    * @member {module:model/V5ClusterLabels} labels
+    * @member {module:model/V5ClusterLabelsProperty} labels
     */
-    labels: V5ClusterLabels;
+    labels: V5ClusterLabelsProperty;
 }

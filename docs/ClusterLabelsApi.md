@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getClusterLabels"></a>
 # **getClusterLabels**
-> V5ClusterLabelsResponse getClusterLabels(clusterId, )
+> V5ClusterLabelsResponse getClusterLabels(clusterId, , opts)
 
 Get cluster labels
 
@@ -31,7 +31,12 @@ var apiInstance = new GiantSwarm.ClusterLabelsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
-apiInstance.getClusterLabels(clusterId, ).then(function(data) {
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.getClusterLabels(clusterId, , opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -44,6 +49,9 @@ apiInstance.getClusterLabels(clusterId, ).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clusterId** | **String**| Cluster ID | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 
@@ -60,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="setClusterLabels"></a>
 # **setClusterLabels**
-> V5ClusterLabelsResponse setClusterLabels(clusterId, body)
+> V5ClusterLabelsResponse setClusterLabels(clusterId, body, opts)
 
 Set cluster labels
 
@@ -81,9 +89,14 @@ var apiInstance = new GiantSwarm.ClusterLabelsApi();
 
 var clusterId = "clusterId_example"; // String | Cluster ID
 
-var body = new GiantSwarm.V5ClusterLabelsResponse(); // V5ClusterLabelsResponse | Labels to attach to this cluster.
+var body = new GiantSwarm.V5SetClusterLabelsRequest(); // V5SetClusterLabelsRequest | Labels to attach to this cluster.
 
-apiInstance.setClusterLabels(clusterId, body).then(function(data) {
+var opts = { 
+  'xRequestID': "xRequestID_example", // String | A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
+  'xGiantSwarmActivity': "xGiantSwarmActivity_example", // String | Name of an activity to track, like \"list-clusters\". This allows to analyze several API requests sent in context and gives an idea on the purpose. 
+  'xGiantSwarmCmdLine': "xGiantSwarmCmdLine_example" // String | If activity has been issued by a CLI, this header can contain the command line 
+};
+apiInstance.setClusterLabels(clusterId, body, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -96,7 +109,10 @@ apiInstance.setClusterLabels(clusterId, body).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clusterId** | **String**| Cluster ID | 
- **body** | [**V5ClusterLabelsResponse**](V5ClusterLabelsResponse.md)| Labels to attach to this cluster. | 
+ **body** | [**V5SetClusterLabelsRequest**](V5SetClusterLabelsRequest.md)| Labels to attach to this cluster. | 
+ **xRequestID** | **String**| A randomly generated key that can be used to track a request throughout services of Giant Swarm.  | [optional] 
+ **xGiantSwarmActivity** | **String**| Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose.  | [optional] 
+ **xGiantSwarmCmdLine** | **String**| If activity has been issued by a CLI, this header can contain the command line  | [optional] 
 
 ### Return type
 

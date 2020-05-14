@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4ModifyClusterRequest', 'model/V5AddClusterRequest', 'model/V5ClusterDetailsResponse', 'model/V5ListClustersByLabel', 'model/V5ModifyClusterRequest'], factory);
+    define(['ApiClient', 'model/V4AddClusterRequest', 'model/V4ClusterDetailsResponse', 'model/V4ClusterListItem', 'model/V4GenericResponse', 'model/V4GetClusterStatusResponse', 'model/V4ModifyClusterRequest', 'model/V5AddClusterRequest', 'model/V5ClusterDetailsResponse', 'model/V5ListClustersByLabelRequest', 'model/V5ModifyClusterRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'), require('../model/V5AddClusterRequest'), require('../model/V5ClusterDetailsResponse'), require('../model/V5ListClustersByLabel'), require('../model/V5ModifyClusterRequest'));
+    module.exports = factory(require('../ApiClient'), require('../model/V4AddClusterRequest'), require('../model/V4ClusterDetailsResponse'), require('../model/V4ClusterListItem'), require('../model/V4GenericResponse'), require('../model/V4GetClusterStatusResponse'), require('../model/V4ModifyClusterRequest'), require('../model/V5AddClusterRequest'), require('../model/V5ClusterDetailsResponse'), require('../model/V5ListClustersByLabelRequest'), require('../model/V5ModifyClusterRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.ClustersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequest, root.GiantSwarm.V4ClusterDetailsResponse, root.GiantSwarm.V4ClusterListItem, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterStatusResponse, root.GiantSwarm.V4ModifyClusterRequest, root.GiantSwarm.V5AddClusterRequest, root.GiantSwarm.V5ClusterDetailsResponse, root.GiantSwarm.V5ListClustersByLabel, root.GiantSwarm.V5ModifyClusterRequest);
+    root.GiantSwarm.ClustersApi = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AddClusterRequest, root.GiantSwarm.V4ClusterDetailsResponse, root.GiantSwarm.V4ClusterListItem, root.GiantSwarm.V4GenericResponse, root.GiantSwarm.V4GetClusterStatusResponse, root.GiantSwarm.V4ModifyClusterRequest, root.GiantSwarm.V5AddClusterRequest, root.GiantSwarm.V5ClusterDetailsResponse, root.GiantSwarm.V5ListClustersByLabelRequest, root.GiantSwarm.V5ModifyClusterRequest);
   }
-}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest, V5AddClusterRequest, V5ClusterDetailsResponse, V5ListClustersByLabel, V5ModifyClusterRequest) {
+}(this, function(ApiClient, V4AddClusterRequest, V4ClusterDetailsResponse, V4ClusterListItem, V4GenericResponse, V4GetClusterStatusResponse, V4ModifyClusterRequest, V5AddClusterRequest, V5ClusterDetailsResponse, V5ListClustersByLabelRequest, V5ModifyClusterRequest) {
   'use strict';
 
   /**
@@ -482,7 +482,7 @@
     /**
      * Get clusters by labels (v5)
      * This operation fetches a list of node pool clusters based on a label selector.  The operation accepts label selectors in the same way that &#x60;kubectl get -l&#x60; does ([kubernetes label selectors description](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)) for listing clusters based on their labels.  The result depends on the permissions of the user. A normal user can search over all the clusters that they have access to, based on their organization memberships. Admin users however, will search over all existing clusters.  The resulting array contains a sparse representation of the cluster objects. To fetch more details on a cluster, use the [getClusterV5](#operation/getClusterV5) operation. 
-     * @param {module:model/V5ListClustersByLabel} body Label selector
+     * @param {module:model/V5ListClustersByLabelRequest} body Label selector
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 
@@ -526,7 +526,7 @@
     /**
      * Get clusters by labels (v5)
      * This operation fetches a list of node pool clusters based on a label selector.  The operation accepts label selectors in the same way that &#x60;kubectl get -l&#x60; does ([kubernetes label selectors description](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)) for listing clusters based on their labels.  The result depends on the permissions of the user. A normal user can search over all the clusters that they have access to, based on their organization memberships. Admin users however, will search over all existing clusters.  The resulting array contains a sparse representation of the cluster objects. To fetch more details on a cluster, use the [getClusterV5](#operation/getClusterV5) operation. 
-     * @param {module:model/V5ListClustersByLabel} body Label selector
+     * @param {module:model/V5ListClustersByLabelRequest} body Label selector
      * @param {Object} opts Optional parameters
      * @param {String} opts.xRequestID A randomly generated key that can be used to track a request throughout services of Giant Swarm. 
      * @param {String} opts.xGiantSwarmActivity Name of an activity to track, like \&quot;list-clusters\&quot;. This allows to analyze several API requests sent in context and gives an idea on the purpose. 

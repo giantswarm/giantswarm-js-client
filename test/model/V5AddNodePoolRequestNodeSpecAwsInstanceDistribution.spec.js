@@ -27,7 +27,7 @@
   var instance;
 
   beforeEach(() => {
-    instance = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+    instance = new GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution();
   });
 
   var getProperty = function(object, getter, property) {
@@ -46,34 +46,22 @@
       object[property] = value;
   }
 
-  describe('V5GetNodePoolResponseNodeSpecAws', () => {
-    test(
-      'should create an instance of V5GetNodePoolResponseNodeSpecAws',
-      () => {
-        // uncomment below and update the code to test V5GetNodePoolResponseNodeSpecAws
-        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
-        //expect(instance).to.be.a(GiantSwarm.V5GetNodePoolResponseNodeSpecAws);
-      }
-    );
+  describe('V5AddNodePoolRequestNodeSpecAwsInstanceDistribution', () => {
+    test('should create an instance of V5AddNodePoolRequestNodeSpecAwsInstanceDistribution', () => {
+      // uncomment below and update the code to test V5AddNodePoolRequestNodeSpecAwsInstanceDistribution
+      //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution();
+      //expect(instance).to.be.a(GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution);
+    });
 
-    test('should have the property instanceDistribution (base name: "instance_distribution")', () => {
-      // uncomment below and update the code to test the property instanceDistribution
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+    test('should have the property onDemandBaseCapacity (base name: "on_demand_base_capacity")', () => {
+      // uncomment below and update the code to test the property onDemandBaseCapacity
+      //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution();
       //expect(instance).to.be();
     });
 
-    test(
-      'should have the property instanceType (base name: "instance_type")',
-      () => {
-        // uncomment below and update the code to test the property instanceType
-        //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
-        //expect(instance).to.be();
-      }
-    );
-
-    test('should have the property useAlikeInstanceTypes (base name: "use_alike_instance_types")', () => {
-      // uncomment below and update the code to test the property useAlikeInstanceTypes
-      //var instane = new GiantSwarm.V5GetNodePoolResponseNodeSpecAws();
+    test('should have the property onDemandPercentageAboveBaseCapacity (base name: "on_demand_percentage_above_base_capacity")', () => {
+      // uncomment below and update the code to test the property onDemandPercentageAboveBaseCapacity
+      //var instane = new GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution();
       //expect(instance).to.be();
     });
 

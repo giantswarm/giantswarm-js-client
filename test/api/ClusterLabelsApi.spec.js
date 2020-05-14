@@ -17,10 +17,7 @@
   if (typeof define === 'function' && define.amd) {
     // AMD.
     define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
+  } else if (typeof module === 'object' && module.exports) {} else {
     // Browser globals (root is window)
     factory(root.expect, root.GiantSwarm);
   }
@@ -29,7 +26,7 @@
 
   var instance;
 
-  beforeEach(function() {
+  beforeEach(() => {
     instance = new GiantSwarm.ClusterLabelsApi();
   });
 
@@ -49,9 +46,9 @@
       object[property] = value;
   }
 
-  describe('ClusterLabelsApi', function() {
-    describe('getClusterLabels', function() {
-      it('should call getClusterLabels successfully', function(done) {
+  describe('ClusterLabelsApi', () => {
+    describe('getClusterLabels', () => {
+      test('should call getClusterLabels successfully', done => {
         //uncomment below and update the code to test getClusterLabels
         //instance.getClusterLabels(function(error) {
         //  if (error) throw error;
@@ -60,8 +57,8 @@
         done();
       });
     });
-    describe('setClusterLabels', function() {
-      it('should call setClusterLabels successfully', function(done) {
+    describe('setClusterLabels', () => {
+      test('should call setClusterLabels successfully', done => {
         //uncomment below and update the code to test setClusterLabels
         //instance.setClusterLabels(function(error) {
         //  if (error) throw error;

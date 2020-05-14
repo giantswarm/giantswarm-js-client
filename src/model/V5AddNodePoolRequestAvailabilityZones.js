@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V5AddNodePoolRequestAvailabilityZones</code>.
-   * Specifies how the nodes of a pool are spread over availability zones. The object must contain either the &#x60;number&#x60; attribute or the &#x60;zones&#x60; attribute, but not both. The maximum &#x60;number&#x60; of availbility zones is the same as that found under &#x60;general.availability_zones.max&#x60; from the &#x60;/v4/info/&#x60; endpoint. When not given, availability zones assignment is handled automatically. 
+   * Specifies how the nodes of a pool are spread over availability zones. The object must contain either the &#x60;number&#x60; attribute or the &#x60;zones&#x60; attribute, but not both.  The maximum &#x60;number&#x60; of availbility zones is the same as that found under &#x60;general.availability_zones.max&#x60; from the &#x60;/v4/info/&#x60; endpoint. When not given, availability zones assignment is handled automatically. 
    * @alias module:model/V5AddNodePoolRequestAvailabilityZones
    * @class
    */
