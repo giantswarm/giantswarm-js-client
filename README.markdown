@@ -41,6 +41,25 @@ apiInstance.getClusters().then(function(data) {
 
 See the generated [DOCS](DOCS.md) file for API documentation.
 
+## Generating code with types
+
+Make sure your master branch is up to date (`git pull origin master`)
+
+- `git checkout -b my-feature-branch`
+- `git reset --hard 98fd000` # last generated commit, modify this. look for commits which look generated
+- Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version)
+- `sudo chown -R $(id -u):$(id -g) .`
+- Commit your generated changes
+- `git merge -X theirs master` # Re-apply master commits. Use chown when encountering permission errors
+- `yarn install` # do this here
+- Change `"useES6": false` to `"useES6": true` in `swagger-codegen-conf.json`
+- Do steps outlined in [Generating Code and a new version](#generating-code-and-a-new-version) again
+- `rm -rf @types` # Delete existing types `@types` folder
+- `yarn tsc -p tsconfig.json` # Generate @types folder
+- `git add $(git ls-files -o --exclude-standard @types)` # Add new type files
+- work from here to fix types & `git add` files you have worked on
+- commit only your staged changes
+
 ## Generating Code and a new version
 
 The `Makefile` provides all the tooling required to generate new code, docs

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4InfoResponseFeaturesNodepools'], factory);
+    define(['ApiClient', 'model/V4InfoResponseFeaturesNodepools', 'model/V4InfoResponseFeaturesSpotInstances'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesNodepools'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesNodepools'), require('./V4InfoResponseFeaturesSpotInstances'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesNodepools);
+    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesNodepools, root.GiantSwarm.V4InfoResponseFeaturesSpotInstances);
   }
-}(this, function(ApiClient, V4InfoResponseFeaturesNodepools) {
+}(this, function(ApiClient, V4InfoResponseFeaturesNodepools, V4InfoResponseFeaturesSpotInstances) {
   'use strict';
 
 
@@ -49,6 +49,7 @@
     var _this = this;
 
 
+
   };
 
   /**
@@ -65,6 +66,9 @@
       if (data.hasOwnProperty('nodepools')) {
         obj['nodepools'] = V4InfoResponseFeaturesNodepools.constructFromObject(data['nodepools']);
       }
+      if (data.hasOwnProperty('spot_instances')) {
+        obj['spot_instances'] = V4InfoResponseFeaturesSpotInstances.constructFromObject(data['spot_instances']);
+      }
     }
     return obj;
   }
@@ -73,6 +77,10 @@
    * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
    */
   exports.prototype['nodepools'] = undefined;
+  /**
+   * @member {module:model/V4InfoResponseFeaturesSpotInstances} spot_instances
+   */
+  exports.prototype['spot_instances'] = undefined;
 
 
 

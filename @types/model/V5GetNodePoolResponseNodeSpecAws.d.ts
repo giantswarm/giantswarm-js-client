@@ -1,3 +1,4 @@
+import V5GetNodePoolResponseNodeSpecAwsInstanceDistribution from "./V5GetNodePoolResponseNodeSpecAwsInstanceDistribution";
 /**
 * The V5GetNodePoolResponseNodeSpecAws model module.
 * @module model/V5GetNodePoolResponseNodeSpecAws
@@ -13,8 +14,17 @@ export default class V5GetNodePoolResponseNodeSpecAws {
     */
     static constructFromObject(data: Partial<V5GetNodePoolResponseNodeSpecAws>, obj: V5GetNodePoolResponseNodeSpecAws): V5GetNodePoolResponseNodeSpecAws;
     /**
-    * EC2 instance type used by all nodes in this pool
+    * @member {module:model/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution} instance_distribution
+    */
+    instance_distribution: V5GetNodePoolResponseNodeSpecAwsInstanceDistribution;
+    /**
+    * EC2 instance type used by all nodes in this pool.
     * @member {String} instance_type
     */
     instance_type: string;
+    /**
+    * Whether this node pool can use different instance types alike the configured one. Find details on this attribute in the [addNodePool](#operation/addNodePool) operation.
+    * @member {Boolean} use_alike_instance_types
+    */
+    use_alike_instance_types: boolean;
 }

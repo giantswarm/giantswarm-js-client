@@ -10,7 +10,7 @@
     "target": "es5",
     "baseUrl": ".",
     "outDir": "./@types",
-    "declarationMap": true,
+    "declarationMap": false,
     "declarationDir": "./@types",
     "declaration": true,
     "noEmit": false,

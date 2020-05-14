@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/V5ClusterLabelsProperty'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./V5ClusterLabelsProperty'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4ClusterListItem = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V4ClusterListItem = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterLabelsProperty);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, V5ClusterLabelsProperty) {
   'use strict';
 
 
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -88,6 +89,9 @@
       if (data.hasOwnProperty('path')) {
         obj['path'] = ApiClient.convertToType(data['path'], 'String');
       }
+      if (data.hasOwnProperty('labels')) {
+        obj['labels'] = V5ClusterLabelsProperty.constructFromObject(data['labels']);
+      }
     }
     return obj;
   }
@@ -127,6 +131,10 @@
    * @member {String} path
    */
   exports.prototype['path'] = undefined;
+  /**
+   * @member {module:model/V5ClusterLabelsProperty} labels
+   */
+  exports.prototype['labels'] = undefined;
 
 
 

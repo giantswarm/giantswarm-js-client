@@ -13,7 +13,12 @@ export default class V5GetNodePoolResponseStatus {
     */
    static constructFromObject(data: Partial<V5GetNodePoolResponseStatus>, obj: V5GetNodePoolResponseStatus): V5GetNodePoolResponseStatus;
     /**
-    * Desired number of nodes in the pool
+    * Instance types currently in use in this node pool.
+    * @member {Array.<String>} instance_types
+    */
+    instance_types: string[];
+    /**
+    * Desired number of nodes in the pool according to the cluster-autoscaler
     * @member {Number} nodes
     */
     nodes: number;
@@ -22,4 +27,9 @@ export default class V5GetNodePoolResponseStatus {
     * @member {Number} nodes_ready
     */
     nodes_ready: number;
+    /**
+    * Number of instances with lifecycle spot
+    * @member {Number} spot_instances
+    */
+    spot_instances: number;
 }
