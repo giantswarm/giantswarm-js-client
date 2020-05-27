@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterDetailsResponseMaster = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V5AddClusterRequestMasterNodes = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The V5ClusterDetailsResponseMaster model module.
-   * @module model/V5ClusterDetailsResponseMaster
+   * The V5AddClusterRequestMasterNodes model module.
+   * @module model/V5AddClusterRequestMasterNodes
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5ClusterDetailsResponseMaster</code>.
-   * Legacy information about the master node.  *Deprecation notice:* This attribute is replaced by &#x60;master_nodes&#x60;. It will be served until July 30, 2020 in the case that the cluster specification has one master node only. 
-   * @alias module:model/V5ClusterDetailsResponseMaster
+   * Constructs a new <code>V5AddClusterRequestMasterNodes</code>.
+   * Defines how many master nodes the cluster should have. 
+   * @alias module:model/V5AddClusterRequestMasterNodes
    * @class
    */
   var exports = function() {
@@ -52,28 +52,29 @@
   };
 
   /**
-   * Constructs a <code>V5ClusterDetailsResponseMaster</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5AddClusterRequestMasterNodes</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ClusterDetailsResponseMaster} obj Optional instance to populate.
-   * @return {module:model/V5ClusterDetailsResponseMaster} The populated <code>V5ClusterDetailsResponseMaster</code> instance.
+   * @param {module:model/V5AddClusterRequestMasterNodes} obj Optional instance to populate.
+   * @return {module:model/V5AddClusterRequestMasterNodes} The populated <code>V5AddClusterRequestMasterNodes</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('availability_zone')) {
-        obj['availability_zone'] = ApiClient.convertToType(data['availability_zone'], 'String');
+      if (data.hasOwnProperty('high_availability')) {
+        obj['high_availability'] = ApiClient.convertToType(data['high_availability'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * Name of the availability zone the master node is placed in 
-   * @member {String} availability_zone
+   * Specifies whether or not this cluster should run with redundant master nodes (high availability). When true, three master nodes will be started, each one in a different availability zone that is selected randomly. This is the recommended setting for production clusters. When false, only one master node will be created, also in a randomly selected availability zone. 
+   * @member {Boolean} high_availability
+   * @default true
    */
-  exports.prototype['availability_zone'] = undefined;
+  exports.prototype['high_availability'] = true;
 
 
 

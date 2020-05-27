@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterDetailsResponseMaster = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V5ClusterDetailsResponseMasterNodes = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,46 +34,64 @@
 
 
   /**
-   * The V5ClusterDetailsResponseMaster model module.
-   * @module model/V5ClusterDetailsResponseMaster
+   * The V5ClusterDetailsResponseMasterNodes model module.
+   * @module model/V5ClusterDetailsResponseMasterNodes
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5ClusterDetailsResponseMaster</code>.
-   * Legacy information about the master node.  *Deprecation notice:* This attribute is replaced by &#x60;master_nodes&#x60;. It will be served until July 30, 2020 in the case that the cluster specification has one master node only. 
-   * @alias module:model/V5ClusterDetailsResponseMaster
+   * Constructs a new <code>V5ClusterDetailsResponseMasterNodes</code>.
+   * Information on the master node(s) of this cluster 
+   * @alias module:model/V5ClusterDetailsResponseMasterNodes
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
+
   };
 
   /**
-   * Constructs a <code>V5ClusterDetailsResponseMaster</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5ClusterDetailsResponseMasterNodes</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ClusterDetailsResponseMaster} obj Optional instance to populate.
-   * @return {module:model/V5ClusterDetailsResponseMaster} The populated <code>V5ClusterDetailsResponseMaster</code> instance.
+   * @param {module:model/V5ClusterDetailsResponseMasterNodes} obj Optional instance to populate.
+   * @return {module:model/V5ClusterDetailsResponseMasterNodes} The populated <code>V5ClusterDetailsResponseMasterNodes</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('availability_zone')) {
-        obj['availability_zone'] = ApiClient.convertToType(data['availability_zone'], 'String');
+      if (data.hasOwnProperty('high_availability')) {
+        obj['high_availability'] = ApiClient.convertToType(data['high_availability'], 'Boolean');
+      }
+      if (data.hasOwnProperty('availability_zones')) {
+        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], ['String']);
+      }
+      if (data.hasOwnProperty('num_ready')) {
+        obj['num_ready'] = ApiClient.convertToType(data['num_ready'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Name of the availability zone the master node is placed in 
-   * @member {String} availability_zone
+   * When true, the cluster has (or should have) three master nodes. Otherwise it should have one. 
+   * @member {Boolean} high_availability
    */
-  exports.prototype['availability_zone'] = undefined;
+  exports.prototype['high_availability'] = undefined;
+  /**
+   * Availability zones of the master node(s) of this cluster. 
+   * @member {Array.<String>} availability_zones
+   */
+  exports.prototype['availability_zones'] = undefined;
+  /**
+   * Number of master nodes that are reported as `Ready`. 
+   * @member {Number} num_ready
+   */
+  exports.prototype['num_ready'] = undefined;
 
 
 

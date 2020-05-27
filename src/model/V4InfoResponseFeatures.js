@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4InfoResponseFeaturesNodepools', 'model/V4InfoResponseFeaturesSpotInstances'], factory);
+    define(['ApiClient', 'model/V4InfoResponseFeaturesHaMasters', 'model/V4InfoResponseFeaturesNodepools', 'model/V4InfoResponseFeaturesSpotInstances'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesNodepools'), require('./V4InfoResponseFeaturesSpotInstances'));
+    module.exports = factory(require('../ApiClient'), require('./V4InfoResponseFeaturesHaMasters'), require('./V4InfoResponseFeaturesNodepools'), require('./V4InfoResponseFeaturesSpotInstances'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesNodepools, root.GiantSwarm.V4InfoResponseFeaturesSpotInstances);
+    root.GiantSwarm.V4InfoResponseFeatures = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4InfoResponseFeaturesHaMasters, root.GiantSwarm.V4InfoResponseFeaturesNodepools, root.GiantSwarm.V4InfoResponseFeaturesSpotInstances);
   }
-}(this, function(ApiClient, V4InfoResponseFeaturesNodepools, V4InfoResponseFeaturesSpotInstances) {
+}(this, function(ApiClient, V4InfoResponseFeaturesHaMasters, V4InfoResponseFeaturesNodepools, V4InfoResponseFeaturesSpotInstances) {
   'use strict';
 
 
@@ -50,6 +50,7 @@
 
 
 
+
   };
 
   /**
@@ -63,6 +64,9 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('ha_masters')) {
+        obj['ha_masters'] = V4InfoResponseFeaturesHaMasters.constructFromObject(data['ha_masters']);
+      }
       if (data.hasOwnProperty('nodepools')) {
         obj['nodepools'] = V4InfoResponseFeaturesNodepools.constructFromObject(data['nodepools']);
       }
@@ -73,6 +77,10 @@
     return obj;
   }
 
+  /**
+   * @member {module:model/V4InfoResponseFeaturesHaMasters} ha_masters
+   */
+  exports.prototype['ha_masters'] = undefined;
   /**
    * @member {module:model/V4InfoResponseFeaturesNodepools} nodepools
    */
