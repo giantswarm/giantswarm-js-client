@@ -29,5 +29,5 @@ export default class V5ClusterDetailsResponseMasterNodes {
    * Number of master nodes that are reported as `Ready`.
    * @member {Number} num_ready
    */
-  num_ready?: number;
+  num_ready?: number | null;
 }
