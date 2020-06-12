@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **credentialId** | **String** | ID of the credentials used to operate the cluster. See [Set credentials](#operation/addCredentials) for details.  | [optional] 
 **releaseVersion** | **String** | The [release](https://docs.giantswarm.io/api/#tag/releases) version used by the cluster  | [optional] 
 **master** | [**V5ClusterDetailsResponseMaster**](V5ClusterDetailsResponseMaster.md) |  | [optional] 
+**masterNodes** | [**V5ClusterDetailsResponseMasterNodes**](V5ClusterDetailsResponseMasterNodes.md) |  | [optional] 
 **conditions** | [**[V5ClusterDetailsResponseConditions]**](V5ClusterDetailsResponseConditions.md) | List of conditions the cluster has gone through | [optional] 
 **versions** | [**[V5ClusterDetailsResponseVersions]**](V5ClusterDetailsResponseVersions.md) |  | [optional] 
 **labels** | [**V5ClusterLabelsProperty**](V5ClusterLabelsProperty.md) |  | [optional] 

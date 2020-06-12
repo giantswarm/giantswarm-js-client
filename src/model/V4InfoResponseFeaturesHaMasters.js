@@ -25,7 +25,7 @@
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterDetailsResponseMaster = factory(root.GiantSwarm.ApiClient);
+    root.GiantSwarm.V4InfoResponseFeaturesHaMasters = factory(root.GiantSwarm.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The V5ClusterDetailsResponseMaster model module.
-   * @module model/V5ClusterDetailsResponseMaster
+   * The V4InfoResponseFeaturesHaMasters model module.
+   * @module model/V4InfoResponseFeaturesHaMasters
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5ClusterDetailsResponseMaster</code>.
-   * Legacy information about the master node.  *Deprecation notice:* This attribute is replaced by &#x60;master_nodes&#x60;. It will be served until July 30, 2020 in the case that the cluster specification has one master node only. 
-   * @alias module:model/V5ClusterDetailsResponseMaster
+   * Constructs a new <code>V4InfoResponseFeaturesHaMasters</code>.
+   * Support for multiple master nodes.
+   * @alias module:model/V4InfoResponseFeaturesHaMasters
    * @class
    */
   var exports = function() {
@@ -52,28 +52,28 @@
   };
 
   /**
-   * Constructs a <code>V5ClusterDetailsResponseMaster</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4InfoResponseFeaturesHaMasters</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5ClusterDetailsResponseMaster} obj Optional instance to populate.
-   * @return {module:model/V5ClusterDetailsResponseMaster} The populated <code>V5ClusterDetailsResponseMaster</code> instance.
+   * @param {module:model/V4InfoResponseFeaturesHaMasters} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseFeaturesHaMasters} The populated <code>V4InfoResponseFeaturesHaMasters</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('availability_zone')) {
-        obj['availability_zone'] = ApiClient.convertToType(data['availability_zone'], 'String');
+      if (data.hasOwnProperty('release_version_minimum')) {
+        obj['release_version_minimum'] = ApiClient.convertToType(data['release_version_minimum'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Name of the availability zone the master node is placed in 
-   * @member {String} availability_zone
+   * The minimum release version number required to have support for multiple master nodes.
+   * @member {String} release_version_minimum
    */
-  exports.prototype['availability_zone'] = undefined;
+  exports.prototype['release_version_minimum'] = undefined;
 
 
 

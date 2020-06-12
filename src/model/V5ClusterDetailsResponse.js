@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5ClusterDetailsResponseConditions', 'model/V5ClusterDetailsResponseMaster', 'model/V5ClusterDetailsResponseVersions', 'model/V5ClusterLabelsProperty'], factory);
+    define(['ApiClient', 'model/V5ClusterDetailsResponseConditions', 'model/V5ClusterDetailsResponseMaster', 'model/V5ClusterDetailsResponseMasterNodes', 'model/V5ClusterDetailsResponseVersions', 'model/V5ClusterLabelsProperty'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5ClusterDetailsResponseConditions'), require('./V5ClusterDetailsResponseMaster'), require('./V5ClusterDetailsResponseVersions'), require('./V5ClusterLabelsProperty'));
+    module.exports = factory(require('../ApiClient'), require('./V5ClusterDetailsResponseConditions'), require('./V5ClusterDetailsResponseMaster'), require('./V5ClusterDetailsResponseMasterNodes'), require('./V5ClusterDetailsResponseVersions'), require('./V5ClusterLabelsProperty'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5ClusterDetailsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterDetailsResponseConditions, root.GiantSwarm.V5ClusterDetailsResponseMaster, root.GiantSwarm.V5ClusterDetailsResponseVersions, root.GiantSwarm.V5ClusterLabelsProperty);
+    root.GiantSwarm.V5ClusterDetailsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5ClusterDetailsResponseConditions, root.GiantSwarm.V5ClusterDetailsResponseMaster, root.GiantSwarm.V5ClusterDetailsResponseMasterNodes, root.GiantSwarm.V5ClusterDetailsResponseVersions, root.GiantSwarm.V5ClusterLabelsProperty);
   }
-}(this, function(ApiClient, V5ClusterDetailsResponseConditions, V5ClusterDetailsResponseMaster, V5ClusterDetailsResponseVersions, V5ClusterLabelsProperty) {
+}(this, function(ApiClient, V5ClusterDetailsResponseConditions, V5ClusterDetailsResponseMaster, V5ClusterDetailsResponseMasterNodes, V5ClusterDetailsResponseVersions, V5ClusterLabelsProperty) {
   'use strict';
 
 
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -98,6 +99,9 @@
       }
       if (data.hasOwnProperty('master')) {
         obj['master'] = V5ClusterDetailsResponseMaster.constructFromObject(data['master']);
+      }
+      if (data.hasOwnProperty('master_nodes')) {
+        obj['master_nodes'] = V5ClusterDetailsResponseMasterNodes.constructFromObject(data['master_nodes']);
       }
       if (data.hasOwnProperty('conditions')) {
         obj['conditions'] = ApiClient.convertToType(data['conditions'], [V5ClusterDetailsResponseConditions]);
@@ -156,6 +160,10 @@
    * @member {module:model/V5ClusterDetailsResponseMaster} master
    */
   exports.prototype['master'] = undefined;
+  /**
+   * @member {module:model/V5ClusterDetailsResponseMasterNodes} master_nodes
+   */
+  exports.prototype['master_nodes'] = undefined;
   /**
    * List of conditions the cluster has gone through
    * @member {Array.<module:model/V5ClusterDetailsResponseConditions>} conditions
