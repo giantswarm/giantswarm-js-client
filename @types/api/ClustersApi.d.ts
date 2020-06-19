@@ -217,7 +217,7 @@ export default class ClustersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4ClusterListItem>;
+    }): Promise<V4ClusterListItem[]>;
     /**
      * Get clusters
      * This operation fetches a list of clusters.  The result depends on the permissions of the user. A normal user will get all the clusters the user has access to, via organization membership. A user with admin permission will receive a list of all existing clusters.  The result array items are sparse representations of the cluster objects. To fetch more details on a cluster, use the [getClusterStatus](#operation/getClusterStatus) operation.
@@ -231,7 +231,7 @@ export default class ClustersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4ClusterListItem>;
+    }): Promise<V4ClusterListItem[]>;
     /**
      * Get clusters by labels (v5)
      * This operation fetches a list of node pool clusters based on a label selector.  The operation accepts label selectors in the same way that &#x60;kubectl get -l&#x60; does ([kubernetes label selectors description](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)) for listing clusters based on their labels.  The result depends on the permissions of the user. A normal user can search over all the clusters that they have access to, based on their organization memberships. Admin users however, will search over all existing clusters.  The resulting array contains a sparse representation of the cluster objects. To fetch more details on a cluster, use the [getClusterV5](#operation/getClusterV5) operation.
@@ -246,7 +246,7 @@ export default class ClustersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4ClusterListItem>;
+    }): Promise<V4ClusterListItem[]>;
     /**
      * Get clusters by labels (v5)
      * This operation fetches a list of node pool clusters based on a label selector.  The operation accepts label selectors in the same way that &#x60;kubectl get -l&#x60; does ([kubernetes label selectors description](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)) for listing clusters based on their labels.  The result depends on the permissions of the user. A normal user can search over all the clusters that they have access to, based on their organization memberships. Admin users however, will search over all existing clusters.  The resulting array contains a sparse representation of the cluster objects. To fetch more details on a cluster, use the [getClusterV5](#operation/getClusterV5) operation.
@@ -261,7 +261,7 @@ export default class ClustersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4ClusterListItem>;
+    }): Promise<V4ClusterListItem[]>;
     /**
      * Modify cluster (v4)
      * This operation allows to modify an existing cluster.  A cluster modification is performed by submitting a &#x60;PATCH&#x60; request to the cluster resource (as described in the [addCluster](#operation/addCluster) and [getCluster](#operation/getCluster)) in form of a [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386). This means, only the attributes to be modified have to be contained in the request body.  The following attributes can be modified:  - &#x60;name&#x60;: Rename the cluster to something more fitting.  - &#x60;owner&#x60;: Changing the owner organization name means to change cluster ownership from one organization to another. The user performing the request has to be a member of both organizations.  - &#x60;release_version&#x60;: By changing this attribute you can upgrade a cluster to a newer [release](https://docs.giantswarm.io/api/#tag/releases).  - &#x60;scaling&#x60;: Adjust the cluster node limits to make use of auto scaling or to have full control over the node count. The latter can be achieved by setting &#x60;min&#x60; and &#x60;max&#x60; to the same values. Note that setting &#x60;min&#x60; and &#x60;max&#x60; to different values (effectively enabling autoscaling) is only available on AWS with releases from 6.2.0.   - &#x60;workers&#x60; (deprecated): For backward compatibility reasons, it is possible to provide this attribute as an array, where the number of items contained in the array determines the intended number of worker nodes in the cluster. The item count will be applied as both &#x60;min&#x60; and &#x60;max&#x60; value of the scaling limits, effectively disabling autoscaling. This requires the &#x60;scaling&#x60; attribute must not be present in the same request.  ### Limitations  - As of now, existing worker nodes cannot be modified. - The number of availability zones cannot be modified. - When removing nodes (scaling down), it is not possible to determine which nodes will be removed.

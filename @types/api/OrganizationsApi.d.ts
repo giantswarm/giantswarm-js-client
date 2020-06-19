@@ -221,7 +221,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4OrganizationListItem>;
+    }): Promise<V4OrganizationListItem[]>;
     /**
      * Get organizations
      * This operation allows to fetch a list of organizations the user is a member of. In the case of an admin user, the result includes all existing organizations.
@@ -235,7 +235,7 @@ export default class OrganizationsApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4OrganizationListItem>;
+    }): Promise<V4OrganizationListItem[]>;
     /**
      * Modify organization
      * This operation allows you to modify an existing organization. You must be a member of the organization or an admin in order to use this endpoint.  The following attributes can be modified:  - &#x60;members&#x60;: By modifying the array of members, members can be added to or removed from the organization  The request body must conform with the [JSON Patch Merge (RFC 7386)](https://tools.ietf.org/html/rfc7386) standard. Requests have to be sent with the &#x60;Content-Type: application/merge-patch+json&#x60; header.  The full request must be valid before it will be executed, currently this means every member you attempt to add to the organization must actually exist in the system. If any member you attempt to add is invalid, the entire patch operation will fail, no members will be added or removed, and an error message will explain which members in your request are invalid.
