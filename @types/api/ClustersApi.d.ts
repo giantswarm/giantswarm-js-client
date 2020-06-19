@@ -8,6 +8,7 @@ import V5ClusterDetailsResponse from "../model/V5ClusterDetailsResponse";
 import V4ClusterDetailsResponse from "../model/V4ClusterDetailsResponse";
 import V4GetClusterStatusResponse from "../model/V4GetClusterStatusResponse";
 import V4ClusterListItem from "../model/V4ClusterListItem";
+import V5ListClustersByLabel from "../model/V5ListClustersByLabelRequest";
 
 /**
 * Clusters service.
