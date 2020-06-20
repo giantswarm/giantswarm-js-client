@@ -153,7 +153,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4UserListItem>;
+    }): Promise<V4UserListItem[]>;
     /**
      * Get users
      * Returns a list of all users in the system. Currently this endpoint is only available to users with admin permissions.
@@ -167,7 +167,7 @@ export default class UsersApi {
         xRequestID: string;
         xGiantSwarmActivity: string;
         xGiantSwarmCmdLine: string;
-    }): Promise<V4UserListItem>;
+    }): Promise<V4UserListItem[]>;
     /**
      * Modify password
      * This operation allows you to change your password. Admins are able to change passwords of other users.
