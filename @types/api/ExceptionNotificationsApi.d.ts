@@ -27,9 +27,9 @@ export default class ExceptionNotificationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     addExceptionNotificationWithHttpInfo(body: Record<string, any>, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Notifies Giant Swarm that an error has occured in one of our clients.
@@ -42,8 +42,8 @@ export default class ExceptionNotificationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     addExceptionNotification(body: Record<string, any>, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
 }

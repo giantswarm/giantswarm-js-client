@@ -27,9 +27,9 @@ export default class ClusterLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterLabelsResponse} and HTTP response
      */
     getClusterLabelsWithHttpInfo(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5ClusterLabelsResponse>;
     /**
      * Get cluster labels
@@ -42,9 +42,9 @@ export default class ClusterLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterLabelsResponse}
      */
     getClusterLabels(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5ClusterLabelsResponse>;
     /**
      * Set cluster labels
@@ -58,9 +58,9 @@ export default class ClusterLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5ClusterLabelsResponse} and HTTP response
      */
     setClusterLabelsWithHttpInfo(clusterId: string, body: V5SetClusterLabelsRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5ClusterLabelsResponse>;
     /**
      * Set cluster labels
@@ -74,8 +74,8 @@ export default class ClusterLabelsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5ClusterLabelsResponse}
      */
     setClusterLabels(clusterId: string, body: V5SetClusterLabelsRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5ClusterLabelsResponse>;
 }

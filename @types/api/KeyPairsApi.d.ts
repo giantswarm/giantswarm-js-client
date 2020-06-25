@@ -30,9 +30,9 @@ export default class KeyPairsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4AddKeyPairResponse} and HTTP response
      */
     addKeyPairWithHttpInfo(clusterId: string, body: V4AddKeyPairRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4AddKeyPairResponse>;
     /**
      * Create key pair
@@ -46,9 +46,9 @@ export default class KeyPairsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4AddKeyPairResponse}
      */
     addKeyPair(clusterId: string, body: V4AddKeyPairRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4AddKeyPairResponse>;
     /**
      * Get key pairs
@@ -61,9 +61,9 @@ export default class KeyPairsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetKeyPairsResponse} and HTTP response
      */
     getKeyPairsWithHttpInfo(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetKeyPairsResponse>;
     /**
      * Get key pairs
@@ -76,8 +76,8 @@ export default class KeyPairsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetKeyPairsResponse}
      */
     getKeyPairs(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetKeyPairsResponse>;
 }

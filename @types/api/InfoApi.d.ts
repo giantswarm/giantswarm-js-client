@@ -25,9 +25,9 @@ export default class InfoApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4InfoResponse} and HTTP response
      */
     getInfoWithHttpInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4InfoResponse>;
     /**
      * Get information on the installation
@@ -39,8 +39,8 @@ export default class InfoApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4InfoResponse}
      */
     getInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4InfoResponse>;
 }

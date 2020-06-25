@@ -31,9 +31,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     createClusterAppConfigV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -49,9 +49,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     createClusterAppConfigV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -67,9 +67,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     createClusterAppConfigV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -85,9 +85,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     createClusterAppConfigV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -102,9 +102,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteClusterAppConfigV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v4)
@@ -118,9 +118,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteClusterAppConfigV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v5)
@@ -134,9 +134,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteClusterAppConfigV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v5)
@@ -150,9 +150,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteClusterAppConfigV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Get app config (v4)
@@ -166,9 +166,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppConfigResponse} and HTTP response
      */
     getClusterAppConfigV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v4)
@@ -182,9 +182,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppConfigResponse}
      */
     getClusterAppConfigV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v5)
@@ -198,9 +198,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppConfigResponse} and HTTP response
      */
     getClusterAppConfigV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v5)
@@ -214,9 +214,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppConfigResponse}
      */
     getClusterAppConfigV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Modify app config (v4)
@@ -231,9 +231,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     modifyClusterAppConfigV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -249,9 +249,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     modifyClusterAppConfigV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -267,9 +267,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     modifyClusterAppConfigV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
     /**
@@ -285,9 +285,9 @@ export default class AppConfigsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     modifyClusterAppConfigV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppConfigRequest;
     }): Promise<V4GenericResponse>;
 }

@@ -26,9 +26,9 @@ export default class ReleasesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4ReleaseListItem>} and HTTP response
      */
     getReleasesWithHttpInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4ReleaseListItem[]>;
     /**
      * Get releases
@@ -40,8 +40,8 @@ export default class ReleasesApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4ReleaseListItem>}
      */
     getReleases(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4ReleaseListItem[]>;
 }

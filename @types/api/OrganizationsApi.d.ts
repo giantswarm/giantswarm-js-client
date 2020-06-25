@@ -34,9 +34,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     addCredentialsWithHttpInfo(organizationId: string, body: V4AddCredentialsRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Set credentials
@@ -50,9 +50,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     addCredentials(organizationId: string, body: V4AddCredentialsRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Create an organization
@@ -66,9 +66,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
     addOrganizationWithHttpInfo(organizationId: string, body: V4Organization, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
     /**
      * Create an organization
@@ -82,9 +82,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
     addOrganization(organizationId: string, body: V4Organization, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
     /**
      * Delete an organization
@@ -97,9 +97,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteOrganizationWithHttpInfo(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an organization
@@ -112,9 +112,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteOrganization(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Get credential details
@@ -128,9 +128,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetCredentialResponse} and HTTP response
      */
     getCredentialWithHttpInfo(organizationId: string, credentialId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetCredentialResponse>;
     /**
      * Get credential details
@@ -144,9 +144,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetCredentialResponse}
      */
     getCredential(organizationId: string, credentialId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetCredentialResponse>;
     /**
      * Get credentials
@@ -159,9 +159,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetCredentialsResponse} and HTTP response
      */
     getCredentialsWithHttpInfo(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetCredentialsResponse>;
     /**
      * Get credentials
@@ -174,9 +174,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetCredentialsResponse}
      */
     getCredentials(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetCredentialsResponse>;
     /**
      * Get organization details
@@ -189,9 +189,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
     getOrganizationWithHttpInfo(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
     /**
      * Get organization details
@@ -204,9 +204,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
     getOrganization(organizationId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
     /**
      * Get organizations
@@ -218,9 +218,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/V4OrganizationListItem>} and HTTP response
      */
     getOrganizationsWithHttpInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4OrganizationListItem[]>;
     /**
      * Get organizations
@@ -232,9 +232,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/V4OrganizationListItem>}
      */
     getOrganizations(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4OrganizationListItem[]>;
     /**
      * Modify organization
@@ -248,9 +248,9 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4Organization} and HTTP response
      */
     modifyOrganizationWithHttpInfo(organizationId: string, body: Body, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
     /**
      * Modify organization
@@ -264,8 +264,8 @@ export default class OrganizationsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4Organization}
      */
     modifyOrganization(organizationId: string, body: Body, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4Organization>;
 }
