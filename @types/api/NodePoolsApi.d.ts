@@ -32,9 +32,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
     addNodePoolWithHttpInfo(clusterId: string, body: V5AddNodePoolRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
     /**
      * Create node pool
@@ -48,9 +48,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
     addNodePool(clusterId: string, body: V5AddNodePoolRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
     /**
      * Delete node pool
@@ -64,9 +64,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete node pool
@@ -80,9 +80,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteNodePool(clusterId: string, nodepoolId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Get node pool details
@@ -96,9 +96,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
     getNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
     /**
      * Get node pool details
@@ -112,9 +112,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
     getNodePool(clusterId: string, nodepoolId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
     /**
      * Get node pools
@@ -127,9 +127,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolsResponse} and HTTP response
      */
     getNodePoolsWithHttpInfo(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolsResponse>;
     /**
      * Get node pools
@@ -142,9 +142,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolsResponse}
      */
     getNodePools(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolsResponse>;
     /**
      * Modify node pool
@@ -159,9 +159,9 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V5GetNodePoolResponse} and HTTP response
      */
     modifyNodePoolWithHttpInfo(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
     /**
      * Modify node pool
@@ -176,8 +176,8 @@ export default class NodePoolsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V5GetNodePoolResponse}
      */
     modifyNodePool(clusterId: string, nodepoolId: string, body: V5ModifyNodePoolRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V5GetNodePoolResponse>;
 }

@@ -29,9 +29,9 @@ export default class AuthTokensApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4CreateAuthTokenResponse} and HTTP response
      */
     createAuthTokenWithHttpInfo(body: V4CreateAuthTokenRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4CreateAuthTokenResponse>;
     /**
      * Create Auth Token (Login)
@@ -44,9 +44,9 @@ export default class AuthTokensApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4CreateAuthTokenResponse}
      */
     createAuthToken(body: V4CreateAuthTokenRequest, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4CreateAuthTokenResponse>;
     /**
      * Delete Auth Token (Logout)
@@ -58,9 +58,9 @@ export default class AuthTokensApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteAuthTokenWithHttpInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete Auth Token (Logout)
@@ -72,8 +72,8 @@ export default class AuthTokensApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteAuthToken(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
 }

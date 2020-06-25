@@ -34,9 +34,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     createClusterAppV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
@@ -52,9 +52,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     createClusterAppV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
@@ -70,9 +70,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     createClusterAppV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
@@ -88,9 +88,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     createClusterAppV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4CreateAppRequest;
     }): Promise<V4App>;
     /**
@@ -105,9 +105,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteClusterAppV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app (v4)
@@ -121,9 +121,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteClusterAppV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app (v5)
@@ -137,9 +137,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GenericResponse} and HTTP response
      */
     deleteClusterAppV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app (v5)
@@ -153,9 +153,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GenericResponse}
      */
     deleteClusterAppV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GenericResponse>;
     /**
      * Get a list of app catalogs configured on your installation.
@@ -167,9 +167,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4AppCatalogsResponse} and HTTP response
      */
     getAppCatalogsWithHttpInfo(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4AppCatalogsResponse>;
     /**
      * Get a list of app catalogs configured on your installation.
@@ -181,9 +181,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4AppCatalogsResponse}
      */
     getAppCatalogs(opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4AppCatalogsResponse>;
     /**
      * Get a list of apps on a cluster (v4)
@@ -196,9 +196,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppsResponse} and HTTP response
      */
     getClusterAppsV4WithHttpInfo(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppsResponse>;
     /**
      * Get a list of apps on a cluster (v4)
@@ -211,9 +211,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppsResponse}
      */
     getClusterAppsV4(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppsResponse>;
     /**
      * Get a list of apps on a cluster (v5)
@@ -226,9 +226,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4GetClusterAppsResponse} and HTTP response
      */
     getClusterAppsV5WithHttpInfo(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppsResponse>;
     /**
      * Get a list of apps on a cluster (v5)
@@ -241,9 +241,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4GetClusterAppsResponse}
      */
     getClusterAppsV5(clusterId: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
     }): Promise<V4GetClusterAppsResponse>;
     /**
      * Modify an app (v4)
@@ -258,9 +258,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     modifyClusterAppV4WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
@@ -276,9 +276,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     modifyClusterAppV4(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
@@ -294,9 +294,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/V4App} and HTTP response
      */
     modifyClusterAppV5WithHttpInfo(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4ModifyAppRequest;
     }): Promise<V4App>;
     /**
@@ -312,9 +312,9 @@ export default class AppsApi {
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/V4App}
      */
     modifyClusterAppV5(clusterId: string, appName: string, opts?: {
-        xRequestID: string;
-        xGiantSwarmActivity: string;
-        xGiantSwarmCmdLine: string;
+        xRequestID?: string;
+        xGiantSwarmActivity?: string;
+        xGiantSwarmCmdLine?: string;
         body: V4ModifyAppRequest;
     }): Promise<V4App>;
 }
