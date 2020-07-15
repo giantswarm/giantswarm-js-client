@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V4GetClusterAppConfigResponse</code>.
-   * The values configmap for a given app returned as a yaml file
+   * The user-values ConfigMap for a given app returned as a yaml file
    * @alias module:model/V4GetClusterAppConfigResponse
    * @class
    */

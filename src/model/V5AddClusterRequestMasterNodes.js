@@ -70,7 +70,7 @@
   }
 
   /**
-   * Specifies whether or not this cluster should run with redundant master nodes (high availability). When true, three master nodes will be started, each one in a different availability zone that is selected randomly. This is the recommended setting for production clusters. When false, only one master node will be created, also in a randomly selected availability zone. 
+   * Specifies whether or not this cluster should run with redundant master nodes (high availability).  When `true`, three master nodes will be started, each one in a different availability zone that is selected randomly. This is the recommended setting for production clusters. However, note that this is only available on <span class=\"badge aws\">AWS</span> starting with release v11.4.0.  When `false`, only one master node will be created, also in a randomly selected availability zone. 
    * @member {Boolean} high_availability
    * @default true
    */

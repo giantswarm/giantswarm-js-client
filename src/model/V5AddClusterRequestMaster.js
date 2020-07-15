@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V5AddClusterRequestMaster</code>.
-   * Configuration regarding the master node. If not given, the master node will be placed automatically. Must not be used together with the &#x60;master_nodes&#x60; property.  *Deprecation notice:* This property has been replaced by &#x60;master_nodes&#x60; and is deprecated. It will still be accepted in requests until July 30, 2020. After that, using it will issue an error &#x60;400 Bad Request&#x60;. 
+   * Legacy configuration regarding the master node. Must not be used together with the &#x60;master_nodes&#x60; property.  *Deprecation notice:* This property has been replaced by &#x60;master_nodes&#x60; and is deprecated. It will still be accepted in requests until August 31, 2020. After that, using it will issue an error &#x60;400 Bad Request&#x60;. 
    * @alias module:model/V5AddClusterRequestMaster
    * @class
    */

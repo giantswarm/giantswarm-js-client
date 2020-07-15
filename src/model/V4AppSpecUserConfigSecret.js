@@ -73,12 +73,12 @@
   }
 
   /**
-   * Name of the Secret on the control plane, which will become available wherever the app is installed
+   * Name of the Secret containing user-secrets to apply, e.g. prometheus-user-secrets
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Namespace of the Secret on the control plane, e.g. 123ab
+   * Namespace of the user-secrets Secret on the control plane, e.g. 123ab
    * @member {String} namespace
    */
   exports.prototype['namespace'] = undefined;

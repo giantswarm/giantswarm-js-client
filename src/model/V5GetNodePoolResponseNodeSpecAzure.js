@@ -16,78 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpecAws', 'model/V5GetNodePoolResponseNodeSpecAzure', 'model/V5GetNodePoolResponseNodeSpecVolumeSizesGb'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpecAws'), require('./V5GetNodePoolResponseNodeSpecAzure'), require('./V5GetNodePoolResponseNodeSpecVolumeSizesGb'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5GetNodePoolResponseNodeSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5GetNodePoolResponseNodeSpecAws, root.GiantSwarm.V5GetNodePoolResponseNodeSpecAzure, root.GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb);
+    root.GiantSwarm.V5GetNodePoolResponseNodeSpecAzure = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V5GetNodePoolResponseNodeSpecAws, V5GetNodePoolResponseNodeSpecAzure, V5GetNodePoolResponseNodeSpecVolumeSizesGb) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V5GetNodePoolResponseNodeSpec model module.
-   * @module model/V5GetNodePoolResponseNodeSpec
+   * The V5GetNodePoolResponseNodeSpecAzure model module.
+   * @module model/V5GetNodePoolResponseNodeSpecAzure
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5GetNodePoolResponseNodeSpec</code>.
-   * @alias module:model/V5GetNodePoolResponseNodeSpec
+   * Constructs a new <code>V5GetNodePoolResponseNodeSpecAzure</code>.
+   * Attributes specific to the Azure provider 
+   * @alias module:model/V5GetNodePoolResponseNodeSpecAzure
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
   };
 
   /**
-   * Constructs a <code>V5GetNodePoolResponseNodeSpec</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5GetNodePoolResponseNodeSpecAzure</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5GetNodePoolResponseNodeSpec} obj Optional instance to populate.
-   * @return {module:model/V5GetNodePoolResponseNodeSpec} The populated <code>V5GetNodePoolResponseNodeSpec</code> instance.
+   * @param {module:model/V5GetNodePoolResponseNodeSpecAzure} obj Optional instance to populate.
+   * @return {module:model/V5GetNodePoolResponseNodeSpecAzure} The populated <code>V5GetNodePoolResponseNodeSpecAzure</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('azure')) {
-        obj['azure'] = V5GetNodePoolResponseNodeSpecAzure.constructFromObject(data['azure']);
-      }
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V5GetNodePoolResponseNodeSpecAws.constructFromObject(data['aws']);
-      }
-      if (data.hasOwnProperty('volume_sizes_gb')) {
-        obj['volume_sizes_gb'] = V5GetNodePoolResponseNodeSpecVolumeSizesGb.constructFromObject(data['volume_sizes_gb']);
+      if (data.hasOwnProperty('vm_size')) {
+        obj['vm_size'] = ApiClient.convertToType(data['vm_size'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/V5GetNodePoolResponseNodeSpecAzure} azure
+   * Azure virtual machine size used by all nodes in this pool. 
+   * @member {String} vm_size
    */
-  exports.prototype['azure'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseNodeSpecAws} aws
-   */
-  exports.prototype['aws'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb} volume_sizes_gb
-   */
-  exports.prototype['volume_sizes_gb'] = undefined;
+  exports.prototype['vm_size'] = undefined;
 
 
 

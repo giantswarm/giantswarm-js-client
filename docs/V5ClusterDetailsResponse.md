@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **master** | [**V5ClusterDetailsResponseMaster**](V5ClusterDetailsResponseMaster.md) |  | [optional] 
 **masterNodes** | [**V5ClusterDetailsResponseMasterNodes**](V5ClusterDetailsResponseMasterNodes.md) |  | [optional] 
 **conditions** | [**[V5ClusterDetailsResponseConditions]**](V5ClusterDetailsResponseConditions.md) | List of conditions the cluster has gone through | [optional] 
-**versions** | [**[V5ClusterDetailsResponseVersions]**](V5ClusterDetailsResponseVersions.md) |  | [optional] 
+**versions** | [**[V5ClusterDetailsResponseVersions]**](V5ClusterDetailsResponseVersions.md) | List of release versions the cluster has used. | [optional] 
 **labels** | [**V5ClusterLabelsProperty**](V5ClusterLabelsProperty.md) |  | [optional] 
 
 

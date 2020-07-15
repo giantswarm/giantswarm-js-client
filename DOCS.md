@@ -300,6 +300,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V5GetNodePoolResponseNodeSpec](docs/V5GetNodePoolResponseNodeSpec.md)
  - [GiantSwarm.V5GetNodePoolResponseNodeSpecAws](docs/V5GetNodePoolResponseNodeSpecAws.md)
  - [GiantSwarm.V5GetNodePoolResponseNodeSpecAwsInstanceDistribution](docs/V5GetNodePoolResponseNodeSpecAwsInstanceDistribution.md)
+ - [GiantSwarm.V5GetNodePoolResponseNodeSpecAzure](docs/V5GetNodePoolResponseNodeSpecAzure.md)
  - [GiantSwarm.V5GetNodePoolResponseNodeSpecVolumeSizesGb](docs/V5GetNodePoolResponseNodeSpecVolumeSizesGb.md)
  - [GiantSwarm.V5GetNodePoolResponseScaling](docs/V5GetNodePoolResponseScaling.md)
  - [GiantSwarm.V5GetNodePoolResponseStatus](docs/V5GetNodePoolResponseStatus.md)

@@ -170,6 +170,7 @@
    */
   exports.prototype['conditions'] = undefined;
   /**
+   * List of release versions the cluster has used.
    * @member {Array.<module:model/V5ClusterDetailsResponseVersions>} versions
    */
   exports.prototype['versions'] = undefined;
