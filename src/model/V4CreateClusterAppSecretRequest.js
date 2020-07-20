@@ -41,7 +41,7 @@
 
   /**
    * Constructs a new <code>V4CreateClusterAppSecretRequest</code>.
-   * The values to be used when creating a Secret for a given app
+   * The values to be used when creating the user-secrets Secret for a given app
    * @alias module:model/V4CreateClusterAppSecretRequest
    * @class
    */

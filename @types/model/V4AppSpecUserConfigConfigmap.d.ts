@@ -13,12 +13,12 @@ export default class V4AppSpecUserConfigConfigmap {
     */
    static constructFromObject(data: Partial<V4AppSpecUserConfigConfigmap>, obj: V4AppSpecUserConfigConfigmap): V4AppSpecUserConfigConfigmap;
     /**
-    * Name of the config map containing values to apply, e.g. prometheus-user-values
+    * Name of the ConfigMap containing user-values to apply, e.g. prometheus-user-values
     * @member {String} name
     */
     name: string;
     /**
-    * Namespace of the values config map on the control plane, e.g. 123ab
+    * Namespace of the user-values ConfigMap on the control plane, e.g. 123ab
     * @member {String} namespace
     */
     namespace: string;

@@ -20,7 +20,7 @@ export default class AppConfigsApi {
     apiClient: ApiClient;
     /**
      * Create app config (v4)
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
+     * This operation allows you to create a user-values ConfigMap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -38,7 +38,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v4)
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
+     * This operation allows you to create a user-values ConfigMap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v4/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.   ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -56,7 +56,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v5)
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
+     * This operation allows you to create a user-values ConfigMap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -74,7 +74,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Create app config (v5)
-     * This operation allows you to create a values configmap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
+     * This operation allows you to create a user-values ConfigMap for a specific app. The app does not have to exist before hand.  If the app does exist, this endpoint will ensure that the App CR gets it&#39;s user_config field set correctly.  However, if the app exists and the user_config is already set to something, then this request will fail. You will in that case most likely want to update the config using the &#x60;PATCH /v5/clusters/{cluster_id}/apps/{app_name}/config/&#x60; endpoint.  ### Example POST request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;secret-key-here\&quot;,       \&quot;endpointHost\&quot;: \&quot;saas-eu-west-1.instana.io\&quot;,       \&quot;endpointPort\&quot;: \&quot;443\&quot;,     },     \&quot;zone\&quot;: {       \&quot;name\&quot;: \&quot;giantswarm-cluster\&quot;     }   } &#x60;&#x60;&#x60;
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -92,7 +92,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v4)
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.
+     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the ConfigMap by updating the app, and only then delete the ConfigMap using this endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -108,7 +108,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v4)
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.
+     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the ConfigMap by updating the app, and only then delete the ConfigMap using this endpoint.  For apps on v5 clusters, please use the v5 version of this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -124,7 +124,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v5)
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint.
+     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the ConfigMap by updating the app, and only then delete the ConfigMap using this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -140,7 +140,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Delete an app config (v5)
-     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the configmap by updating the app, and only then delete the configmap using this endpoint.
+     * This operation allows a user to delete an app&#39;s user config if it has been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  Calling this endpoint will delete the ConfigMap, but it does not remove the reference to the ConfigMap in the (spec.user_config.configmap field) from the app.  Do make sure you also update the app and remove the reference.  The preferred order is to first remove the reference to the ConfigMap by updating the app, and only then delete the ConfigMap using this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -156,7 +156,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Get app config (v4)
-     * This operation allows you to fetch the user values configmap associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint.
+     * This operation allows you to fetch the user-values ConfigMap associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -172,7 +172,7 @@ export default class AppConfigsApi {
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v4)
-     * This operation allows you to fetch the user values configmap associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint.
+     * This operation allows you to fetch the user-values ConfigMap associated with an app.  For apps on v5 clusters, please use the v5 version of this endpoint.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -188,7 +188,7 @@ export default class AppConfigsApi {
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v5)
-     * This operation allows you to fetch the user values configmap associated with an app.
+     * This operation allows you to fetch the user-values ConfigMap associated with an app.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -204,7 +204,7 @@ export default class AppConfigsApi {
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Get app config (v5)
-     * This operation allows you to fetch the user values configmap associated with an app.
+     * This operation allows you to fetch the user-values ConfigMap associated with an app.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -220,7 +220,7 @@ export default class AppConfigsApi {
     }): Promise<V4GetClusterAppConfigResponse>;
     /**
      * Modify app config (v4)
-     * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
+     * This operation allows you to modify the values ConfigMap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the ConfigMap will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the ConfigMap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -238,7 +238,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v4)
-     * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
+     * This operation allows you to modify the values ConfigMap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the ConfigMap will be replaced by the JSON body of your request.  For apps on v5 clusters, please use the v5 version of this endpoint.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the ConfigMap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -256,7 +256,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v5)
-     * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
+     * This operation allows you to modify the values ConfigMap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the ConfigMap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the ConfigMap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
@@ -274,7 +274,7 @@ export default class AppConfigsApi {
     }): Promise<V4GenericResponse>;
     /**
      * Modify app config (v5)
-     * This operation allows you to modify the values configmap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the configmap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the configmap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
+     * This operation allows you to modify the values ConfigMap for a specific app. It&#39;s only possible to modify app configs that have been named according to the convention of {app-name}-user-values and stored in the cluster ID namespace.  The full values key of the ConfigMap will be replaced by the JSON body of your request.  ### Example PATCH request &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;a-new-key-here\&quot;,     }   } &#x60;&#x60;&#x60;  If the ConfigMap contained content like:  &#x60;&#x60;&#x60;json   {     \&quot;agent\&quot;: {       \&quot;key\&quot;: \&quot;an-old-key-here\&quot;,       \&quot;admin\&quot;: true,     },     \&quot;server\&quot;: {       \&quot;url\&quot;: \&quot;giantswarm.io\&quot;,     }   } &#x60;&#x60;&#x60;  Then the \&quot;server\&quot; and \&quot;admin\&quot; keys will be removed.
      * @param {String} clusterId Cluster ID
      * @param {String} appName App Name
      * @param {Object} opts Optional parameters
