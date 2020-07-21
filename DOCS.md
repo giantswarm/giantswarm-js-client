@@ -287,6 +287,7 @@ Class | Method | HTTP request | Description
  - [GiantSwarm.V5AddNodePoolRequestNodeSpec](docs/V5AddNodePoolRequestNodeSpec.md)
  - [GiantSwarm.V5AddNodePoolRequestNodeSpecAws](docs/V5AddNodePoolRequestNodeSpecAws.md)
  - [GiantSwarm.V5AddNodePoolRequestNodeSpecAwsInstanceDistribution](docs/V5AddNodePoolRequestNodeSpecAwsInstanceDistribution.md)
+ - [GiantSwarm.V5AddNodePoolRequestNodeSpecAzure](docs/V5AddNodePoolRequestNodeSpecAzure.md)
  - [GiantSwarm.V5AddNodePoolRequestScaling](docs/V5AddNodePoolRequestScaling.md)
  - [GiantSwarm.V5ClusterDetailsResponse](docs/V5ClusterDetailsResponse.md)
  - [GiantSwarm.V5ClusterDetailsResponseConditions](docs/V5ClusterDetailsResponseConditions.md)
