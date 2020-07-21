@@ -18,9 +18,9 @@ export default class V5AddNodePoolRequestNodeSpec {
     /**
     * @member {module:model/V5AddNodePoolRequestNodeSpecAws} aws
     */
-    aws: V5AddNodePoolRequestNodeSpecAws;
+    aws: V5AddNodePoolRequestNodeSpecAws | null;
     /**
     * @member {module:model/V5AddNodePoolRequestNodeSpecAzure} azure
     */
-    azure: V5AddNodePoolRequestNodeSpecAzure;
+    azure: V5AddNodePoolRequestNodeSpecAzure | null;
 }
