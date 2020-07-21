@@ -21,7 +21,7 @@ export default class V5GetNodePoolResponseNodeSpec {
     */
     aws: V5GetNodePoolResponseNodeSpecAws | null;
     /**
-     * @member {module:model/V5GetNodePoolResponseNodeSpecAws} aws
+     * @member {module:model/V5GetNodePoolResponseNodeSpecAws} azure
      */
     azure: V5GetNodePoolResponseNodeSpecAzure | null;
     /**
