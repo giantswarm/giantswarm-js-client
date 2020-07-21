@@ -1,4 +1,5 @@
 import V5GetNodePoolResponseNodeSpecAws from "./V5GetNodePoolResponseNodeSpecAws";
+import V5GetNodePoolResponseNodeSpecAzure from "./V5GetNodePoolResponseNodeSpecAzure";
 import V5GetNodePoolResponseNodeSpecVolumeSizesGb from "./V5GetNodePoolResponseNodeSpecVolumeSizesGb";
 
 /**
@@ -18,7 +19,11 @@ export default class V5GetNodePoolResponseNodeSpec {
     /**
     * @member {module:model/V5GetNodePoolResponseNodeSpecAws} aws
     */
-    aws: V5GetNodePoolResponseNodeSpecAws;
+    aws: V5GetNodePoolResponseNodeSpecAws | null;
+    /**
+     * @member {module:model/V5GetNodePoolResponseNodeSpecAws} aws
+     */
+    azure: V5GetNodePoolResponseNodeSpecAzure | null;
     /**
     * @member {module:model/V5GetNodePoolResponseNodeSpecVolumeSizesGb} volume_sizes_gb
     */
