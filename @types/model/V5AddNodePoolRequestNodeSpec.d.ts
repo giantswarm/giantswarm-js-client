@@ -1,4 +1,5 @@
 import V5AddNodePoolRequestNodeSpecAws from "./V5AddNodePoolRequestNodeSpecAws";
+import V5AddNodePoolRequestNodeSpecAzure from "./V5AddNodePoolRequestNodeSpecAzure";
 
 /**
 * The V5AddNodePoolRequestNodeSpec model module.
@@ -18,4 +19,8 @@ export default class V5AddNodePoolRequestNodeSpec {
     * @member {module:model/V5AddNodePoolRequestNodeSpecAws} aws
     */
     aws: V5AddNodePoolRequestNodeSpecAws;
+    /**
+    * @member {module:model/V5AddNodePoolRequestNodeSpecAzure} azure
+    */
+    azure: V5AddNodePoolRequestNodeSpecAzure;
 }
