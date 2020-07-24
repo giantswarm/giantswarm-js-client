@@ -16,70 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5AddNodePoolRequestNodeSpecAws', 'model/V5AddNodePoolRequestNodeSpecAzure'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5AddNodePoolRequestNodeSpecAws'), require('./V5AddNodePoolRequestNodeSpecAzure'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5AddNodePoolRequestNodeSpec = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5AddNodePoolRequestNodeSpecAws, root.GiantSwarm.V5AddNodePoolRequestNodeSpecAzure);
+    root.GiantSwarm.V5AddNodePoolRequestNodeSpecAzure = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V5AddNodePoolRequestNodeSpecAws, V5AddNodePoolRequestNodeSpecAzure) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V5AddNodePoolRequestNodeSpec model module.
-   * @module model/V5AddNodePoolRequestNodeSpec
+   * The V5AddNodePoolRequestNodeSpecAzure model module.
+   * @module model/V5AddNodePoolRequestNodeSpecAzure
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5AddNodePoolRequestNodeSpec</code>.
-   * @alias module:model/V5AddNodePoolRequestNodeSpec
+   * Constructs a new <code>V5AddNodePoolRequestNodeSpecAzure</code>.
+   * Attributes specific to the Azure provider 
+   * @alias module:model/V5AddNodePoolRequestNodeSpecAzure
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
   };
 
   /**
-   * Constructs a <code>V5AddNodePoolRequestNodeSpec</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5AddNodePoolRequestNodeSpecAzure</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5AddNodePoolRequestNodeSpec} obj Optional instance to populate.
-   * @return {module:model/V5AddNodePoolRequestNodeSpec} The populated <code>V5AddNodePoolRequestNodeSpec</code> instance.
+   * @param {module:model/V5AddNodePoolRequestNodeSpecAzure} obj Optional instance to populate.
+   * @return {module:model/V5AddNodePoolRequestNodeSpecAzure} The populated <code>V5AddNodePoolRequestNodeSpecAzure</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('aws')) {
-        obj['aws'] = V5AddNodePoolRequestNodeSpecAws.constructFromObject(data['aws']);
-      }
-      if (data.hasOwnProperty('azure')) {
-        obj['azure'] = V5AddNodePoolRequestNodeSpecAzure.constructFromObject(data['azure']);
+      if (data.hasOwnProperty('vm_size')) {
+        obj['vm_size'] = ApiClient.convertToType(data['vm_size'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/V5AddNodePoolRequestNodeSpecAws} aws
+   * Azure VM size to use for all nodes in the node pool. _(Validated against available VM sizes.)_ 
+   * @member {String} vm_size
    */
-  exports.prototype['aws'] = undefined;
-  /**
-   * @member {module:model/V5AddNodePoolRequestNodeSpecAzure} azure
-   */
-  exports.prototype['azure'] = undefined;
+  exports.prototype['vm_size'] = undefined;
 
 
 
