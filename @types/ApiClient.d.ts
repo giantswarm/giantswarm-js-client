@@ -2,6 +2,18 @@
 * @module ApiClient
 * @version 4.0.0
 */
+
+interface IAuthentication {
+    type: 'basic' | 'apiKey' | 'oauth2';
+    name: string;
+    accessToken?: string;
+    in?: string;
+    apiKey?: string;
+    apiKeyPrefix?: string;
+    username?: string;
+    password?: string;
+}
+
 /**
 * Manages low level client-server communications, parameter marshalling, etc. There should not be any need for an
 * application to use this class directly - the *Api and model classes provide the public API for the service. The
@@ -20,7 +32,7 @@ declare class ApiClient {
      * The authentication methods to be included for all API calls.
      * @type {Array.<String>}
      */
-    authentications: string[];
+    authentications: Record<string, IAuthentication>;
     /**
      * The default HTTP headers to be included for all API calls.
      * @type {Array.<String>}
