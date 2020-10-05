@@ -16,59 +16,74 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V4AppCatalogsResponseInner'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V4AppCatalogsResponseInner'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V4AppCatalogsResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V4AppCatalogsResponseInner);
+    root.GiantSwarm.V4InfoResponseGeneralKubernetesVersions = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V4AppCatalogsResponseInner) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V4AppCatalogsResponse model module.
-   * @module model/V4AppCatalogsResponse
+   * The V4InfoResponseGeneralKubernetesVersions model module.
+   * @module model/V4InfoResponseGeneralKubernetesVersions
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V4AppCatalogsResponse</code>.
-   * @alias module:model/V4AppCatalogsResponse
+   * Constructs a new <code>V4InfoResponseGeneralKubernetesVersions</code>.
+   * @alias module:model/V4InfoResponseGeneralKubernetesVersions
    * @class
-   * @extends Array
+   * @param minorVersion {String} The version of the Kubernetes release.
+   * @param eolDate {Date} The date when the release becomes EOL.
    */
-  var exports = function() {
+  var exports = function(minorVersion, eolDate) {
     var _this = this;
-    _this = new Array();
-    Object.setPrototypeOf(_this, exports);
 
-    return _this;
+    _this['minor_version'] = minorVersion;
+    _this['eol_date'] = eolDate;
   };
 
   /**
-   * Constructs a <code>V4AppCatalogsResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V4InfoResponseGeneralKubernetesVersions</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V4AppCatalogsResponse} obj Optional instance to populate.
-   * @return {module:model/V4AppCatalogsResponse} The populated <code>V4AppCatalogsResponse</code> instance.
+   * @param {module:model/V4InfoResponseGeneralKubernetesVersions} obj Optional instance to populate.
+   * @return {module:model/V4InfoResponseGeneralKubernetesVersions} The populated <code>V4InfoResponseGeneralKubernetesVersions</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      ApiClient.constructFromObject(data, obj, 'V4AppCatalogsResponseInner');
 
+      if (data.hasOwnProperty('minor_version')) {
+        obj['minor_version'] = ApiClient.convertToType(data['minor_version'], 'String');
+      }
+      if (data.hasOwnProperty('eol_date')) {
+        obj['eol_date'] = ApiClient.convertToType(data['eol_date'], 'Date');
+      }
     }
     return obj;
   }
 
+  /**
+   * The version of the Kubernetes release.
+   * @member {String} minor_version
+   */
+  exports.prototype['minor_version'] = undefined;
+  /**
+   * The date when the release becomes EOL.
+   * @member {Date} eol_date
+   */
+  exports.prototype['eol_date'] = undefined;
 
 
 
