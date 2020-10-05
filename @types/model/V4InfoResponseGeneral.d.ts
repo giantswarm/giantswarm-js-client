@@ -1,4 +1,6 @@
 import V4InfoResponseGeneralAvailabilityZones from "./V4InfoResponseGeneralAvailabilityZones";
+import V4InfoResponseGeneralKubernetesVersions
+    from './V4InfoResponseGeneralKubernetesVersions';
 
 /**
 * The V4InfoResponseGeneral model module.
@@ -29,6 +31,11 @@ export default class V4InfoResponseGeneral {
     * @member {String} datacenter
     */
     datacenter: string;
+    /**
+    * Information on some kubernetes versions and their end of life dates.
+    * @member {Array.<module:model/V4InfoResponseGeneralKubernetesVersions>} kubernetes_versions
+    */
+    kubernetes_versions: V4InfoResponseGeneralKubernetesVersions;
     /**
     * @member {module:model/V4InfoResponseGeneralAvailabilityZones} availability_zones
     */
