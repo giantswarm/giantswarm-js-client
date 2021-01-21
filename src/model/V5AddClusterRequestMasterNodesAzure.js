@@ -16,115 +16,64 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpec', 'model/V5GetNodePoolResponseScaling', 'model/V5GetNodePoolResponseStatus'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpec'), require('./V5GetNodePoolResponseScaling'), require('./V5GetNodePoolResponseStatus'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5GetNodePoolResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5GetNodePoolResponseNodeSpec, root.GiantSwarm.V5GetNodePoolResponseScaling, root.GiantSwarm.V5GetNodePoolResponseStatus);
+    root.GiantSwarm.V5AddClusterRequestMasterNodesAzure = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V5GetNodePoolResponseNodeSpec, V5GetNodePoolResponseScaling, V5GetNodePoolResponseStatus) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V5GetNodePoolResponse model module.
-   * @module model/V5GetNodePoolResponse
+   * The V5AddClusterRequestMasterNodesAzure model module.
+   * @module model/V5AddClusterRequestMasterNodesAzure
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5GetNodePoolResponse</code>.
-   * @alias module:model/V5GetNodePoolResponse
+   * Constructs a new <code>V5AddClusterRequestMasterNodesAzure</code>.
+   * Attributes specific to nodes running on &lt;span class&#x3D;\&quot;badge azure\&quot;&gt;Azure&lt;/span&gt;. 
+   * @alias module:model/V5AddClusterRequestMasterNodesAzure
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
-
-
-
   };
 
   /**
-   * Constructs a <code>V5GetNodePoolResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5AddClusterRequestMasterNodesAzure</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5GetNodePoolResponse} obj Optional instance to populate.
-   * @return {module:model/V5GetNodePoolResponse} The populated <code>V5GetNodePoolResponse</code> instance.
+   * @param {module:model/V5AddClusterRequestMasterNodesAzure} obj Optional instance to populate.
+   * @return {module:model/V5AddClusterRequestMasterNodesAzure} The populated <code>V5AddClusterRequestMasterNodesAzure</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('availability_zones')) {
-        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], ['String']);
-      }
-      if (data.hasOwnProperty('scaling')) {
-        obj['scaling'] = V5GetNodePoolResponseScaling.constructFromObject(data['scaling']);
-      }
-      if (data.hasOwnProperty('subnet')) {
-        obj['subnet'] = ApiClient.convertToType(data['subnet'], 'String');
-      }
-      if (data.hasOwnProperty('node_spec')) {
-        obj['node_spec'] = V5GetNodePoolResponseNodeSpec.constructFromObject(data['node_spec']);
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = V5GetNodePoolResponseStatus.constructFromObject(data['status']);
+      if (data.hasOwnProperty('availability_zones_unspecified')) {
+        obj['availability_zones_unspecified'] = ApiClient.convertToType(data['availability_zones_unspecified'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * Node pool identifier. Unique within a workload cluster.
-   * @member {String} id
+   * If this field is set to true, the content of the `availability_zones' field will be ignored and the master nodes will be placed in no availability zone. 
+   * @member {Boolean} availability_zones_unspecified
    */
-  exports.prototype['id'] = undefined;
-  /**
-   * Node pool name
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * Names of the availability zones used by the nodes of this pool. 
-   * @member {Array.<String>} availability_zones
-   */
-  exports.prototype['availability_zones'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseScaling} scaling
-   */
-  exports.prototype['scaling'] = undefined;
-  /**
-   * IP address block used by the node pool
-   * @member {String} subnet
-   */
-  exports.prototype['subnet'] = undefined;
-  /**
-   * Worker node specification
-   * @member {module:model/V5GetNodePoolResponseNodeSpec} node_spec
-   */
-  exports.prototype['node_spec'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseStatus} status
-   */
-  exports.prototype['status'] = undefined;
+  exports.prototype['availability_zones_unspecified'] = undefined;
 
 
 

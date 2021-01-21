@@ -16,32 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/V5GetNodePoolResponseNodeSpec', 'model/V5GetNodePoolResponseScaling', 'model/V5GetNodePoolResponseStatus'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./V5GetNodePoolResponseNodeSpec'), require('./V5GetNodePoolResponseScaling'), require('./V5GetNodePoolResponseStatus'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.GiantSwarm) {
       root.GiantSwarm = {};
     }
-    root.GiantSwarm.V5GetNodePoolResponse = factory(root.GiantSwarm.ApiClient, root.GiantSwarm.V5GetNodePoolResponseNodeSpec, root.GiantSwarm.V5GetNodePoolResponseScaling, root.GiantSwarm.V5GetNodePoolResponseStatus);
+    root.GiantSwarm.V5AddNodePoolRequestNodeSpecAzureSpotInstances = factory(root.GiantSwarm.ApiClient);
   }
-}(this, function(ApiClient, V5GetNodePoolResponseNodeSpec, V5GetNodePoolResponseScaling, V5GetNodePoolResponseStatus) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The V5GetNodePoolResponse model module.
-   * @module model/V5GetNodePoolResponse
+   * The V5AddNodePoolRequestNodeSpecAzureSpotInstances model module.
+   * @module model/V5AddNodePoolRequestNodeSpecAzureSpotInstances
    * @version 4.0.0
    */
 
   /**
-   * Constructs a new <code>V5GetNodePoolResponse</code>.
-   * @alias module:model/V5GetNodePoolResponse
+   * Constructs a new <code>V5AddNodePoolRequestNodeSpecAzureSpotInstances</code>.
+   * Attributes defining the presence and configuration of Spot Instances. 
+   * @alias module:model/V5AddNodePoolRequestNodeSpecAzureSpotInstances
    * @class
    */
   var exports = function() {
@@ -49,82 +50,40 @@
 
 
 
-
-
-
-
-
   };
 
   /**
-   * Constructs a <code>V5GetNodePoolResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>V5AddNodePoolRequestNodeSpecAzureSpotInstances</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/V5GetNodePoolResponse} obj Optional instance to populate.
-   * @return {module:model/V5GetNodePoolResponse} The populated <code>V5GetNodePoolResponse</code> instance.
+   * @param {module:model/V5AddNodePoolRequestNodeSpecAzureSpotInstances} obj Optional instance to populate.
+   * @return {module:model/V5AddNodePoolRequestNodeSpecAzureSpotInstances} The populated <code>V5AddNodePoolRequestNodeSpecAzureSpotInstances</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('enabled')) {
+        obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('availability_zones')) {
-        obj['availability_zones'] = ApiClient.convertToType(data['availability_zones'], ['String']);
-      }
-      if (data.hasOwnProperty('scaling')) {
-        obj['scaling'] = V5GetNodePoolResponseScaling.constructFromObject(data['scaling']);
-      }
-      if (data.hasOwnProperty('subnet')) {
-        obj['subnet'] = ApiClient.convertToType(data['subnet'], 'String');
-      }
-      if (data.hasOwnProperty('node_spec')) {
-        obj['node_spec'] = V5GetNodePoolResponseNodeSpec.constructFromObject(data['node_spec']);
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = V5GetNodePoolResponseStatus.constructFromObject(data['status']);
+      if (data.hasOwnProperty('max_price')) {
+        obj['max_price'] = ApiClient.convertToType(data['max_price'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * Node pool identifier. Unique within a workload cluster.
-   * @member {String} id
+   * Whether the feature is enabled or not. 
+   * @member {Boolean} enabled
+   * @default false
    */
-  exports.prototype['id'] = undefined;
+  exports.prototype['enabled'] = false;
   /**
-   * Node pool name
-   * @member {String} name
+   * The maximum price that a single node pool VM instance can reach before it is deallocated. By setting this value to `0`, the maximum price will be fixed to the on-demand price of the instance. The value can be a floating point number with a maximum of 5 decimal places. 
+   * @member {Number} max_price
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * Names of the availability zones used by the nodes of this pool. 
-   * @member {Array.<String>} availability_zones
-   */
-  exports.prototype['availability_zones'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseScaling} scaling
-   */
-  exports.prototype['scaling'] = undefined;
-  /**
-   * IP address block used by the node pool
-   * @member {String} subnet
-   */
-  exports.prototype['subnet'] = undefined;
-  /**
-   * Worker node specification
-   * @member {module:model/V5GetNodePoolResponseNodeSpec} node_spec
-   */
-  exports.prototype['node_spec'] = undefined;
-  /**
-   * @member {module:model/V5GetNodePoolResponseStatus} status
-   */
-  exports.prototype['status'] = undefined;
+  exports.prototype['max_price'] = undefined;
 
 
 
